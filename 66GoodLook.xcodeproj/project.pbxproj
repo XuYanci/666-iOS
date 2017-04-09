@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F5D972EF683C77E5F896E87 /* libPods-66GoodLook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9622F563800DCCF25F2F4F /* libPods-66GoodLook.a */; };
+		91ECF2F1D576E10E9E70659B /* libPods-66GoodLookTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B391A082D6514E404DDC4429 /* libPods-66GoodLookTests.a */; };
+		AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70AF0D1E991E800003F3C8 /* AppDelegate.m */; };
+		ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */; };
+		ADC1720E1E9A44FC005DFCEE /* ApplicationServiceBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC1720D1E9A44FC005DFCEE /* ApplicationServiceBase.m */; };
 		ADDDB99A1E7780F8003526DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDDB9991E7780F8003526DF /* main.m */; };
-		ADDDB99D1E7780F8003526DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDDB99C1E7780F8003526DF /* AppDelegate.m */; };
 		ADDDB9A01E7780F8003526DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDDB99F1E7780F8003526DF /* ViewController.m */; };
 		ADDDB9A31E7780F8003526DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADDDB9A11E7780F8003526DF /* Main.storyboard */; };
 		ADDDB9A51E7780F8003526DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADDDB9A41E7780F8003526DF /* Assets.xcassets */; };
@@ -35,10 +39,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		61FAFC8764300EFC8C643EB4 /* Pods-66GoodLookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLookTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLookTests/Pods-66GoodLookTests.release.xcconfig"; sourceTree = "<group>"; };
+		6E90646E5998061924E985F4 /* Pods-66GoodLook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLook.release.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLook/Pods-66GoodLook.release.xcconfig"; sourceTree = "<group>"; };
+		7E4DC8BFAB5BB0484E5CA1E9 /* Pods-66GoodLookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLookTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLookTests/Pods-66GoodLookTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AD70AF0C1E991E800003F3C8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AD70AF0D1E991E800003F3C8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ADC172061E9A4071005DFCEE /* ApplicationServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceManager.h; sourceTree = "<group>"; };
+		ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationServiceManager.m; sourceTree = "<group>"; };
+		ADC1720C1E9A44FC005DFCEE /* ApplicationServiceBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceBase.h; sourceTree = "<group>"; };
+		ADC1720D1E9A44FC005DFCEE /* ApplicationServiceBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationServiceBase.m; sourceTree = "<group>"; };
 		ADDDB9951E7780F8003526DF /* 66GoodLook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 66GoodLook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADDDB9991E7780F8003526DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		ADDDB99B1E7780F8003526DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		ADDDB99C1E7780F8003526DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		ADDDB99E1E7780F8003526DF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		ADDDB99F1E7780F8003526DF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		ADDDB9A21E7780F8003526DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +62,9 @@
 		ADDDB9B91E7780F8003526DF /* 66GoodLookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 66GoodLookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADDDB9BD1E7780F8003526DF /* _6GoodLookUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _6GoodLookUITests.m; sourceTree = "<group>"; };
 		ADDDB9BF1E7780F8003526DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B391A082D6514E404DDC4429 /* libPods-66GoodLookTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-66GoodLookTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC9622F563800DCCF25F2F4F /* libPods-66GoodLook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-66GoodLook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1ECAD29C0C02707D92F82DA /* Pods-66GoodLook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLook/Pods-66GoodLook.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F5D972EF683C77E5F896E87 /* libPods-66GoodLook.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91ECF2F1D576E10E9E70659B /* libPods-66GoodLookTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +94,113 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8CD58864C93B2B5FC5BAA4B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC9622F563800DCCF25F2F4F /* libPods-66GoodLook.a */,
+				B391A082D6514E404DDC4429 /* libPods-66GoodLookTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD70AF021E991E280003F3C8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AD70AF131E9920340003F3C8 /* GoodLook(好看) */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		AD70AF041E991E280003F3C8 /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		AD70AF051E991E280003F3C8 /* ThridLib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThridLib;
+			sourceTree = "<group>";
+		};
+		AD70AF061E991E280003F3C8 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				AD70AF0F1E991F300003F3C8 /* Category */,
+				AD70AF101E991F300003F3C8 /* Network */,
+				AD70AF111E991F300003F3C8 /* Security */,
+				AD70AF121E991F300003F3C8 /* UI */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		AD70AF071E991E4F0003F3C8 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				AD70AF0C1E991E800003F3C8 /* AppDelegate.h */,
+				AD70AF0D1E991E800003F3C8 /* AppDelegate.m */,
+				ADC172061E9A4071005DFCEE /* ApplicationServiceManager.h */,
+				ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */,
+				ADC1720C1E9A44FC005DFCEE /* ApplicationServiceBase.h */,
+				ADC1720D1E9A44FC005DFCEE /* ApplicationServiceBase.m */,
+			);
+			name = AppDelegate;
+			path = 66GoodLook/AppDelegate;
+			sourceTree = SOURCE_ROOT;
+		};
+		AD70AF0F1E991F300003F3C8 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		AD70AF101E991F300003F3C8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		AD70AF111E991F300003F3C8 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		AD70AF121E991F300003F3C8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		AD70AF131E9920340003F3C8 /* GoodLook(好看) */ = {
+			isa = PBXGroup;
+			children = (
+				AD70AF141E9920340003F3C8 /* Model */,
+				AD70AF151E9920340003F3C8 /* ViewController */,
+			);
+			path = "GoodLook(好看)";
+			sourceTree = "<group>";
+		};
+		AD70AF141E9920340003F3C8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AD70AF151E9920340003F3C8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		ADDDB98C1E7780F8003526DF = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +208,8 @@
 				ADDDB9B11E7780F8003526DF /* 66GoodLookTests */,
 				ADDDB9BC1E7780F8003526DF /* 66GoodLookUITests */,
 				ADDDB9961E7780F8003526DF /* Products */,
+				E581E059D7C435700C58641E /* Pods */,
+				8CD58864C93B2B5FC5BAA4B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,8 +226,11 @@
 		ADDDB9971E7780F8003526DF /* 66GoodLook */ = {
 			isa = PBXGroup;
 			children = (
-				ADDDB99B1E7780F8003526DF /* AppDelegate.h */,
-				ADDDB99C1E7780F8003526DF /* AppDelegate.m */,
+				AD70AF051E991E280003F3C8 /* ThridLib */,
+				AD70AF021E991E280003F3C8 /* Classes */,
+				AD70AF041E991E280003F3C8 /* Macro */,
+				AD70AF061E991E280003F3C8 /* Tools */,
+				AD70AF071E991E4F0003F3C8 /* AppDelegate */,
 				ADDDB99E1E7780F8003526DF /* ViewController.h */,
 				ADDDB99F1E7780F8003526DF /* ViewController.m */,
 				ADDDB9A11E7780F8003526DF /* Main.storyboard */,
@@ -140,6 +268,17 @@
 			path = 66GoodLookUITests;
 			sourceTree = "<group>";
 		};
+		E581E059D7C435700C58641E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E1ECAD29C0C02707D92F82DA /* Pods-66GoodLook.debug.xcconfig */,
+				6E90646E5998061924E985F4 /* Pods-66GoodLook.release.xcconfig */,
+				7E4DC8BFAB5BB0484E5CA1E9 /* Pods-66GoodLookTests.debug.xcconfig */,
+				61FAFC8764300EFC8C643EB4 /* Pods-66GoodLookTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +286,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ADDDB9C21E7780F8003526DF /* Build configuration list for PBXNativeTarget "66GoodLook" */;
 			buildPhases = (
+				B00CE6D87F86956293F7CA5A /* [CP] Check Pods Manifest.lock */,
 				ADDDB9911E7780F8003526DF /* Sources */,
 				ADDDB9921E7780F8003526DF /* Frameworks */,
 				ADDDB9931E7780F8003526DF /* Resources */,
+				971477AE8E0667EB8FEE8258 /* [CP] Embed Pods Frameworks */,
+				7ACA8E20E6F5E4F8C1C7A09F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -164,9 +306,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ADDDB9C51E7780F8003526DF /* Build configuration list for PBXNativeTarget "66GoodLookTests" */;
 			buildPhases = (
+				B10655934C0035063045C3F5 /* [CP] Check Pods Manifest.lock */,
 				ADDDB9AA1E7780F8003526DF /* Sources */,
 				ADDDB9AB1E7780F8003526DF /* Frameworks */,
 				ADDDB9AC1E7780F8003526DF /* Resources */,
+				B9E77396AF378FF8BD20B798 /* [CP] Embed Pods Frameworks */,
+				53CD78DDAEE5C2A36F5B7F7D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,8 +352,8 @@
 				TargetAttributes = {
 					ADDDB9941E7780F8003526DF = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 32URLK6K7Y;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = YM2JKQV767;
+						ProvisioningStyle = Manual;
 					};
 					ADDDB9AD1E7780F8003526DF = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -271,14 +416,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		53CD78DDAEE5C2A36F5B7F7D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-66GoodLookTests/Pods-66GoodLookTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7ACA8E20E6F5E4F8C1C7A09F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-66GoodLook/Pods-66GoodLook-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		971477AE8E0667EB8FEE8258 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-66GoodLook/Pods-66GoodLook-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B00CE6D87F86956293F7CA5A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B10655934C0035063045C3F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B9E77396AF378FF8BD20B798 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-66GoodLookTests/Pods-66GoodLookTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ADDDB9911E7780F8003526DF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				ADDDB9A01E7780F8003526DF /* ViewController.m in Sources */,
-				ADDDB99D1E7780F8003526DF /* AppDelegate.m in Sources */,
 				ADDDB99A1E7780F8003526DF /* main.m in Sources */,
+				ADC1720E1E9A44FC005DFCEE /* ApplicationServiceBase.m in Sources */,
+				ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */,
+				AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,30 +665,35 @@
 		};
 		ADDDB9C31E7780F8003526DF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1ECAD29C0C02707D92F82DA /* Pods-66GoodLook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 32URLK6K7Y;
+				DEVELOPMENT_TEAM = YM2JKQV767;
 				INFOPLIST_FILE = 66GoodLook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.star.-6GoodLook";
+				PRODUCT_BUNDLE_IDENTIFIER = com.caigoutong.66;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "cc133266-7cbc-4e56-a040-efb1f64290a7";
+				PROVISIONING_PROFILE_SPECIFIER = com.caigoutong.66;
 			};
 			name = Debug;
 		};
 		ADDDB9C41E7780F8003526DF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E90646E5998061924E985F4 /* Pods-66GoodLook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 32URLK6K7Y;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = 66GoodLook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.star.-6GoodLook";
+				PRODUCT_BUNDLE_IDENTIFIER = com.caigoutong.66;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
 		ADDDB9C61E7780F8003526DF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E4DC8BFAB5BB0484E5CA1E9 /* Pods-66GoodLookTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 32URLK6K7Y;
@@ -462,6 +707,7 @@
 		};
 		ADDDB9C71E7780F8003526DF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61FAFC8764300EFC8C643EB4 /* Pods-66GoodLookTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 32URLK6K7Y;
@@ -516,6 +762,7 @@
 				ADDDB9C41E7780F8003526DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ADDDB9C51E7780F8003526DF /* Build configuration list for PBXNativeTarget "66GoodLookTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +771,7 @@
 				ADDDB9C71E7780F8003526DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ADDDB9C81E7780F8003526DF /* Build configuration list for PBXNativeTarget "66GoodLookUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +780,7 @@
 				ADDDB9CA1E7780F8003526DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

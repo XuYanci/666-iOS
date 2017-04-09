@@ -1,0 +1,26 @@
+# Uncomment this line to define a global platform for your project
+workspace ’66GoodLook.xcworkspace'
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+inhibit_all_warnings!
+# Uncomment this line if you're using Swift
+# use_frameworks!
+
+def pods
+    pod 'AFNetworking', '~> 2.6.3'   		 # 网络请求框架
+    pod 'SDWebImage', '~> 3.7.5'             # 网络图片缓存框架
+    pod 'IQKeyboardManager', '~> 3.3.7' 	 # 键盘处理
+    pod 'Masonry', '~> 1.0.0'                # 自动布局框架
+    pod 'YYModel'                            # 模型转换
+    pod 'MBProgressHUD', '~> 0.9.2'          # 提示框
+    pod 'MJRefresh', '~> 3.1.0'              # 上下拉刷新
+end
+
+target '66GoodLook' do
+    pods
+end
+
+target '66GoodLookTests’ do
+
+end
+
