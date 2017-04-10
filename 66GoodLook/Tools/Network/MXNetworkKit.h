@@ -11,6 +11,6 @@
 
 #import <YYModel/YYModel.h>
 #import "MXNetworkConnect+Model.h"
-#import "MXNetworkConnect+BaseUrl.h"
+#import "MXNetworkConnection+BaseUrl.h"
 
 #endif /* DYLYNetworkKit_h */

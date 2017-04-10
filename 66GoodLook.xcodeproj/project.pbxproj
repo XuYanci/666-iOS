@@ -37,7 +37,17 @@
 		AD44DC551E9B2453003C1576 /* UILabel+DYLYTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC431E9B2453003C1576 /* UILabel+DYLYTheme.m */; };
 		AD44DC561E9B2453003C1576 /* UINavigationBar+DYLYTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC451E9B2453003C1576 /* UINavigationBar+DYLYTheme.m */; };
 		AD44DC571E9B2453003C1576 /* UIView+DYLYTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC471E9B2453003C1576 /* UIView+DYLYTheme.m */; };
+		AD44DC6E1E9B6FC7003C1576 /* NSArray+SafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC5C1E9B6FC7003C1576 /* NSArray+SafeAccess.m */; };
+		AD44DC6F1E9B6FC7003C1576 /* NSDictionary+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC5E1E9B6FC7003C1576 /* NSDictionary+Validation.m */; };
+		AD44DC701E9B6FC7003C1576 /* NSMutableDictionary+SetObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC601E9B6FC7003C1576 /* NSMutableDictionary+SetObject.m */; };
+		AD44DC711E9B6FC7003C1576 /* NSString+JSONCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC621E9B6FC7003C1576 /* NSString+JSONCategories.m */; };
+		AD44DC721E9B6FC7003C1576 /* NSString+OAURLEncodingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC641E9B6FC7003C1576 /* NSString+OAURLEncodingAdditions.m */; };
+		AD44DC741E9B6FC7003C1576 /* UIFont+Replacement.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC681E9B6FC7003C1576 /* UIFont+Replacement.m */; };
+		AD44DC751E9B6FC7003C1576 /* UIImage+GradientColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC6A1E9B6FC7003C1576 /* UIImage+GradientColor.m */; };
+		AD44DC761E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC6D1E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m */; };
+		AD44DC7B1E9B7489003C1576 /* UIView+CustomAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC7A1E9B7489003C1576 /* UIView+CustomAutoLayout.m */; };
 		AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70AF0D1E991E800003F3C8 /* AppDelegate.m */; };
+		ADA17AAF1E9C469B00FA0FF9 /* GLMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AAE1E9C469B00FA0FF9 /* GLMainTabBarViewController.m */; };
 		ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */; };
 		ADC1720E1E9A44FC005DFCEE /* ApplicationServiceBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC1720D1E9A44FC005DFCEE /* ApplicationServiceBase.m */; };
 		ADDDB99A1E7780F8003526DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDDB9991E7780F8003526DF /* main.m */; };
@@ -127,8 +137,31 @@
 		AD44DC451E9B2453003C1576 /* UINavigationBar+DYLYTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+DYLYTheme.m"; sourceTree = "<group>"; };
 		AD44DC461E9B2453003C1576 /* UIView+DYLYTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DYLYTheme.h"; sourceTree = "<group>"; };
 		AD44DC471E9B2453003C1576 /* UIView+DYLYTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DYLYTheme.m"; sourceTree = "<group>"; };
+		AD44DC591E9B2C71003C1576 /* XYMacroUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMacroUtility.h; sourceTree = "<group>"; };
+		AD44DC5B1E9B6FC7003C1576 /* NSArray+SafeAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SafeAccess.h"; sourceTree = "<group>"; };
+		AD44DC5C1E9B6FC7003C1576 /* NSArray+SafeAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SafeAccess.m"; sourceTree = "<group>"; };
+		AD44DC5D1E9B6FC7003C1576 /* NSDictionary+Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Validation.h"; sourceTree = "<group>"; };
+		AD44DC5E1E9B6FC7003C1576 /* NSDictionary+Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Validation.m"; sourceTree = "<group>"; };
+		AD44DC5F1E9B6FC7003C1576 /* NSMutableDictionary+SetObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+SetObject.h"; sourceTree = "<group>"; };
+		AD44DC601E9B6FC7003C1576 /* NSMutableDictionary+SetObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+SetObject.m"; sourceTree = "<group>"; };
+		AD44DC611E9B6FC7003C1576 /* NSString+JSONCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSONCategories.h"; sourceTree = "<group>"; };
+		AD44DC621E9B6FC7003C1576 /* NSString+JSONCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSONCategories.m"; sourceTree = "<group>"; };
+		AD44DC631E9B6FC7003C1576 /* NSString+OAURLEncodingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+OAURLEncodingAdditions.h"; sourceTree = "<group>"; };
+		AD44DC641E9B6FC7003C1576 /* NSString+OAURLEncodingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+OAURLEncodingAdditions.m"; sourceTree = "<group>"; };
+		AD44DC671E9B6FC7003C1576 /* UIFont+Replacement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Replacement.h"; sourceTree = "<group>"; };
+		AD44DC681E9B6FC7003C1576 /* UIFont+Replacement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Replacement.m"; sourceTree = "<group>"; };
+		AD44DC691E9B6FC7003C1576 /* UIImage+GradientColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GradientColor.h"; sourceTree = "<group>"; };
+		AD44DC6A1E9B6FC7003C1576 /* UIImage+GradientColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GradientColor.m"; sourceTree = "<group>"; };
+		AD44DC6C1E9B6FC7003C1576 /* UIViewController+MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MBProgressHUD.h"; sourceTree = "<group>"; };
+		AD44DC6D1E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MBProgressHUD.m"; sourceTree = "<group>"; };
+		AD44DC771E9B70C6003C1576 /* XYPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPrefixHeader.pch; sourceTree = "<group>"; };
+		AD44DC781E9B7424003C1576 /* XYMacroAppAppearance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMacroAppAppearance.h; sourceTree = "<group>"; };
+		AD44DC791E9B7489003C1576 /* UIView+CustomAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomAutoLayout.h"; sourceTree = "<group>"; };
+		AD44DC7A1E9B7489003C1576 /* UIView+CustomAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomAutoLayout.m"; sourceTree = "<group>"; };
 		AD70AF0C1E991E800003F3C8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AD70AF0D1E991E800003F3C8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ADA17AAD1E9C469B00FA0FF9 /* GLMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMainTabBarViewController.h; sourceTree = "<group>"; };
+		ADA17AAE1E9C469B00FA0FF9 /* GLMainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMainTabBarViewController.m; sourceTree = "<group>"; };
 		ADC172061E9A4071005DFCEE /* ApplicationServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceManager.h; sourceTree = "<group>"; };
 		ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationServiceManager.m; sourceTree = "<group>"; };
 		ADC1720C1E9A44FC005DFCEE /* ApplicationServiceBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceBase.h; sourceTree = "<group>"; };
@@ -352,9 +385,49 @@
 			path = ThemeUIKit;
 			sourceTree = "<group>";
 		};
+		AD44DC5A1E9B6FC7003C1576 /* NSCategory */ = {
+			isa = PBXGroup;
+			children = (
+				AD44DC5B1E9B6FC7003C1576 /* NSArray+SafeAccess.h */,
+				AD44DC5C1E9B6FC7003C1576 /* NSArray+SafeAccess.m */,
+				AD44DC5D1E9B6FC7003C1576 /* NSDictionary+Validation.h */,
+				AD44DC5E1E9B6FC7003C1576 /* NSDictionary+Validation.m */,
+				AD44DC5F1E9B6FC7003C1576 /* NSMutableDictionary+SetObject.h */,
+				AD44DC601E9B6FC7003C1576 /* NSMutableDictionary+SetObject.m */,
+				AD44DC611E9B6FC7003C1576 /* NSString+JSONCategories.h */,
+				AD44DC621E9B6FC7003C1576 /* NSString+JSONCategories.m */,
+				AD44DC631E9B6FC7003C1576 /* NSString+OAURLEncodingAdditions.h */,
+				AD44DC641E9B6FC7003C1576 /* NSString+OAURLEncodingAdditions.m */,
+				AD44DC671E9B6FC7003C1576 /* UIFont+Replacement.h */,
+				AD44DC681E9B6FC7003C1576 /* UIFont+Replacement.m */,
+				AD44DC691E9B6FC7003C1576 /* UIImage+GradientColor.h */,
+				AD44DC6A1E9B6FC7003C1576 /* UIImage+GradientColor.m */,
+			);
+			path = NSCategory;
+			sourceTree = "<group>";
+		};
+		AD44DC6B1E9B6FC7003C1576 /* UICategory */ = {
+			isa = PBXGroup;
+			children = (
+				AD44DC6C1E9B6FC7003C1576 /* UIViewController+MBProgressHUD.h */,
+				AD44DC6D1E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m */,
+				AD44DC791E9B7489003C1576 /* UIView+CustomAutoLayout.h */,
+				AD44DC7A1E9B7489003C1576 /* UIView+CustomAutoLayout.m */,
+			);
+			path = UICategory;
+			sourceTree = "<group>";
+		};
+		AD44DC7C1E9B75F4003C1576 /* CommonLibrary */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CommonLibrary;
+			sourceTree = "<group>";
+		};
 		AD70AF021E991E280003F3C8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				ADA17AAC1E9C469B00FA0FF9 /* Main  */,
 				AD70AF131E9920340003F3C8 /* GoodLook(好看) */,
 			);
 			path = Classes;
@@ -363,6 +436,8 @@
 		AD70AF041E991E280003F3C8 /* Macro */ = {
 			isa = PBXGroup;
 			children = (
+				AD44DC591E9B2C71003C1576 /* XYMacroUtility.h */,
+				AD44DC781E9B7424003C1576 /* XYMacroAppAppearance.h */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -378,6 +453,7 @@
 			isa = PBXGroup;
 			children = (
 				AD70AF0F1E991F300003F3C8 /* Category */,
+				AD44DC7C1E9B75F4003C1576 /* CommonLibrary */,
 				AD70AF101E991F300003F3C8 /* Network */,
 				AD70AF111E991F300003F3C8 /* Security */,
 				AD70AF121E991F300003F3C8 /* UI */,
@@ -402,6 +478,8 @@
 		AD70AF0F1E991F300003F3C8 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				AD44DC5A1E9B6FC7003C1576 /* NSCategory */,
+				AD44DC6B1E9B6FC7003C1576 /* UICategory */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -463,6 +541,15 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		ADA17AAC1E9C469B00FA0FF9 /* Main  */ = {
+			isa = PBXGroup;
+			children = (
+				ADA17AAD1E9C469B00FA0FF9 /* GLMainTabBarViewController.h */,
+				ADA17AAE1E9C469B00FA0FF9 /* GLMainTabBarViewController.m */,
+			);
+			path = "Main ";
+			sourceTree = "<group>";
+		};
 		ADDDB98C1E7780F8003526DF = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +594,7 @@
 		ADDDB9981E7780F8003526DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AD44DC771E9B70C6003C1576 /* XYPrefixHeader.pch */,
 				ADDDB9991E7780F8003526DF /* main.m */,
 			);
 			name = "Supporting Files";
@@ -782,18 +870,24 @@
 				AD44DC4B1E9B2453003C1576 /* DKDeallocBlockExecutor.m in Sources */,
 				AD31FADD1E9B16B400523AC9 /* MXNetworkConnection+BaseUrl.m in Sources */,
 				ADDDB9A01E7780F8003526DF /* ViewController.m in Sources */,
+				AD44DC721E9B6FC7003C1576 /* NSString+OAURLEncodingAdditions.m in Sources */,
 				AD44DC571E9B2453003C1576 /* UIView+DYLYTheme.m in Sources */,
 				AD31FBA31E9B178900523AC9 /* MD5Encrypt.m in Sources */,
 				AD31FADB1E9B16B400523AC9 /* MXBaseUrl.m in Sources */,
 				AD44DC481E9B2453003C1576 /* XYAppAutoSizeScale.m in Sources */,
 				AD44DC1F1E9B208B003C1576 /* MXRequest.m in Sources */,
+				AD44DC701E9B6FC7003C1576 /* NSMutableDictionary+SetObject.m in Sources */,
+				AD44DC741E9B6FC7003C1576 /* UIFont+Replacement.m in Sources */,
 				ADDDB99A1E7780F8003526DF /* main.m in Sources */,
 				AD44DC551E9B2453003C1576 /* UILabel+DYLYTheme.m in Sources */,
+				AD44DC6E1E9B6FC7003C1576 /* NSArray+SafeAccess.m in Sources */,
 				AD44DC4C1E9B2453003C1576 /* NSObject+DeallocBlock.m in Sources */,
 				AD44DC561E9B2453003C1576 /* UINavigationBar+DYLYTheme.m in Sources */,
 				AD44DC4D1E9B2453003C1576 /* DYLYColor.m in Sources */,
+				AD44DC7B1E9B7489003C1576 /* UIView+CustomAutoLayout.m in Sources */,
 				ADC1720E1E9A44FC005DFCEE /* ApplicationServiceBase.m in Sources */,
 				AD31FADC1E9B16B400523AC9 /* MXNetworkConnect+Model.m in Sources */,
+				AD44DC6F1E9B6FC7003C1576 /* NSDictionary+Validation.m in Sources */,
 				AD44DC491E9B2453003C1576 /* DYLYColorTable.m in Sources */,
 				AD31FADA1E9B16B400523AC9 /* MXBaseResponse.m in Sources */,
 				AD44DC221E9B20ED003C1576 /* MXRequest+UserAccount.m in Sources */,
@@ -804,11 +898,15 @@
 				AD44DC501E9B2453003C1576 /* NSObject+DYLYTheme.m in Sources */,
 				AD31FBA11E9B178900523AC9 /* DesHelper.m in Sources */,
 				AD44DC4E1E9B2453003C1576 /* DYLYImage.m in Sources */,
+				AD44DC761E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m in Sources */,
 				AD31FBA01E9B178900523AC9 /* AESHelper.m in Sources */,
 				AD44DC531E9B2453003C1576 /* UIButton+DYLYTheme.m in Sources */,
 				AD31FAD91E9B16B400523AC9 /* MXBaseRequest.m in Sources */,
+				AD44DC711E9B6FC7003C1576 /* NSString+JSONCategories.m in Sources */,
+				ADA17AAF1E9C469B00FA0FF9 /* GLMainTabBarViewController.m in Sources */,
 				AD31FADE1E9B16B400523AC9 /* MXNetworkConnection.m in Sources */,
 				AD44DC4A1E9B2453003C1576 /* CALayer+DYLYTheme.m in Sources */,
+				AD44DC751E9B6FC7003C1576 /* UIImage+GradientColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -959,8 +1057,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YM2JKQV767;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/66GoodLook/XYPrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/YYModel\"",
+				);
 				INFOPLIST_FILE = 66GoodLook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.caigoutong.66;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "cc133266-7cbc-4e56-a040-efb1f64290a7";
@@ -974,8 +1086,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/66GoodLook/XYPrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/YYModel\"",
+				);
 				INFOPLIST_FILE = 66GoodLook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/66GoodLook/Tools/CommonLibrary/BlocksKit",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.caigoutong.66;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BlocksKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,12 +67,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>0AC55E754182E1FCF070AC7F74379523</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>175B076ED45EB1A3E40F58BA14036467</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>48897843022194E6220EB6ED2B796067</key>
+		<key>24ABD97BCAB43DDC2BF487451B5430A4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4B1C194F544E18B77CC5CC5B95BB6D05</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9D19FE2D635ED5AF8070EB95506D4D2F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -78,16 +98,6 @@
 			<true/>
 		</dict>
 		<key>AFAFB55453D161D2BB5CFB30C68A54D5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E0CD6F8957A3363C435A365A01F73067</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F349F3A5394A73AEF7F9C639C8EFBEB3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
