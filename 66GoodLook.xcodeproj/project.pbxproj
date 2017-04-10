@@ -21,6 +21,22 @@
 		AD31FBA31E9B178900523AC9 /* MD5Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31FB9F1E9B178900523AC9 /* MD5Encrypt.m */; };
 		AD44DC1F1E9B208B003C1576 /* MXRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC1E1E9B208B003C1576 /* MXRequest.m */; };
 		AD44DC221E9B20ED003C1576 /* MXRequest+UserAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC211E9B20ED003C1576 /* MXRequest+UserAccount.m */; };
+		AD44DC481E9B2453003C1576 /* XYAppAutoSizeScale.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC241E9B2453003C1576 /* XYAppAutoSizeScale.m */; };
+		AD44DC491E9B2453003C1576 /* DYLYColorTable.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC281E9B2453003C1576 /* DYLYColorTable.m */; };
+		AD44DC4A1E9B2453003C1576 /* CALayer+DYLYTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC2B1E9B2453003C1576 /* CALayer+DYLYTheme.m */; };
+		AD44DC4B1E9B2453003C1576 /* DKDeallocBlockExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC2E1E9B2453003C1576 /* DKDeallocBlockExecutor.m */; };
+		AD44DC4C1E9B2453003C1576 /* NSObject+DeallocBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC301E9B2453003C1576 /* NSObject+DeallocBlock.m */; };
+		AD44DC4D1E9B2453003C1576 /* DYLYColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC321E9B2453003C1576 /* DYLYColor.m */; };
+		AD44DC4E1E9B2453003C1576 /* DYLYImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC341E9B2453003C1576 /* DYLYImage.m */; };
+		AD44DC4F1E9B2453003C1576 /* DYLYThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC361E9B2453003C1576 /* DYLYThemeManager.m */; };
+		AD44DC501E9B2453003C1576 /* NSObject+DYLYTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC381E9B2453003C1576 /* NSObject+DYLYTheme.m */; };
+		AD44DC511E9B2453003C1576 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD44DC3A1E9B2453003C1576 /* README.txt */; };
+		AD44DC521E9B2453003C1576 /* DYLYTheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD44DC3C1E9B2453003C1576 /* DYLYTheme.plist */; };
+		AD44DC531E9B2453003C1576 /* UIButton+DYLYTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC3F1E9B2453003C1576 /* UIButton+DYLYTheme.m */; };
+		AD44DC541E9B2453003C1576 /* UIImageView+DYLYTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC411E9B2453003C1576 /* UIImageView+DYLYTheme.m */; };
+		AD44DC551E9B2453003C1576 /* UILabel+DYLYTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC431E9B2453003C1576 /* UILabel+DYLYTheme.m */; };
+		AD44DC561E9B2453003C1576 /* UINavigationBar+DYLYTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC451E9B2453003C1576 /* UINavigationBar+DYLYTheme.m */; };
+		AD44DC571E9B2453003C1576 /* UIView+DYLYTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC471E9B2453003C1576 /* UIView+DYLYTheme.m */; };
 		AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70AF0D1E991E800003F3C8 /* AppDelegate.m */; };
 		ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */; };
 		ADC1720E1E9A44FC005DFCEE /* ApplicationServiceBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC1720D1E9A44FC005DFCEE /* ApplicationServiceBase.m */; };
@@ -80,6 +96,37 @@
 		AD44DC1E1E9B208B003C1576 /* MXRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXRequest.m; sourceTree = "<group>"; };
 		AD44DC201E9B20ED003C1576 /* MXRequest+UserAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MXRequest+UserAccount.h"; sourceTree = "<group>"; };
 		AD44DC211E9B20ED003C1576 /* MXRequest+UserAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MXRequest+UserAccount.m"; sourceTree = "<group>"; };
+		AD44DC231E9B2453003C1576 /* XYAppAutoSizeScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAppAutoSizeScale.h; sourceTree = "<group>"; };
+		AD44DC241E9B2453003C1576 /* XYAppAutoSizeScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAppAutoSizeScale.m; sourceTree = "<group>"; };
+		AD44DC271E9B2453003C1576 /* DYLYColorTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYLYColorTable.h; sourceTree = "<group>"; };
+		AD44DC281E9B2453003C1576 /* DYLYColorTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYLYColorTable.m; sourceTree = "<group>"; };
+		AD44DC2A1E9B2453003C1576 /* CALayer+DYLYTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+DYLYTheme.h"; sourceTree = "<group>"; };
+		AD44DC2B1E9B2453003C1576 /* CALayer+DYLYTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+DYLYTheme.m"; sourceTree = "<group>"; };
+		AD44DC2D1E9B2453003C1576 /* DKDeallocBlockExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKDeallocBlockExecutor.h; sourceTree = "<group>"; };
+		AD44DC2E1E9B2453003C1576 /* DKDeallocBlockExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKDeallocBlockExecutor.m; sourceTree = "<group>"; };
+		AD44DC2F1E9B2453003C1576 /* NSObject+DeallocBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DeallocBlock.h"; sourceTree = "<group>"; };
+		AD44DC301E9B2453003C1576 /* NSObject+DeallocBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DeallocBlock.m"; sourceTree = "<group>"; };
+		AD44DC311E9B2453003C1576 /* DYLYColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYLYColor.h; sourceTree = "<group>"; };
+		AD44DC321E9B2453003C1576 /* DYLYColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYLYColor.m; sourceTree = "<group>"; };
+		AD44DC331E9B2453003C1576 /* DYLYImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYLYImage.h; sourceTree = "<group>"; };
+		AD44DC341E9B2453003C1576 /* DYLYImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYLYImage.m; sourceTree = "<group>"; };
+		AD44DC351E9B2453003C1576 /* DYLYThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYLYThemeManager.h; sourceTree = "<group>"; };
+		AD44DC361E9B2453003C1576 /* DYLYThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYLYThemeManager.m; sourceTree = "<group>"; };
+		AD44DC371E9B2453003C1576 /* NSObject+DYLYTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DYLYTheme.h"; sourceTree = "<group>"; };
+		AD44DC381E9B2453003C1576 /* NSObject+DYLYTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DYLYTheme.m"; sourceTree = "<group>"; };
+		AD44DC391E9B2453003C1576 /* DYLYThemeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYLYThemeKit.h; sourceTree = "<group>"; };
+		AD44DC3A1E9B2453003C1576 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		AD44DC3C1E9B2453003C1576 /* DYLYTheme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DYLYTheme.plist; sourceTree = "<group>"; };
+		AD44DC3E1E9B2453003C1576 /* UIButton+DYLYTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+DYLYTheme.h"; sourceTree = "<group>"; };
+		AD44DC3F1E9B2453003C1576 /* UIButton+DYLYTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+DYLYTheme.m"; sourceTree = "<group>"; };
+		AD44DC401E9B2453003C1576 /* UIImageView+DYLYTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+DYLYTheme.h"; sourceTree = "<group>"; };
+		AD44DC411E9B2453003C1576 /* UIImageView+DYLYTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+DYLYTheme.m"; sourceTree = "<group>"; };
+		AD44DC421E9B2453003C1576 /* UILabel+DYLYTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+DYLYTheme.h"; sourceTree = "<group>"; };
+		AD44DC431E9B2453003C1576 /* UILabel+DYLYTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+DYLYTheme.m"; sourceTree = "<group>"; };
+		AD44DC441E9B2453003C1576 /* UINavigationBar+DYLYTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+DYLYTheme.h"; sourceTree = "<group>"; };
+		AD44DC451E9B2453003C1576 /* UINavigationBar+DYLYTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+DYLYTheme.m"; sourceTree = "<group>"; };
+		AD44DC461E9B2453003C1576 /* UIView+DYLYTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DYLYTheme.h"; sourceTree = "<group>"; };
+		AD44DC471E9B2453003C1576 /* UIView+DYLYTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DYLYTheme.m"; sourceTree = "<group>"; };
 		AD70AF0C1E991E800003F3C8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AD70AF0D1E991E800003F3C8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		ADC172061E9A4071005DFCEE /* ApplicationServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceManager.h; sourceTree = "<group>"; };
@@ -229,6 +276,82 @@
 			path = MD5;
 			sourceTree = "<group>";
 		};
+		AD44DC251E9B2453003C1576 /* DYLYThemeKit */ = {
+			isa = PBXGroup;
+			children = (
+				AD44DC261E9B2453003C1576 /* ColorTable */,
+				AD44DC291E9B2453003C1576 /* Core */,
+				AD44DC391E9B2453003C1576 /* DYLYThemeKit.h */,
+				AD44DC3A1E9B2453003C1576 /* README.txt */,
+				AD44DC3B1E9B2453003C1576 /* ThemeData */,
+				AD44DC3D1E9B2453003C1576 /* ThemeUIKit */,
+			);
+			path = DYLYThemeKit;
+			sourceTree = "<group>";
+		};
+		AD44DC261E9B2453003C1576 /* ColorTable */ = {
+			isa = PBXGroup;
+			children = (
+				AD44DC271E9B2453003C1576 /* DYLYColorTable.h */,
+				AD44DC281E9B2453003C1576 /* DYLYColorTable.m */,
+			);
+			path = ColorTable;
+			sourceTree = "<group>";
+		};
+		AD44DC291E9B2453003C1576 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				AD44DC2A1E9B2453003C1576 /* CALayer+DYLYTheme.h */,
+				AD44DC2B1E9B2453003C1576 /* CALayer+DYLYTheme.m */,
+				AD44DC2C1E9B2453003C1576 /* DeallocBlockExecutor */,
+				AD44DC311E9B2453003C1576 /* DYLYColor.h */,
+				AD44DC321E9B2453003C1576 /* DYLYColor.m */,
+				AD44DC331E9B2453003C1576 /* DYLYImage.h */,
+				AD44DC341E9B2453003C1576 /* DYLYImage.m */,
+				AD44DC351E9B2453003C1576 /* DYLYThemeManager.h */,
+				AD44DC361E9B2453003C1576 /* DYLYThemeManager.m */,
+				AD44DC371E9B2453003C1576 /* NSObject+DYLYTheme.h */,
+				AD44DC381E9B2453003C1576 /* NSObject+DYLYTheme.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		AD44DC2C1E9B2453003C1576 /* DeallocBlockExecutor */ = {
+			isa = PBXGroup;
+			children = (
+				AD44DC2D1E9B2453003C1576 /* DKDeallocBlockExecutor.h */,
+				AD44DC2E1E9B2453003C1576 /* DKDeallocBlockExecutor.m */,
+				AD44DC2F1E9B2453003C1576 /* NSObject+DeallocBlock.h */,
+				AD44DC301E9B2453003C1576 /* NSObject+DeallocBlock.m */,
+			);
+			path = DeallocBlockExecutor;
+			sourceTree = "<group>";
+		};
+		AD44DC3B1E9B2453003C1576 /* ThemeData */ = {
+			isa = PBXGroup;
+			children = (
+				AD44DC3C1E9B2453003C1576 /* DYLYTheme.plist */,
+			);
+			path = ThemeData;
+			sourceTree = "<group>";
+		};
+		AD44DC3D1E9B2453003C1576 /* ThemeUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				AD44DC3E1E9B2453003C1576 /* UIButton+DYLYTheme.h */,
+				AD44DC3F1E9B2453003C1576 /* UIButton+DYLYTheme.m */,
+				AD44DC401E9B2453003C1576 /* UIImageView+DYLYTheme.h */,
+				AD44DC411E9B2453003C1576 /* UIImageView+DYLYTheme.m */,
+				AD44DC421E9B2453003C1576 /* UILabel+DYLYTheme.h */,
+				AD44DC431E9B2453003C1576 /* UILabel+DYLYTheme.m */,
+				AD44DC441E9B2453003C1576 /* UINavigationBar+DYLYTheme.h */,
+				AD44DC451E9B2453003C1576 /* UINavigationBar+DYLYTheme.m */,
+				AD44DC461E9B2453003C1576 /* UIView+DYLYTheme.h */,
+				AD44DC471E9B2453003C1576 /* UIView+DYLYTheme.m */,
+			);
+			path = ThemeUIKit;
+			sourceTree = "<group>";
+		};
 		AD70AF021E991E280003F3C8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +433,9 @@
 		AD70AF121E991F300003F3C8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				AD44DC231E9B2453003C1576 /* XYAppAutoSizeScale.h */,
+				AD44DC241E9B2453003C1576 /* XYAppAutoSizeScale.m */,
+				AD44DC251E9B2453003C1576 /* DYLYThemeKit */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -530,8 +656,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD44DC521E9B2453003C1576 /* DYLYTheme.plist in Resources */,
 				ADDDB9A81E7780F8003526DF /* LaunchScreen.storyboard in Resources */,
 				ADDDB9A51E7780F8003526DF /* Assets.xcassets in Resources */,
+				AD44DC511E9B2453003C1576 /* README.txt in Resources */,
 				ADDDB9A31E7780F8003526DF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -650,23 +778,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD44DC4F1E9B2453003C1576 /* DYLYThemeManager.m in Sources */,
+				AD44DC4B1E9B2453003C1576 /* DKDeallocBlockExecutor.m in Sources */,
 				AD31FADD1E9B16B400523AC9 /* MXNetworkConnection+BaseUrl.m in Sources */,
 				ADDDB9A01E7780F8003526DF /* ViewController.m in Sources */,
+				AD44DC571E9B2453003C1576 /* UIView+DYLYTheme.m in Sources */,
 				AD31FBA31E9B178900523AC9 /* MD5Encrypt.m in Sources */,
 				AD31FADB1E9B16B400523AC9 /* MXBaseUrl.m in Sources */,
+				AD44DC481E9B2453003C1576 /* XYAppAutoSizeScale.m in Sources */,
 				AD44DC1F1E9B208B003C1576 /* MXRequest.m in Sources */,
 				ADDDB99A1E7780F8003526DF /* main.m in Sources */,
+				AD44DC551E9B2453003C1576 /* UILabel+DYLYTheme.m in Sources */,
+				AD44DC4C1E9B2453003C1576 /* NSObject+DeallocBlock.m in Sources */,
+				AD44DC561E9B2453003C1576 /* UINavigationBar+DYLYTheme.m in Sources */,
+				AD44DC4D1E9B2453003C1576 /* DYLYColor.m in Sources */,
 				ADC1720E1E9A44FC005DFCEE /* ApplicationServiceBase.m in Sources */,
 				AD31FADC1E9B16B400523AC9 /* MXNetworkConnect+Model.m in Sources */,
+				AD44DC491E9B2453003C1576 /* DYLYColorTable.m in Sources */,
 				AD31FADA1E9B16B400523AC9 /* MXBaseResponse.m in Sources */,
 				AD44DC221E9B20ED003C1576 /* MXRequest+UserAccount.m in Sources */,
 				AD31FBA21E9B178900523AC9 /* GTMBase64.m in Sources */,
 				ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */,
+				AD44DC541E9B2453003C1576 /* UIImageView+DYLYTheme.m in Sources */,
 				AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */,
+				AD44DC501E9B2453003C1576 /* NSObject+DYLYTheme.m in Sources */,
 				AD31FBA11E9B178900523AC9 /* DesHelper.m in Sources */,
+				AD44DC4E1E9B2453003C1576 /* DYLYImage.m in Sources */,
 				AD31FBA01E9B178900523AC9 /* AESHelper.m in Sources */,
+				AD44DC531E9B2453003C1576 /* UIButton+DYLYTheme.m in Sources */,
 				AD31FAD91E9B16B400523AC9 /* MXBaseRequest.m in Sources */,
 				AD31FADE1E9B16B400523AC9 /* MXNetworkConnection.m in Sources */,
+				AD44DC4A1E9B2453003C1576 /* CALayer+DYLYTheme.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
