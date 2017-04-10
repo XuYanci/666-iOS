@@ -1,0 +1,12 @@
+ViewController定义结构:
+#pragma mark - life cycle
+#pragma mark - datasource
+#pragma mark - delegate
+#pragma mark - user events
+#pragma mark - functions
+#pragma mark - notification
+#pragma mark - getter and setter
+
+ 
+
+

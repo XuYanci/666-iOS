@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+/*!
+ @class GLMainTabBarViewController
+ @brief The UITabBarController class
+ @discussion   主要导航控制器
+ @superclass SuperClass: UITabBarController\n
+ @classdesign    No special design is applied here.
+ @coclass    No coclass
+ @helps It helps no other classes.
+ @helper    No helper exists for this class.
+ */
 @interface GLMainTabBarViewController : UITabBarController
 
 @end
