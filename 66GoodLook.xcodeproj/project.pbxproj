@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		4F5D972EF683C77E5F896E87 /* libPods-66GoodLook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9622F563800DCCF25F2F4F /* libPods-66GoodLook.a */; };
 		91ECF2F1D576E10E9E70659B /* libPods-66GoodLookTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B391A082D6514E404DDC4429 /* libPods-66GoodLookTests.a */; };
+		AD31FAD91E9B16B400523AC9 /* MXBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F93E1E9B16B400523AC9 /* MXBaseRequest.m */; };
+		AD31FADA1E9B16B400523AC9 /* MXBaseResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F9401E9B16B400523AC9 /* MXBaseResponse.m */; };
+		AD31FADB1E9B16B400523AC9 /* MXBaseUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F9431E9B16B400523AC9 /* MXBaseUrl.m */; };
+		AD31FADC1E9B16B400523AC9 /* MXNetworkConnect+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F9451E9B16B400523AC9 /* MXNetworkConnect+Model.m */; };
+		AD31FADD1E9B16B400523AC9 /* MXNetworkConnection+BaseUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F9471E9B16B400523AC9 /* MXNetworkConnection+BaseUrl.m */; };
+		AD31FADE1E9B16B400523AC9 /* MXNetworkConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F9491E9B16B400523AC9 /* MXNetworkConnection.m */; };
+		AD31FBA01E9B178900523AC9 /* AESHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31FB951E9B178900523AC9 /* AESHelper.m */; };
+		AD31FBA11E9B178900523AC9 /* DesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31FB981E9B178900523AC9 /* DesHelper.m */; };
+		AD31FBA21E9B178900523AC9 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31FB9B1E9B178900523AC9 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AD31FBA31E9B178900523AC9 /* MD5Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31FB9F1E9B178900523AC9 /* MD5Encrypt.m */; };
+		AD44DC1F1E9B208B003C1576 /* MXRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC1E1E9B208B003C1576 /* MXRequest.m */; };
+		AD44DC221E9B20ED003C1576 /* MXRequest+UserAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC211E9B20ED003C1576 /* MXRequest+UserAccount.m */; };
 		AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70AF0D1E991E800003F3C8 /* AppDelegate.m */; };
 		ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */; };
 		ADC1720E1E9A44FC005DFCEE /* ApplicationServiceBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC1720D1E9A44FC005DFCEE /* ApplicationServiceBase.m */; };
@@ -42,6 +54,32 @@
 		61FAFC8764300EFC8C643EB4 /* Pods-66GoodLookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLookTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLookTests/Pods-66GoodLookTests.release.xcconfig"; sourceTree = "<group>"; };
 		6E90646E5998061924E985F4 /* Pods-66GoodLook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLook.release.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLook/Pods-66GoodLook.release.xcconfig"; sourceTree = "<group>"; };
 		7E4DC8BFAB5BB0484E5CA1E9 /* Pods-66GoodLookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLookTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLookTests/Pods-66GoodLookTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AD31F93D1E9B16B400523AC9 /* MXBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBaseRequest.h; sourceTree = "<group>"; };
+		AD31F93E1E9B16B400523AC9 /* MXBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXBaseRequest.m; sourceTree = "<group>"; };
+		AD31F93F1E9B16B400523AC9 /* MXBaseResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBaseResponse.h; sourceTree = "<group>"; };
+		AD31F9401E9B16B400523AC9 /* MXBaseResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXBaseResponse.m; sourceTree = "<group>"; };
+		AD31F9421E9B16B400523AC9 /* MXBaseUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBaseUrl.h; sourceTree = "<group>"; };
+		AD31F9431E9B16B400523AC9 /* MXBaseUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXBaseUrl.m; sourceTree = "<group>"; };
+		AD31F9441E9B16B400523AC9 /* MXNetworkConnect+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MXNetworkConnect+Model.h"; sourceTree = "<group>"; };
+		AD31F9451E9B16B400523AC9 /* MXNetworkConnect+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MXNetworkConnect+Model.m"; sourceTree = "<group>"; };
+		AD31F9461E9B16B400523AC9 /* MXNetworkConnection+BaseUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MXNetworkConnection+BaseUrl.h"; sourceTree = "<group>"; };
+		AD31F9471E9B16B400523AC9 /* MXNetworkConnection+BaseUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MXNetworkConnection+BaseUrl.m"; sourceTree = "<group>"; };
+		AD31F9481E9B16B400523AC9 /* MXNetworkConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXNetworkConnection.h; sourceTree = "<group>"; };
+		AD31F9491E9B16B400523AC9 /* MXNetworkConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXNetworkConnection.m; sourceTree = "<group>"; };
+		AD31F94C1E9B16B400523AC9 /* MXNetworkKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXNetworkKit.h; sourceTree = "<group>"; };
+		AD31FB941E9B178900523AC9 /* AESHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESHelper.h; sourceTree = "<group>"; };
+		AD31FB951E9B178900523AC9 /* AESHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESHelper.m; sourceTree = "<group>"; };
+		AD31FB971E9B178900523AC9 /* DesHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesHelper.h; sourceTree = "<group>"; };
+		AD31FB981E9B178900523AC9 /* DesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesHelper.m; sourceTree = "<group>"; };
+		AD31FB9A1E9B178900523AC9 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		AD31FB9B1E9B178900523AC9 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		AD31FB9C1E9B178900523AC9 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		AD31FB9E1E9B178900523AC9 /* MD5Encrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Encrypt.h; sourceTree = "<group>"; };
+		AD31FB9F1E9B178900523AC9 /* MD5Encrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Encrypt.m; sourceTree = "<group>"; };
+		AD44DC1D1E9B208B003C1576 /* MXRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXRequest.h; sourceTree = "<group>"; };
+		AD44DC1E1E9B208B003C1576 /* MXRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXRequest.m; sourceTree = "<group>"; };
+		AD44DC201E9B20ED003C1576 /* MXRequest+UserAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MXRequest+UserAccount.h"; sourceTree = "<group>"; };
+		AD44DC211E9B20ED003C1576 /* MXRequest+UserAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MXRequest+UserAccount.m"; sourceTree = "<group>"; };
 		AD70AF0C1E991E800003F3C8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AD70AF0D1E991E800003F3C8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		ADC172061E9A4071005DFCEE /* ApplicationServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceManager.h; sourceTree = "<group>"; };
@@ -103,6 +141,94 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AD31F93C1E9B16B400523AC9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				AD31F93D1E9B16B400523AC9 /* MXBaseRequest.h */,
+				AD31F93E1E9B16B400523AC9 /* MXBaseRequest.m */,
+				AD31F93F1E9B16B400523AC9 /* MXBaseResponse.h */,
+				AD31F9401E9B16B400523AC9 /* MXBaseResponse.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		AD31F9411E9B16B400523AC9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				AD31F9421E9B16B400523AC9 /* MXBaseUrl.h */,
+				AD31F9431E9B16B400523AC9 /* MXBaseUrl.m */,
+				AD31F9441E9B16B400523AC9 /* MXNetworkConnect+Model.h */,
+				AD31F9451E9B16B400523AC9 /* MXNetworkConnect+Model.m */,
+				AD31F9461E9B16B400523AC9 /* MXNetworkConnection+BaseUrl.h */,
+				AD31F9471E9B16B400523AC9 /* MXNetworkConnection+BaseUrl.m */,
+				AD31F9481E9B16B400523AC9 /* MXNetworkConnection.h */,
+				AD31F9491E9B16B400523AC9 /* MXNetworkConnection.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		AD31F94D1E9B16B400523AC9 /* NetworkApi */ = {
+			isa = PBXGroup;
+			children = (
+				AD44DC1D1E9B208B003C1576 /* MXRequest.h */,
+				AD44DC1E1E9B208B003C1576 /* MXRequest.m */,
+				AD44DC201E9B20ED003C1576 /* MXRequest+UserAccount.h */,
+				AD44DC211E9B20ED003C1576 /* MXRequest+UserAccount.m */,
+			);
+			path = NetworkApi;
+			sourceTree = "<group>";
+		};
+		AD31F9581E9B16B400523AC9 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		AD31F9DD1E9B16B400523AC9 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		AD31FB931E9B178900523AC9 /* AES */ = {
+			isa = PBXGroup;
+			children = (
+				AD31FB941E9B178900523AC9 /* AESHelper.h */,
+				AD31FB951E9B178900523AC9 /* AESHelper.m */,
+			);
+			path = AES;
+			sourceTree = "<group>";
+		};
+		AD31FB961E9B178900523AC9 /* DES */ = {
+			isa = PBXGroup;
+			children = (
+				AD31FB971E9B178900523AC9 /* DesHelper.h */,
+				AD31FB981E9B178900523AC9 /* DesHelper.m */,
+			);
+			path = DES;
+			sourceTree = "<group>";
+		};
+		AD31FB991E9B178900523AC9 /* GTMBase64 */ = {
+			isa = PBXGroup;
+			children = (
+				AD31FB9A1E9B178900523AC9 /* GTMBase64.h */,
+				AD31FB9B1E9B178900523AC9 /* GTMBase64.m */,
+				AD31FB9C1E9B178900523AC9 /* GTMDefines.h */,
+			);
+			path = GTMBase64;
+			sourceTree = "<group>";
+		};
+		AD31FB9D1E9B178900523AC9 /* MD5 */ = {
+			isa = PBXGroup;
+			children = (
+				AD31FB9E1E9B178900523AC9 /* MD5Encrypt.h */,
+				AD31FB9F1E9B178900523AC9 /* MD5Encrypt.m */,
+			);
+			path = MD5;
+			sourceTree = "<group>";
+		};
 		AD70AF021E991E280003F3C8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +286,12 @@
 		AD70AF101E991F300003F3C8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				AD31F93C1E9B16B400523AC9 /* Base */,
+				AD31F9411E9B16B400523AC9 /* Core */,
+				AD31F94C1E9B16B400523AC9 /* MXNetworkKit.h */,
+				AD31F94D1E9B16B400523AC9 /* NetworkApi */,
+				AD31F9581E9B16B400523AC9 /* Request */,
+				AD31F9DD1E9B16B400523AC9 /* Response */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -167,6 +299,10 @@
 		AD70AF111E991F300003F3C8 /* Security */ = {
 			isa = PBXGroup;
 			children = (
+				AD31FB931E9B178900523AC9 /* AES */,
+				AD31FB961E9B178900523AC9 /* DES */,
+				AD31FB991E9B178900523AC9 /* GTMBase64 */,
+				AD31FB9D1E9B178900523AC9 /* MD5 */,
 			);
 			path = Security;
 			sourceTree = "<group>";
@@ -514,11 +650,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD31FADD1E9B16B400523AC9 /* MXNetworkConnection+BaseUrl.m in Sources */,
 				ADDDB9A01E7780F8003526DF /* ViewController.m in Sources */,
+				AD31FBA31E9B178900523AC9 /* MD5Encrypt.m in Sources */,
+				AD31FADB1E9B16B400523AC9 /* MXBaseUrl.m in Sources */,
+				AD44DC1F1E9B208B003C1576 /* MXRequest.m in Sources */,
 				ADDDB99A1E7780F8003526DF /* main.m in Sources */,
 				ADC1720E1E9A44FC005DFCEE /* ApplicationServiceBase.m in Sources */,
+				AD31FADC1E9B16B400523AC9 /* MXNetworkConnect+Model.m in Sources */,
+				AD31FADA1E9B16B400523AC9 /* MXBaseResponse.m in Sources */,
+				AD44DC221E9B20ED003C1576 /* MXRequest+UserAccount.m in Sources */,
+				AD31FBA21E9B178900523AC9 /* GTMBase64.m in Sources */,
 				ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */,
 				AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */,
+				AD31FBA11E9B178900523AC9 /* DesHelper.m in Sources */,
+				AD31FBA01E9B178900523AC9 /* AESHelper.m in Sources */,
+				AD31FAD91E9B16B400523AC9 /* MXBaseRequest.m in Sources */,
+				AD31FADE1E9B16B400523AC9 /* MXNetworkConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
