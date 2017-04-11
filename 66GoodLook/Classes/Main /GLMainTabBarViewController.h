@@ -19,5 +19,4 @@
  @helper    No helper exists for this class.
  */
 @interface GLMainTabBarViewController : UITabBarController
-
 @end

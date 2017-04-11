@@ -9,7 +9,7 @@
 
 #import "ApplicationServiceManager.h"
 #import "ApplicationServiceBase.h"
-
+#import "GLMainTabBarViewController.h"
 
 @interface ApplicationServiceManager ()
 @property (nonatomic,strong) NSArray *services;
@@ -30,6 +30,11 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    
+    self.window.rootViewController = [[GLMainTabBarViewController alloc]init];
+    
+    
     // Override point for customization after application launch.
     for (id <ApplicationService> service in [self services]) {
         if ([service respondsToSelector:@selector(application:didFinishLaunchingWithOptions:)]) {
