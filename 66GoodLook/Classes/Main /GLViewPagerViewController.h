@@ -30,15 +30,19 @@
 - (UIViewController *)viewPager:(GLViewPagerViewController *)viewPager
 contentViewControllerForTabAtIndex:(NSUInteger)index;
 
-- (UIViewController *)viewPager:(GLViewPagerViewController *)viewPager
+- (UIView *)viewPager:(GLViewPagerViewController *)viewPager
        contentViewForTabAtIndex:(NSUInteger)index;
 @end
 
 /** ViewPager委托*/
 @protocol GLViewPagerViewControllerDelegate <NSObject>
 
-
-
+/**
+ 委托 - 切换到哪个界面Index
+ @param viewPager 分页控件
+ @param index 切换界面Index
+ */
+- (void)viewPager:(GLViewPagerViewController *)viewPager didChangeTabToIndex:(NSUInteger)index;
 @end
 
 @interface GLViewPagerViewController : UIViewController
@@ -66,9 +70,15 @@ contentViewControllerForTabAtIndex:(NSUInteger)index;
 @property (nonatomic,assign)CGFloat tabHeight;
 /** 指示器高度 */
 @property (nonatomic,assign)CGFloat indicatorHeight;
+/** 指示器宽度 */
+@property (nonatomic,assign)CGFloat indicatorWidth;
+/** 固定指示器宽度*/
+@property (nonatomic,assign)BOOL fixIndicatorWidth;
 /** 标签之间间距 */
 @property (nonatomic,assign)CGFloat padding;
 
 
+/** 重新加载数据,会调用DataSource方法并重新构建视图 */
+- (void)reloadData;
 
 @end
