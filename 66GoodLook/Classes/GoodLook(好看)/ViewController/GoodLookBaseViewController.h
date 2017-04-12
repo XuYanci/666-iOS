@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GoodLookTrendingViewController : UIViewController
+@interface GoodLookBaseViewController : UIViewController
 
 @end

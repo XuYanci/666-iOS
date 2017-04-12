@@ -49,7 +49,7 @@
 		AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70AF0D1E991E800003F3C8 /* AppDelegate.m */; };
 		ADA17AAF1E9C469B00FA0FF9 /* GLMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AAE1E9C469B00FA0FF9 /* GLMainTabBarViewController.m */; };
 		ADA17AB61E9C579E00FA0FF9 /* GLViewPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AB51E9C579E00FA0FF9 /* GLViewPagerViewController.m */; };
-		ADA17AB91E9C581500FA0FF9 /* GoodLookTrendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AB81E9C581500FA0FF9 /* GoodLookTrendingViewController.m */; };
+		ADA17AB91E9C581500FA0FF9 /* GoodLookBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AB81E9C581500FA0FF9 /* GoodLookBaseViewController.m */; };
 		ADA17ABC1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17ABB1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m */; };
 		ADA17AC11E9C586700FA0FF9 /* VC结构注释参考.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA17ABE1E9C586700FA0FF9 /* VC结构注释参考.txt */; };
 		ADA17AC21E9C586700FA0FF9 /* 注释参考.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA17ABF1E9C586700FA0FF9 /* 注释参考.txt */; };
@@ -59,6 +59,7 @@
 		ADA17ADA1E9C5C7000FA0FF9 /* GLMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AD91E9C5C7000FA0FF9 /* GLMessageViewController.m */; };
 		ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */; };
 		ADC1720E1E9A44FC005DFCEE /* ApplicationServiceBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC1720D1E9A44FC005DFCEE /* ApplicationServiceBase.m */; };
+		ADC34E4F1E9E571200E3D70B /* GoodLookIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC34E4E1E9E571200E3D70B /* GoodLookIndexViewController.m */; };
 		ADDDB99A1E7780F8003526DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDDB9991E7780F8003526DF /* main.m */; };
 		ADDDB9A01E7780F8003526DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDDB99F1E7780F8003526DF /* ViewController.m */; };
 		ADDDB9A31E7780F8003526DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADDDB9A11E7780F8003526DF /* Main.storyboard */; };
@@ -173,8 +174,8 @@
 		ADA17AAE1E9C469B00FA0FF9 /* GLMainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMainTabBarViewController.m; sourceTree = "<group>"; };
 		ADA17AB41E9C579E00FA0FF9 /* GLViewPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLViewPagerViewController.h; sourceTree = "<group>"; };
 		ADA17AB51E9C579E00FA0FF9 /* GLViewPagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLViewPagerViewController.m; sourceTree = "<group>"; };
-		ADA17AB71E9C581500FA0FF9 /* GoodLookTrendingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodLookTrendingViewController.h; sourceTree = "<group>"; };
-		ADA17AB81E9C581500FA0FF9 /* GoodLookTrendingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodLookTrendingViewController.m; sourceTree = "<group>"; };
+		ADA17AB71E9C581500FA0FF9 /* GoodLookBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodLookBaseViewController.h; sourceTree = "<group>"; };
+		ADA17AB81E9C581500FA0FF9 /* GoodLookBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodLookBaseViewController.m; sourceTree = "<group>"; };
 		ADA17ABA1E9C583900FA0FF9 /* GoodLookWellChosenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodLookWellChosenViewController.h; sourceTree = "<group>"; };
 		ADA17ABB1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodLookWellChosenViewController.m; sourceTree = "<group>"; };
 		ADA17ABE1E9C586700FA0FF9 /* VC结构注释参考.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "VC结构注释参考.txt"; sourceTree = "<group>"; };
@@ -190,6 +191,8 @@
 		ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationServiceManager.m; sourceTree = "<group>"; };
 		ADC1720C1E9A44FC005DFCEE /* ApplicationServiceBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceBase.h; sourceTree = "<group>"; };
 		ADC1720D1E9A44FC005DFCEE /* ApplicationServiceBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationServiceBase.m; sourceTree = "<group>"; };
+		ADC34E4D1E9E571200E3D70B /* GoodLookIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodLookIndexViewController.h; sourceTree = "<group>"; };
+		ADC34E4E1E9E571200E3D70B /* GoodLookIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodLookIndexViewController.m; sourceTree = "<group>"; };
 		ADDDB9951E7780F8003526DF /* 66GoodLook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 66GoodLook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADDDB9991E7780F8003526DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ADDDB99E1E7780F8003526DF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -565,8 +568,10 @@
 		AD70AF151E9920340003F3C8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				ADA17AB71E9C581500FA0FF9 /* GoodLookTrendingViewController.h */,
-				ADA17AB81E9C581500FA0FF9 /* GoodLookTrendingViewController.m */,
+				ADC34E4D1E9E571200E3D70B /* GoodLookIndexViewController.h */,
+				ADC34E4E1E9E571200E3D70B /* GoodLookIndexViewController.m */,
+				ADA17AB71E9C581500FA0FF9 /* GoodLookBaseViewController.h */,
+				ADA17AB81E9C581500FA0FF9 /* GoodLookBaseViewController.m */,
 				ADA17ABA1E9C583900FA0FF9 /* GoodLookWellChosenViewController.h */,
 				ADA17ABB1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m */,
 			);
@@ -1058,7 +1063,7 @@
 				ADA17AB61E9C579E00FA0FF9 /* GLViewPagerViewController.m in Sources */,
 				AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */,
 				AD44DC501E9B2453003C1576 /* NSObject+DYLYTheme.m in Sources */,
-				ADA17AB91E9C581500FA0FF9 /* GoodLookTrendingViewController.m in Sources */,
+				ADA17AB91E9C581500FA0FF9 /* GoodLookBaseViewController.m in Sources */,
 				AD31FBA11E9B178900523AC9 /* DesHelper.m in Sources */,
 				AD44DC4E1E9B2453003C1576 /* DYLYImage.m in Sources */,
 				AD44DC761E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m in Sources */,
@@ -1068,6 +1073,7 @@
 				AD44DC711E9B6FC7003C1576 /* NSString+JSONCategories.m in Sources */,
 				ADA17AAF1E9C469B00FA0FF9 /* GLMainTabBarViewController.m in Sources */,
 				AD31FADE1E9B16B400523AC9 /* MXNetworkConnection.m in Sources */,
+				ADC34E4F1E9E571200E3D70B /* GoodLookIndexViewController.m in Sources */,
 				AD44DC4A1E9B2453003C1576 /* CALayer+DYLYTheme.m in Sources */,
 				AD44DC751E9B6FC7003C1576 /* UIImage+GradientColor.m in Sources */,
 			);

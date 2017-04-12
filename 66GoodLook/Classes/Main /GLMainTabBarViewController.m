@@ -10,10 +10,11 @@
 #import "GLViewPagerViewController.h"
 #import "GLMeViewController.h"
 #import "GoodPlayViewController.h"
+#import "GoodLookIndexViewController.h"
 #import "GLMessageViewController.h"
 
 @interface GLMainTabBarViewController ()
-@property (nonatomic,strong)GLViewPagerViewController *viewPagerViewController;
+@property (nonatomic,strong)GoodLookIndexViewController *viewPagerViewController;
 @property (nonatomic,strong)GoodPlayViewController *goodPlayViewController;
 @property (nonatomic,strong)GLMessageViewController *messageViewController;
 @property (nonatomic,strong)GLMeViewController *meViewController;
@@ -63,9 +64,9 @@
 
 #pragma mark - notification
 #pragma mark - getter and setter
-- (GLViewPagerViewController *)viewPagerViewController {
+- (GoodLookIndexViewController *)viewPagerViewController {
     if (!_viewPagerViewController) {
-        _viewPagerViewController = [[GLViewPagerViewController alloc]init];
+        _viewPagerViewController = [[GoodLookIndexViewController alloc]init];
         _viewPagerViewController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"好看"
                                                                           image:[[UIImage imageNamed:@"lab_home_d"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
                                                                   selectedImage:[[UIImage imageNamed:@"lab_home_s"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];

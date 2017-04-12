@@ -6,13 +6,13 @@
 //  Copyright © 2017年 Yanci. All rights reserved.
 //
 
-#import "GoodLookTrendingViewController.h"
+#import "GoodLookBaseViewController.h"
 
-@interface GoodLookTrendingViewController ()
+@interface GoodLookBaseViewController ()
 
 @end
 
-@implementation GoodLookTrendingViewController
+@implementation GoodLookBaseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

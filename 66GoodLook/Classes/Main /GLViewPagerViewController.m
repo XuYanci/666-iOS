@@ -17,7 +17,7 @@
 #define kTabTextColorDefault            [UIColor blueColor]
 #define kTabTextColorSelected           [UIColor blueColor]
 #define kBackgroundColor                [UIColor whiteColor]
-#define kTabContentBackgroundColor      [UIColor redColor]
+#define kTabContentBackgroundColor      [UIColor clearColor]
 #define kPageViewCtrlBackgroundColor    [UIColor blueColor]
 
 
@@ -40,6 +40,16 @@ static const BOOL kFixIndicatorWidth = YES;
 
 @implementation GLViewPagerViewController {
     BOOL _needsReload;
+    struct {
+        unsigned numberOfTabsForViewPager:1;
+        unsigned viewForTabIndex:1;
+        unsigned contentViewControllerForTabAtIndex:1;
+        unsigned contentViewForTabAtIndex:1;
+    }_datasourceHas;
+    
+    struct{
+        unsigned didChangeTabToIndex;
+    }_delegateHas;
 }
 
 
@@ -58,6 +68,8 @@ static const BOOL kFixIndicatorWidth = YES;
 - (void)loadView  {
     self.view = [[UIView alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.view.backgroundColor = kBackgroundColor;
+    [self.view addSubview:[[UIView alloc]init]];
+    /** @note 如果先添加tabContentView会导致contentSize设置无效、具体原因待查明 */
     [self.view addSubview:self.tabContentView];
     [self.view addSubview:self.pageViewController.view];
 }
@@ -67,16 +79,15 @@ static const BOOL kFixIndicatorWidth = YES;
     [self _layoutSubviews];
 }
 
-- (void)viewDidLayoutSubviews {
-
-}
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-
+  
 }
 
-
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
 
 #pragma mark - datasource
 
@@ -111,10 +122,17 @@ static const BOOL kFixIndicatorWidth = YES;
 
 - (void)setDataSource:(id<GLViewPagerViewControllerDataSource>)newDataSource {
     _dataSource = newDataSource;
+    
+    _datasourceHas.numberOfTabsForViewPager = [newDataSource respondsToSelector:@selector(numberOfTabsForViewPager:)];
+    _datasourceHas.contentViewForTabAtIndex = [newDataSource respondsToSelector:@selector(viewPager:contentViewForTabAtIndex:)];
+    _datasourceHas.numberOfTabsForViewPager = [newDataSource respondsToSelector:@selector(numberOfTabsForViewPager:)];
+    _datasourceHas.viewForTabIndex = [newDataSource respondsToSelector:@selector(viewPager:viewForTabIndex:)];
+    
     [self _setNeedsReload];
 }
 
 - (void)setDelegate:(id<GLViewPagerViewControllerDelegate>)newDelegate {
+    _delegateHas.didChangeTabToIndex = [newDelegate respondsToSelector:@selector(viewPager:didChangeTabToIndex:)];
     _delegate = newDelegate;
 }
 
@@ -124,8 +142,64 @@ static const BOOL kFixIndicatorWidth = YES;
  @discussion  调用数据源填充数据以及建立视图树
  */
 - (void)reloadData {
+    
+    // 清理Tab子控件
+    [self.tabContentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj removeFromSuperview];
+    }];
+    
     // TODO: 填充Tab
+    NSUInteger numberOfTabs = 0;
+    if (_datasourceHas.numberOfTabsForViewPager) {
+        numberOfTabs = [_dataSource numberOfTabsForViewPager:self];
+    }
+    
+    if (_datasourceHas.viewForTabIndex) {
+        
+        /** 固定宽度 */
+        if (kFixTabWidth) {
+            UIView *preTabView = nil;
+            CGFloat tabContentWidth = 0;
+            for (NSUInteger i = 0; i < numberOfTabs; i++) {
+                UIView *tabView = [_dataSource viewPager:self viewForTabIndex:i];
+                if (![tabView isKindOfClass:[UIView class]]) {
+                    continue;
+                }
+                [self.tabContentView addSubview:tabView];
+                if (!preTabView) {
+                    CGRect rect = tabView.frame;
+                    rect.size.width = kTabWidth;
+                    rect.size.height = kTabHeight;
+                    rect.origin.x = 0;
+                    rect.origin.y = 0;
+                    tabView.frame = rect;
+                    preTabView = tabView;
+                    tabContentWidth += kTabWidth;
+                }
+                else {
+                    CGRect rect = tabView.frame;
+                    rect.size.width = kTabWidth;
+                    rect.size.height = kTabHeight;
+                    rect.origin.x = CGRectGetMaxX(preTabView.frame) + 1;
+                    rect.origin.y = 0;
+                    tabView.frame =rect;
+                    preTabView = tabView;
+                    tabContentWidth += (kTabWidth + 1);
+                }
+            }
+            
+            self.tabContentView.contentSize = CGSizeMake(tabContentWidth, kTabHeight);
+
+        }
+        /** 非固定宽度 */
+        else {
+            
+        }
+    }
+    
     // TODO: 填充分页
+    
+    
     _needsReload = NO;
 }
 
@@ -159,7 +233,7 @@ static const BOOL kFixIndicatorWidth = YES;
     tabContentViewFrame.origin.x = 0;
     tabContentViewFrame.origin.y = topLayoutGuide;
     self.tabContentView.frame = tabContentViewFrame;
-    
+ 
     /** 布局PageViewController */
     CGRect pageViewCtrlFrame = self.pageViewController.view.frame;
     pageViewCtrlFrame.size.width = self.view.bounds.size.width;
@@ -175,6 +249,14 @@ static const BOOL kFixIndicatorWidth = YES;
     if (!_tabContentView) {
         _tabContentView = [[UIScrollView alloc]initWithFrame:CGRectZero];
         _tabContentView.backgroundColor = kTabContentBackgroundColor;
+        _tabContentView.showsVerticalScrollIndicator = YES;
+        _tabContentView.showsHorizontalScrollIndicator = YES;
+        _tabContentView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        _tabContentView.scrollsToTop = NO;
+        _tabContentView.showsHorizontalScrollIndicator = NO;
+        _tabContentView.showsVerticalScrollIndicator = NO;
+        _tabContentView.bounces = NO;
+        _tabContentView.contentSize = CGSizeZero;
     }
     return _tabContentView;
 }
