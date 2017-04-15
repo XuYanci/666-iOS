@@ -11,7 +11,7 @@
 /**
  * 常量定义
  */
-
+#define kTabTagBegin                    0xA0
 #define kIndicatorColor                 [UIColor blueColor]
 #define kTabFontDefault                 [UIFont systemFontOfSize:12]
 #define kTabFontSelected                [UIFont systemFontOfSize:12]
@@ -121,12 +121,18 @@ static const NSUInteger kDefaultDisplayPageIndex = 0;
     if (completed) {
         NSUInteger currentPageIndex = [self.contentViewControllers indexOfObject:pageViewController.viewControllers[0]];
         NSLog(@"Current Page Index = %ld",currentPageIndex);
-        [self setActiveTabIndex:currentPageIndex];
+        [self _setActiveTabIndex:currentPageIndex];
     }
 }
 
 #pragma mark - delegate
 #pragma mark - user events
+- (void)tapInTabView:(UITapGestureRecognizer *)tapGR {
+    NSUInteger tabIndex = tapGR.view.tag - kTabTagBegin;
+    [self _selectTab:tabIndex animate:NO];
+}
+
+
 #pragma mark - functions
 
 /**
@@ -200,6 +206,12 @@ static const NSUInteger kDefaultDisplayPageIndex = 0;
             NSAssert([tabView isKindOfClass:[UIView class]], @"This is not an UIView subclass");
             [self.tabContentView addSubview:tabView];
             [self.tabViews addObject:tabView];
+
+            /** 添加单击手势 选择标签*/
+            [tabView setTag:kTabTagBegin + i];
+            tabView.userInteractionEnabled = YES;
+            [tabView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapInTabView:)]];
+            
             
             if (!preTabView) {
                 CGRect rect = tabView.frame;
@@ -243,8 +255,8 @@ static const NSUInteger kDefaultDisplayPageIndex = 0;
         
         NSAssert(self.defaultDisplayPageIndex <= self.contentViewControllers.count - 1, @"Default display page index is bigger than amount of  view controller");
         
-        [self setActivePageIndex:self.defaultDisplayPageIndex];
-        [self setActiveTabIndex:self.defaultDisplayPageIndex];
+        [self _setActivePageIndex:self.defaultDisplayPageIndex];
+        [self _setActiveTabIndex:self.defaultDisplayPageIndex];
     }
     /**填充分页方式二
      */
@@ -254,6 +266,17 @@ static const NSUInteger kDefaultDisplayPageIndex = 0;
         }
     }
     _needsReload = NO;
+}
+
+
+/**
+ 选择标签视图
+ 
+ @param tabIndex 标签Index
+ */
+- (void)_selectTab:(NSUInteger)tabIndex animate:(BOOL)animate {
+    [self _setActivePageIndex:tabIndex];
+    [self _setActiveTabIndex:tabIndex];
 }
 
 /**
@@ -296,7 +319,8 @@ static const NSUInteger kDefaultDisplayPageIndex = 0;
     self.pageViewController.view.frame = pageViewCtrlFrame;
 }
 
-- (void)setActiveTabIndex:(NSUInteger)tabIndex {
+/** 设置当前标签 */
+- (void)_setActiveTabIndex:(NSUInteger)tabIndex {
     
     NSAssert(tabIndex <= self.tabViews.count - 1, @"Default display page index is bigger than amount of  view controller");
     if (self.fixTabWidth) {
@@ -327,7 +351,8 @@ static const NSUInteger kDefaultDisplayPageIndex = 0;
     }
 }
 
-- (void)setActivePageIndex:(NSUInteger)pageIndex {
+/** 设置当前页 */
+- (void)_setActivePageIndex:(NSUInteger)pageIndex {
     NSAssert(pageIndex <= self.contentViewControllers.count - 1, @"Default display page index is bigger than amount of  view controller");
     
     [self.pageViewController setViewControllers:@[self.contentViewControllers[pageIndex]]
