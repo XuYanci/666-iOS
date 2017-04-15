@@ -76,7 +76,12 @@ contentViewControllerForTabAtIndex:(NSUInteger)index;
 @property (nonatomic,assign)BOOL fixIndicatorWidth;
 /** 标签之间间距 */
 @property (nonatomic,assign)CGFloat padding;
-
+/** 标签第一个元素离左边多少Point */
+@property (nonatomic,assign)CGFloat leadingPadding;
+/** 标签最后一个元素离右边多少Point */
+@property (nonatomic,assign)CGFloat trailingPadding;
+/** 默认显示第一页 (一般是0) */
+@property (nonatomic,assign)NSUInteger defaultDisplayPageIndex;
 
 /** 重新加载数据,会调用DataSource方法并重新构建视图 */
 - (void)reloadData;
