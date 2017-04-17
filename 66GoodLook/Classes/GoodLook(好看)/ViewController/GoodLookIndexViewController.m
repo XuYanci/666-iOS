@@ -28,6 +28,8 @@
     self.leadingPadding = 10;
     self.trailingPadding = 10;
     self.defaultDisplayPageIndex = 0;
+    self.tabAnimationType = GLTabAnimationType_whileScrolling;
+    
     GoodLookBaseViewController *concernViewController = [[GoodLookBaseViewController alloc]init];
     concernViewController.view.backgroundColor = [UIColor redColor];
     
@@ -57,6 +59,13 @@
                               girlSchoolViewController,
                               lolFriendDiscussViewController,
                               lolFillWaterViewController,
+                              [[UIViewController alloc]init],
+                              [[UIViewController alloc]init],
+                              [[UIViewController alloc]init],
+                              [[UIViewController alloc]init],
+                              [[UIViewController alloc]init],
+                              [[UIViewController alloc]init],
+                              
                               ];
     /** 设置标签标题 */
     self.tagTitles = @[
@@ -65,7 +74,13 @@
                        @"签到夺金",
                        @"女子学院",
                        @"撸友讨论",
-                       @"灌水区"
+                       @"灌水区",
+                       @"tab1",
+                       @"tab2",
+                       @"tab3",
+                       @"tab4",
+                       @"tab5",
+                       @"tab6"
                        ];
 }
 

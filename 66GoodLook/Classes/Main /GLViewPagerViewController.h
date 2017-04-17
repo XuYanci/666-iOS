@@ -7,6 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+
+typedef enum : NSUInteger {
+    GLTabAnimationType_none,    /** 无动画 */
+    GLTabAnimationType_whileScrolling, /** 滑动时动画 */
+    GLTabAnimationType_end,         /** 结束时动画 */
+} GLTabAnimationType;
+
 @class GLViewPagerViewController;
 /** ViewPager数据源 */
 @protocol GLViewPagerViewControllerDataSource <NSObject>
@@ -82,7 +89,10 @@ contentViewControllerForTabAtIndex:(NSUInteger)index;
 @property (nonatomic,assign)CGFloat trailingPadding;
 /** 默认显示第一页 (一般是0) */
 @property (nonatomic,assign)NSUInteger defaultDisplayPageIndex;
-
+/** 标签动画时长 */
+@property (nonatomic,assign)CGFloat animationTabDuration;
+/** 标签动画类型 */
+@property (nonatomic,assign)GLTabAnimationType tabAnimationType;
 /** 重新加载数据,会调用DataSource方法并重新构建视图 */
 - (void)reloadData;
 

@@ -32,8 +32,10 @@ static const CGFloat kTrailingPadding = 0.0;
 static const BOOL kFixTabWidth = YES;
 static const BOOL kFixIndicatorWidth = YES;
 static const NSUInteger kDefaultDisplayPageIndex = 0;
+static const CGFloat kAnimationTabDuration = 0.3;
+static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
 
-@interface GLViewPagerViewController ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource>
+@interface GLViewPagerViewController ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource,UIScrollViewDelegate>
 @property (nonatomic,strong)UIPageViewController *pageViewController;
 @property (nonatomic,strong)NSMutableArray <UIViewController *>*contentViewControllers;
 @property (nonatomic,strong)NSMutableArray <UIView *>*contentViews;
@@ -54,6 +56,12 @@ static const NSUInteger kDefaultDisplayPageIndex = 0;
     struct{
         unsigned didChangeTabToIndex;
     }_delegateHas;
+    
+    CGFloat leftTabOffsetWidth;     /** 标签离前一个偏移宽度*/
+    CGFloat rightTabOffsetWidth;    /** 标签离后一个偏移宽度*/
+    CGFloat leftMinusCurrentWidth;
+    CGFloat rightMinusCurrentWidth;
+    NSUInteger _currentPageIndex;   /** 当前页 */
 }
 
 
@@ -116,16 +124,46 @@ static const NSUInteger kDefaultDisplayPageIndex = 0;
 }
 
 
+#pragma mark - delegate
+
 #pragma mark - UIPageViewControllerDelegate
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
     if (completed) {
         NSUInteger currentPageIndex = [self.contentViewControllers indexOfObject:pageViewController.viewControllers[0]];
         NSLog(@"Current Page Index = %ld",currentPageIndex);
         [self _setActiveTabIndex:currentPageIndex];
+        [self _caculateTabOffsetWidth:currentPageIndex];
+        _currentPageIndex = currentPageIndex;
     }
 }
 
-#pragma mark - delegate
+#pragma mar - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView  {
+    NSLog(@"%lf",scrollView.contentOffset.x);
+    if (self.tabAnimationType == GLTabAnimationType_whileScrolling) {
+        CGFloat scale = fabs((scrollView.contentOffset.x - scrollView.frame.size.width) /  scrollView.frame.size.width);
+        CGFloat offset = 0;
+        CGFloat indicationAnimationWidth = 0;
+        NSUInteger currentPageIndex = _currentPageIndex;
+        CGRect indicatorViewFrame = [self _caculateTabViewFrame:currentPageIndex];
+        
+        /** left to right */
+        if (scrollView.contentOffset.x - scrollView.frame.size.width > 0) {
+            offset =  rightTabOffsetWidth * scale;
+            indicationAnimationWidth = indicatorViewFrame.size.width + rightMinusCurrentWidth * scale;
+        }
+        /** right to left */
+        else {
+             offset = -leftTabOffsetWidth * scale;
+             indicationAnimationWidth = indicatorViewFrame.size.width + leftMinusCurrentWidth * scale;
+        }
+
+        indicatorViewFrame.origin.x += offset;
+        indicatorViewFrame.size.width = indicationAnimationWidth;
+        self.indicatorView.frame = indicatorViewFrame;
+    }
+}
+
 #pragma mark - user events
 - (void)tapInTabView:(UITapGestureRecognizer *)tapGR {
     NSUInteger tabIndex = tapGR.view.tag - kTabTagBegin;
@@ -155,6 +193,9 @@ static const NSUInteger kDefaultDisplayPageIndex = 0;
     self.leadingPadding = kLeadingPadding;
     self.trailingPadding = kTrailingPadding;
     self.defaultDisplayPageIndex = kDefaultDisplayPageIndex;
+    self.tabAnimationType = kTabAnimationType;
+    self.animationTabDuration = kAnimationTabDuration;
+
     [self _setNeedsReload];
 }
 
@@ -257,6 +298,8 @@ static const NSUInteger kDefaultDisplayPageIndex = 0;
         
         [self _setActivePageIndex:self.defaultDisplayPageIndex];
         [self _setActiveTabIndex:self.defaultDisplayPageIndex];
+        [self _caculateTabOffsetWidth:self.defaultDisplayPageIndex];
+        _currentPageIndex = self.defaultDisplayPageIndex;
     }
     /**填充分页方式二
      */
@@ -277,6 +320,8 @@ static const NSUInteger kDefaultDisplayPageIndex = 0;
 - (void)_selectTab:(NSUInteger)tabIndex animate:(BOOL)animate {
     [self _setActivePageIndex:tabIndex];
     [self _setActiveTabIndex:tabIndex];
+    [self _caculateTabOffsetWidth:tabIndex];
+    _currentPageIndex = tabIndex;
 }
 
 /**
@@ -319,36 +364,43 @@ static const NSUInteger kDefaultDisplayPageIndex = 0;
     self.pageViewController.view.frame = pageViewCtrlFrame;
 }
 
-/** 设置当前标签 */
+/**
+ 设置当前标签
+ @note 计算方式同标签宽度
+ */
 - (void)_setActiveTabIndex:(NSUInteger)tabIndex {
     
     NSAssert(tabIndex <= self.tabViews.count - 1, @"Default display page index is bigger than amount of  view controller");
-    if (self.fixTabWidth) {
-        CGRect frameOfTabView = CGRectZero;
-        frameOfTabView.origin.x = tabIndex * self.fixTabWidth + (tabIndex * self.padding) + self.leadingPadding;
-        frameOfTabView.origin.y = self.tabContentView.frame.size.height - self.indicatorHeight;
-        frameOfTabView.size.height = self.indicatorHeight;
-        frameOfTabView.size.width = self.tabWidth;
+   
+    CGRect frameOfTabView = [self _caculateTabViewFrame:tabIndex];
+    if (self.tabAnimationType == GLTabAnimationType_end) {
+        [UIView animateWithDuration:self.animationTabDuration animations:^{
+            self.indicatorView.frame = frameOfTabView;
+        }];
+    }
+    else if (self.tabAnimationType == GLTabAnimationType_none
+             || self.tabAnimationType == GLTabAnimationType_whileScrolling){
         self.indicatorView.frame = frameOfTabView;
     }
-    else {
-        UIView *currentTabView = self.tabViews[tabIndex];
-        UIView *previousTabView = (tabIndex  > 0) ? self.tabViews[tabIndex - 1]:nil;
-        CGFloat x = 0;
-        if (tabIndex == 0) {
-            x += self.leadingPadding;
+    
+    /** Center active tab in scrollview */
+    UIView *tabView = self.tabViews[tabIndex];
+    CGRect frame = tabView.frame;
+    if (1) {
+        
+        frame.origin.x += (CGRectGetWidth(frame) / 2);
+        frame.origin.x -= CGRectGetWidth(self.tabContentView.frame) / 2;
+        frame.size.width = CGRectGetWidth(self.tabContentView.frame);
+        
+        if (frame.origin.x < 0) {
+            frame.origin.x = 0;
         }
-        else {
-            x += self.padding;
+        if ((frame.origin.x + CGRectGetWidth(frame)) > self.tabContentView.contentSize.width) {
+            frame.origin.x = (self.tabContentView.contentSize.width - CGRectGetWidth(self.tabContentView.frame));
         }
-        x += CGRectGetMaxX(previousTabView.frame);
-        CGRect frameOfTabView = CGRectZero;
-        frameOfTabView.origin.x = x;
-        frameOfTabView.origin.y = self.tabHeight - self.indicatorHeight;
-        frameOfTabView.size.height = self.indicatorHeight;
-        frameOfTabView.size.width = currentTabView.intrinsicContentSize.width;
-        self.indicatorView.frame = frameOfTabView;
     }
+
+    [self.tabContentView scrollRectToVisible:frame animated:YES];
 }
 
 /** 设置当前页 */
@@ -363,6 +415,67 @@ static const NSUInteger kDefaultDisplayPageIndex = 0;
                                      }];
 }
 
+/** 计算标签位置大小等 */
+- (CGRect)_caculateTabViewFrame:(NSUInteger)tabIndex {
+    
+    CGRect frameOfTabView = CGRectZero;
+    if (self.fixTabWidth) {
+        frameOfTabView.origin.x = tabIndex * self.fixTabWidth + (tabIndex * self.padding) + self.leadingPadding;
+        frameOfTabView.origin.y = self.tabContentView.frame.size.height - self.indicatorHeight;
+        frameOfTabView.size.height = self.indicatorHeight;
+        frameOfTabView.size.width = self.tabWidth;
+    }
+    else {
+        UIView *currentTabView = self.tabViews[tabIndex];
+        UIView *previousTabView = (tabIndex  > 0) ? self.tabViews[tabIndex - 1]:nil;
+        CGFloat x = 0;
+        if (tabIndex == 0) {
+            x += self.leadingPadding;
+        }
+        else {
+            x += self.padding;
+        }
+        x += CGRectGetMaxX(previousTabView.frame);
+        frameOfTabView = CGRectZero;
+        frameOfTabView.origin.x = x;
+        frameOfTabView.origin.y = self.tabHeight - self.indicatorHeight;
+        frameOfTabView.size.height = self.indicatorHeight;
+        frameOfTabView.size.width = currentTabView.intrinsicContentSize.width;
+    }
+    return frameOfTabView;
+}
+
+/** 计算当前标签偏移左边偏移右边宽度 */
+- (void)_caculateTabOffsetWidth:(NSUInteger)pageIndex {
+    /** 计算当前标签间隔宽度 */
+    NSUInteger currentTabIndex = pageIndex;
+    UIView *currentTabView = self.tabViews[currentTabIndex];
+    UIView *previousTabView = (currentTabIndex  > 0) ? self.tabViews[currentTabIndex - 1]:nil;
+    UIView *afterTabView = (currentTabIndex < self.tabViews.count - 1) ? self.tabViews[currentTabIndex + 1] : nil;
+    
+    /** 第一个标签 */
+    if (currentTabIndex == 0) {
+        leftTabOffsetWidth = self.leadingPadding;
+        rightTabOffsetWidth = CGRectGetMinX(afterTabView.frame) - CGRectGetMinX(currentTabView.frame);
+        leftMinusCurrentWidth = 0.0;
+        rightMinusCurrentWidth = CGRectGetWidth(afterTabView.frame) - CGRectGetWidth(currentTabView.frame);
+    }
+    /** 最后一个标签 */
+    else if(currentTabIndex == self.tabViews.count - 1) {
+        leftTabOffsetWidth = CGRectGetMinX(currentTabView.frame) - CGRectGetMinX(previousTabView.frame);
+        rightTabOffsetWidth = self.trailingPadding;
+        leftMinusCurrentWidth = CGRectGetWidth(previousTabView.frame) - CGRectGetWidth(currentTabView.frame);
+        rightMinusCurrentWidth = 0.0;
+    }
+    /** 中间标签 */
+    else {
+        leftTabOffsetWidth = CGRectGetMinX(currentTabView.frame) - CGRectGetMinX(previousTabView.frame);
+        rightTabOffsetWidth = CGRectGetMinX(afterTabView.frame) - CGRectGetMinX(currentTabView.frame);
+        leftMinusCurrentWidth = CGRectGetWidth(previousTabView.frame) - CGRectGetWidth(currentTabView.frame);
+        rightMinusCurrentWidth = CGRectGetWidth(afterTabView.frame) - CGRectGetWidth(currentTabView.frame);
+    }
+    NSLog(@"left tab offset = %lf,right tab offset = %lf",leftTabOffsetWidth,rightTabOffsetWidth);
+}
 
 #pragma mark - notification
 #pragma mark - getter and setter
@@ -386,7 +499,6 @@ static const NSUInteger kDefaultDisplayPageIndex = 0;
     if (!_indicatorView) {
         _indicatorView = [[UIView alloc]initWithFrame:CGRectZero];
         _indicatorView.backgroundColor = kIndicatorColor;
-//        _indicatorView.layer.zPosition = 1.0;
     }
     return _indicatorView;
 }
@@ -397,6 +509,12 @@ static const NSUInteger kDefaultDisplayPageIndex = 0;
         _pageViewController.view.backgroundColor = kPageViewCtrlBackgroundColor;
         _pageViewController.dataSource = self;
         _pageViewController.delegate = self;
+        
+        for (UIView *view in _pageViewController.view.subviews) {
+            if ([view isKindOfClass:[UIScrollView class]]) {
+                [(UIScrollView *)view setDelegate:self];
+            }
+        }
     }
     return _pageViewController;
 }
