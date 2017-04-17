@@ -57,6 +57,7 @@
 		ADA17AD41E9C5C5600FA0FF9 /* GoodPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AD31E9C5C5600FA0FF9 /* GoodPlayViewController.m */; };
 		ADA17AD71E9C5C6600FA0FF9 /* GLMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AD61E9C5C6600FA0FF9 /* GLMeViewController.m */; };
 		ADA17ADA1E9C5C7000FA0FF9 /* GLMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AD91E9C5C7000FA0FF9 /* GLMessageViewController.m */; };
+		ADB0D7CF1EA4FDF0003C4901 /* 设计原则.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADB0D7CE1EA4FDF0003C4901 /* 设计原则.txt */; };
 		ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */; };
 		ADC1720E1E9A44FC005DFCEE /* ApplicationServiceBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC1720D1E9A44FC005DFCEE /* ApplicationServiceBase.m */; };
 		ADC34E4F1E9E571200E3D70B /* GoodLookIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC34E4E1E9E571200E3D70B /* GoodLookIndexViewController.m */; };
@@ -187,6 +188,7 @@
 		ADA17AD61E9C5C6600FA0FF9 /* GLMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMeViewController.m; sourceTree = "<group>"; };
 		ADA17AD81E9C5C7000FA0FF9 /* GLMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMessageViewController.h; sourceTree = "<group>"; };
 		ADA17AD91E9C5C7000FA0FF9 /* GLMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMessageViewController.m; sourceTree = "<group>"; };
+		ADB0D7CE1EA4FDF0003C4901 /* 设计原则.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "设计原则.txt"; sourceTree = "<group>"; };
 		ADC172061E9A4071005DFCEE /* ApplicationServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceManager.h; sourceTree = "<group>"; };
 		ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationServiceManager.m; sourceTree = "<group>"; };
 		ADC1720C1E9A44FC005DFCEE /* ApplicationServiceBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceBase.h; sourceTree = "<group>"; };
@@ -599,6 +601,7 @@
 		ADA17ABD1E9C586700FA0FF9 /* Docs */ = {
 			isa = PBXGroup;
 			children = (
+				ADB0D7CE1EA4FDF0003C4901 /* 设计原则.txt */,
 				ADA17ABE1E9C586700FA0FF9 /* VC结构注释参考.txt */,
 				ADA17ABF1E9C586700FA0FF9 /* 注释参考.txt */,
 				ADA17AC01E9C586700FA0FF9 /* 项目结构.txt */,
@@ -909,6 +912,7 @@
 				AD44DC511E9B2453003C1576 /* README.txt in Resources */,
 				ADA17AC31E9C586700FA0FF9 /* 项目结构.txt in Resources */,
 				ADDDB9A31E7780F8003526DF /* Main.storyboard in Resources */,
+				ADB0D7CF1EA4FDF0003C4901 /* 设计原则.txt in Resources */,
 				ADA17AC21E9C586700FA0FF9 /* 注释参考.txt in Resources */,
 				ADA17AC11E9C586700FA0FF9 /* VC结构注释参考.txt in Resources */,
 			);
