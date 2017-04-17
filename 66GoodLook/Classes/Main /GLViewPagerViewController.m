@@ -62,6 +62,7 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
     CGFloat leftMinusCurrentWidth;
     CGFloat rightMinusCurrentWidth;
     NSUInteger _currentPageIndex;   /** 当前页 */
+    BOOL _enableTabAnimationWhileScrolling;
 }
 
 
@@ -138,9 +139,20 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
 }
 
 #pragma mar - UIScrollViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView  {
-    NSLog(@"%lf",scrollView.contentOffset.x);
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     if (self.tabAnimationType == GLTabAnimationType_whileScrolling) {
+        _enableTabAnimationWhileScrolling = YES;
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    if (self.tabAnimationType == GLTabAnimationType_whileScrolling) {
+        _enableTabAnimationWhileScrolling = NO;
+    }
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView  {
+//    NSLog(@"%lf",scrollView.contentOffset.x);
+    if (self.tabAnimationType == GLTabAnimationType_whileScrolling && _enableTabAnimationWhileScrolling) {
         CGFloat scale = fabs((scrollView.contentOffset.x - scrollView.frame.size.width) /  scrollView.frame.size.width);
         CGFloat offset = 0;
         CGFloat indicationAnimationWidth = 0;
@@ -322,6 +334,7 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
     [self _setActiveTabIndex:tabIndex];
     [self _caculateTabOffsetWidth:tabIndex];
     _currentPageIndex = tabIndex;
+    _enableTabAnimationWhileScrolling = NO;
 }
 
 /**
@@ -373,13 +386,14 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
     NSAssert(tabIndex <= self.tabViews.count - 1, @"Default display page index is bigger than amount of  view controller");
    
     CGRect frameOfTabView = [self _caculateTabViewFrame:tabIndex];
-    if (self.tabAnimationType == GLTabAnimationType_end) {
+    if (self.tabAnimationType == GLTabAnimationType_end
+        || self.tabAnimationType == GLTabAnimationType_whileScrolling) {
         [UIView animateWithDuration:self.animationTabDuration animations:^{
             self.indicatorView.frame = frameOfTabView;
         }];
     }
     else if (self.tabAnimationType == GLTabAnimationType_none
-             || self.tabAnimationType == GLTabAnimationType_whileScrolling){
+             ){
         self.indicatorView.frame = frameOfTabView;
     }
     
