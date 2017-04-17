@@ -59,10 +59,10 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
     
     CGFloat leftTabOffsetWidth;     /** 标签离前一个偏移宽度*/
     CGFloat rightTabOffsetWidth;    /** 标签离后一个偏移宽度*/
-    CGFloat leftMinusCurrentWidth;
-    CGFloat rightMinusCurrentWidth;
+    CGFloat leftMinusCurrentWidth;  /** 左标签减去当前标签得出宽度 */
+    CGFloat rightMinusCurrentWidth; /** 右标签减去当前标签得出宽度 */
     NSUInteger _currentPageIndex;   /** 当前页 */
-    BOOL _enableTabAnimationWhileScrolling;
+    BOOL _enableTabAnimationWhileScrolling; /** 是否允许标签滑动显示 */
 }
 
 
@@ -151,7 +151,6 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
     }
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView  {
-//    NSLog(@"%lf",scrollView.contentOffset.x);
     if (self.tabAnimationType == GLTabAnimationType_whileScrolling && _enableTabAnimationWhileScrolling) {
         CGFloat scale = fabs((scrollView.contentOffset.x - scrollView.frame.size.width) /  scrollView.frame.size.width);
         CGFloat offset = 0;
@@ -326,15 +325,16 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
 
 /**
  选择标签视图
- 
  @param tabIndex 标签Index
  */
 - (void)_selectTab:(NSUInteger)tabIndex animate:(BOOL)animate {
+    [self _disableViewPagerScroll];
     [self _setActivePageIndex:tabIndex];
     [self _setActiveTabIndex:tabIndex];
     [self _caculateTabOffsetWidth:tabIndex];
     _currentPageIndex = tabIndex;
     _enableTabAnimationWhileScrolling = NO;
+    [self _enableViewPagerScroll];
 }
 
 /**
@@ -489,6 +489,29 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
         rightMinusCurrentWidth = CGRectGetWidth(afterTabView.frame) - CGRectGetWidth(currentTabView.frame);
     }
     NSLog(@"left tab offset = %lf,right tab offset = %lf",leftTabOffsetWidth,rightTabOffsetWidth);
+}
+
+
+/**
+ 关闭视图滚动
+ */
+- (void)_disableViewPagerScroll {
+    for (UIView *view in _pageViewController.view.subviews) {
+        if ([view isKindOfClass:[UIScrollView class]]) {
+            [(UIScrollView *)view setScrollEnabled:NO];
+        }
+    }
+}
+
+/**
+ 开启视图滚动
+ */
+- (void)_enableViewPagerScroll {
+    for (UIView *view in _pageViewController.view.subviews) {
+        if ([view isKindOfClass:[UIScrollView class]]) {
+            [(UIScrollView *)view setScrollEnabled:YES];
+        }
+    }
 }
 
 #pragma mark - notification
