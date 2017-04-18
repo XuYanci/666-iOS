@@ -33,6 +33,7 @@ typedef enum : NSUInteger {
 - (UIView *)viewPager:(GLViewPagerViewController *)viewPager
       viewForTabIndex:(NSUInteger)index;
 
+
 @optional
 - (UIViewController *)viewPager:(GLViewPagerViewController *)viewPager
 contentViewControllerForTabAtIndex:(NSUInteger)index;
@@ -49,7 +50,27 @@ contentViewControllerForTabAtIndex:(NSUInteger)index;
  @param viewPager 分页控件
  @param index 切换界面Index
  */
-- (void)viewPager:(GLViewPagerViewController *)viewPager didChangeTabToIndex:(NSUInteger)index;
+- (void)viewPager:(GLViewPagerViewController *)viewPager didChangeTabToIndex:(NSUInteger)index fromTabIndex:(NSUInteger)fromTabIndex;
+
+/**
+  委托 - 切换到哪个界面Index
+ @discussion 切换标签带有滑动页面字体变化以及颜色渐变等，则需要获取当前进度设置对应字体颜色以及字体大小等。
+ @param viewPager viewPager 分页控
+ @param index index 切换界面Index
+ @param progress 切换到界面进度 (0.0 ~ 1.0)
+ */
+- (void)viewPager:(GLViewPagerViewController *)viewPager willChangeTabToIndex:(NSUInteger)index fromTabIndex:(NSUInteger)fromTabIndex withTransitionProgress:(CGFloat)progress;
+
+
+/**
+ 委托 - 获取标签宽度
+
+ @param viewPager ViewPager分页控件
+ @param index 标签Index
+ @return 返回标签宽度
+ */
+- (CGFloat)viewPager:(GLViewPagerViewController *)viewPager widthForTabIndex:(NSUInteger)index;
+
 @end
 
 @interface GLViewPagerViewController : UIViewController
@@ -62,13 +83,13 @@ contentViewControllerForTabAtIndex:(NSUInteger)index;
 /** 指示器颜色 */
 @property (nonatomic,strong)UIColor *indicatorColor;
 /** 默认标签字体 */
-@property (nonatomic,strong)UIFont *tabFontDefault;
+@property (nonatomic,strong)DEPRECATED_ATTRIBUTE UIFont *tabFontDefault;
 /** 选择标签字体 */
-@property (nonatomic,strong)UIFont *tabFontSelected;
+@property (nonatomic,strong)DEPRECATED_ATTRIBUTE UIFont *tabFontSelected;
 /** 默认标签字体颜色 */
-@property (nonatomic,strong)UIColor *tabTextColorDefault;
+@property (nonatomic,strong)DEPRECATED_ATTRIBUTE UIColor *tabTextColorDefault;
 /** 选择标签字体颜色 */
-@property (nonatomic,strong)UIColor *tabTextColorSelected;
+@property (nonatomic,strong)DEPRECATED_ATTRIBUTE UIColor *tabTextColorSelected;
 /** 固定标签宽度 */
 @property (nonatomic,assign)BOOL fixTabWidth;
 /** 标签宽度 */
@@ -95,5 +116,13 @@ contentViewControllerForTabAtIndex:(NSUInteger)index;
 @property (nonatomic,assign)GLTabAnimationType tabAnimationType;
 /** 重新加载数据,会调用DataSource方法并重新构建视图 */
 - (void)reloadData;
+
+/**
+ 获取标签
+
+ @param index 标签Index
+ @return 返回标签控件
+ */
+- (UIView *)tabViewAtIndex:(NSUInteger)index;
 
 @end

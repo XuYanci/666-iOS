@@ -29,6 +29,7 @@
     self.trailingPadding = 10;
     self.defaultDisplayPageIndex = 0;
     self.tabAnimationType = GLTabAnimationType_whileScrolling;
+    self.indicatorColor = [UIColor colorWithRed:255.0/255.0 green:205.0 / 255.0 blue:0.0 alpha:1.0];
     
     GoodLookBaseViewController *concernViewController = [[GoodLookBaseViewController alloc]init];
     concernViewController.view.backgroundColor = [UIColor redColor];
@@ -104,11 +105,16 @@
     return self.viewControllers.count;
 }
 
+
+
 - (UIView *)viewPager:(GLViewPagerViewController *)viewPager
       viewForTabIndex:(NSUInteger)index {
     UILabel *label = [[UILabel alloc]init];
     label.text = [self.tagTitles objectAtIndex:index];
+    label.font = [UIFont systemFontOfSize:16.0];
+    label.textColor = [UIColor colorWithWhite:0.0 alpha:0.5];
     label.textAlignment = NSTextAlignmentCenter;
+    label.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.9, 0.9);
     return label;
 }
 
@@ -117,4 +123,42 @@ contentViewControllerForTabAtIndex:(NSUInteger)index {
     return self.viewControllers[index];
 }
 #pragma mark - GLViewPagerViewControllerDelegate
+- (void)viewPager:(GLViewPagerViewController *)viewPager didChangeTabToIndex:(NSUInteger)index fromTabIndex:(NSUInteger)fromTabIndex {
+    UILabel *prevLabel = (UILabel *)[viewPager tabViewAtIndex:fromTabIndex];
+    UILabel *currentLabel = (UILabel *)[viewPager tabViewAtIndex:index];
+    prevLabel.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.9, 0.9);
+    currentLabel.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
+    prevLabel.textColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+    currentLabel.textColor = [UIColor colorWithWhite:0.0 alpha:1.0];
+}
+
+- (void)viewPager:(GLViewPagerViewController *)viewPager willChangeTabToIndex:(NSUInteger)index fromTabIndex:(NSUInteger)fromTabIndex withTransitionProgress:(CGFloat)progress {
+    
+    if (fromTabIndex == index) {
+        return;
+    }
+    
+    UILabel *prevLabel = (UILabel *)[viewPager tabViewAtIndex:fromTabIndex];
+    UILabel *currentLabel = (UILabel *)[viewPager tabViewAtIndex:index];
+    prevLabel.transform = CGAffineTransformScale(CGAffineTransformIdentity,
+                                                 1.0 - (0.1 * progress),
+                                                 1.0 - (0.1 * progress));
+    currentLabel.transform = CGAffineTransformScale(CGAffineTransformIdentity,
+                                                    0.9 + (0.1 * progress),
+                                                    0.9 + (0.1 * progress));
+    prevLabel.textColor = [UIColor colorWithWhite:0.0 alpha:1.0 - (0.5 * progress)];
+    currentLabel.textColor = [UIColor colorWithWhite:0.0 alpha:0.5 + (0.5 * progress)];
+}
+
+- (CGFloat)viewPager:(GLViewPagerViewController *)viewPager widthForTabIndex:(NSUInteger)index {
+    static UILabel *prototypeLabel ;
+    if (!prototypeLabel) {
+        prototypeLabel = [[UILabel alloc]init];
+    }
+    prototypeLabel.text = [self.tagTitles objectAtIndex:index];
+    prototypeLabel.textAlignment = NSTextAlignmentCenter;
+    prototypeLabel.font = [UIFont systemFontOfSize:16.0];
+    return prototypeLabel.intrinsicContentSize.width;
+}
+
 @end

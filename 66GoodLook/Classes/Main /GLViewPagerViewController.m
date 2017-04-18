@@ -55,6 +55,8 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
     
     struct{
         unsigned didChangeTabToIndex;
+        unsigned willChangeTabToIndex;
+        unsigned widthForTabIndex;
     }_delegateHas;
     
     CGFloat leftTabOffsetWidth;     /** 标签离前一个偏移宽度*/
@@ -86,7 +88,6 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
     [self.view addSubview:self.tabContentView];
     [self.tabContentView addSubview:self.indicatorView];
     [self.view addSubview:self.pageViewController.view];
-  
 }
 
 - (void)viewWillLayoutSubviews {
@@ -102,6 +103,8 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+
 }
 
 #pragma mark - datasource
@@ -131,10 +134,18 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
     if (completed) {
         NSUInteger currentPageIndex = [self.contentViewControllers indexOfObject:pageViewController.viewControllers[0]];
+        NSUInteger prevPageIndex = [self.contentViewControllers indexOfObject:previousViewControllers[0]];
         NSLog(@"Current Page Index = %ld",currentPageIndex);
         [self _setActiveTabIndex:currentPageIndex];
         [self _caculateTabOffsetWidth:currentPageIndex];
         _currentPageIndex = currentPageIndex;
+        if (_delegateHas.didChangeTabToIndex) {
+            [_delegate viewPager:self didChangeTabToIndex:currentPageIndex fromTabIndex:prevPageIndex];
+        }
+        
+        if (self.tabAnimationType == GLTabAnimationType_whileScrolling) {
+            _enableTabAnimationWhileScrolling = NO;
+        }
     }
 }
 
@@ -153,6 +164,9 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView  {
     if (self.tabAnimationType == GLTabAnimationType_whileScrolling && _enableTabAnimationWhileScrolling) {
         CGFloat scale = fabs((scrollView.contentOffset.x - scrollView.frame.size.width) /  scrollView.frame.size.width);
+        
+        
+        
         CGFloat offset = 0;
         CGFloat indicationAnimationWidth = 0;
         NSUInteger currentPageIndex = _currentPageIndex;
@@ -162,16 +176,32 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
         if (scrollView.contentOffset.x - scrollView.frame.size.width > 0) {
             offset =  rightTabOffsetWidth * scale;
             indicationAnimationWidth = indicatorViewFrame.size.width + rightMinusCurrentWidth * scale;
+            
+            if (_delegateHas.willChangeTabToIndex) {
+                [_delegate viewPager:self
+                willChangeTabToIndex:(currentPageIndex + 1) > self.tabViews.count - 1 ? currentPageIndex : currentPageIndex + 1
+                        fromTabIndex:currentPageIndex
+              withTransitionProgress:scale];
+            }
         }
         /** right to left */
         else {
              offset = -leftTabOffsetWidth * scale;
              indicationAnimationWidth = indicatorViewFrame.size.width + leftMinusCurrentWidth * scale;
+            
+            if (_delegateHas.willChangeTabToIndex) {
+                [_delegate viewPager:self
+                willChangeTabToIndex: currentPageIndex == 0 ? 0 : currentPageIndex - 1
+                        fromTabIndex:currentPageIndex
+              withTransitionProgress:scale];
+            }
         }
 
         indicatorViewFrame.origin.x += offset;
         indicatorViewFrame.size.width = indicationAnimationWidth;
         self.indicatorView.frame = indicatorViewFrame;
+        
+     
     }
 }
 
@@ -222,7 +252,9 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
 }
 
 - (void)setDelegate:(id<GLViewPagerViewControllerDelegate>)newDelegate {
-    _delegateHas.didChangeTabToIndex = [newDelegate respondsToSelector:@selector(viewPager:didChangeTabToIndex:)];
+    _delegateHas.didChangeTabToIndex = [newDelegate respondsToSelector:@selector(viewPager:didChangeTabToIndex:fromTabIndex:)];
+    _delegateHas.willChangeTabToIndex = [newDelegate respondsToSelector:@selector(viewPager:willChangeTabToIndex:fromTabIndex:withTransitionProgress:)];
+    _delegateHas.widthForTabIndex = [newDelegate respondsToSelector:@selector(viewPager:widthForTabIndex:)];
     _delegate = newDelegate;
 }
 
@@ -232,6 +264,9 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
  @discussion  调用数据源填充数据以及建立视图树
  */
 - (void)reloadData {
+    
+    // 设置控件属性
+    self.indicatorView.backgroundColor = self.indicatorColor;
     
     // 清理Tab子控件
     [self.tabViews removeAllObjects];
@@ -267,23 +302,23 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
             
             if (!preTabView) {
                 CGRect rect = tabView.frame;
-                rect.size.width = self.fixTabWidth ? self.tabWidth : [tabView intrinsicContentSize].width;
+                rect.size.width = self.fixTabWidth ? self.tabWidth : [self _getTabWidthAtIndex:i];
                 rect.size.height = self.tabHeight;
                 rect.origin.x = self.leadingPadding;
                 rect.origin.y = 0;
                 tabView.frame = rect;
                 preTabView = tabView;
-                tabContentWidth += self.fixTabWidth ? self.tabWidth : [tabView intrinsicContentSize].width + self.leadingPadding;
+                tabContentWidth += self.fixTabWidth ? self.tabWidth : [self _getTabWidthAtIndex:i] + self.leadingPadding;
             }
             else {
                 CGRect rect = tabView.frame;
-                rect.size.width = self.fixTabWidth ? self.tabWidth : [tabView intrinsicContentSize].width;
+                rect.size.width = self.fixTabWidth ? self.tabWidth : [self _getTabWidthAtIndex:i];
                 rect.size.height = self.tabHeight;
                 rect.origin.x = CGRectGetMaxX(preTabView.frame) + self.padding;
                 rect.origin.y = 0;
                 tabView.frame =rect;
                 preTabView = tabView;
-                tabContentWidth += ((self.fixTabWidth ? self.tabWidth : [tabView intrinsicContentSize].width) + self.padding);
+                tabContentWidth += ((self.fixTabWidth ? self.tabWidth : [self _getTabWidthAtIndex:i]) + self.padding);
                 
                 if (i == numberOfTabs - 1) {
                     tabContentWidth += self.trailingPadding;
@@ -311,6 +346,11 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
         [self _setActiveTabIndex:self.defaultDisplayPageIndex];
         [self _caculateTabOffsetWidth:self.defaultDisplayPageIndex];
         _currentPageIndex = self.defaultDisplayPageIndex;
+        
+        if (_delegateHas.didChangeTabToIndex) {
+            [_delegate viewPager:self didChangeTabToIndex:_currentPageIndex fromTabIndex:self.defaultDisplayPageIndex];
+        }
+        
     }
     /**填充分页方式二
      */
@@ -322,12 +362,18 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
     _needsReload = NO;
 }
 
+- (UIView *)tabViewAtIndex:(NSUInteger)index {
+    return [self.tabViews objectAtIndex:index];
+}
 
 /**
  选择标签视图
  @param tabIndex 标签Index
  */
 - (void)_selectTab:(NSUInteger)tabIndex animate:(BOOL)animate {
+    
+    NSUInteger prevPageIndex = _currentPageIndex;
+    
     [self _disableViewPagerScroll];
     [self _setActivePageIndex:tabIndex];
     [self _setActiveTabIndex:tabIndex];
@@ -335,6 +381,10 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
     _currentPageIndex = tabIndex;
     _enableTabAnimationWhileScrolling = NO;
     [self _enableViewPagerScroll];
+    
+    if (_delegateHas.didChangeTabToIndex) {
+        [_delegate viewPager:self didChangeTabToIndex:_currentPageIndex fromTabIndex:prevPageIndex];
+    }
 }
 
 /**
@@ -420,13 +470,30 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
 /** 设置当前页 */
 - (void)_setActivePageIndex:(NSUInteger)pageIndex {
     NSAssert(pageIndex <= self.contentViewControllers.count - 1, @"Default display page index is bigger than amount of  view controller");
-    
+   
     [self.pageViewController setViewControllers:@[self.contentViewControllers[pageIndex]]
                                       direction:UIPageViewControllerNavigationDirectionForward | UIPageViewControllerNavigationDirectionReverse
                                        animated:YES
                                      completion:^(BOOL finished) {
-                                         
+                                        
                                      }];
+}
+
+
+/**
+ 获取标签宽度
+
+ @param tabIndex 标签Index
+ @return 标签宽度
+ */
+- (CGFloat)_getTabWidthAtIndex:(NSUInteger)tabIndex {
+    CGFloat tabWidth = 0.0;
+    UIView *tabView = [self.tabViews objectAtIndex:tabIndex];
+    if (_delegateHas.widthForTabIndex) {
+        tabWidth = [_delegate viewPager:self widthForTabIndex:tabIndex];
+    }
+    
+    return tabWidth == 0 ? tabView.intrinsicContentSize.width : tabWidth;
 }
 
 /** 计算标签位置大小等 */
@@ -440,7 +507,6 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
         frameOfTabView.size.width = self.tabWidth;
     }
     else {
-        UIView *currentTabView = self.tabViews[tabIndex];
         UIView *previousTabView = (tabIndex  > 0) ? self.tabViews[tabIndex - 1]:nil;
         CGFloat x = 0;
         if (tabIndex == 0) {
@@ -454,7 +520,7 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
         frameOfTabView.origin.x = x;
         frameOfTabView.origin.y = self.tabHeight - self.indicatorHeight;
         frameOfTabView.size.height = self.indicatorHeight;
-        frameOfTabView.size.width = currentTabView.intrinsicContentSize.width;
+        frameOfTabView.size.width = [self _getTabWidthAtIndex:tabIndex];
     }
     return frameOfTabView;
 }
@@ -535,7 +601,6 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
 - (UIView *)indicatorView {
     if (!_indicatorView) {
         _indicatorView = [[UIView alloc]initWithFrame:CGRectZero];
-        _indicatorView.backgroundColor = kIndicatorColor;
     }
     return _indicatorView;
 }
