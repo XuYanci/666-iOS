@@ -58,6 +58,7 @@
 		ADA17AD71E9C5C6600FA0FF9 /* GLMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AD61E9C5C6600FA0FF9 /* GLMeViewController.m */; };
 		ADA17ADA1E9C5C7000FA0FF9 /* GLMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AD91E9C5C7000FA0FF9 /* GLMessageViewController.m */; };
 		ADB0D7CF1EA4FDF0003C4901 /* 设计原则.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADB0D7CE1EA4FDF0003C4901 /* 设计原则.txt */; };
+		ADBBA9651EA64F9F00C58D5C /* 自定义控件结构.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADBBA9641EA64F9F00C58D5C /* 自定义控件结构.txt */; };
 		ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */; };
 		ADC1720E1E9A44FC005DFCEE /* ApplicationServiceBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC1720D1E9A44FC005DFCEE /* ApplicationServiceBase.m */; };
 		ADC34E4F1E9E571200E3D70B /* GoodLookIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC34E4E1E9E571200E3D70B /* GoodLookIndexViewController.m */; };
@@ -68,6 +69,7 @@
 		ADDDB9A81E7780F8003526DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADDDB9A61E7780F8003526DF /* LaunchScreen.storyboard */; };
 		ADDDB9B31E7780F8003526DF /* _6GoodLookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDDB9B21E7780F8003526DF /* _6GoodLookTests.m */; };
 		ADDDB9BE1E7780F8003526DF /* _6GoodLookUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDDB9BD1E7780F8003526DF /* _6GoodLookUITests.m */; };
+		ADFFFBD41EA5FBDF002CB3DC /* GoodLookFloatView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFFFBD31EA5FBDF002CB3DC /* GoodLookFloatView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,6 +191,7 @@
 		ADA17AD81E9C5C7000FA0FF9 /* GLMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMessageViewController.h; sourceTree = "<group>"; };
 		ADA17AD91E9C5C7000FA0FF9 /* GLMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMessageViewController.m; sourceTree = "<group>"; };
 		ADB0D7CE1EA4FDF0003C4901 /* 设计原则.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "设计原则.txt"; sourceTree = "<group>"; };
+		ADBBA9641EA64F9F00C58D5C /* 自定义控件结构.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "自定义控件结构.txt"; sourceTree = "<group>"; };
 		ADC172061E9A4071005DFCEE /* ApplicationServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceManager.h; sourceTree = "<group>"; };
 		ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationServiceManager.m; sourceTree = "<group>"; };
 		ADC1720C1E9A44FC005DFCEE /* ApplicationServiceBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceBase.h; sourceTree = "<group>"; };
@@ -209,6 +212,8 @@
 		ADDDB9B91E7780F8003526DF /* 66GoodLookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 66GoodLookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADDDB9BD1E7780F8003526DF /* _6GoodLookUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _6GoodLookUITests.m; sourceTree = "<group>"; };
 		ADDDB9BF1E7780F8003526DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADFFFBD21EA5FBDF002CB3DC /* GoodLookFloatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodLookFloatView.h; sourceTree = "<group>"; };
+		ADFFFBD31EA5FBDF002CB3DC /* GoodLookFloatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodLookFloatView.m; sourceTree = "<group>"; };
 		B391A082D6514E404DDC4429 /* libPods-66GoodLookTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-66GoodLookTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9622F563800DCCF25F2F4F /* libPods-66GoodLook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-66GoodLook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1ECAD29C0C02707D92F82DA /* Pods-66GoodLook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLook/Pods-66GoodLook.debug.xcconfig"; sourceTree = "<group>"; };
@@ -594,6 +599,8 @@
 		ADA17AB31E9C574200FA0FF9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ADFFFBD21EA5FBDF002CB3DC /* GoodLookFloatView.h */,
+				ADFFFBD31EA5FBDF002CB3DC /* GoodLookFloatView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -605,6 +612,7 @@
 				ADA17ABE1E9C586700FA0FF9 /* VC结构注释参考.txt */,
 				ADA17ABF1E9C586700FA0FF9 /* 注释参考.txt */,
 				ADA17AC01E9C586700FA0FF9 /* 项目结构.txt */,
+				ADBBA9641EA64F9F00C58D5C /* 自定义控件结构.txt */,
 			);
 			path = Docs;
 			sourceTree = SOURCE_ROOT;
@@ -912,6 +920,7 @@
 				AD44DC511E9B2453003C1576 /* README.txt in Resources */,
 				ADA17AC31E9C586700FA0FF9 /* 项目结构.txt in Resources */,
 				ADDDB9A31E7780F8003526DF /* Main.storyboard in Resources */,
+				ADBBA9651EA64F9F00C58D5C /* 自定义控件结构.txt in Resources */,
 				ADB0D7CF1EA4FDF0003C4901 /* 设计原则.txt in Resources */,
 				ADA17AC21E9C586700FA0FF9 /* 注释参考.txt in Resources */,
 				ADA17AC11E9C586700FA0FF9 /* VC结构注释参考.txt in Resources */,
@@ -1032,6 +1041,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADFFFBD41EA5FBDF002CB3DC /* GoodLookFloatView.m in Sources */,
 				AD44DC4F1E9B2453003C1576 /* DYLYThemeManager.m in Sources */,
 				AD44DC4B1E9B2453003C1576 /* DKDeallocBlockExecutor.m in Sources */,
 				AD31FADD1E9B16B400523AC9 /* MXNetworkConnection+BaseUrl.m in Sources */,
