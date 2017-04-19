@@ -45,20 +45,47 @@
 #pragma mark - user events
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
-    
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self.superview];
+
+    CGRect frame =  self.frame;
+    frame.origin.x = point.x - 44.0;
+    frame.origin.y = point.y - 44.0;
+    self.frame = frame;
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self.superview];
     
+    [UIView animateWithDuration:0.5
+                          delay:0.0
+         usingSpringWithDamping:0.7
+          initialSpringVelocity:15.0
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+            [self updatePosition:point];
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self.superview];
+    [UIView animateWithDuration:0.5
+                          delay:0.0
+         usingSpringWithDamping:0.7
+          initialSpringVelocity:15.0
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         [self updatePosition:point];
+                     } completion:^(BOOL finished) {
+                         
+                     }];
 }
 
 #pragma mark - functions
@@ -133,6 +160,31 @@
     self.imageView.animationRepeatCount = 1;
     [self.imageView startAnimating];
 }
+
+- (void)resetPosition {
+    [self updatePosition:CGPointMake([UIScreen mainScreen].bounds.size.width, 0)];
+}
+
+- (void)updatePosition:(CGPoint)point {
+    
+
+    
+    /* 悬浮点在右边 */
+    if (point.x > [UIScreen mainScreen].bounds.size.width / 2.0) {
+        CGRect frame =  self.frame;
+        frame.origin.x = [UIScreen mainScreen].bounds.size.width  - 44.0 - 20.0;
+        frame.origin.y = [UIScreen mainScreen].bounds.size.height  - 64.0 - 44.0 - 10.0;
+        self.frame = frame;
+    }
+    /* 悬浮点在左边 */
+    else {
+        CGRect frame =  self.frame;
+        frame.origin.x =  20.0;
+        frame.origin.y = [UIScreen mainScreen].bounds.size.height  - 64.0 - 44.0 - 10.0;
+        self.frame = frame;
+    }
+}
+
 #pragma mark - notification
 #pragma mark - getter and setter
 - (NSArray *)openPanelImageArray {

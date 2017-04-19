@@ -26,6 +26,9 @@
  */
 - (void)reloadData;
 
-
+/**
+ 重置位置
+ */
+- (void)resetPosition;
 
 @end

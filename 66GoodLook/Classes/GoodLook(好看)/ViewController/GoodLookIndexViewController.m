@@ -89,6 +89,7 @@
     
     /** 添加悬浮视图 */
     [self.view addSubview:self.floatView];
+    [self.floatView resetPosition];
    
 }
 
