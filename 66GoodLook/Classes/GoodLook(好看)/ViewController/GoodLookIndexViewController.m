@@ -9,10 +9,12 @@
 #import "GoodLookIndexViewController.h"
 #import "GoodLookBaseViewController.h"
 #import "GoodLookWellChosenViewController.h"
+#import "GoodLookFloatView.h"
 
 @interface GoodLookIndexViewController ()<GLViewPagerViewControllerDataSource,GLViewPagerViewControllerDelegate>
 @property (nonatomic,strong)NSArray *viewControllers;
 @property (nonatomic,strong)NSArray *tagTitles;
+@property (nonatomic,strong)GoodLookFloatView *floatView;
 @end
 
 @implementation GoodLookIndexViewController
@@ -20,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    
     // Do any additional setup after loading the view.
     self.dataSource = self;
     self.delegate = self;
@@ -83,6 +86,10 @@
                        @"tab5",
                        @"tab6"
                        ];
+    
+    /** 添加悬浮视图 */
+    [self.view addSubview:self.floatView];
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -161,4 +168,13 @@ contentViewControllerForTabAtIndex:(NSUInteger)index {
     return prototypeLabel.intrinsicContentSize.width;
 }
 
+#pragma mark - getter and setter 
+- (GoodLookFloatView *)floatView {
+    if (!_floatView) {
+        _floatView = [[GoodLookFloatView alloc]init];
+        _floatView.frame = CGRectMake(0, 64.0 + self.tabHeight, 44, 44);
+        _floatView.backgroundColor = [UIColor clearColor];
+    }
+    return _floatView;
+}
 @end

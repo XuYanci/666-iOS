@@ -8,15 +8,22 @@
 
 #import "GoodLookBaseViewController.h"
 
-@interface GoodLookBaseViewController ()
 
+@interface GoodLookBaseViewController ()
+ 
 @end
 
 @implementation GoodLookBaseViewController
 
+
+#pragma mark - life cycle
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+ 
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +40,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - datasource
+#pragma mark - delegate
+#pragma mark - user events
+#pragma mark - functions
+#pragma mark - notification
+#pragma mark - getter and setter
 
 @end
