@@ -15,12 +15,9 @@
 
 @implementation GoodLookFloatView {
     BOOL _needsReload;
-    
     struct {
     }_datasourceHas;
-    
     struct {
-    
     }_delegateHas;
 }
 

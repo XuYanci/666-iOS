@@ -20,4 +20,9 @@
 @interface GoodLookFloatView : UIView
 @property (nonatomic,weak)id <GoodLookFloatViewDataSource>dataSource;
 @property (nonatomic,weak)id <GoodLookFloatViewDelegate>delegate;
+
+/**
+ 重载数据
+ */
+- (void)reloadData;
 @end
