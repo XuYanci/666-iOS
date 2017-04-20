@@ -20,6 +20,7 @@
  @coclass    None
  @helps It helps no other classes.
  @helper    No helper exists for this class.
- */@interface GLChatInputToolBar : GLChatInputBaseView
+ */
+@interface GLChatInputToolBar : GLChatInputBaseView
 
 @end
