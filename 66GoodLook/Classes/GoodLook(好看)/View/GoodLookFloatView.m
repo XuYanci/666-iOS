@@ -49,7 +49,23 @@
 
 #pragma mark - user events
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-    return YES;
+    
+    if (CGRectContainsPoint(self.videoBtn.frame, point)) {
+        return YES;
+    }
+    
+    if (CGRectContainsPoint(self.picBtn.frame, point)) {
+        return YES;
+    }
+    
+    if (CGRectContainsPoint(self.penBtn.frame, point)) {
+        return YES;
+    }
+    
+    if (CGRectContainsPoint(self.imageView.frame, point)) {
+        return YES;
+    }
+    return NO;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
