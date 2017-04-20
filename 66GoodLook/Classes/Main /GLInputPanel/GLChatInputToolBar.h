@@ -8,6 +8,13 @@
 
 #import "GLChatInputBaseView.h"
 
+@protocol GLChatInputToolBarDataSource <NSObject>
+@end
+
+@protocol GLChatInputToolBarDelegate <NSObject>
+@end
+
+
 /*!
  @class GLChatInputToolBar
  
@@ -22,5 +29,4 @@
  @helper    No helper exists for this class.
  */
 @interface GLChatInputToolBar : GLChatInputBaseView
-
 @end

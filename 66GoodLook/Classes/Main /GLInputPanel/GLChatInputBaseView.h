@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol GLChatInputBaseViewDataSource <NSObject>
+@end
+
+@protocol GLChatInputBaseViewDelegate <NSObject>
+@end
+
 /*!
  @class GLChatInputBaseView
  

@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol GLPickPictureCollectionViewDataSource <NSObject>
+@end
+
+@protocol GLPickPictureCollectionViewDelegate <NSObject>
+@end
 
 /*!
  @class GLPickPictureCollectionView

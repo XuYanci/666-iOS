@@ -8,6 +8,13 @@
 
 #import "GLChatInputBaseView.h"
 
+@protocol GLChatInputPanelDataSource <NSObject>
+@end
+
+@protocol GLChatInputPanelDelegate <NSObject>
+
+@end
+
 /*!
  @class GLChatInputPanel
  

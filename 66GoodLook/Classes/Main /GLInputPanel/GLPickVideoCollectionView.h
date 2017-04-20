@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol GLPickVideoCollectionViewDataSource <NSObject>
+@end
+
+@protocol GLPickVideoCollectionViewDelegate <NSObject>
+@end
 
 /*!
  @class GLPickVideoCollectionView

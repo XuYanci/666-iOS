@@ -44,6 +44,7 @@
 }
 
 #pragma mark - datasource
+
 #pragma mark - delegate
 
 
@@ -65,6 +66,7 @@
     if (CGRectContainsPoint(self.imageView.frame, point)) {
         return YES;
     }
+    
     return NO;
 }
 

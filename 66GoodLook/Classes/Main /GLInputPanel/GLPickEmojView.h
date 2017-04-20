@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol GLPickEmojViewDataSource <NSObject>
+@end
+
+@protocol GLPickEmojViewDelegate <NSObject>
+@end
+
 /*!
  @class GLPickEmojView
  
