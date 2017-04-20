@@ -8,10 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    GLEditComment,
+    GLEditUploadPic,
+    GLEditUploadVideo,
+} GLEditType;
+
 @protocol GoodLookFloatViewDataSource <NSObject>
 @end
 
 @protocol GoodLookFloatViewDelegate <NSObject>
+
+/**
+ 悬浮点击编辑类型
+ 
+ @param sender 悬浮视图
+ @param editType 编辑类型 (评论,上传图片,上传视频)
+ */
+- (void)floatView:(id)sender didPickEdit:(GLEditType)editType;
 @end
 
 /**

@@ -12,6 +12,9 @@
 @property (nonatomic,strong)NSArray *openPanelImageArray;
 @property (nonatomic,strong)NSArray *closePanelImageArray;
 @property (nonatomic,strong)UIImageView *imageView;
+@property (nonatomic,strong)UIButton *penBtn;
+@property (nonatomic,strong)UIButton *picBtn;
+@property (nonatomic,strong)UIButton *videoBtn;
 @end
 
 
@@ -45,6 +48,7 @@
 #pragma mark - user events
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -55,11 +59,20 @@
     frame.origin.x = point.x - 44.0;
     frame.origin.y = point.y - 44.0;
     self.frame = frame;
+    
+
+    /** 重置控制面板*/
+    if (_panelOpen == YES) {
+        _panelOpen = NO;
+        [self closeEditPanel];
+    }
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:self.superview];
+    
+
     
     [UIView animateWithDuration:0.5
                           delay:0.0
@@ -76,6 +89,10 @@
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:self.superview];
+    
+ 
+
+    
     [UIView animateWithDuration:0.5
                           delay:0.0
          usingSpringWithDamping:0.7
@@ -148,6 +165,23 @@
     self.imageView.animationDuration = 1.0;
     self.imageView.animationRepeatCount = 1;
     [self.imageView startAnimating];
+    
+   
+    [self insertSubview:self.videoBtn belowSubview:self.imageView];
+    [self insertSubview:self.picBtn belowSubview:self.imageView];
+    [self insertSubview:self.penBtn belowSubview:self.imageView];
+    
+    self.videoBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,  -M_PI);
+    self.picBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,  -M_PI);
+    self.penBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,  -M_PI);
+    [UIView animateWithDuration:0.5 animations:^{
+        self.videoBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,0);
+        self.picBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,0);
+        self.penBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,0);
+        [self.videoBtn layoutAbove:self.imageView margin:20.0];
+        [self.picBtn layoutAbove:self.videoBtn margin:20.0];
+        [self.penBtn layoutAbove:self.picBtn margin:20.0];
+    }];
 }
 
 /**
@@ -159,15 +193,34 @@
     self.imageView.animationDuration = 1.0;
     self.imageView.animationRepeatCount = 1;
     [self.imageView startAnimating];
+    
+    
+    self.videoBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,  0);
+    self.picBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,  0);
+    self.penBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,  0);
+    [UIView animateWithDuration:0.5 animations:^{
+        self.videoBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity, M_PI);
+        self.picBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity, M_PI);
+        self.penBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity, M_PI);
+        [self.videoBtn sameWith:self.imageView];
+        [self.picBtn sameWith:self.imageView];
+        [self.penBtn sameWith:self.imageView];
+        
+    } completion:^(BOOL finished) {
+        [self.videoBtn removeFromSuperview];
+        [self.picBtn removeFromSuperview];
+        [self.penBtn removeFromSuperview];
+    }];
+    
+
 }
 
 - (void)resetPosition {
+
     [self updatePosition:CGPointMake([UIScreen mainScreen].bounds.size.width, 0)];
 }
 
 - (void)updatePosition:(CGPoint)point {
-    
-
     
     /* 悬浮点在右边 */
     if (point.x > [UIScreen mainScreen].bounds.size.width / 2.0) {
@@ -183,6 +236,7 @@
         frame.origin.y = [UIScreen mainScreen].bounds.size.height  - 64.0 - 44.0 - 10.0;
         self.frame = frame;
     }
+    
 }
 
 #pragma mark - notification
@@ -240,6 +294,32 @@
     }
     return _imageView;
 }
+
+- (UIButton *)penBtn {
+    if (!_penBtn) {
+        _penBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44.0, 44.0)];
+        [_penBtn setImage:[UIImage imageNamed:@"text_icon"] forState:UIControlStateNormal];
+    }
+    return _penBtn;
+}
+
+- (UIButton *)picBtn {
+    if (!_picBtn) {
+        _picBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44.0, 44.0)];
+        [_picBtn setImage:[UIImage imageNamed:@"images_icon"] forState:UIControlStateNormal];
+    }
+    return _picBtn;
+}
+
+- (UIButton *)videoBtn {
+    if (!_videoBtn) {
+        _videoBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44.0, 44.0)];
+        [_videoBtn setImage:[UIImage imageNamed:@"video_icon"] forState:UIControlStateNormal];
+    }
+    return _videoBtn;
+}
+
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
