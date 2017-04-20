@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 typedef enum : NSUInteger {
-    GLEditComment,
-    GLEditUploadPic,
-    GLEditUploadVideo,
-} GLEditType;
+    GLEditText,         /** 文本 */
+    GLEditUploadPic,    /** 上传图片 */
+    GLEditUploadVideo,  /** 上传视频 */
+} GLEditType;           /** 编辑类型 */
 
 @protocol GoodLookFloatViewDataSource <NSObject>
 @end
@@ -30,6 +30,7 @@ typedef enum : NSUInteger {
 
 /**
  悬浮视图
+ 用于发表文字,视频,图片等
  */
 @interface GoodLookFloatView : UIView
 @property (nonatomic,weak)id <GoodLookFloatViewDataSource>dataSource;

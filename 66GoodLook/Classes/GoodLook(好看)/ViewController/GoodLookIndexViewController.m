@@ -63,13 +63,6 @@
                               girlSchoolViewController,
                               lolFriendDiscussViewController,
                               lolFillWaterViewController,
-                              [[UIViewController alloc]init],
-                              [[UIViewController alloc]init],
-                              [[UIViewController alloc]init],
-                              [[UIViewController alloc]init],
-                              [[UIViewController alloc]init],
-                              [[UIViewController alloc]init],
-                              
                               ];
     /** 设置标签标题 */
     self.tagTitles = @[
@@ -79,12 +72,6 @@
                        @"女子学院",
                        @"撸友讨论",
                        @"灌水区",
-                       @"tab1",
-                       @"tab2",
-                       @"tab3",
-                       @"tab4",
-                       @"tab5",
-                       @"tab6"
                        ];
     
     /** 添加悬浮视图 */

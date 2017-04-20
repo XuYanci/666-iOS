@@ -105,6 +105,24 @@
                      }];
 }
 
+- (void)clickVideo {
+    if (self.delegate!= nil && [self.delegate respondsToSelector:@selector(floatView:didPickEdit:)]) {
+        [self.delegate floatView:self didPickEdit:GLEditUploadVideo];
+    }
+}
+
+- (void)clickPen {
+    if (self.delegate!= nil && [self.delegate respondsToSelector:@selector(floatView:didPickEdit:)]) {
+        [self.delegate floatView:self didPickEdit:GLEditText];
+    }
+}
+
+- (void)clickPic {
+    if (self.delegate!= nil && [self.delegate respondsToSelector:@selector(floatView:didPickEdit:)]) {
+        [self.delegate floatView:self didPickEdit:GLEditUploadPic];
+    }
+}
+
 #pragma mark - functions
 
 - (void)commonInit {
@@ -160,9 +178,10 @@
  打开编辑面板
  */
 - (void)openEditPanel {
+    NSLog(@"open edit panel");
     [self.imageView setImage:[UIImage imageNamed:@"ft_icon_15"]];
     self.imageView.animationImages = self.openPanelImageArray;
-    self.imageView.animationDuration = 1.0;
+    self.imageView.animationDuration = 0.5;
     self.imageView.animationRepeatCount = 1;
     [self.imageView startAnimating];
     
@@ -171,26 +190,33 @@
     [self insertSubview:self.picBtn belowSubview:self.imageView];
     [self insertSubview:self.penBtn belowSubview:self.imageView];
     
-    self.videoBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,  -M_PI);
-    self.picBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,  -M_PI);
-    self.penBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,  -M_PI);
-    [UIView animateWithDuration:0.5 animations:^{
-        self.videoBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,0);
-        self.picBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,0);
-        self.penBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,0);
+    
+    
+    [UIView animateWithDuration:0.3 animations:^{
         [self.videoBtn layoutAbove:self.imageView margin:20.0];
         [self.picBtn layoutAbove:self.videoBtn margin:20.0];
         [self.penBtn layoutAbove:self.picBtn margin:20.0];
+    } completion:^(BOOL finished) {
+        self.videoBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,  -M_PI);
+        self.picBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,  -M_PI);
+        self.penBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,  -M_PI);
+        [UIView animateWithDuration:0.2 animations:^{
+            self.videoBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,0);
+            self.picBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,0);
+            self.penBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,0);
+        }];
     }];
+    
 }
 
 /**
  关闭编辑面板
  */
 - (void)closeEditPanel {
+    NSLog(@"close edit panel");
      [self.imageView setImage:[UIImage imageNamed:@"ft_icon_01"]];
     self.imageView.animationImages = self.closePanelImageArray;
-    self.imageView.animationDuration = 1.0;
+    self.imageView.animationDuration = 0.5;
     self.imageView.animationRepeatCount = 1;
     [self.imageView startAnimating];
     
@@ -198,20 +224,30 @@
     self.videoBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,  0);
     self.picBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,  0);
     self.penBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,  0);
-    [UIView animateWithDuration:0.5 animations:^{
+    
+    [UIView animateWithDuration:0.2 animations:^{
         self.videoBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity, M_PI);
         self.picBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity, M_PI);
         self.penBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity, M_PI);
-        [self.videoBtn sameWith:self.imageView];
-        [self.picBtn sameWith:self.imageView];
-        [self.penBtn sameWith:self.imageView];
-        
     } completion:^(BOOL finished) {
-        [self.videoBtn removeFromSuperview];
-        [self.picBtn removeFromSuperview];
-        [self.penBtn removeFromSuperview];
+        [UIView animateWithDuration:0.3 animations:^{
+            if (self.videoBtn.superview) {
+                [self.videoBtn sameWith:self.imageView];
+            }
+            if (self.picBtn.superview) {
+                [self.picBtn sameWith:self.imageView];
+            }
+            if (self.penBtn.superview) {
+                [self.penBtn sameWith:self.imageView];
+            }
+        } completion:^(BOOL finished) {
+            [self.videoBtn removeFromSuperview];
+            [self.picBtn removeFromSuperview];
+            [self.penBtn removeFromSuperview];
+        }];
     }];
     
+  
 
 }
 
@@ -299,6 +335,7 @@
     if (!_penBtn) {
         _penBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44.0, 44.0)];
         [_penBtn setImage:[UIImage imageNamed:@"text_icon"] forState:UIControlStateNormal];
+        [_penBtn addTarget:self action:@selector(clickPen) forControlEvents:UIControlEventTouchUpInside];
     }
     return _penBtn;
 }
@@ -307,6 +344,7 @@
     if (!_picBtn) {
         _picBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44.0, 44.0)];
         [_picBtn setImage:[UIImage imageNamed:@"images_icon"] forState:UIControlStateNormal];
+        [_picBtn addTarget:self action:@selector(clickPic) forControlEvents:UIControlEventTouchUpInside];
     }
     return _picBtn;
 }
@@ -315,6 +353,7 @@
     if (!_videoBtn) {
         _videoBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44.0, 44.0)];
         [_videoBtn setImage:[UIImage imageNamed:@"video_icon"] forState:UIControlStateNormal];
+        [_videoBtn addTarget:self action:@selector(clickVideo) forControlEvents:UIControlEventTouchUpInside];
     }
     return _videoBtn;
 }
