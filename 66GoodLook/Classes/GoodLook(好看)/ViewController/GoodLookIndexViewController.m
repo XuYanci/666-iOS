@@ -159,7 +159,15 @@ contentViewControllerForTabAtIndex:(NSUInteger)index {
 
 #pragma mark - GoodLookFloatViewDelegate
 - (void)floatView:(id)sender didPickEdit:(GLEditType)editType {
-    
+    if (editType == GLEditText) {
+        
+    }
+    else if(editType == GLEditUploadPic) {
+        
+    }
+    else if(editType == GLEditUploadVideo) {
+        
+    }
 }
 #pragma mark - getter and setter 
 - (GoodLookFloatView *)floatView {

@@ -19,6 +19,9 @@
 		AD31FBA11E9B178900523AC9 /* DesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31FB981E9B178900523AC9 /* DesHelper.m */; };
 		AD31FBA21E9B178900523AC9 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31FB9B1E9B178900523AC9 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AD31FBA31E9B178900523AC9 /* MD5Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31FB9F1E9B178900523AC9 /* MD5Encrypt.m */; };
+		AD4215461EA8DA28002FBC26 /* GLChatInputBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4215411EA8DA28002FBC26 /* GLChatInputBaseView.m */; };
+		AD4215471EA8DA28002FBC26 /* GLChatInputPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4215431EA8DA28002FBC26 /* GLChatInputPanel.m */; };
+		AD4215481EA8DA28002FBC26 /* GLChatInputToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4215451EA8DA28002FBC26 /* GLChatInputToolBar.m */; };
 		AD44DC1F1E9B208B003C1576 /* MXRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC1E1E9B208B003C1576 /* MXRequest.m */; };
 		AD44DC221E9B20ED003C1576 /* MXRequest+UserAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC211E9B20ED003C1576 /* MXRequest+UserAccount.m */; };
 		AD44DC481E9B2453003C1576 /* XYAppAutoSizeScale.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC241E9B2453003C1576 /* XYAppAutoSizeScale.m */; };
@@ -115,6 +118,12 @@
 		AD31FB9C1E9B178900523AC9 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		AD31FB9E1E9B178900523AC9 /* MD5Encrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Encrypt.h; sourceTree = "<group>"; };
 		AD31FB9F1E9B178900523AC9 /* MD5Encrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Encrypt.m; sourceTree = "<group>"; };
+		AD4215401EA8DA28002FBC26 /* GLChatInputBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLChatInputBaseView.h; sourceTree = "<group>"; };
+		AD4215411EA8DA28002FBC26 /* GLChatInputBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLChatInputBaseView.m; sourceTree = "<group>"; };
+		AD4215421EA8DA28002FBC26 /* GLChatInputPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLChatInputPanel.h; sourceTree = "<group>"; };
+		AD4215431EA8DA28002FBC26 /* GLChatInputPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLChatInputPanel.m; sourceTree = "<group>"; };
+		AD4215441EA8DA28002FBC26 /* GLChatInputToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLChatInputToolBar.h; sourceTree = "<group>"; };
+		AD4215451EA8DA28002FBC26 /* GLChatInputToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLChatInputToolBar.m; sourceTree = "<group>"; };
 		AD44DC1D1E9B208B003C1576 /* MXRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXRequest.h; sourceTree = "<group>"; };
 		AD44DC1E1E9B208B003C1576 /* MXRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXRequest.m; sourceTree = "<group>"; };
 		AD44DC201E9B20ED003C1576 /* MXRequest+UserAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MXRequest+UserAccount.h"; sourceTree = "<group>"; };
@@ -341,6 +350,19 @@
 				AD31FB9F1E9B178900523AC9 /* MD5Encrypt.m */,
 			);
 			path = MD5;
+			sourceTree = "<group>";
+		};
+		AD42153F1EA8DA28002FBC26 /* GLInputPanel */ = {
+			isa = PBXGroup;
+			children = (
+				AD4215401EA8DA28002FBC26 /* GLChatInputBaseView.h */,
+				AD4215411EA8DA28002FBC26 /* GLChatInputBaseView.m */,
+				AD4215421EA8DA28002FBC26 /* GLChatInputPanel.h */,
+				AD4215431EA8DA28002FBC26 /* GLChatInputPanel.m */,
+				AD4215441EA8DA28002FBC26 /* GLChatInputToolBar.h */,
+				AD4215451EA8DA28002FBC26 /* GLChatInputToolBar.m */,
+			);
+			path = GLInputPanel;
 			sourceTree = "<group>";
 		};
 		AD44DC251E9B2453003C1576 /* DYLYThemeKit */ = {
@@ -588,6 +610,7 @@
 		ADA17AAC1E9C469B00FA0FF9 /* Main  */ = {
 			isa = PBXGroup;
 			children = (
+				AD42153F1EA8DA28002FBC26 /* GLInputPanel */,
 				ADA17AAD1E9C469B00FA0FF9 /* GLMainTabBarViewController.h */,
 				ADA17AAE1E9C469B00FA0FF9 /* GLMainTabBarViewController.m */,
 				ADA17AB41E9C579E00FA0FF9 /* GLViewPagerViewController.h */,
@@ -1046,6 +1069,7 @@
 				AD44DC4B1E9B2453003C1576 /* DKDeallocBlockExecutor.m in Sources */,
 				AD31FADD1E9B16B400523AC9 /* MXNetworkConnection+BaseUrl.m in Sources */,
 				ADDDB9A01E7780F8003526DF /* ViewController.m in Sources */,
+				AD4215471EA8DA28002FBC26 /* GLChatInputPanel.m in Sources */,
 				AD44DC721E9B6FC7003C1576 /* NSString+OAURLEncodingAdditions.m in Sources */,
 				AD44DC571E9B2453003C1576 /* UIView+DYLYTheme.m in Sources */,
 				ADA17ABC1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m in Sources */,
@@ -1057,6 +1081,7 @@
 				AD44DC741E9B6FC7003C1576 /* UIFont+Replacement.m in Sources */,
 				ADDDB99A1E7780F8003526DF /* main.m in Sources */,
 				AD44DC551E9B2453003C1576 /* UILabel+DYLYTheme.m in Sources */,
+				AD4215481EA8DA28002FBC26 /* GLChatInputToolBar.m in Sources */,
 				AD44DC6E1E9B6FC7003C1576 /* NSArray+SafeAccess.m in Sources */,
 				AD44DC4C1E9B2453003C1576 /* NSObject+DeallocBlock.m in Sources */,
 				AD44DC561E9B2453003C1576 /* UINavigationBar+DYLYTheme.m in Sources */,
@@ -1082,6 +1107,7 @@
 				AD44DC4E1E9B2453003C1576 /* DYLYImage.m in Sources */,
 				AD44DC761E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m in Sources */,
 				AD31FBA01E9B178900523AC9 /* AESHelper.m in Sources */,
+				AD4215461EA8DA28002FBC26 /* GLChatInputBaseView.m in Sources */,
 				AD44DC531E9B2453003C1576 /* UIButton+DYLYTheme.m in Sources */,
 				AD31FAD91E9B16B400523AC9 /* MXBaseRequest.m in Sources */,
 				AD44DC711E9B6FC7003C1576 /* NSString+JSONCategories.m in Sources */,
