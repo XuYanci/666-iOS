@@ -8,7 +8,7 @@
 
 #import "GoodLookFloatView.h"
 
-@interface GoodLookFloatView()
+@interface GoodLookFloatView()<UIGestureRecognizerDelegate>
 @property (nonatomic,strong)NSArray *openPanelImageArray;
 @property (nonatomic,strong)NSArray *closePanelImageArray;
 @property (nonatomic,strong)UIImageView *imageView;
@@ -45,7 +45,12 @@
 
 #pragma mark - datasource
 #pragma mark - delegate
+
+
 #pragma mark - user events
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    return YES;
+}
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
 
@@ -128,6 +133,8 @@
 - (void)commonInit {
     UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc]initWithTarget:self
                                                                            action:@selector(controlPanel)];
+    tapGR.delegate = self;
+    
     [self addGestureRecognizer:tapGR];
     [self addSubview:self.imageView];
     [self.imageView setImage:[UIImage imageNamed:@"ft_icon_01"]];
@@ -191,7 +198,6 @@
     [self insertSubview:self.penBtn belowSubview:self.imageView];
     
     
-    
     [UIView animateWithDuration:0.3 animations:^{
         [self.videoBtn layoutAbove:self.imageView margin:20.0];
         [self.picBtn layoutAbove:self.videoBtn margin:20.0];
@@ -219,7 +225,6 @@
     self.imageView.animationDuration = 0.5;
     self.imageView.animationRepeatCount = 1;
     [self.imageView startAnimating];
-    
     
     self.videoBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,  0);
     self.picBtn.transform = CGAffineTransformRotate(CGAffineTransformIdentity,  0);

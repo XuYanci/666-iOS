@@ -11,7 +11,7 @@
 #import "GoodLookWellChosenViewController.h"
 #import "GoodLookFloatView.h"
 
-@interface GoodLookIndexViewController ()<GLViewPagerViewControllerDataSource,GLViewPagerViewControllerDelegate>
+@interface GoodLookIndexViewController ()<GLViewPagerViewControllerDataSource,GLViewPagerViewControllerDelegate,GoodLookFloatViewDelegate>
 @property (nonatomic,strong)NSArray *viewControllers;
 @property (nonatomic,strong)NSArray *tagTitles;
 @property (nonatomic,strong)GoodLookFloatView *floatView;
@@ -156,12 +156,18 @@ contentViewControllerForTabAtIndex:(NSUInteger)index {
     return prototypeLabel.intrinsicContentSize.width;
 }
 
+
+#pragma mark - GoodLookFloatViewDelegate
+- (void)floatView:(id)sender didPickEdit:(GLEditType)editType {
+    
+}
 #pragma mark - getter and setter 
 - (GoodLookFloatView *)floatView {
     if (!_floatView) {
         _floatView = [[GoodLookFloatView alloc]init];
         _floatView.frame = CGRectMake(0, 64.0 + self.tabHeight, 44, 44);
         _floatView.backgroundColor = [UIColor clearColor];
+        _floatView.delegate = self;
     }
     return _floatView;
 }
