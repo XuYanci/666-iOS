@@ -5,4 +5,3 @@
 
 ![Mou](./readme~resource/present.gif)
 
-# End 66GoodLook
