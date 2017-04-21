@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GLChatInputAbleView.h"
 
 @protocol GLChatInputBaseViewDataSource <NSObject>
 @end
@@ -28,5 +29,5 @@
  @helper    No helper exists for this class.
  */
 @interface GLChatInputBaseView : UIView
-
+@property (nonatomic,weak)id<GLChatInputAbleViewDelegate> chatDelegate;
 @end
