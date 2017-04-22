@@ -10,11 +10,13 @@
 #import "GoodLookBaseViewController.h"
 #import "GoodLookWellChosenViewController.h"
 #import "GoodLookFloatView.h"
+#import "GLChatInputPanel.h"
 
 @interface GoodLookIndexViewController ()<GLViewPagerViewControllerDataSource,GLViewPagerViewControllerDelegate,GoodLookFloatViewDelegate>
 @property (nonatomic,strong)NSArray *viewControllers;
 @property (nonatomic,strong)NSArray *tagTitles;
 @property (nonatomic,strong)GoodLookFloatView *floatView;
+
 @end
 
 @implementation GoodLookIndexViewController
@@ -160,7 +162,8 @@ contentViewControllerForTabAtIndex:(NSUInteger)index {
 #pragma mark - GoodLookFloatViewDelegate
 - (void)floatView:(id)sender didPickEdit:(GLEditType)editType {
     if (editType == GLEditText) {
-        
+        GLChatInputPanel *inputPanel = [[GLChatInputPanel alloc]init];
+        [inputPanel show];
     }
     else if(editType == GLEditUploadPic) {
         

@@ -8,6 +8,13 @@
 
 #import "GLChatInputBaseView.h"
 
+typedef enum : NSUInteger {
+    GLChatInputToolBarType_Default,
+    GLChatInputToolBarType_Pic = GLChatInputToolBarType_Default,
+    GLChatInputToolBarType_Video,
+} GLChatInputToolBarType;
+
+
 @protocol GLChatInputToolBarDataSource <NSObject>
 @end
 
@@ -29,4 +36,27 @@
  @helper    No helper exists for this class.
  */
 @interface GLChatInputToolBar : GLChatInputBaseView
+@property (nonatomic,weak) id<GLChatInputBaseViewDataSource>dataSource;
+@property (nonatomic,weak) id<GLChatInputBaseViewDelegate>delegate;
+
+/**
+ 重载数据
+ */
+- (void)reloadData;
+
+
+/**
+ 初始化
+
+ @param barType 输入类型
+ @return 控件
+ */
+- (id)initWithBarType:(GLChatInputToolBarType)barType;
+
+/**
+ 设置输入类型
+
+ @param barType 输入类型
+ */
+- (void)setBarType:(GLChatInputToolBarType)barType;
 @end

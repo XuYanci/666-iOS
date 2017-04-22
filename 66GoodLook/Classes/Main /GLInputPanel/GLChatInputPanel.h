@@ -8,6 +8,12 @@
 
 #import "GLChatInputBaseView.h"
 
+typedef enum : NSUInteger {
+    GLChatInputPanelType_Text,
+    GLChatInputPanelType_Image,
+    GLChatInputPanelType_Video,
+} GLChatInputPanelType;
+
 @protocol GLChatInputPanelDataSource <NSObject>
 @end
 
@@ -29,7 +35,25 @@
  @helper    No helper exists for this class.
  */
 @interface GLChatInputPanel : GLChatInputBaseView
+@property (nonatomic,weak) id <GLChatInputPanelDataSource> dataSource;
+@property (nonatomic,weak) id <GLChatInputPanelDelegate> delegate;
+/**
+ 重载数据
+ */
+- (void)reloadData;
 
+- (id)initWithPanelType:(GLChatInputPanelType)panelType;
+
+/**
+ 显示输入面板
+ */
+- (void)show;
+
+/**
+ 隐藏输入面板
+ */
+- (void)dismiss;
 @end
+
 
 
