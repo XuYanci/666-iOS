@@ -83,10 +83,20 @@
 
 - (void)show {
     [[UIApplication sharedApplication].keyWindow addSubview:self];
+    self.maskView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.maskView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
+    }];
 }
 
 - (void)dismiss {
-    [self removeFromSuperview];
+    [self.toolbar endEditing:YES];
+    self.maskView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.maskView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+    }];
 }
 
 - (void)commonInit {
