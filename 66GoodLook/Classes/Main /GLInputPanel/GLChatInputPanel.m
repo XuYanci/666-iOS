@@ -29,6 +29,7 @@
 @property (nonatomic,strong) UIView *maskView;
 /** 面板类型 */
 @property (nonatomic,assign) GLChatInputPanelType panelType;
+
 @end
 
 @implementation GLChatInputPanel {
@@ -37,6 +38,7 @@
     }_datasourceHas;    /*! 数据源存在标识 */
     struct {
     }_delegateHas;      /*! 数据委托存在标识 */
+    
 }
 
 /*
@@ -122,9 +124,15 @@
     
     
     [self.toolbar sizeWith:CGSizeMake([UIScreen mainScreen].bounds.size.width, 44.0)];
-    [self.toolbar alignParentBottom];
+    [self.toolbar alignParentBottomWithMargin:-44.0];
     [self.toolbar alignParentRight];
     [self.toolbar alignParentLeft];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardDidShow:) name:UIKeyboardDidChangeFrameNotification object:nil];
+
 }
 
 - (void)setDataSource:(id<GLChatInputPanelDataSource>)dataSource {}
@@ -145,6 +153,47 @@
     [super setFrame:frame];
 }
 #pragma mark - notification
+- (void)onKeyboardDidShow:(NSNotification *)notification
+{
+    if ([self.toolbar isEditing]) {
+        NSDictionary *userInfo = notification.userInfo;
+        CGRect endFrame = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        CGFloat duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+        
+        NSInteger contentHeight = endFrame.size.height + [self.toolbar contentHeight];
+        
+        if (_contentHeight != contentHeight)
+        {
+            CGRect rect = self.toolbar.frame;
+            rect.origin.y = endFrame.origin.y - [self.toolbar contentHeight];
+            
+            [UIView animateWithDuration:duration animations:^{
+                self.toolbar.frame = rect;
+                self.contentHeight = contentHeight;
+            }];
+        }
+    }
+
+}
+
+- (void)onKeyboardWillHide:(NSNotification *)notification {
+    NSDictionary* userInfo = [notification userInfo];
+    CGFloat duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    NSInteger contentHeight = [self.toolbar contentHeight] + [self.panel contentHeight];
+    
+    if (_contentHeight != contentHeight)
+    {
+        CGRect rect = self.toolbar.frame;
+        rect.origin.y = [UIScreen mainScreen].bounds.size.height;
+        
+        [UIView animateWithDuration:duration animations:^{
+            self.toolbar.frame = rect;
+            self.contentHeight = contentHeight;
+        }];
+    }
+}
+
 #pragma mark - getter and setter
 - (GLChatInputToolBar *)toolbar {
     if (!_toolbar) {

@@ -28,6 +28,9 @@
  @helps It helps no other classes.
  @helper    No helper exists for this class.
  */
-@interface GLChatInputBaseView : UIView
+@interface GLChatInputBaseView : UIView <GLChatInputAbleView> {
+    CGFloat   _contentHeight;
+}
 @property (nonatomic,weak)id<GLChatInputAbleViewDelegate> chatDelegate;
+@property (nonatomic,assign) CGFloat contentHeight;
 @end

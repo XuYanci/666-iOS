@@ -59,4 +59,13 @@ typedef enum : NSUInteger {
  @param barType 输入类型
  */
 - (void)setBarType:(GLChatInputToolBarType)barType;
+
+
+/**
+ 是否编辑状态
+
+ @return 是否编辑状态
+ */
+- (BOOL)isEditing;
+
 @end

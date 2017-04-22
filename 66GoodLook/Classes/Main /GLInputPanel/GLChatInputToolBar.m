@@ -79,9 +79,6 @@ typedef enum : NSUInteger {
 
 #pragma mark - functions
 
-- (void)setBarType:(GLChatInputToolBarType)barType {
-    _barType = barType;
-}
 
 - (void)commonInit {
     [self addSubview:self.picBtn];
@@ -137,7 +134,21 @@ typedef enum : NSUInteger {
         make.centerY.mas_equalTo(self.mas_centerY);
         make.height.offset(35.0);
     }];
+    
+    [self.inputTextField becomeFirstResponder];
 
+}
+
+- (void)setBarType:(GLChatInputToolBarType)barType {
+    _barType = barType;
+}
+
+- (BOOL)isEditing {
+    return [self.inputTextField isFirstResponder];
+}
+
+- (CGFloat)contentHeight {
+    return 44.0;
 }
 
 - (void)setEmojBtn {

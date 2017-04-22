@@ -18,7 +18,7 @@
 
 @required
 @property (nonatomic,weak) id<GLChatInputAbleViewDelegate> chatDelegate;
-
+@property (nonatomic,assign) CGFloat contentHeight;
 @end
 
 /**
