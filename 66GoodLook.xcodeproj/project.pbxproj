@@ -54,6 +54,7 @@
 		AD44DC761E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC6D1E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m */; };
 		AD44DC7B1E9B7489003C1576 /* UIView+CustomAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC7A1E9B7489003C1576 /* UIView+CustomAutoLayout.m */; };
 		AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70AF0D1E991E800003F3C8 /* AppDelegate.m */; };
+		AD9694151EAAF217008D9170 /* GitMarkDown参考.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD9694141EAAF217008D9170 /* GitMarkDown参考.txt */; };
 		ADA17AAF1E9C469B00FA0FF9 /* GLMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AAE1E9C469B00FA0FF9 /* GLMainTabBarViewController.m */; };
 		ADA17AB61E9C579E00FA0FF9 /* GLViewPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AB51E9C579E00FA0FF9 /* GLViewPagerViewController.m */; };
 		ADA17AB91E9C581500FA0FF9 /* GoodLookBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AB81E9C581500FA0FF9 /* GoodLookBaseViewController.m */; };
@@ -194,6 +195,7 @@
 		AD70AF0C1E991E800003F3C8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AD70AF0D1E991E800003F3C8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AD9694131EAA47AF008D9170 /* GLChatInputAbleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLChatInputAbleView.h; sourceTree = "<group>"; };
+		AD9694141EAAF217008D9170 /* GitMarkDown参考.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "GitMarkDown参考.txt"; sourceTree = "<group>"; };
 		ADA17AAD1E9C469B00FA0FF9 /* GLMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMainTabBarViewController.h; sourceTree = "<group>"; };
 		ADA17AAE1E9C469B00FA0FF9 /* GLMainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMainTabBarViewController.m; sourceTree = "<group>"; };
 		ADA17AB41E9C579E00FA0FF9 /* GLViewPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLViewPagerViewController.h; sourceTree = "<group>"; };
@@ -650,6 +652,7 @@
 		ADA17ABD1E9C586700FA0FF9 /* Docs */ = {
 			isa = PBXGroup;
 			children = (
+				AD9694141EAAF217008D9170 /* GitMarkDown参考.txt */,
 				ADB0D7CE1EA4FDF0003C4901 /* 设计原则.txt */,
 				ADA17ABE1E9C586700FA0FF9 /* VC结构注释参考.txt */,
 				ADA17ABF1E9C586700FA0FF9 /* 注释参考.txt */,
@@ -960,6 +963,7 @@
 				AD44DC521E9B2453003C1576 /* DYLYTheme.plist in Resources */,
 				ADDDB9A81E7780F8003526DF /* LaunchScreen.storyboard in Resources */,
 				ADDDB9A51E7780F8003526DF /* Assets.xcassets in Resources */,
+				AD9694151EAAF217008D9170 /* GitMarkDown参考.txt in Resources */,
 				AD44DC511E9B2453003C1576 /* README.txt in Resources */,
 				ADA17AC31E9C586700FA0FF9 /* 项目结构.txt in Resources */,
 				ADDDB9A31E7780F8003526DF /* Main.storyboard in Resources */,
