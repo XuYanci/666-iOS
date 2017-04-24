@@ -10,7 +10,6 @@
 
 @protocol GLChatInputAbleViewDelegate;
 
-
 /**
  Able接口
  */

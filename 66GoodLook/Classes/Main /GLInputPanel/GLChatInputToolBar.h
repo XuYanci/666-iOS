@@ -72,5 +72,6 @@ typedef enum : NSUInteger {
  */
 - (BOOL)isEditing;
 - (void)beginEditing;
-
+- (void)beginOpenPhoto;
+- (void)beginOpenVideo;
 @end

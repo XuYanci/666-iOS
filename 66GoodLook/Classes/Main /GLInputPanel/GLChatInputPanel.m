@@ -126,7 +126,28 @@
         }
     }
     else if(toolBarType == GLChatInputToolBarType_Video) {
+        needProcessingKeyBoardNotif = NO;
         
+        [self.toolbar endEditing:YES];
+        
+        [self addSubview:self.pickVideoCollectionView];
+        [self.pickVideoCollectionView sizeWith:CGSizeMake([UIScreen mainScreen].bounds.size.width, 200)];
+        [self.pickVideoCollectionView alignParentBottom];
+        
+        
+        NSInteger contentHeight = self.pickVideoCollectionView.frame.size.height + [self.toolbar contentHeight];
+        if (_contentHeight != contentHeight)
+        {
+            CGRect rect = self.toolbar.frame;
+            rect.origin.y = self.pickVideoCollectionView.frame.origin.y - [self.toolbar contentHeight];
+            
+            [UIView animateWithDuration:0.5 animations:^{
+                self.toolbar.frame = rect;
+                self.contentHeight = contentHeight;
+                needProcessingKeyBoardNotif = YES;
+            }];
+        }
+
     }
 }
 
@@ -137,17 +158,33 @@
 - (void)show {
     [[UIApplication sharedApplication].keyWindow addSubview:self];
     self.maskView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
-    [self.toolbar beginEditing];
+    
+    if (_panelType == GLChatInputPanelType_Text) {
+        [self.toolbar beginEditing];
+    }
+    else if(_panelType == GLChatInputPanelType_Video) {
+        [self.toolbar beginOpenVideo];
+    }
+    else if(_panelType == GLChatInputPanelType_Image) {
+        [self.toolbar beginOpenPhoto];
+    }
     [UIView animateWithDuration:0.5 animations:^{
         self.maskView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
     }];
 }
 
 - (void)dismiss {
+    [self.pickPictureCollectionView removeFromSuperview];
+    [self.pickVideoCollectionView removeFromSuperview];
     [self.toolbar endEditing:YES];
+    _contentHeight = 0;
     self.maskView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
     [UIView animateWithDuration:0.5 animations:^{
         self.maskView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
+        CGRect frame = self.toolbar.frame;
+        frame.origin.y = [UIScreen mainScreen].bounds.size.height;
+        self.toolbar.frame = frame;
+    
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];

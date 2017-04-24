@@ -85,22 +85,10 @@ typedef enum : NSUInteger {
             [_inputTextField becomeFirstResponder];
         }
         else if(_barType == GLChatInputToolBarType_Pic) {
-            if (_inputTextField.inputView == nil) {
-                _barType = GLChatInputToolBarType_Default;
-            }
-            else {
-                _barType = GLChatInputToolBarType_Emoj;
-            }
-            [_inputTextField becomeFirstResponder];
+            [self beginEditing];
         }
         else if(_barType == GLChatInputToolBarType_Video) {
-            if (_inputTextField.inputView == nil) {
-                _barType = GLChatInputToolBarType_Default;
-            }
-            else {
-                _barType = GLChatInputToolBarType_Emoj;
-            }
-            [_inputTextField becomeFirstResponder];
+            [self beginEditing];
         }
     }
 }
@@ -149,9 +137,33 @@ typedef enum : NSUInteger {
 - (void)showVideoPanel:(id)sender {
      NSLog(@"%s",__func__);
     if (_delegateHas.didSelectToolBarType) {
-        _barType = GLChatInputToolBarType_Video;
-        [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Video];
+        if (_barType == GLChatInputToolBarType_Default
+            || _barType == GLChatInputToolBarType_Emoj) {
+            _barType = GLChatInputToolBarType_Pic;
+            [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Video];
+            [self setLeftVideoToKeyBoard];
+        }
+        else if(_barType == GLChatInputToolBarType_Video) {
+            [self beginEditing];
+            
+            if (_inputTextField.inputView == nil) {
+                if (_delegateHas.didSelectToolBarType) {
+                    _barType = GLChatInputToolBarType_Default;
+                    [_delegate glChatInputToolBar:self
+                             didSelectToolBarType:GLChatInputToolBarType_Default];
+                }
+            }
+            else if(_inputTextField.inputView == self.pickEmojView) {
+                if (_delegateHas.didSelectToolBarType) {
+                    _barType = GLChatInputToolBarType_Emoj;
+                    [_delegate glChatInputToolBar:self
+                             didSelectToolBarType:GLChatInputToolBarType_Emoj];
+                }
+            }
+            
+        }
     }
+
 }
 
 - (void)showPicPanel:(id)sender {
@@ -162,6 +174,7 @@ typedef enum : NSUInteger {
             || _barType == GLChatInputToolBarType_Emoj) {
             _barType = GLChatInputToolBarType_Pic;
             [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Pic];
+            [self setLeftPicToKeyBoard];
         }
         else if(_barType == GLChatInputToolBarType_Pic) {
             [self beginEditing];
@@ -246,6 +259,18 @@ typedef enum : NSUInteger {
     if (_barType == GLChatInputToolBarType_Default) {
         [self.inputTextField becomeFirstResponder];
     }
+    else if(_barType == GLChatInputToolBarType_Video) {
+        _barType = GLChatInputToolBarType_Video;
+        [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Video];
+        [self setLeftPicToKeyBoard];
+        [self.inputTextField resignFirstResponder];
+    }
+    else if(_barType == GLChatInputToolBarType_Pic) {
+        _barType = GLChatInputToolBarType_Pic;
+        [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Pic];
+        [self setLeftPicToKeyBoard];
+        [self.inputTextField resignFirstResponder];
+    }
 }
 
 - (void)setBarType:(GLChatInputToolBarType)barType {
@@ -257,10 +282,30 @@ typedef enum : NSUInteger {
 }
 
 - (void)beginEditing {
+    if (_inputTextField.inputView == nil) {
+        _barType = GLChatInputToolBarType_Default;
+    }
+    else if(_inputTextField.inputView == self.pickEmojView){
+        _barType = GLChatInputToolBarType_Emoj;
+    }
+    [self setLeftKeyBoardToVideo];
+    [self setLeftKeyBoardToPic];
     [self.inputTextField becomeFirstResponder];
 }
 
+- (void)beginOpenPhoto {
+    _barType = GLChatInputToolBarType_Pic;
+    [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Pic];
+    [self setLeftPicToKeyBoard];
+    [self.inputTextField resignFirstResponder];
+}
 
+- (void)beginOpenVideo {
+    _barType = GLChatInputToolBarType_Video;
+    [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Video];
+    [self setLeftPicToKeyBoard];
+    [self.inputTextField resignFirstResponder];
+}
 
 - (CGFloat)contentHeight {
     return 44.0;
@@ -276,13 +321,30 @@ typedef enum : NSUInteger {
 }
 
 - (void)setKeyBoardBtn {
-     [self.emojBtn setImage:[UIImage imageNamed:@"shuru_jianpan_icon"]
+    [self.emojBtn setImage:[UIImage imageNamed:@"shuru_biaoqing_icon"]
                    forState:UIControlStateNormal];
     [self.emojBtn removeTarget:self action:@selector(showEmojPanel:)
               forControlEvents:UIControlEventTouchUpInside];
     [self.emojBtn addTarget:self action:@selector(showKeyboardPanel:)
            forControlEvents:UIControlEventTouchUpInside];
 }
+
+- (void)setLeftPicToKeyBoard {
+    [self.picBtn setImage:[UIImage imageNamed:@"shuru_jianpan_icon"] forState:UIControlStateNormal];
+}
+
+- (void)setLeftVideoToKeyBoard {
+    [self.videoBtn setImage:[UIImage imageNamed:@"shuru_jianpan_icon"] forState:UIControlStateNormal];
+}
+
+- (void)setLeftKeyBoardToPic {
+    [self.picBtn setImage:[UIImage imageNamed:@"shuru_images_icon"] forState:UIControlStateNormal];
+}
+
+- (void)setLeftKeyBoardToVideo {
+    [self.videoBtn setImage:[UIImage imageNamed:@"shuru_shipin_icon"] forState:UIControlStateNormal];
+}
+
 
 - (void)setDataSource:(id<GLChatInputToolBarDataSource>)dataSource {}
 
