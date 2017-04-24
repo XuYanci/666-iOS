@@ -27,6 +27,6 @@
  @helps It helps no other classes.
  @helper    No helper exists for this class.
  */
-@interface GLPickEmojView : UIView
+@interface GLPickEmojView : UIView<GLChatInputAbleView>
 @property (nonatomic,weak)id<GLChatInputAbleViewDelegate> chatDelegate;
 @end

@@ -10,6 +10,7 @@
 
 typedef enum : NSUInteger {
     GLEditText,         /** 文本 */
+    GLEditEmoj,         /** 表情 */
     GLEditUploadPic,    /** 上传图片 */
     GLEditUploadVideo,  /** 上传视频 */
 } GLEditType;           /** 编辑类型 */

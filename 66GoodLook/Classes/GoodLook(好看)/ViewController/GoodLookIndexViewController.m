@@ -16,6 +16,7 @@
 @property (nonatomic,strong)NSArray *viewControllers;
 @property (nonatomic,strong)NSArray *tagTitles;
 @property (nonatomic,strong)GoodLookFloatView *floatView;
+@property (nonatomic,strong)GLChatInputPanel *inputPanel;
 
 @end
 
@@ -162,14 +163,16 @@ contentViewControllerForTabAtIndex:(NSUInteger)index {
 #pragma mark - GoodLookFloatViewDelegate
 - (void)floatView:(id)sender didPickEdit:(GLEditType)editType {
     if (editType == GLEditText) {
-        GLChatInputPanel *inputPanel = [[GLChatInputPanel alloc]init];
-        [inputPanel show];
+        [self.inputPanel setPanelType:GLChatInputPanelType_Text];
+        [self.inputPanel show];
     }
     else if(editType == GLEditUploadPic) {
-        
+        [self.inputPanel setPanelType:GLChatInputPanelType_Image];
+        [self.inputPanel show];
     }
     else if(editType == GLEditUploadVideo) {
-        
+        [self.inputPanel setPanelType:GLChatInputPanelType_Video];
+        [self.inputPanel show];
     }
 }
 #pragma mark - getter and setter 
@@ -182,4 +185,12 @@ contentViewControllerForTabAtIndex:(NSUInteger)index {
     }
     return _floatView;
 }
+
+- (GLChatInputPanel *)inputPanel {
+    if (!_inputPanel) {
+        _inputPanel = [[GLChatInputPanel alloc]init];
+    }
+    return _inputPanel;
+}
+
 @end

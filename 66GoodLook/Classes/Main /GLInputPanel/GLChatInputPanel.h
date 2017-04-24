@@ -41,8 +41,8 @@ typedef enum : NSUInteger {
  重载数据
  */
 - (void)reloadData;
-
 - (id)initWithPanelType:(GLChatInputPanelType)panelType;
+- (void)setPanelType:(GLChatInputPanelType)panelType;
 
 /**
  显示输入面板
@@ -53,6 +53,9 @@ typedef enum : NSUInteger {
  隐藏输入面板
  */
 - (void)dismiss;
+
+
+
 @end
 
 

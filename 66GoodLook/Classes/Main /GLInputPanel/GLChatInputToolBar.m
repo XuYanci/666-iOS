@@ -8,6 +8,7 @@
 
 #import "GLChatInputToolBar.h"
 #import <Masonry/Masonry.h>
+#import "GLPickEmojView.h"
 
 typedef enum : NSUInteger {
     GLChatInputToolBarRightButtonBarType_Default,
@@ -24,14 +25,18 @@ typedef enum : NSUInteger {
 @property (nonatomic,strong) UIButton *sendBtn;
 @property (nonatomic,strong) UITextField *inputTextField;
 @property (nonatomic,assign) GLChatInputToolBarType barType;
-@property (nonatomic,assign) GLChatInputToolBarRightButtonBarType rightButtonBarType;
+
+/** 表情选择器,作为Pannel */
+@property (nonatomic,strong) UIView<GLChatInputAbleView> *pickEmojView;
 @end
 
 @implementation GLChatInputToolBar {
     BOOL _needsReload;  /*! 需要重载 */
     struct {
+
     }_datasourceHas;    /*! 数据源存在标识 */
     struct {
+        unsigned didSelectToolBarType:1;
     }_delegateHas;      /*! 数据委托存在标识 */
 }
 
@@ -39,7 +44,6 @@ typedef enum : NSUInteger {
 - (id)initWithBarType:(GLChatInputToolBarType)barType {
     if (self = [super init]) {
         _barType = barType;
-        _rightButtonBarType = GLChatInputToolBarRightButtonBarType_Default;
         [self commonInit];
     }
     return self;
@@ -62,19 +66,123 @@ typedef enum : NSUInteger {
 #pragma mark - delegate
 #pragma mark - user events
 - (void)showEmojPanel:(id)sender {
-    
+    NSLog(@"%s",__func__);
+    if (_delegateHas.didSelectToolBarType) {
+        if (_barType == GLChatInputToolBarType_Emoj) {
+            _barType = GLChatInputToolBarType_Default;
+            [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Default];
+ 
+            [_inputTextField setInputView:nil];
+            [_inputTextField reloadInputViews];
+            [_inputTextField becomeFirstResponder];
+        }
+        else if(_barType == GLChatInputToolBarType_Default) {
+            _barType = GLChatInputToolBarType_Emoj;
+            [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Emoj];
+ 
+            [_inputTextField setInputView:self.pickEmojView];
+            [_inputTextField reloadInputViews];
+            [_inputTextField becomeFirstResponder];
+        }
+        else if(_barType == GLChatInputToolBarType_Pic) {
+            if (_inputTextField.inputView == nil) {
+                _barType = GLChatInputToolBarType_Default;
+            }
+            else {
+                _barType = GLChatInputToolBarType_Emoj;
+            }
+            [_inputTextField becomeFirstResponder];
+        }
+        else if(_barType == GLChatInputToolBarType_Video) {
+            if (_inputTextField.inputView == nil) {
+                _barType = GLChatInputToolBarType_Default;
+            }
+            else {
+                _barType = GLChatInputToolBarType_Emoj;
+            }
+            [_inputTextField becomeFirstResponder];
+        }
+    }
 }
 
 - (void)showKeyboardPanel:(id)sender {
-    
+     NSLog(@"%s",__func__);
+    if (_delegateHas.didSelectToolBarType) {
+        if (_barType == GLChatInputToolBarType_Emoj) {
+            _barType = GLChatInputToolBarType_Default;
+            [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Default];
+ 
+            [_inputTextField setInputView:nil];
+            [_inputTextField reloadInputViews];
+            [_inputTextField becomeFirstResponder];
+            
+        }
+        else if(_barType == GLChatInputToolBarType_Default) {
+            _barType = GLChatInputToolBarType_Emoj;
+            [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Emoj];
+ 
+            [_inputTextField setInputView:self.pickEmojView];
+            [_inputTextField reloadInputViews];
+            [_inputTextField becomeFirstResponder];
+        }
+        else if(_barType == GLChatInputToolBarType_Pic) {
+            if (_inputTextField.inputView == nil) {
+                _barType = GLChatInputToolBarType_Default;
+            }
+            else {
+                _barType = GLChatInputToolBarType_Emoj;
+            }
+            [_inputTextField becomeFirstResponder];
+        }
+        else if(_barType == GLChatInputToolBarType_Video) {
+            if (_inputTextField.inputView == nil) {
+                _barType = GLChatInputToolBarType_Default;
+            }
+            else {
+                _barType = GLChatInputToolBarType_Emoj;
+            }
+            [_inputTextField becomeFirstResponder];
+        }
+    }
 }
 
 - (void)showVideoPanel:(id)sender {
-    
+     NSLog(@"%s",__func__);
+    if (_delegateHas.didSelectToolBarType) {
+        _barType = GLChatInputToolBarType_Video;
+        [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Video];
+    }
 }
 
 - (void)showPicPanel:(id)sender {
-    
+     NSLog(@"%s",__func__);
+  
+    if (_delegateHas.didSelectToolBarType) {
+        if (_barType == GLChatInputToolBarType_Default
+            || _barType == GLChatInputToolBarType_Emoj) {
+            _barType = GLChatInputToolBarType_Pic;
+            [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Pic];
+        }
+        else if(_barType == GLChatInputToolBarType_Pic) {
+            [self beginEditing];
+            
+            if (_inputTextField.inputView == nil) {
+                if (_delegateHas.didSelectToolBarType) {
+                    _barType = GLChatInputToolBarType_Default;
+                    [_delegate glChatInputToolBar:self
+                             didSelectToolBarType:GLChatInputToolBarType_Default];
+                }
+            }
+            else if(_inputTextField.inputView == self.pickEmojView) {
+                if (_delegateHas.didSelectToolBarType) {
+                    _barType = GLChatInputToolBarType_Emoj;
+                    [_delegate glChatInputToolBar:self
+                             didSelectToolBarType:GLChatInputToolBarType_Emoj];
+                }
+            }
+  
+        }
+    }
 }
 
 #pragma mark - functions
@@ -99,13 +207,13 @@ typedef enum : NSUInteger {
     [self.emojBtn setImage:[UIImage imageNamed:@"shuru_biaoqing_icon"] forState:UIControlStateNormal];
     [self.sendBtn setImage:[UIImage imageNamed:@"shuru_fasong_01"] forState:UIControlStateNormal];
     
-    if (self.rightButtonBarType == GLChatInputToolBarRightButtonBarType_Default) {
+    if (self.barType == GLChatInputToolBarType_Default) {
         [self setKeyBoardBtn];
     }
-    else {
+    else if(self.barType == GLChatInputToolBarType_Emoj){
         [self setEmojBtn];
     }
-    
+
     
     [self.picBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.mas_left).offset(10.0);
@@ -135,8 +243,9 @@ typedef enum : NSUInteger {
         make.height.offset(35.0);
     }];
     
-    [self.inputTextField becomeFirstResponder];
-
+    if (_barType == GLChatInputToolBarType_Default) {
+        [self.inputTextField becomeFirstResponder];
+    }
 }
 
 - (void)setBarType:(GLChatInputToolBarType)barType {
@@ -146,6 +255,12 @@ typedef enum : NSUInteger {
 - (BOOL)isEditing {
     return [self.inputTextField isFirstResponder];
 }
+
+- (void)beginEditing {
+    [self.inputTextField becomeFirstResponder];
+}
+
+
 
 - (CGFloat)contentHeight {
     return 44.0;
@@ -169,9 +284,14 @@ typedef enum : NSUInteger {
            forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)setDataSource:(id<GLChatInputBaseViewDataSource>)dataSource {}
+- (void)setDataSource:(id<GLChatInputToolBarDataSource>)dataSource {}
 
-- (void)setDelegate:(id<GLChatInputBaseViewDelegate>)delegate {}
+- (void)setDelegate:(id<GLChatInputToolBarDelegate>)delegate {
+    _delegate = delegate;
+    if ([delegate respondsToSelector:@selector(glChatInputToolBar:didSelectToolBarType:)]) {
+        _delegateHas.didSelectToolBarType = 1;
+    }
+}
 
 - (void)setNeedsReload {
     _needsReload = YES;
@@ -227,6 +347,16 @@ typedef enum : NSUInteger {
         _inputTextField.layer.borderWidth = 0.3;
     }
     return _inputTextField;
+}
+
+
+- (UIView<GLChatInputAbleView> *)pickEmojView {
+    if (!_pickEmojView) {
+        _pickEmojView = [[GLPickEmojView alloc]init];
+        _pickEmojView.backgroundColor = [UIColor whiteColor];
+        [_pickEmojView sizeWith:CGSizeMake([UIScreen mainScreen].bounds.size.width, 200)];
+    }
+    return _pickEmojView;
 }
 
 /*

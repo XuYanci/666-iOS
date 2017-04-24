@@ -10,7 +10,8 @@
 
 typedef enum : NSUInteger {
     GLChatInputToolBarType_Default,
-    GLChatInputToolBarType_Pic = GLChatInputToolBarType_Default,
+    GLChatInputToolBarType_Emoj,
+    GLChatInputToolBarType_Pic,
     GLChatInputToolBarType_Video,
 } GLChatInputToolBarType;
 
@@ -19,6 +20,9 @@ typedef enum : NSUInteger {
 @end
 
 @protocol GLChatInputToolBarDelegate <NSObject>
+
+- (void)glChatInputToolBar:(id)sender didSelectToolBarType:(GLChatInputToolBarType)toolBarType;
+
 @end
 
 
@@ -36,8 +40,8 @@ typedef enum : NSUInteger {
  @helper    No helper exists for this class.
  */
 @interface GLChatInputToolBar : GLChatInputBaseView
-@property (nonatomic,weak) id<GLChatInputBaseViewDataSource>dataSource;
-@property (nonatomic,weak) id<GLChatInputBaseViewDelegate>delegate;
+@property (nonatomic,weak) id<GLChatInputToolBarDataSource>dataSource;
+@property (nonatomic,weak) id<GLChatInputToolBarDelegate>delegate;
 
 /**
  重载数据
@@ -67,5 +71,6 @@ typedef enum : NSUInteger {
  @return 是否编辑状态
  */
 - (BOOL)isEditing;
+- (void)beginEditing;
 
 @end

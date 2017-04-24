@@ -14,7 +14,7 @@
 #import "GLPickEmojView.h"
 #import <Masonry/Masonry.h>
 
-@interface GLChatInputPanel()<GLChatInputToolBarDelegate>
+@interface GLChatInputPanel()<GLChatInputToolBarDelegate,GLChatInputToolBarDataSource>
 /** 工具栏 */
 @property (nonatomic,strong) GLChatInputToolBar *toolbar;
 /** 当前面板 */
@@ -24,7 +24,7 @@
 /** 图片选择器,作为Pannel */
 @property (nonatomic,strong) UIView<GLChatInputAbleView> *pickPictureCollectionView;
 /** 表情选择器,作为Pannel */
-@property (nonatomic,strong) UIView<GLChatInputAbleView> *pickEmojView;
+//@property (nonatomic,strong) UIView<GLChatInputAbleView> *pickEmojView;
 /** **/
 @property (nonatomic,strong) UIView *maskView;
 /** 面板类型 */
@@ -38,6 +38,8 @@
     }_datasourceHas;    /*! 数据源存在标识 */
     struct {
     }_delegateHas;      /*! 数据委托存在标识 */
+    
+    BOOL needProcessingKeyBoardNotif;
     
 }
 
@@ -62,6 +64,10 @@
     return self;
 }
 
+- (void)setPanelType:(GLChatInputPanelType)panelType {
+    _panelType = panelType;
+    [self setNeedsReload];
+}
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -79,13 +85,59 @@
 }
 
 #pragma mark - datasource
+
+#pragma mark - GLChatInputToolBarDataSource 
+
+
 #pragma mark - delegate
+
+#pragma mark - GLChatInputToolBarDelegate
+
+- (void)glChatInputToolBar:(id)sender
+      didSelectToolBarType:(GLChatInputToolBarType)toolBarType {
+    if (toolBarType == GLChatInputToolBarType_Default) {
+        [self.pickPictureCollectionView removeFromSuperview];
+    }
+    else if(toolBarType == GLChatInputToolBarType_Emoj) {
+        [self.pickPictureCollectionView removeFromSuperview];
+    }
+    else if(toolBarType == GLChatInputToolBarType_Pic) {
+        
+        needProcessingKeyBoardNotif = NO;
+        
+        [self.toolbar endEditing:YES];
+        
+        [self addSubview:self.pickPictureCollectionView];
+        [self.pickPictureCollectionView sizeWith:CGSizeMake([UIScreen mainScreen].bounds.size.width, 200)];
+        [self.pickPictureCollectionView alignParentBottom];
+        
+        
+        NSInteger contentHeight = self.pickPictureCollectionView.frame.size.height + [self.toolbar contentHeight];
+        if (_contentHeight != contentHeight)
+        {
+            CGRect rect = self.toolbar.frame;
+            rect.origin.y = self.pickPictureCollectionView.frame.origin.y - [self.toolbar contentHeight];
+            
+            [UIView animateWithDuration:0.5 animations:^{
+                self.toolbar.frame = rect;
+                self.contentHeight = contentHeight;
+                needProcessingKeyBoardNotif = YES;
+            }];
+        }
+    }
+    else if(toolBarType == GLChatInputToolBarType_Video) {
+        
+    }
+}
+
+
 #pragma mark - user events
 #pragma mark - functions
 
 - (void)show {
     [[UIApplication sharedApplication].keyWindow addSubview:self];
     self.maskView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
+    [self.toolbar beginEditing];
     [UIView animateWithDuration:0.5 animations:^{
         self.maskView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
     }];
@@ -141,6 +193,7 @@
 
 - (void)setNeedsReload {
     _needsReload = YES;
+    needProcessingKeyBoardNotif = YES;
     [self setNeedsLayout];
 }
 - (void)_reloadDataIfNeeded {
@@ -177,20 +230,23 @@
 }
 
 - (void)onKeyboardWillHide:(NSNotification *)notification {
-    NSDictionary* userInfo = [notification userInfo];
-    CGFloat duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
-    NSInteger contentHeight = [self.toolbar contentHeight] + [self.panel contentHeight];
-    
-    if (_contentHeight != contentHeight)
-    {
-        CGRect rect = self.toolbar.frame;
-        rect.origin.y = [UIScreen mainScreen].bounds.size.height;
+    if (needProcessingKeyBoardNotif) {
+        NSDictionary* userInfo = [notification userInfo];
+        CGFloat duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
         
-        [UIView animateWithDuration:duration animations:^{
-            self.toolbar.frame = rect;
-            self.contentHeight = contentHeight;
-        }];
+        NSInteger contentHeight = [self.toolbar contentHeight] + [self.panel contentHeight];
+        
+        if (_contentHeight != contentHeight)
+        {
+            CGRect rect = self.toolbar.frame;
+            rect.origin.y = [UIScreen mainScreen].bounds.size.height;
+            
+            [UIView animateWithDuration:duration animations:^{
+                self.toolbar.frame = rect;
+                self.contentHeight = contentHeight;
+            }];
+        }
     }
 }
 
@@ -199,6 +255,8 @@
     if (!_toolbar) {
         _toolbar = [[GLChatInputToolBar alloc]initWithBarType:GLChatInputToolBarType_Default];
         _toolbar.backgroundColor = [UIColor whiteColor];
+        _toolbar.delegate = self;
+        _toolbar.dataSource = self;
     }
     return _toolbar;
 }
@@ -212,5 +270,22 @@
     }
     return _maskView;
 }
+
+- (UIView<GLChatInputAbleView> *)pickVideoCollectionView {
+    if (!_pickVideoCollectionView) {
+        _pickVideoCollectionView = (UIView<GLChatInputAbleView> *)[[UIView alloc]init];
+        _pickVideoCollectionView.backgroundColor = [UIColor yellowColor];
+    }
+    return _pickVideoCollectionView;
+}
+
+- (UIView<GLChatInputAbleView> *)pickPictureCollectionView {
+    if (!_pickPictureCollectionView) {
+        _pickPictureCollectionView = (UIView<GLChatInputAbleView> *)[[UIView alloc]init];
+        _pickPictureCollectionView.backgroundColor = [UIColor blueColor];
+    }
+    return _pickPictureCollectionView;
+}
+
 
 @end
