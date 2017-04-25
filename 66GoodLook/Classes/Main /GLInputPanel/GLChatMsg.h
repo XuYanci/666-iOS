@@ -19,12 +19,12 @@ typedef enum : NSUInteger {
 
 @interface GLChatMsg : NSObject
 
-@property (nonatomic,assign) GLChatMsgType msgType;
-@property (nonatomic,strong) NSObject *msg;  /* 消息体，根据消息类型决定 */
+@property (nonatomic,assign) GLChatMsgType msgType; /** message type */
+@property (nonatomic,strong) NSObject *msg;  /* message body , decide by msgType */
 
 - (instancetype)initWith:(NSObject *)msg type:(GLChatMsgType)type;
 + (instancetype)msgWithText:(NSString *)text;
-+ (instancetype)msgWithEmoj:(NSTextAttachment *)textAttachment;
++ (instancetype)msgWithEmoj:(NSUInteger)emojIndex;
 + (instancetype)msgWithImage:(UIImage *)image;
 + (instancetype)msgWithVideoPath:(NSString *)videoPath;
 

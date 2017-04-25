@@ -10,8 +10,8 @@
 
 @implementation GLChatMsg
 
-
-- (instancetype)initWith:(NSObject *)msg type:(GLChatMsgType)type {
+- (instancetype)initWith:(NSObject *)msg
+                    type:(GLChatMsgType)type {
     if (self = [super init]) {
         self.msg = msg;
         self.msgType = type;
@@ -23,8 +23,8 @@
     return [[GLChatMsg alloc]initWith:text type:GLChatMsgType_Text];
 }
 
-+ (instancetype)msgWithEmoj:(NSTextAttachment *)textAttachment {
-    return [[GLChatMsg alloc]initWith:textAttachment type:GLChatMsgType_Emoj];
++ (instancetype)msgWithEmoj:(NSUInteger)emojIndex {
+    return [[GLChatMsg alloc]initWith:nil type:GLChatMsgType_Emoj];
 }
 
 + (instancetype)msgWithImage:(UIImage *)image {
