@@ -94,10 +94,12 @@ static const CGFloat    kEmojHeight = 40.0;
     return cell;
 }
 
-
-
 #pragma mark - delegate
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+- (void)collectionView:(UICollectionView *)collectionView
+didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"Select IndexPath Row = %ld",indexPath.row);
+    
+    
     
 }
 #pragma mark - user events
