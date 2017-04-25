@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GLChatInputAbleView.h"
+#import "GLChatInputBaseView.h"
 @protocol GLPickVideoCollectionViewDataSource <NSObject>
 @end
 
@@ -27,6 +28,6 @@
  @helps It helps no other classes.
  @helper    No helper exists for this class.
  */
-@interface GLPickVideoCollectionView : UICollectionView
-@property (nonatomic, weak) id<GLChatInputAbleViewDelegate> chatDelegate;
+@interface GLPickVideoView : GLChatInputBaseView
+ 
 @end

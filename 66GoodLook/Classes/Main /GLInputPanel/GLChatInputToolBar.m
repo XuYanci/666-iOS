@@ -18,7 +18,7 @@ typedef enum : NSUInteger {
 
 
 
-@interface GLChatInputToolBar()
+@interface GLChatInputToolBar()<UITextFieldDelegate>
 @property (nonatomic,strong) UIButton *picBtn;
 @property (nonatomic,strong) UIButton *videoBtn;
 @property (nonatomic,strong) UIButton *emojBtn;
@@ -64,6 +64,10 @@ typedef enum : NSUInteger {
 
 #pragma mark - datasource
 #pragma mark - delegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    [self beginEditing];
+}
 #pragma mark - user events
 - (void)showEmojPanel:(id)sender {
     NSLog(@"%s",__func__);
@@ -103,6 +107,8 @@ typedef enum : NSUInteger {
             [_inputTextField setInputView:nil];
             [_inputTextField reloadInputViews];
             [_inputTextField becomeFirstResponder];
+            [self setLeftKeyBoardToPic];
+            [self setLeftKeyBoardToVideo];
             
         }
         else if(_barType == GLChatInputToolBarType_Default) {
@@ -112,6 +118,8 @@ typedef enum : NSUInteger {
             [_inputTextField setInputView:self.pickEmojView];
             [_inputTextField reloadInputViews];
             [_inputTextField becomeFirstResponder];
+            [self setLeftKeyBoardToPic];
+            [self setLeftKeyBoardToVideo];
         }
         else if(_barType == GLChatInputToolBarType_Pic) {
             if (_inputTextField.inputView == nil) {
@@ -120,6 +128,9 @@ typedef enum : NSUInteger {
             else {
                 _barType = GLChatInputToolBarType_Emoj;
             }
+            [self setLeftKeyBoardToVideo];
+            [self setLeftKeyBoardToPic];
+            [_delegate glChatInputToolBar:self didSelectToolBarType:_barType];
             [_inputTextField becomeFirstResponder];
         }
         else if(_barType == GLChatInputToolBarType_Video) {
@@ -129,6 +140,10 @@ typedef enum : NSUInteger {
             else {
                 _barType = GLChatInputToolBarType_Emoj;
             }
+            
+            [self setLeftKeyBoardToVideo];
+            [self setLeftKeyBoardToPic];
+            [_delegate glChatInputToolBar:self didSelectToolBarType:_barType];
             [_inputTextField becomeFirstResponder];
         }
     }
@@ -305,6 +320,11 @@ typedef enum : NSUInteger {
     [self setLeftKeyBoardToVideo];
     [self setLeftKeyBoardToPic];
     [self.inputTextField becomeFirstResponder];
+    
+    if (_delegateHas.didSelectToolBarType) {
+       [_delegate glChatInputToolBar:self didSelectToolBarType:_barType];
+    }
+    
 }
 
 - (void)beginOpenPhoto {
@@ -425,6 +445,7 @@ typedef enum : NSUInteger {
         _inputTextField.layer.cornerRadius = 5.0;
         _inputTextField.layer.borderColor = [UIColor lightGrayColor].CGColor;
         _inputTextField.layer.borderWidth = 0.3;
+        _inputTextField.delegate = self;
     }
     return _inputTextField;
 }
@@ -433,8 +454,7 @@ typedef enum : NSUInteger {
 - (UIView<GLChatInputAbleView> *)pickEmojView {
     if (!_pickEmojView) {
         _pickEmojView = [[GLPickEmojView alloc]init];
-        _pickEmojView.backgroundColor = [UIColor whiteColor];
-        [_pickEmojView sizeWith:CGSizeMake([UIScreen mainScreen].bounds.size.width, 200)];
+        [_pickEmojView sizeWith:CGSizeMake([UIScreen mainScreen].bounds.size.width, [_pickEmojView contentHeight])];
     }
     return _pickEmojView;
 }

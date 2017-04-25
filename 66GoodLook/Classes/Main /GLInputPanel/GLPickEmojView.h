@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GLChatInputAbleView.h"
+#import "GLChatInputBaseView.h"
 @protocol GLPickEmojViewDataSource <NSObject>
 @end
 
@@ -27,6 +28,5 @@
  @helps It helps no other classes.
  @helper    No helper exists for this class.
  */
-@interface GLPickEmojView : UIView<GLChatInputAbleView>
-@property (nonatomic,weak)id<GLChatInputAbleViewDelegate> chatDelegate;
+@interface GLPickEmojView : GLChatInputBaseView
 @end

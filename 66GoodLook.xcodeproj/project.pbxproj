@@ -23,8 +23,8 @@
 		AD4215471EA8DA28002FBC26 /* GLChatInputPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4215431EA8DA28002FBC26 /* GLChatInputPanel.m */; };
 		AD4215481EA8DA28002FBC26 /* GLChatInputToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4215451EA8DA28002FBC26 /* GLChatInputToolBar.m */; };
 		AD42154A1EA8DEA3002FBC26 /* Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD4215491EA8DEA3002FBC26 /* Expression.bundle */; };
-		AD42154D1EA8E1D2002FBC26 /* GLPickPictureCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD42154C1EA8E1D2002FBC26 /* GLPickPictureCollectionView.m */; };
-		AD4215501EA8E20D002FBC26 /* GLPickVideoCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD42154F1EA8E20D002FBC26 /* GLPickVideoCollectionView.m */; };
+		AD42154D1EA8E1D2002FBC26 /* GLPickPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD42154C1EA8E1D2002FBC26 /* GLPickPictureView.m */; };
+		AD4215501EA8E20D002FBC26 /* GLPickVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD42154F1EA8E20D002FBC26 /* GLPickVideoView.m */; };
 		AD4215531EA8E326002FBC26 /* GLPickEmojView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4215521EA8E326002FBC26 /* GLPickEmojView.m */; };
 		AD44DC1F1E9B208B003C1576 /* MXRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC1E1E9B208B003C1576 /* MXRequest.m */; };
 		AD44DC221E9B20ED003C1576 /* MXRequest+UserAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC211E9B20ED003C1576 /* MXRequest+UserAccount.m */; };
@@ -54,6 +54,7 @@
 		AD44DC761E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC6D1E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m */; };
 		AD44DC7B1E9B7489003C1576 /* UIView+CustomAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC7A1E9B7489003C1576 /* UIView+CustomAutoLayout.m */; };
 		AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70AF0D1E991E800003F3C8 /* AppDelegate.m */; };
+		AD7CF4871EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7CF4861EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.m */; };
 		AD9694151EAAF217008D9170 /* GitMarkDown参考.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD9694141EAAF217008D9170 /* GitMarkDown参考.txt */; };
 		ADA17AAF1E9C469B00FA0FF9 /* GLMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AAE1E9C469B00FA0FF9 /* GLMainTabBarViewController.m */; };
 		ADA17AB61E9C579E00FA0FF9 /* GLViewPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AB51E9C579E00FA0FF9 /* GLViewPagerViewController.m */; };
@@ -130,10 +131,10 @@
 		AD4215441EA8DA28002FBC26 /* GLChatInputToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLChatInputToolBar.h; sourceTree = "<group>"; };
 		AD4215451EA8DA28002FBC26 /* GLChatInputToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLChatInputToolBar.m; sourceTree = "<group>"; };
 		AD4215491EA8DEA3002FBC26 /* Expression.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Expression.bundle; sourceTree = SOURCE_ROOT; };
-		AD42154B1EA8E1D2002FBC26 /* GLPickPictureCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPickPictureCollectionView.h; sourceTree = "<group>"; };
-		AD42154C1EA8E1D2002FBC26 /* GLPickPictureCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLPickPictureCollectionView.m; sourceTree = "<group>"; };
-		AD42154E1EA8E20D002FBC26 /* GLPickVideoCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPickVideoCollectionView.h; sourceTree = "<group>"; };
-		AD42154F1EA8E20D002FBC26 /* GLPickVideoCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLPickVideoCollectionView.m; sourceTree = "<group>"; };
+		AD42154B1EA8E1D2002FBC26 /* GLPickPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPickPictureView.h; sourceTree = "<group>"; };
+		AD42154C1EA8E1D2002FBC26 /* GLPickPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLPickPictureView.m; sourceTree = "<group>"; };
+		AD42154E1EA8E20D002FBC26 /* GLPickVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPickVideoView.h; sourceTree = "<group>"; };
+		AD42154F1EA8E20D002FBC26 /* GLPickVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLPickVideoView.m; sourceTree = "<group>"; };
 		AD4215511EA8E326002FBC26 /* GLPickEmojView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPickEmojView.h; sourceTree = "<group>"; };
 		AD4215521EA8E326002FBC26 /* GLPickEmojView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLPickEmojView.m; sourceTree = "<group>"; };
 		AD44DC1D1E9B208B003C1576 /* MXRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXRequest.h; sourceTree = "<group>"; };
@@ -194,6 +195,8 @@
 		AD44DC7A1E9B7489003C1576 /* UIView+CustomAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomAutoLayout.m"; sourceTree = "<group>"; };
 		AD70AF0C1E991E800003F3C8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AD70AF0D1E991E800003F3C8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AD7CF4851EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPickEmojCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		AD7CF4861EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLPickEmojCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		AD9694131EAA47AF008D9170 /* GLChatInputAbleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLChatInputAbleView.h; sourceTree = "<group>"; };
 		AD9694141EAAF217008D9170 /* GitMarkDown参考.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "GitMarkDown参考.txt"; sourceTree = "<group>"; };
 		ADA17AAD1E9C469B00FA0FF9 /* GLMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMainTabBarViewController.h; sourceTree = "<group>"; };
@@ -369,19 +372,21 @@
 		AD42153F1EA8DA28002FBC26 /* GLInputPanel */ = {
 			isa = PBXGroup;
 			children = (
+				AD9694131EAA47AF008D9170 /* GLChatInputAbleView.h */,
 				AD4215401EA8DA28002FBC26 /* GLChatInputBaseView.h */,
 				AD4215411EA8DA28002FBC26 /* GLChatInputBaseView.m */,
 				AD4215421EA8DA28002FBC26 /* GLChatInputPanel.h */,
 				AD4215431EA8DA28002FBC26 /* GLChatInputPanel.m */,
 				AD4215441EA8DA28002FBC26 /* GLChatInputToolBar.h */,
 				AD4215451EA8DA28002FBC26 /* GLChatInputToolBar.m */,
-				AD42154B1EA8E1D2002FBC26 /* GLPickPictureCollectionView.h */,
-				AD42154C1EA8E1D2002FBC26 /* GLPickPictureCollectionView.m */,
-				AD42154E1EA8E20D002FBC26 /* GLPickVideoCollectionView.h */,
-				AD42154F1EA8E20D002FBC26 /* GLPickVideoCollectionView.m */,
+				AD42154B1EA8E1D2002FBC26 /* GLPickPictureView.h */,
+				AD42154C1EA8E1D2002FBC26 /* GLPickPictureView.m */,
+				AD42154E1EA8E20D002FBC26 /* GLPickVideoView.h */,
+				AD42154F1EA8E20D002FBC26 /* GLPickVideoView.m */,
+				AD7CF4851EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.h */,
+				AD7CF4861EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.m */,
 				AD4215511EA8E326002FBC26 /* GLPickEmojView.h */,
 				AD4215521EA8E326002FBC26 /* GLPickEmojView.m */,
-				AD9694131EAA47AF008D9170 /* GLChatInputAbleView.h */,
 			);
 			path = GLInputPanel;
 			sourceTree = "<group>";
@@ -1101,7 +1106,7 @@
 				AD31FBA31E9B178900523AC9 /* MD5Encrypt.m in Sources */,
 				AD31FADB1E9B16B400523AC9 /* MXBaseUrl.m in Sources */,
 				AD44DC481E9B2453003C1576 /* XYAppAutoSizeScale.m in Sources */,
-				AD42154D1EA8E1D2002FBC26 /* GLPickPictureCollectionView.m in Sources */,
+				AD42154D1EA8E1D2002FBC26 /* GLPickPictureView.m in Sources */,
 				AD44DC1F1E9B208B003C1576 /* MXRequest.m in Sources */,
 				AD4215531EA8E326002FBC26 /* GLPickEmojView.m in Sources */,
 				AD44DC701E9B6FC7003C1576 /* NSMutableDictionary+SetObject.m in Sources */,
@@ -1136,8 +1141,9 @@
 				AD31FBA01E9B178900523AC9 /* AESHelper.m in Sources */,
 				AD4215461EA8DA28002FBC26 /* GLChatInputBaseView.m in Sources */,
 				AD44DC531E9B2453003C1576 /* UIButton+DYLYTheme.m in Sources */,
-				AD4215501EA8E20D002FBC26 /* GLPickVideoCollectionView.m in Sources */,
+				AD4215501EA8E20D002FBC26 /* GLPickVideoView.m in Sources */,
 				AD31FAD91E9B16B400523AC9 /* MXBaseRequest.m in Sources */,
+				AD7CF4871EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.m in Sources */,
 				AD44DC711E9B6FC7003C1576 /* NSString+JSONCategories.m in Sources */,
 				ADA17AAF1E9C469B00FA0FF9 /* GLMainTabBarViewController.m in Sources */,
 				AD31FADE1E9B16B400523AC9 /* MXNetworkConnection.m in Sources */,

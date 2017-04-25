@@ -9,8 +9,8 @@
 #import "GLChatInputPanel.h"
 #import "GLChatInputAbleView.h"
 #import "GLChatInputToolBar.h"
-#import "GLPickVideoCollectionView.h"
-#import "GLPickPictureCollectionView.h"
+#import "GLPickVideoView.h"
+#import "GLPickPictureView.h"
 #import "GLPickEmojView.h"
 #import <Masonry/Masonry.h>
 
@@ -97,9 +97,11 @@
       didSelectToolBarType:(GLChatInputToolBarType)toolBarType {
     if (toolBarType == GLChatInputToolBarType_Default) {
         [self.pickPictureCollectionView removeFromSuperview];
+        [self.pickVideoCollectionView removeFromSuperview];
     }
     else if(toolBarType == GLChatInputToolBarType_Emoj) {
         [self.pickPictureCollectionView removeFromSuperview];
+        [self.pickVideoCollectionView removeFromSuperview];
     }
     else if(toolBarType == GLChatInputToolBarType_Pic) {
         

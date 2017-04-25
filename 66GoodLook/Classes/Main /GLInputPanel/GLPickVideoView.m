@@ -1,14 +1,14 @@
 //
-//  GLPickPictureCollectionView.m
+//  GLPickVideoCollectionView.m
 //  66GoodLook
 //
 //  Created by Yanci on 17/4/20.
 //  Copyright © 2017年 Yanci. All rights reserved.
 //
 
-#import "GLPickPictureCollectionView.h"
+#import "GLPickVideoView.h"
 
-@implementation GLPickPictureCollectionView
+@implementation GLPickVideoView
 
 /*
 // Only override drawRect: if you perform custom drawing.
