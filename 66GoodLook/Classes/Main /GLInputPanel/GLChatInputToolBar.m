@@ -139,7 +139,7 @@ typedef enum : NSUInteger {
     if (_delegateHas.didSelectToolBarType) {
         if (_barType == GLChatInputToolBarType_Default
             || _barType == GLChatInputToolBarType_Emoj) {
-            _barType = GLChatInputToolBarType_Pic;
+            _barType = GLChatInputToolBarType_Video;
             [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Video];
             [self setLeftVideoToKeyBoard];
         }
@@ -235,6 +235,14 @@ typedef enum : NSUInteger {
         make.centerY.mas_equalTo(self.mas_centerY);
     }];
     
+    [self.videoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.mas_left).offset(10.0);
+        make.width.offset(35.0);
+        make.height.offset(35.0);
+        make.centerY.mas_equalTo(self.mas_centerY);
+    }];
+    
+    
     [self.sendBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(self.mas_right).offset(-10);
         make.width.offset(35.0);
@@ -257,15 +265,21 @@ typedef enum : NSUInteger {
     }];
     
     if (_barType == GLChatInputToolBarType_Default) {
+        self.videoBtn.hidden = YES;
+        self.picBtn.hidden = NO;
         [self.inputTextField becomeFirstResponder];
     }
     else if(_barType == GLChatInputToolBarType_Video) {
+        self.videoBtn.hidden = NO;
+        self.picBtn.hidden = YES;
         _barType = GLChatInputToolBarType_Video;
         [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Video];
         [self setLeftPicToKeyBoard];
         [self.inputTextField resignFirstResponder];
     }
     else if(_barType == GLChatInputToolBarType_Pic) {
+        self.videoBtn.hidden = YES;
+        self.picBtn.hidden = NO;
         _barType = GLChatInputToolBarType_Pic;
         [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Pic];
         [self setLeftPicToKeyBoard];
@@ -298,13 +312,17 @@ typedef enum : NSUInteger {
     [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Pic];
     [self setLeftPicToKeyBoard];
     [self.inputTextField resignFirstResponder];
+    self.videoBtn.hidden = YES;
+    self.picBtn.hidden = NO;
 }
 
 - (void)beginOpenVideo {
     _barType = GLChatInputToolBarType_Video;
     [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Video];
-    [self setLeftPicToKeyBoard];
+    [self setLeftVideoToKeyBoard];
     [self.inputTextField resignFirstResponder];
+    self.videoBtn.hidden = NO;
+    self.picBtn.hidden = YES;
 }
 
 - (CGFloat)contentHeight {
