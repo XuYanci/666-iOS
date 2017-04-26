@@ -56,6 +56,7 @@
 		AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70AF0D1E991E800003F3C8 /* AppDelegate.m */; };
 		AD7CF4871EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7CF4861EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.m */; };
 		AD7CF48A1EAFDEA500A9327A /* GLChatMsg.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7CF4891EAFDEA500A9327A /* GLChatMsg.m */; };
+		AD7CF4D01EB0E8DE00A9327A /* GLChatInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7CF4CF1EB0E8DE00A9327A /* GLChatInputTextView.m */; };
 		AD9694151EAAF217008D9170 /* GitMarkDown参考.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD9694141EAAF217008D9170 /* GitMarkDown参考.txt */; };
 		ADA17AAF1E9C469B00FA0FF9 /* GLMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AAE1E9C469B00FA0FF9 /* GLMainTabBarViewController.m */; };
 		ADA17AB61E9C579E00FA0FF9 /* GLViewPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AB51E9C579E00FA0FF9 /* GLViewPagerViewController.m */; };
@@ -200,6 +201,8 @@
 		AD7CF4861EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLPickEmojCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		AD7CF4881EAFDEA500A9327A /* GLChatMsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLChatMsg.h; path = ../GLChatMsg.h; sourceTree = "<group>"; };
 		AD7CF4891EAFDEA500A9327A /* GLChatMsg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLChatMsg.m; path = ../GLChatMsg.m; sourceTree = "<group>"; };
+		AD7CF4CE1EB0E8DE00A9327A /* GLChatInputTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLChatInputTextView.h; sourceTree = "<group>"; };
+		AD7CF4CF1EB0E8DE00A9327A /* GLChatInputTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLChatInputTextView.m; sourceTree = "<group>"; };
 		AD9694131EAA47AF008D9170 /* GLChatInputAbleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLChatInputAbleView.h; sourceTree = "<group>"; };
 		AD9694141EAAF217008D9170 /* GitMarkDown参考.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "GitMarkDown参考.txt"; sourceTree = "<group>"; };
 		ADA17AAD1E9C469B00FA0FF9 /* GLMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMainTabBarViewController.h; sourceTree = "<group>"; };
@@ -391,6 +394,8 @@
 				AD7CF4861EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.m */,
 				AD4215511EA8E326002FBC26 /* GLPickEmojView.h */,
 				AD4215521EA8E326002FBC26 /* GLPickEmojView.m */,
+				AD7CF4CE1EB0E8DE00A9327A /* GLChatInputTextView.h */,
+				AD7CF4CF1EB0E8DE00A9327A /* GLChatInputTextView.m */,
 			);
 			path = GLInputPanel;
 			sourceTree = "<group>";
@@ -1140,6 +1145,7 @@
 				AD44DC6F1E9B6FC7003C1576 /* NSDictionary+Validation.m in Sources */,
 				AD44DC491E9B2453003C1576 /* DYLYColorTable.m in Sources */,
 				AD31FADA1E9B16B400523AC9 /* MXBaseResponse.m in Sources */,
+				AD7CF4D01EB0E8DE00A9327A /* GLChatInputTextView.m in Sources */,
 				AD44DC221E9B20ED003C1576 /* MXRequest+UserAccount.m in Sources */,
 				AD31FBA21E9B178900523AC9 /* GTMBase64.m in Sources */,
 				ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */,

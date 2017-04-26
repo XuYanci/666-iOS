@@ -9,6 +9,7 @@
 #import "GLChatInputToolBar.h"
 #import <Masonry/Masonry.h>
 #import "GLPickEmojView.h"
+#import "GLChatInputTextView.h"
 
 typedef enum : NSUInteger {
     GLChatInputToolBarRightButtonBarType_Default,
@@ -23,7 +24,7 @@ typedef enum : NSUInteger {
 @property (nonatomic,strong) UIButton *videoBtn;
 @property (nonatomic,strong) UIButton *emojBtn;
 @property (nonatomic,strong) UIButton *sendBtn;
-@property (nonatomic,strong) UITextView *inputTextField;
+@property (nonatomic,strong) GLChatInputTextView *inputTextField;
 @property (nonatomic,assign) GLChatInputToolBarType barType;
 
 /** 表情选择器,作为Pannel */
@@ -67,16 +68,14 @@ typedef enum : NSUInteger {
 #pragma mark - delegate
 
 - (void)glPickEmojView:(id)sender didPickEmoj:(UIImage *)emojImage {
-    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc]initWithAttributedString:self.inputTextField.attributedText];
-    
     NSTextAttachment *textAttachment = [[NSTextAttachment alloc]initWithData:nil ofType:nil];
     textAttachment.image = emojImage;
-    textAttachment.bounds = CGRectMake(0, 0, 10, 10);
+    textAttachment.bounds = CGRectMake(0, 0, 20, 20);
     
     NSAttributedString *emojAttriString = [NSAttributedString attributedStringWithAttachment:textAttachment];
-    const NSUInteger location = [self.inputTextField offsetFromPosition:self.inputTextField.beginningOfDocument toPosition:self.inputTextField.selectedTextRange.start];
-    [attributeString insertAttributedString:emojAttriString atIndex:location];
-    self.inputTextField.attributedText = attributeString;
+    [self.inputTextField.textStorage insertAttributedString:emojAttriString atIndex:self.inputTextField.selectedRange.location];
+    self.inputTextField.selectedRange = NSMakeRange(self.inputTextField.selectedRange.location + 1, self.inputTextField.selectedRange.length);
+
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
@@ -453,13 +452,17 @@ typedef enum : NSUInteger {
     return _sendBtn;
 }
 
-- (UITextView *)inputTextField {
+- (GLChatInputTextView *)inputTextField {
     if (!_inputTextField) {
-        _inputTextField = [[UITextView alloc]init];
+        _inputTextField = [[GLChatInputTextView alloc]init];
         _inputTextField.layer.cornerRadius = 5.0;
         _inputTextField.layer.borderColor = [UIColor lightGrayColor].CGColor;
         _inputTextField.layer.borderWidth = 0.3;
         _inputTextField.delegate = self;
+        _inputTextField.selectable = YES;
+        _inputTextField.scrollEnabled = YES;
+        _inputTextField.editable = YES;
+
     }
     return _inputTextField;
 }
