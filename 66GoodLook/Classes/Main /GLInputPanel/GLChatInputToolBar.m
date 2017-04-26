@@ -18,16 +18,17 @@ typedef enum : NSUInteger {
 
 
 
-@interface GLChatInputToolBar()<UITextFieldDelegate>
+@interface GLChatInputToolBar()<UITextViewDelegate,GLPickEmojViewDelegate>
 @property (nonatomic,strong) UIButton *picBtn;
 @property (nonatomic,strong) UIButton *videoBtn;
 @property (nonatomic,strong) UIButton *emojBtn;
 @property (nonatomic,strong) UIButton *sendBtn;
-@property (nonatomic,strong) UITextField *inputTextField;
+@property (nonatomic,strong) UITextView *inputTextField;
 @property (nonatomic,assign) GLChatInputToolBarType barType;
 
 /** 表情选择器,作为Pannel */
-@property (nonatomic,strong) UIView<GLChatInputAbleView> *pickEmojView;
+@property (nonatomic,strong) GLPickEmojView *pickEmojView;
+
 @end
 
 @implementation GLChatInputToolBar {
@@ -65,7 +66,20 @@ typedef enum : NSUInteger {
 #pragma mark - datasource
 #pragma mark - delegate
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
+- (void)glPickEmojView:(id)sender didPickEmoj:(UIImage *)emojImage {
+    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc]initWithAttributedString:self.inputTextField.attributedText];
+    
+    NSTextAttachment *textAttachment = [[NSTextAttachment alloc]initWithData:nil ofType:nil];
+    textAttachment.image = emojImage;
+    textAttachment.bounds = CGRectMake(0, 0, 10, 10);
+    
+    NSAttributedString *emojAttriString = [NSAttributedString attributedStringWithAttachment:textAttachment];
+    const NSUInteger location = [self.inputTextField offsetFromPosition:self.inputTextField.beginningOfDocument toPosition:self.inputTextField.selectedTextRange.start];
+    [attributeString insertAttributedString:emojAttriString atIndex:location];
+    self.inputTextField.attributedText = attributeString;
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
     [self beginEditing];
 }
 #pragma mark - user events
@@ -344,7 +358,7 @@ typedef enum : NSUInteger {
     self.videoBtn.hidden = NO;
     self.picBtn.hidden = YES;
 }
-
+ 
 - (CGFloat)contentHeight {
     return 44.0;
 }
@@ -439,9 +453,9 @@ typedef enum : NSUInteger {
     return _sendBtn;
 }
 
-- (UITextField *)inputTextField {
+- (UITextView *)inputTextField {
     if (!_inputTextField) {
-        _inputTextField = [[UITextField alloc]init];
+        _inputTextField = [[UITextView alloc]init];
         _inputTextField.layer.cornerRadius = 5.0;
         _inputTextField.layer.borderColor = [UIColor lightGrayColor].CGColor;
         _inputTextField.layer.borderWidth = 0.3;
@@ -451,10 +465,11 @@ typedef enum : NSUInteger {
 }
 
 
-- (UIView<GLChatInputAbleView> *)pickEmojView {
+- (GLPickEmojView *)pickEmojView {
     if (!_pickEmojView) {
         _pickEmojView = [[GLPickEmojView alloc]init];
         [_pickEmojView sizeWith:CGSizeMake([UIScreen mainScreen].bounds.size.width, [_pickEmojView contentHeight])];
+        _pickEmojView.delegate = self;
     }
     return _pickEmojView;
 }

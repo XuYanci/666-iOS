@@ -91,6 +91,7 @@
 
 #pragma mark - delegate
 
+
 #pragma mark - GLChatInputToolBarDelegate
 
 - (void)glChatInputToolBar:(id)sender
@@ -296,6 +297,7 @@
         _toolbar.backgroundColor = [UIColor whiteColor];
         _toolbar.delegate = self;
         _toolbar.dataSource = self;
+        _toolbar.chatDelegate = self;
     }
     return _toolbar;
 }

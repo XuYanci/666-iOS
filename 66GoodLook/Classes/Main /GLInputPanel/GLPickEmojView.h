@@ -13,6 +13,8 @@
 @end
 
 @protocol GLPickEmojViewDelegate <NSObject>
+- (void)glPickEmojView:(id)sender didPickEmoj:(UIImage *)emojImage;
+- (void)glPickEmojView:(id)sender didPickDel:(UIImage *)delImage;
 @end
 
 /*!
@@ -28,5 +30,7 @@
  @helps It helps no other classes.
  @helper    No helper exists for this class.
  */
-@interface GLPickEmojView : GLChatInputBaseView
+@interface GLPickEmojView : UIView
+@property (nonatomic)id <GLPickEmojViewDelegate>delegate;
+- (CGFloat)contentHeight;
 @end

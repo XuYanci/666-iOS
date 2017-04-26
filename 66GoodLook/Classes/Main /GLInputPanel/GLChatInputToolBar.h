@@ -64,7 +64,6 @@ typedef enum : NSUInteger {
  */
 - (void)setBarType:(GLChatInputToolBarType)barType;
 
-
 /**
  是否编辑状态
 
@@ -74,4 +73,5 @@ typedef enum : NSUInteger {
 - (void)beginEditing;
 - (void)beginOpenPhoto;
 - (void)beginOpenVideo;
+ 
 @end

@@ -38,25 +38,11 @@
     self.indicatorColor = [UIColor colorWithRed:255.0/255.0 green:205.0 / 255.0 blue:0.0 alpha:1.0];
     
     GoodLookBaseViewController *concernViewController = [[GoodLookBaseViewController alloc]init];
-    concernViewController.view.backgroundColor = [UIColor redColor];
-    
     GoodLookWellChosenViewController *wellChosenViewController = [[GoodLookWellChosenViewController alloc]init];
-    wellChosenViewController.view.backgroundColor = [UIColor blueColor];
-    
     GoodLookWellChosenViewController *SignOnViewController = [[GoodLookWellChosenViewController alloc]init];
-    SignOnViewController.view.backgroundColor = [UIColor greenColor];
-    
-  
     GoodLookBaseViewController *girlSchoolViewController = [[GoodLookBaseViewController alloc]init];
-    girlSchoolViewController.view.backgroundColor = [UIColor yellowColor];
-    
-    
     GoodLookBaseViewController *lolFriendDiscussViewController = [[GoodLookBaseViewController alloc]init];
-    lolFriendDiscussViewController.view.backgroundColor = [UIColor purpleColor];
-    
-    
     GoodLookBaseViewController *lolFillWaterViewController = [[GoodLookBaseViewController alloc]init];
-    lolFillWaterViewController.view.backgroundColor = [UIColor whiteColor];
     
     /** 设置内容视图 */
     self.viewControllers = @[

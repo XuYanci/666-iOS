@@ -24,7 +24,7 @@ typedef enum : NSUInteger {
 
 - (instancetype)initWith:(NSObject *)msg type:(GLChatMsgType)type;
 + (instancetype)msgWithText:(NSString *)text;
-+ (instancetype)msgWithEmoj:(NSUInteger)emojIndex;
++ (instancetype)msgWithEmoj:(NSTextAttachment *)emojTextAttachment;
 + (instancetype)msgWithImage:(UIImage *)image;
 + (instancetype)msgWithVideoPath:(NSString *)videoPath;
 

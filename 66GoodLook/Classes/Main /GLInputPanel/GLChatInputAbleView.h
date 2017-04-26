@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "GLChatMsg.h"
 @protocol GLChatInputAbleViewDelegate;
 
 /**
@@ -25,8 +25,16 @@
  */
 @protocol GLChatInputAbleViewDelegate <NSObject>
 @optional
+
+
+- (void)onChatInput:(UIView<GLChatInputAbleView> *)chatInput sendMsg:(GLChatMsg *)msg;
 - (void)onChatInputSendImage:(UIView<GLChatInputAbleView> *)chatInput;
 - (void)onChatInputTakePhoto:(UIView<GLChatInputAbleView> *)chatInput;
 - (void)onChatInputSendFile:(UIView<GLChatInputAbleView> *)chatInput;
 - (void)onChatInputRecordVideo:(UIView<GLChatInputAbleView> *)chatInput;
+
+
 @end
+
+
+

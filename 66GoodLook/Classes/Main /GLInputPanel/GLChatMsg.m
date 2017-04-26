@@ -23,8 +23,8 @@
     return [[GLChatMsg alloc]initWith:text type:GLChatMsgType_Text];
 }
 
-+ (instancetype)msgWithEmoj:(NSUInteger)emojIndex {
-    return [[GLChatMsg alloc]initWith:nil type:GLChatMsgType_Emoj];
++ (instancetype)msgWithEmoj:(NSTextAttachment *)emojTextAttachment {
+    return [[GLChatMsg alloc]initWith:emojTextAttachment type:GLChatMsgType_Emoj];
 }
 
 + (instancetype)msgWithImage:(UIImage *)image {

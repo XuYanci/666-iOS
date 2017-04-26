@@ -8,7 +8,7 @@
 
 #import "GLPickEmojView.h"
 #import "GLPickEmojCollectionViewFlowLayout.h"
-
+#import "GLChatMsg.h"
 @interface GLCustomerCollectionViewCell : UICollectionViewCell
 @property (nonatomic,strong)UIImage *image;
 @end
@@ -99,7 +99,14 @@ static const CGFloat    kEmojHeight = 40.0;
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"Select IndexPath Row = %ld",indexPath.row);
     
+    NSString *cellImagePath = [_emojPngArray objectAtIndex:indexPath.row];
+    UIImage *emojImage = [UIImage imageNamed:cellImagePath];
     
+    
+    if (self.delegate != nil
+        && [self.delegate respondsToSelector:@selector(glPickEmojView:didPickEmoj:)]) {
+        [self.delegate glPickEmojView:self didPickEmoj:emojImage];
+    }
     
 }
 #pragma mark - user events
