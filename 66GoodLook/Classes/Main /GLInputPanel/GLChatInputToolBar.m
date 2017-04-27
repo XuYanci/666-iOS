@@ -26,6 +26,8 @@ typedef enum : NSUInteger {
 @property (nonatomic,strong) UIButton *sendBtn;
 @property (nonatomic,strong) GLChatInputTextView *inputTextField;
 @property (nonatomic,assign) GLChatInputToolBarType barType;
+@property (nonatomic,strong) NSArray *planeToSendImages;
+@property (nonatomic,strong) NSArray *sendToPlaneImages;
 
 /** 表情选择器,作为Pannel */
 @property (nonatomic,strong) GLPickEmojView *pickEmojView;
@@ -75,17 +77,35 @@ typedef enum : NSUInteger {
     NSAttributedString *emojAttriString = [NSAttributedString attributedStringWithAttachment:textAttachment];
     [self.inputTextField.textStorage insertAttributedString:emojAttriString atIndex:self.inputTextField.selectedRange.location];
     self.inputTextField.selectedRange = NSMakeRange(self.inputTextField.selectedRange.location + 1, self.inputTextField.selectedRange.length);
-
+    [self textViewDidChange:self.inputTextField];
 }
 
 - (void)glPickEmojView:(id)sender didPickDel:(UIImage *)delImage {
     [self.inputTextField deleteBackward];
+    [self textViewDidChange:self.inputTextField];
+}
+
+#pragma mark - UITextViewDelegate
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    return YES;
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
+    
     [self beginEditing];
 }
+
+- (void)textViewDidChange:(UITextView *)textView {
+    if (textView.attributedText.length > 0) {
+        [self setBtnPlaneToSend];
+    }
+    else {
+        [self setBtnSendToPlane];
+    }
+}
 #pragma mark - user events
+
 - (void)showEmojPanel:(id)sender {
     NSLog(@"%s",__func__);
     if (_delegateHas.didSelectToolBarType) {
@@ -230,6 +250,11 @@ typedef enum : NSUInteger {
     }
 }
 
+- (void)sendMsg:(id)sender {
+    self.inputTextField.attributedText = nil;
+    [self textViewDidChange:self.inputTextField];
+}
+
 #pragma mark - functions
 
 
@@ -317,6 +342,8 @@ typedef enum : NSUInteger {
         [self setLeftPicToKeyBoard];
         [self.inputTextField resignFirstResponder];
     }
+    
+    [self setBtnSendToPlane];
 }
 
 - (void)setBarType:(GLChatInputToolBarType)barType {
@@ -400,6 +427,30 @@ typedef enum : NSUInteger {
     [self.videoBtn setImage:[UIImage imageNamed:@"shuru_shipin_icon"] forState:UIControlStateNormal];
 }
 
+- (void)setBtnPlaneToSend {
+
+    if (self.sendBtn.tag == 1) {
+        return;
+    }
+    [self.sendBtn setImage:[self.planeToSendImages lastObject] forState:UIControlStateNormal];
+    self.sendBtn.imageView.animationImages = self.planeToSendImages;
+    self.sendBtn.imageView.animationDuration = 0.5;
+    self.sendBtn.imageView.animationRepeatCount = 1;
+    [self.sendBtn.imageView startAnimating];
+    self.sendBtn.tag = 1;
+}
+
+- (void)setBtnSendToPlane {
+    if (self.sendBtn.tag == 0) {
+        return;
+    }
+    [self.sendBtn setImage:[self.sendToPlaneImages lastObject] forState:UIControlStateNormal];
+    self.sendBtn.imageView.animationImages = self.sendToPlaneImages;
+    self.sendBtn.imageView.animationDuration = 0.5;
+    self.sendBtn.imageView.animationRepeatCount = 1;
+    [self.sendBtn.imageView startAnimating];
+    self.sendBtn.tag = 0;
+}
 
 - (void)setDataSource:(id<GLChatInputToolBarDataSource>)dataSource {}
 
@@ -452,6 +503,7 @@ typedef enum : NSUInteger {
 - (UIButton *)sendBtn {
     if (!_sendBtn) {
         _sendBtn = [[UIButton alloc]init];
+        [_sendBtn addTarget:self action:@selector(sendMsg:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _sendBtn;
 }
@@ -469,6 +521,7 @@ typedef enum : NSUInteger {
         _inputTextField.editable = YES;
         _inputTextField.textStorage.delegate = _inputTextField;
         _inputTextField.font = [UIFont systemFontOfSize:16.0];
+        
     }
     return _inputTextField;
 }
@@ -481,6 +534,44 @@ typedef enum : NSUInteger {
         _pickEmojView.delegate = self;
     }
     return _pickEmojView;
+}
+
+- (NSArray *)planeToSendImages {
+    if (!_planeToSendImages) {
+        _planeToSendImages = @[
+                                [UIImage imageNamed:@"shuru_fasong_01"],
+                                [UIImage imageNamed:@"shuru_fasong_02"],
+                                [UIImage imageNamed:@"shuru_fasong_03"],
+                                [UIImage imageNamed:@"shuru_fasong_04"],
+                                [UIImage imageNamed:@"shuru_fasong_05"],
+                                [UIImage imageNamed:@"shuru_fasong_06"],
+                                [UIImage imageNamed:@"shuru_fasong_07"],
+                                [UIImage imageNamed:@"shuru_fasong_08"],
+                                [UIImage imageNamed:@"shuru_fasong_09"],
+                                [UIImage imageNamed:@"shuru_fasong_10"],
+                                [UIImage imageNamed:@"shuru_fasong_11"],
+                               ];
+    }
+    return _planeToSendImages;
+}
+
+- (NSArray *)sendToPlaneImages {
+    if (!_sendToPlaneImages) {
+        _sendToPlaneImages = @[
+                               [UIImage imageNamed:@"shuru_fasong_11"],
+                               [UIImage imageNamed:@"shuru_fasong_10"],
+                               [UIImage imageNamed:@"shuru_fasong_09"],
+                               [UIImage imageNamed:@"shuru_fasong_08"],
+                               [UIImage imageNamed:@"shuru_fasong_07"],
+                               [UIImage imageNamed:@"shuru_fasong_06"],
+                               [UIImage imageNamed:@"shuru_fasong_05"],
+                               [UIImage imageNamed:@"shuru_fasong_04"],
+                               [UIImage imageNamed:@"shuru_fasong_03"],
+                               [UIImage imageNamed:@"shuru_fasong_02"],
+                               [UIImage imageNamed:@"shuru_fasong_01"],
+                               ];
+    }
+    return _sendToPlaneImages;
 }
 
 /*
