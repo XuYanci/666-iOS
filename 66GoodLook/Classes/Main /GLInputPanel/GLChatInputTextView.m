@@ -8,6 +8,10 @@
 
 #import "GLChatInputTextView.h"
 
+@interface GLChatInputTextView ()
+
+@end
+
 @implementation GLChatInputTextView
 
 /*
@@ -18,19 +22,28 @@
 }
 */
 
-//- (void)copy:(id)sender {
-//    
-//}
-//
-//- (void)select:(id)sender {
-//    
-//}
-//
-//- (void)selectAll:(id)sender {
-//    
-//}
-//
-//- (void)paste:(id)sender {
-//   
-//}
+- (void)textStorage:(NSTextStorage *)textStorage
+  didProcessEditing:(NSTextStorageEditActions)editedMask
+              range:(NSRange)editedRange
+     changeInLength:(NSInteger)delta {
+    
+    __block NSMutableDictionary *dict;
+    [textStorage enumerateAttributesInRange:editedRange
+                                    options:NSAttributedStringEnumerationLongestEffectiveRangeNotRequired
+                                 usingBlock:^(NSDictionary<NSString *,id> * _Nonnull attrs,
+                                              NSRange range,
+                                              BOOL * _Nonnull stop)
+     {
+         dict = [[NSMutableDictionary alloc]initWithDictionary:attrs];
+         [dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key,
+                                                   id  _Nonnull obj,
+                                                   BOOL * _Nonnull stop) {
+             if ([[key description] isEqualToString:NSAttachmentAttributeName]) {
+                 NSTextAttachment *attachment = obj;
+                 attachment.bounds = CGRectMake(0, 0, 20, 20);
+             }
+         }];
+     }];
+}
+
 @end

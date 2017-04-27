@@ -78,6 +78,10 @@ typedef enum : NSUInteger {
 
 }
 
+- (void)glPickEmojView:(id)sender didPickDel:(UIImage *)delImage {
+    
+}
+
 - (void)textViewDidBeginEditing:(UITextView *)textView {
     [self beginEditing];
 }
@@ -460,8 +464,10 @@ typedef enum : NSUInteger {
         _inputTextField.layer.borderWidth = 0.3;
         _inputTextField.delegate = self;
         _inputTextField.selectable = YES;
+        _inputTextField.allowsEditingTextAttributes = YES;
         _inputTextField.scrollEnabled = YES;
         _inputTextField.editable = YES;
+        _inputTextField.textStorage.delegate = _inputTextField;
 
     }
     return _inputTextField;

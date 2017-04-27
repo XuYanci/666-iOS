@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GLChatInputTextView : UITextView
+@interface GLChatInputTextView : UITextView<NSTextStorageDelegate>
 
 @end
