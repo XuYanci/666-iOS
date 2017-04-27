@@ -103,10 +103,17 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     UIImage *emojImage = [UIImage imageNamed:cellImagePath];
     
     
-    if (self.delegate != nil
+    if ([cellImagePath isEqualToString:@"sl3_btn_shan_d"]) {
+        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(glPickEmojView:didPickDel:)]) {
+            [self.delegate glPickEmojView:self didPickDel:nil];
+        }
+    }
+    else if (self.delegate != nil
         && [self.delegate respondsToSelector:@selector(glPickEmojView:didPickEmoj:)]) {
         [self.delegate glPickEmojView:self didPickEmoj:emojImage];
     }
+    
+    
     
 }
 #pragma mark - user events

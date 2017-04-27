@@ -40,7 +40,7 @@
                                                    BOOL * _Nonnull stop) {
              if ([[key description] isEqualToString:NSAttachmentAttributeName]) {
                  NSTextAttachment *attachment = obj;
-                 attachment.bounds = CGRectMake(0, 0, 20, 20);
+                 attachment.bounds = CGRectMake(0, -3, 15, 15);
              }
          }];
      }];

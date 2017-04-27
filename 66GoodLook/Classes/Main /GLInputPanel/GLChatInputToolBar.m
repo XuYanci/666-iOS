@@ -70,7 +70,7 @@ typedef enum : NSUInteger {
 - (void)glPickEmojView:(id)sender didPickEmoj:(UIImage *)emojImage {
     NSTextAttachment *textAttachment = [[NSTextAttachment alloc]initWithData:nil ofType:nil];
     textAttachment.image = emojImage;
-    textAttachment.bounds = CGRectMake(0, 0, 20, 20);
+    textAttachment.bounds = CGRectMake(0, 0, 15, 15);
     
     NSAttributedString *emojAttriString = [NSAttributedString attributedStringWithAttachment:textAttachment];
     [self.inputTextField.textStorage insertAttributedString:emojAttriString atIndex:self.inputTextField.selectedRange.location];
@@ -79,7 +79,7 @@ typedef enum : NSUInteger {
 }
 
 - (void)glPickEmojView:(id)sender didPickDel:(UIImage *)delImage {
-    
+    [self.inputTextField deleteBackward];
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
@@ -468,7 +468,7 @@ typedef enum : NSUInteger {
         _inputTextField.scrollEnabled = YES;
         _inputTextField.editable = YES;
         _inputTextField.textStorage.delegate = _inputTextField;
-
+        _inputTextField.font = [UIFont systemFontOfSize:16.0];
     }
     return _inputTextField;
 }
