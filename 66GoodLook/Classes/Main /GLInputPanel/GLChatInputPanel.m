@@ -164,7 +164,7 @@
     self.maskView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
     
     if (_panelType == GLChatInputPanelType_Text) {
-        [self.toolbar beginEditing];
+        [self.toolbar beginOpenText];
     }
     else if(_panelType == GLChatInputPanelType_Video) {
         [self.toolbar beginOpenVideo];

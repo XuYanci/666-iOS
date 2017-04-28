@@ -354,6 +354,7 @@ typedef enum : NSUInteger {
     return [self.inputTextField isFirstResponder];
 }
 
+
 - (void)beginEditing {
     if (_inputTextField.inputView == nil) {
         _barType = GLChatInputToolBarType_Default;
@@ -361,6 +362,7 @@ typedef enum : NSUInteger {
     else if(_inputTextField.inputView == self.pickEmojView){
         _barType = GLChatInputToolBarType_Emoj;
     }
+    
     [self setLeftKeyBoardToVideo];
     [self setLeftKeyBoardToPic];
     [self.inputTextField becomeFirstResponder];
@@ -370,6 +372,13 @@ typedef enum : NSUInteger {
     }
     
 }
+
+- (void)beginOpenText {
+    [self beginEditing];
+    self.videoBtn.hidden = YES;
+    self.picBtn.hidden = NO;
+}
+
 
 - (void)beginOpenPhoto {
     _barType = GLChatInputToolBarType_Pic;

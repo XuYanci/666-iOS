@@ -70,7 +70,8 @@ typedef enum : NSUInteger {
  @return 是否编辑状态
  */
 - (BOOL)isEditing;
-- (void)beginEditing;
+
+- (void)beginOpenText;
 - (void)beginOpenPhoto;
 - (void)beginOpenVideo;
  
