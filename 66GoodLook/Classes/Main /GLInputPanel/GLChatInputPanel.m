@@ -22,7 +22,7 @@
 /** 视频选择器,作为Pannel */
 @property (nonatomic,strong) UIView<GLChatInputAbleView> *pickVideoCollectionView;
 /** 图片选择器,作为Pannel */
-@property (nonatomic,strong) UIView<GLChatInputAbleView> *pickPictureCollectionView;
+@property (nonatomic,strong) GLPickPictureView *pickPictureCollectionView;
 /** 表情选择器,作为Pannel */
 //@property (nonatomic,strong) UIView<GLChatInputAbleView> *pickEmojView;
 /** **/
@@ -321,10 +321,9 @@
     return _pickVideoCollectionView;
 }
 
-- (UIView<GLChatInputAbleView> *)pickPictureCollectionView {
+- (GLPickPictureView *)pickPictureCollectionView {
     if (!_pickPictureCollectionView) {
-        _pickPictureCollectionView = (UIView<GLChatInputAbleView> *)[[UIView alloc]init];
-        _pickPictureCollectionView.backgroundColor = [UIColor blueColor];
+        _pickPictureCollectionView = [[GLPickPictureView alloc]init];
     }
     return _pickPictureCollectionView;
 }

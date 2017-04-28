@@ -29,5 +29,12 @@
  @helper    No helper exists for this class.
  */
 @interface GLPickPictureView : GLChatInputBaseView
- 
+
+@property (nonatomic,weak) id <GLPickPictureCollectionViewDelegate> delegate;
+@property (nonatomic,weak) id <GLPickPictureCollectionViewDataSource> dataSource;
+
+/**
+ 重载数据
+ */
+- (void)reloadData;
 @end
