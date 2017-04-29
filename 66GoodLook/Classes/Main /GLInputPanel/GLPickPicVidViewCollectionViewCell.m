@@ -77,6 +77,7 @@
 
 - (void)setImage:(UIImage *)image {
     _image = image;
+    [self.pictureImageView setImage:_image];
 }
 
 #pragma mark - notification

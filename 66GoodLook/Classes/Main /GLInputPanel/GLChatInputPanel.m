@@ -114,7 +114,7 @@
         [self addSubview:self.pickPictureCollectionView];
         [self.pickPictureCollectionView sizeWith:CGSizeMake([UIScreen mainScreen].bounds.size.width, 200)];
         [self.pickPictureCollectionView alignParentBottom];
-        
+    
         
         NSInteger contentHeight = self.pickPictureCollectionView.frame.size.height + [self.toolbar contentHeight];
         if (_contentHeight != contentHeight)
@@ -175,6 +175,8 @@
     [UIView animateWithDuration:0.5 animations:^{
         self.maskView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
     }];
+    
+
 }
 
 - (void)dismiss {
@@ -242,7 +244,11 @@
         [self reloadData];
     }
 }
-- (void)reloadData {}
+- (void)reloadData {
+    
+}
+
+
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
 }

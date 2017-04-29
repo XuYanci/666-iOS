@@ -8,6 +8,7 @@
 
 #import "GLPickPictureView.h"
 #import "GLPickPicVidViewCollectionViewCell.h"
+#import <Photos/Photos.h>
 
 @interface GLPickPictureHeaderView : UIView
 @property (nonatomic,strong)UILabel *choosePicLabel;
@@ -56,10 +57,14 @@ static NSString *const kPickPictureCollectionViewCellIdentifier = @"pickPictureC
 static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
 
 
-@interface GLPickPictureView()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface GLPickPictureView()<UICollectionViewDelegate,UICollectionViewDataSource,PHPhotoLibraryChangeObserver>
 @property (nonatomic,strong)UICollectionView *collectionView;
 @property (nonatomic,strong)UICollectionViewLayout *collectionViewLayout;
 @property (nonatomic,strong)GLPickPictureHeaderView *headerView;
+@property (nonatomic,strong)PHFetchResult<PHAsset *> *allPhotos;
+@property (nonatomic,strong)PHCachingImageManager *imageManager;
+@property (nonatomic,assign)CGRect previousPreheatRect;
+@property (nonatomic,assign)CGSize thumbnailSize;
 @end
 
 @implementation GLPickPictureView {
@@ -71,6 +76,23 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
 }
 
 #pragma mark - life cycle
+
+- (void)didMoveToSuperview {
+  
+}
+
+- (void)didMoveToWindow {
+    
+}
+
+- (void)willMoveToWindow:(UIWindow *)newWindow {
+    
+}
+
+- (void)willMoveToSuperview:(UIView *)newSuperview {
+    
+}
+
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self commonInit];
@@ -80,12 +102,14 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
 }
 
 - (void)layoutSubviews {
-    [self _reloadDataIfNeeded];
     [self.collectionView sizeWith:CGSizeMake([UIScreen mainScreen].bounds.size.width,
                                              self.bounds.size.height - kPickPictureCollectionViewHeaderHeight)];
     [self.collectionView alignParentBottom];
     [self.headerView sizeWith:CGSizeMake([UIScreen mainScreen].bounds.size.width, kPickPictureCollectionViewHeaderHeight)];
     [self.headerView alignParentTop];
+    
+    [self _reloadDataIfNeeded];
+    
     [super layoutSubviews];
 }
 
@@ -93,16 +117,25 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return self.allPhotos.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     GLPickPicVidViewCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kPickPictureCollectionViewCellIdentifier forIndexPath:indexPath];
-    [cell setPickPicVidCVType:GLPickPicVidType_Pic]; 
+    [cell setPickPicVidCVType:GLPickPicVidType_Pic];
+    
+    PHAsset *asset = [self.allPhotos objectAtIndex:indexPath.row];
+    [self.imageManager requestImageForAsset:asset targetSize:self.thumbnailSize contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        cell.image = result;
+    }];
     return cell;
 }
 
 #pragma mark - delegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self updateCachedAssets];
+}
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -129,13 +162,128 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
 - (void)_reloadDataIfNeeded {
     if (_needsReload) {
         [self reloadData];
+        _needsReload = NO;
     }
 }
-- (void)reloadData {}
+- (void)reloadData {
+    PHFetchOptions *allPhotosOptions = [[PHFetchOptions alloc]init];
+    allPhotosOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:true]];
+    _allPhotos = [PHAsset fetchAssetsWithOptions:allPhotosOptions];
+    [[PHPhotoLibrary sharedPhotoLibrary]registerChangeObserver:self];
+    [self.collectionView reloadData];
+    
+    [self resetCachedAssets];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self updateCachedAssets];
+        [self.collectionView reloadData];
+    });
+}
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
 }
 #pragma mark - notification
+
+#pragma mark - PHPhotoLibraryChangeObserver
+- (void)photoLibraryDidChange:(PHChange *)changeInstance {
+    
+}
+
+
+#pragma mark - Asset Caching
+
+- (void)resetCachedAssets {
+    [self.imageManager stopCachingImagesForAllAssets];
+    _previousPreheatRect = CGRectZero;
+    
+}
+
+- (void)updateCachedAssets {
+    
+    CGRect visibleRect = CGRectMake(self.collectionView.contentOffset.x,
+                                    self.collectionView.contentOffset.y,
+                                    self.collectionView.bounds.size.width,
+                                    self.collectionView.bounds.size.height);
+    CGRect preheatRect = CGRectInset(visibleRect, -0.5 * visibleRect.size.width, 0);
+    CGFloat delta = fabs(CGRectGetMidX(preheatRect) - CGRectGetMidX(_previousPreheatRect));
+    if (delta <= self.bounds.size.width / 3.0) {
+        return;
+    }
+    
+    NSArray *rectsArray = [self differencesBetweenRects:_previousPreheatRect
+                                                    new:preheatRect];
+    NSArray *addedRects = [rectsArray objectAtIndex:0];
+    NSArray *removedRects = [rectsArray objectAtIndex:1];
+  
+    NSMutableArray *addedAssets = [NSMutableArray array];
+    NSMutableArray *removedAssets = [NSMutableArray array];
+    
+    [addedRects enumerateObjectsUsingBlock:^(NSValue *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        CGRect rect = [obj CGRectValue];
+        NSArray <UICollectionViewLayoutAttributes*> *array = [self.collectionView.collectionViewLayout layoutAttributesForElementsInRect:rect];
+        [array enumerateObjectsUsingBlock:^(UICollectionViewLayoutAttributes * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [addedAssets addObject:[self.allPhotos objectAtIndex:obj.indexPath.row]];
+        }];
+    }];
+    
+    
+    [removedRects enumerateObjectsUsingBlock:^(NSValue *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        CGRect rect = [obj CGRectValue];
+        NSArray <UICollectionViewLayoutAttributes*> *array = [self.collectionView.collectionViewLayout layoutAttributesForElementsInRect:rect];
+        [array enumerateObjectsUsingBlock:^(UICollectionViewLayoutAttributes * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [removedAssets addObject:[self.allPhotos objectAtIndex:obj.indexPath.row]];
+        }];
+    }];
+    
+    [self.imageManager startCachingImagesForAssets:addedAssets targetSize:_thumbnailSize contentMode:PHImageContentModeAspectFit options:nil];
+    [self.imageManager stopCachingImagesForAssets:removedAssets targetSize:_thumbnailSize contentMode:PHImageContentModeAspectFit options:nil];
+    _previousPreheatRect = preheatRect;
+    
+}
+
+- (NSArray *)differencesBetweenRects:(CGRect)old new:(CGRect)new {
+    if (CGRectIntersectsRect(old, new)) {
+        
+        NSMutableArray *addedArray = [NSMutableArray array];
+        if (CGRectGetMaxX(new) > CGRectGetMaxX(old)) {
+            CGRect added = CGRectMake(CGRectGetMaxX(old),
+                               new.origin.y,
+                               CGRectGetMaxX(new) - CGRectGetMaxX(old),
+                               new.size.height);
+            [addedArray addObject:[NSValue valueWithCGRect:added]];
+        }
+        if (CGRectGetMinX(old) > CGRectGetMinX(new)) {
+            CGRect added = CGRectMake(CGRectGetMinX(new),
+                                      new.origin.y,
+                                      CGRectGetMinX(old) - CGRectGetMinX(new),
+                                      new.size.height);
+            [addedArray addObject:[NSValue valueWithCGRect:added]];
+        }
+        
+        NSMutableArray *removedArray = [NSMutableArray array];
+        if (CGRectGetMaxX(new) < CGRectGetMaxX(old)) {
+           CGRect removed = CGRectMake(CGRectGetMaxX(new),
+                                 new.origin.y,
+                                 CGRectGetMaxX(old) - CGRectGetMaxX(new),
+                                 new.size.height);
+           [removedArray addObject:[NSValue valueWithCGRect:removed]];
+        }
+        if (CGRectGetMinX(old) < CGRectGetMinX(new)) {
+            CGRect removed = CGRectMake(CGRectGetMinX(old),
+                                        new.origin.y,
+                                        CGRectGetMinX(new) - CGRectGetMinX(old),
+                                        new.size.height);
+            [removedArray addObject:[NSValue valueWithCGRect:removed]];
+        }
+        
+        return @[addedArray,removedArray];
+    }
+    return @[@[[NSValue valueWithCGRect:new]],@[[NSValue valueWithCGRect:old]]];
+}
+
+
+
+
 #pragma mark - getter and setter
 
 
@@ -189,6 +337,13 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
         _headerView = [[GLPickPictureHeaderView alloc]init];
     }
     return _headerView;
+}
+
+- (PHCachingImageManager *)imageManager {
+    if (!_imageManager) {
+        _imageManager = [[PHCachingImageManager alloc]init];
+    }
+    return _imageManager;
 }
 
 /*
