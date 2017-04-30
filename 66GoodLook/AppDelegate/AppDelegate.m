@@ -23,4 +23,7 @@
     return (NSArray <ApplicationService>*)[NSArray arrayWithObjects:base, nil];
 }
 
++(AppDelegate*)shareInstance {
+    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
 @end

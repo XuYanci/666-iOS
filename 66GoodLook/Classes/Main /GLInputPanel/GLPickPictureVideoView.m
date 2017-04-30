@@ -5,10 +5,10 @@
 //  Created by Yanci on 17/4/20.
 //  Copyright © 2017年 Yanci. All rights reserved.
 //
-
-#import "GLPickPictureView.h"
-#import "GLPickPicVidViewCollectionViewCell.h"
 #import <Photos/Photos.h>
+#import "GLPickPictureVideoView.h"
+#import "GLPickPicVidViewCollectionViewCell.h"
+#import "GLMediaBrowserViewController.h"
 
 @interface GLPickPictureHeaderView : UIView
 @property (nonatomic,strong)UILabel *choosePicLabel;
@@ -28,6 +28,7 @@
     _choosePicLabel = [[UILabel alloc]init];
     _choosePicLabel.font = [UIFont systemFontOfSize:12.0];
     _choosePicLabel.text = @"选择图片(0/4)";
+    _choosePicLabel.textColor = [UIColor darkGrayColor];
     [self addSubview:_choosePicLabel];
     
     [_choosePicLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -38,8 +39,13 @@
     _moreBtn = [[UIButton alloc]init];
     [_moreBtn setTitle:@"更多" forState:UIControlStateNormal];
     _moreBtn.titleLabel.font = [UIFont systemFontOfSize:12.0];
-    [_moreBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_moreBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [_moreBtn addTarget:self action:@selector(clickMore:) forControlEvents:UIControlEventTouchUpInside];
+    
     [self addSubview:_moreBtn];
+    
+    
+    
     
     [_moreBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(self.mas_right).offset(-10);
@@ -57,7 +63,7 @@ static NSString *const kPickPictureCollectionViewCellIdentifier = @"pickPictureC
 static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
 
 
-@interface GLPickPictureView()<UICollectionViewDelegate,UICollectionViewDataSource,PHPhotoLibraryChangeObserver>
+@interface GLPickPictureVideoView()<UICollectionViewDelegate,UICollectionViewDataSource,PHPhotoLibraryChangeObserver>
 @property (nonatomic,strong)UICollectionView *collectionView;
 @property (nonatomic,strong)UICollectionViewLayout *collectionViewLayout;
 @property (nonatomic,strong)GLPickPictureHeaderView *headerView;
@@ -67,7 +73,7 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
 @property (nonatomic,assign)CGSize thumbnailSize;
 @end
 
-@implementation GLPickPictureView {
+@implementation GLPickPictureVideoView {
     BOOL _needsReload;  /*! 需要重载 */
     struct {
     }_datasourceHas;    /*! 数据源存在标识 */
@@ -117,15 +123,36 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.allPhotos.count;
+    return self.allPhotos.count + 1;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+
     GLPickPicVidViewCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kPickPictureCollectionViewCellIdentifier forIndexPath:indexPath];
-    [cell setPickPicVidCVType:GLPickPicVidType_Pic];
+    if (self.type == GLPickPicVidType_Pic) {
+        [cell setPickPicVidCVType:GLPickPicVidCVType_Pic];
+        if (indexPath.row == 0) {
+            [cell setPickPicVidCVType:GLPickPicVidCVType_TakePic];
+            [cell setImage:[UIImage imageNamed:@"ft_pic_icon_img"]];
+             return cell;
+        }
+       
+    }
+    else if(self.type == GLPickPicVidType_Vid) {
+        [cell setPickPicVidCVType:GLPickPicVidCVType_Vid];
+        if (indexPath.row == 0) {
+            [cell setPickPicVidCVType:GLPickPicVidCVType_TakeVid];
+            [cell setImage:[UIImage imageNamed:@"ft_pic_icon_camera"]];
+            return cell;
+        }
+    }
     
-    PHAsset *asset = [self.allPhotos objectAtIndex:indexPath.row];
-    [self.imageManager requestImageForAsset:asset targetSize:self.thumbnailSize contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+    PHAsset *asset = [self.allPhotos objectAtIndex:indexPath.row - 1];
+    [self.imageManager requestImageForAsset:asset
+                                 targetSize:self.thumbnailSize
+                                contentMode:PHImageContentModeAspectFit
+                                    options:nil
+                              resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         cell.image = result;
     }];
     return cell;
@@ -143,6 +170,17 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
 }
 
 #pragma mark - user events
+- (void)clickMore:(id)sender {
+    GLMediaBrowserViewController *browserViewController = [[GLMediaBrowserViewController alloc]init];
+    if (self.type == GLPickPicVidType_Pic) {
+        browserViewController.type = GLMediaBrowserType_Picture;
+    }
+    else if(self.type == GLPickPicVidType_Vid) {
+        browserViewController.type = GLMediaBrowserType_Video;
+    }
+    [[AppDelegate shareInstance]pushViewController:browserViewController];
+}
+
 #pragma mark - functions
 
 
@@ -167,7 +205,17 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
 }
 - (void)reloadData {
     PHFetchOptions *allPhotosOptions = [[PHFetchOptions alloc]init];
-    allPhotosOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:true]];
+    
+    if (self.type == GLPickPicVidType_Vid) {
+        allPhotosOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType = %d",PHAssetMediaTypeVideo];
+        self.headerView.choosePicLabel.text = @"选择视频(0/1)";
+    }
+    else if(self.type == GLPickPicVidType_Pic) {
+        allPhotosOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType = %d",PHAssetMediaTypeImage];
+        self.headerView.choosePicLabel.text = @"选择图片(0/4)";
+    }
+    
+    allPhotosOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:false]];
     _allPhotos = [PHAsset fetchAssetsWithOptions:allPhotosOptions];
     [[PHPhotoLibrary sharedPhotoLibrary]registerChangeObserver:self];
     [self.collectionView reloadData];
@@ -222,16 +270,21 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
         CGRect rect = [obj CGRectValue];
         NSArray <UICollectionViewLayoutAttributes*> *array = [self.collectionView.collectionViewLayout layoutAttributesForElementsInRect:rect];
         [array enumerateObjectsUsingBlock:^(UICollectionViewLayoutAttributes * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [addedAssets addObject:[self.allPhotos objectAtIndex:obj.indexPath.row]];
+            // becaues first item is an take photo item or take video item
+            if (obj.indexPath.row >= 1) {
+                [addedAssets addObject:[self.allPhotos objectAtIndex:obj.indexPath.row - 1]];
+            }
         }];
     }];
-    
     
     [removedRects enumerateObjectsUsingBlock:^(NSValue *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         CGRect rect = [obj CGRectValue];
         NSArray <UICollectionViewLayoutAttributes*> *array = [self.collectionView.collectionViewLayout layoutAttributesForElementsInRect:rect];
         [array enumerateObjectsUsingBlock:^(UICollectionViewLayoutAttributes * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [removedAssets addObject:[self.allPhotos objectAtIndex:obj.indexPath.row]];
+            // becaues first item is an take photo item or take video item
+            if (obj.indexPath.row >= 1) {
+               [removedAssets addObject:[self.allPhotos objectAtIndex:obj.indexPath.row - 1]];
+            }
         }];
     }];
     

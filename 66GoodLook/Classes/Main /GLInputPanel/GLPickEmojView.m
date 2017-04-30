@@ -97,7 +97,7 @@ static const CGFloat    kEmojHeight = 40.0;
 #pragma mark - delegate
 - (void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"Select IndexPath Row = %ld",indexPath.row);
+    NSLog(@"Select IndexPath Row = %ld",(long)indexPath.row);
     
     NSString *cellImagePath = [_emojPngArray objectAtIndex:indexPath.row];
     UIImage *emojImage = [UIImage imageNamed:cellImagePath];

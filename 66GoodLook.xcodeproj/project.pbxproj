@@ -23,8 +23,7 @@
 		AD4215471EA8DA28002FBC26 /* GLChatInputPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4215431EA8DA28002FBC26 /* GLChatInputPanel.m */; };
 		AD4215481EA8DA28002FBC26 /* GLChatInputToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4215451EA8DA28002FBC26 /* GLChatInputToolBar.m */; };
 		AD42154A1EA8DEA3002FBC26 /* Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD4215491EA8DEA3002FBC26 /* Expression.bundle */; };
-		AD42154D1EA8E1D2002FBC26 /* GLPickPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD42154C1EA8E1D2002FBC26 /* GLPickPictureView.m */; };
-		AD4215501EA8E20D002FBC26 /* GLPickVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD42154F1EA8E20D002FBC26 /* GLPickVideoView.m */; };
+		AD42154D1EA8E1D2002FBC26 /* GLPickPictureVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD42154C1EA8E1D2002FBC26 /* GLPickPictureVideoView.m */; };
 		AD4215531EA8E326002FBC26 /* GLPickEmojView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4215521EA8E326002FBC26 /* GLPickEmojView.m */; };
 		AD44DC1F1E9B208B003C1576 /* MXRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC1E1E9B208B003C1576 /* MXRequest.m */; };
 		AD44DC221E9B20ED003C1576 /* MXRequest+UserAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC211E9B20ED003C1576 /* MXRequest+UserAccount.m */; };
@@ -61,6 +60,7 @@
 		AD841CC71EB388CD007A3EDF /* GLMediaBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CC61EB388CD007A3EDF /* GLMediaBrowserViewController.m */; };
 		AD841CCA1EB38997007A3EDF /* GLAssetLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CC91EB38997007A3EDF /* GLAssetLibraryManager.m */; };
 		AD841CCD1EB38D9D007A3EDF /* GLAssetLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CCC1EB38D9D007A3EDF /* GLAssetLibraryViewController.m */; };
+		AD841CD01EB5761B007A3EDF /* AppDelegate+ViewControllerOpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CCF1EB5761B007A3EDF /* AppDelegate+ViewControllerOpers.m */; };
 		AD9694151EAAF217008D9170 /* GitMarkDown参考.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD9694141EAAF217008D9170 /* GitMarkDown参考.txt */; };
 		ADA17AAF1E9C469B00FA0FF9 /* GLMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AAE1E9C469B00FA0FF9 /* GLMainTabBarViewController.m */; };
 		ADA17AB61E9C579E00FA0FF9 /* GLViewPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AB51E9C579E00FA0FF9 /* GLViewPagerViewController.m */; };
@@ -137,10 +137,8 @@
 		AD4215441EA8DA28002FBC26 /* GLChatInputToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLChatInputToolBar.h; sourceTree = "<group>"; };
 		AD4215451EA8DA28002FBC26 /* GLChatInputToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLChatInputToolBar.m; sourceTree = "<group>"; };
 		AD4215491EA8DEA3002FBC26 /* Expression.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Expression.bundle; sourceTree = SOURCE_ROOT; };
-		AD42154B1EA8E1D2002FBC26 /* GLPickPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPickPictureView.h; sourceTree = "<group>"; };
-		AD42154C1EA8E1D2002FBC26 /* GLPickPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLPickPictureView.m; sourceTree = "<group>"; };
-		AD42154E1EA8E20D002FBC26 /* GLPickVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPickVideoView.h; sourceTree = "<group>"; };
-		AD42154F1EA8E20D002FBC26 /* GLPickVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLPickVideoView.m; sourceTree = "<group>"; };
+		AD42154B1EA8E1D2002FBC26 /* GLPickPictureVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPickPictureVideoView.h; sourceTree = "<group>"; };
+		AD42154C1EA8E1D2002FBC26 /* GLPickPictureVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLPickPictureVideoView.m; sourceTree = "<group>"; };
 		AD4215511EA8E326002FBC26 /* GLPickEmojView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPickEmojView.h; sourceTree = "<group>"; };
 		AD4215521EA8E326002FBC26 /* GLPickEmojView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLPickEmojView.m; sourceTree = "<group>"; };
 		AD44DC1D1E9B208B003C1576 /* MXRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXRequest.h; sourceTree = "<group>"; };
@@ -215,6 +213,8 @@
 		AD841CC91EB38997007A3EDF /* GLAssetLibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAssetLibraryManager.m; sourceTree = "<group>"; };
 		AD841CCB1EB38D9D007A3EDF /* GLAssetLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAssetLibraryViewController.h; sourceTree = "<group>"; };
 		AD841CCC1EB38D9D007A3EDF /* GLAssetLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAssetLibraryViewController.m; sourceTree = "<group>"; };
+		AD841CCE1EB5761B007A3EDF /* AppDelegate+ViewControllerOpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ViewControllerOpers.h"; sourceTree = "<group>"; };
+		AD841CCF1EB5761B007A3EDF /* AppDelegate+ViewControllerOpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ViewControllerOpers.m"; sourceTree = "<group>"; };
 		AD9694131EAA47AF008D9170 /* GLChatInputAbleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLChatInputAbleView.h; sourceTree = "<group>"; };
 		AD9694141EAAF217008D9170 /* GitMarkDown参考.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "GitMarkDown参考.txt"; sourceTree = "<group>"; };
 		ADA17AAD1E9C469B00FA0FF9 /* GLMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMainTabBarViewController.h; sourceTree = "<group>"; };
@@ -398,12 +398,10 @@
 				AD4215431EA8DA28002FBC26 /* GLChatInputPanel.m */,
 				AD4215441EA8DA28002FBC26 /* GLChatInputToolBar.h */,
 				AD4215451EA8DA28002FBC26 /* GLChatInputToolBar.m */,
-				AD42154B1EA8E1D2002FBC26 /* GLPickPictureView.h */,
-				AD42154C1EA8E1D2002FBC26 /* GLPickPictureView.m */,
+				AD42154B1EA8E1D2002FBC26 /* GLPickPictureVideoView.h */,
+				AD42154C1EA8E1D2002FBC26 /* GLPickPictureVideoView.m */,
 				AD841CB51EB31EA1007A3EDF /* GLPickPicVidViewCollectionViewCell.h */,
 				AD841CB61EB31EA1007A3EDF /* GLPickPicVidViewCollectionViewCell.m */,
-				AD42154E1EA8E20D002FBC26 /* GLPickVideoView.h */,
-				AD42154F1EA8E20D002FBC26 /* GLPickVideoView.m */,
 				AD7CF4851EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.h */,
 				AD7CF4861EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.m */,
 				AD4215511EA8E326002FBC26 /* GLPickEmojView.h */,
@@ -574,6 +572,8 @@
 			children = (
 				AD70AF0C1E991E800003F3C8 /* AppDelegate.h */,
 				AD70AF0D1E991E800003F3C8 /* AppDelegate.m */,
+				AD841CCE1EB5761B007A3EDF /* AppDelegate+ViewControllerOpers.h */,
+				AD841CCF1EB5761B007A3EDF /* AppDelegate+ViewControllerOpers.m */,
 				ADC172061E9A4071005DFCEE /* ApplicationServiceManager.h */,
 				ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */,
 				ADC1720C1E9A44FC005DFCEE /* ApplicationServiceBase.h */,
@@ -1163,7 +1163,7 @@
 				AD31FADB1E9B16B400523AC9 /* MXBaseUrl.m in Sources */,
 				AD841CC71EB388CD007A3EDF /* GLMediaBrowserViewController.m in Sources */,
 				AD44DC481E9B2453003C1576 /* XYAppAutoSizeScale.m in Sources */,
-				AD42154D1EA8E1D2002FBC26 /* GLPickPictureView.m in Sources */,
+				AD42154D1EA8E1D2002FBC26 /* GLPickPictureVideoView.m in Sources */,
 				AD44DC1F1E9B208B003C1576 /* MXRequest.m in Sources */,
 				AD4215531EA8E326002FBC26 /* GLPickEmojView.m in Sources */,
 				AD44DC701E9B6FC7003C1576 /* NSMutableDictionary+SetObject.m in Sources */,
@@ -1174,6 +1174,7 @@
 				AD44DC6E1E9B6FC7003C1576 /* NSArray+SafeAccess.m in Sources */,
 				AD44DC4C1E9B2453003C1576 /* NSObject+DeallocBlock.m in Sources */,
 				AD44DC561E9B2453003C1576 /* UINavigationBar+DYLYTheme.m in Sources */,
+				AD841CD01EB5761B007A3EDF /* AppDelegate+ViewControllerOpers.m in Sources */,
 				ADA17ADA1E9C5C7000FA0FF9 /* GLMessageViewController.m in Sources */,
 				ADA17AD41E9C5C5600FA0FF9 /* GoodPlayViewController.m in Sources */,
 				AD44DC4D1E9B2453003C1576 /* DYLYColor.m in Sources */,
@@ -1202,7 +1203,6 @@
 				AD31FBA01E9B178900523AC9 /* AESHelper.m in Sources */,
 				AD4215461EA8DA28002FBC26 /* GLChatInputBaseView.m in Sources */,
 				AD44DC531E9B2453003C1576 /* UIButton+DYLYTheme.m in Sources */,
-				AD4215501EA8E20D002FBC26 /* GLPickVideoView.m in Sources */,
 				AD31FAD91E9B16B400523AC9 /* MXBaseRequest.m in Sources */,
 				AD7CF4871EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.m in Sources */,
 				AD44DC711E9B6FC7003C1576 /* NSString+JSONCategories.m in Sources */,

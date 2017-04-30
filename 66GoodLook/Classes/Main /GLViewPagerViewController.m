@@ -135,7 +135,7 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
     if (completed) {
         NSUInteger currentPageIndex = [self.contentViewControllers indexOfObject:pageViewController.viewControllers[0]];
         NSUInteger prevPageIndex = [self.contentViewControllers indexOfObject:previousViewControllers[0]];
-        NSLog(@"Current Page Index = %ld",currentPageIndex);
+        NSLog(@"Current Page Index = %ld",(long)currentPageIndex);
         [self _setActiveTabIndex:currentPageIndex];
         [self _caculateTabOffsetWidth:currentPageIndex];
         _currentPageIndex = currentPageIndex;

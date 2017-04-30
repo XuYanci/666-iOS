@@ -16,4 +16,5 @@ typedef enum : NSUInteger {
 } GLMediaBrowserType;
 
 @interface GLMediaBrowserViewController : UIViewController
+@property (nonatomic,assign) GLMediaBrowserType type;
 @end

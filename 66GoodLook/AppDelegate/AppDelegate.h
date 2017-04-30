@@ -10,5 +10,6 @@
 #import "ApplicationServiceManager.h"
 
 @interface AppDelegate : ApplicationServiceManager
++(AppDelegate*)shareInstance;
 @end
 

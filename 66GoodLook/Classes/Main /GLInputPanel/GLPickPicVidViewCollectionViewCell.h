@@ -10,12 +10,14 @@
 
 
 typedef enum : NSUInteger {
-    GLPickPicVidType_Pic,
-    GLPickPicVidType_Vid,
+    GLPickPicVidCVType_Pic,
+    GLPickPicVidCVType_Vid,
+    GLPickPicVidCVType_TakePic,
+    GLPickPicVidCVType_TakeVid,
 } GLPickPicVidCVType;
 
 @interface GLPickPicVidViewCollectionViewCell : UICollectionViewCell {
 }
-@property (nonatomic,assign) GLPickPicVidCVType *pickPicVidCVType;
+@property (nonatomic,assign) GLPickPicVidCVType pickPicVidCVType;
 @property (nonatomic,strong) UIImage *image;
 @end

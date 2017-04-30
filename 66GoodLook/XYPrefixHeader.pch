@@ -37,6 +37,7 @@
 #import "UIImage+GradientColor.h"
 #import "UIFont+Replacement.h"
 #import "UIView+CustomAutoLayout.h"
+#import "AppDelegate+ViewControllerOpers.h"
 
 /**
  *

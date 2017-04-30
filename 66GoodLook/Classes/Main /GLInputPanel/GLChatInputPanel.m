@@ -9,20 +9,20 @@
 #import "GLChatInputPanel.h"
 #import "GLChatInputAbleView.h"
 #import "GLChatInputToolBar.h"
-#import "GLPickVideoView.h"
-#import "GLPickPictureView.h"
+#import "GLPickPictureVideoView.h"
+#import "GLPickPictureVideoView.h"
 #import "GLPickEmojView.h"
 #import <Masonry/Masonry.h>
 
-@interface GLChatInputPanel()<GLChatInputToolBarDelegate,GLChatInputToolBarDataSource>
+@interface GLChatInputPanel()<GLChatInputToolBarDelegate,GLChatInputToolBarDataSource,GLPickPictureCollectionViewDelegate,GLChatInputAbleViewDelegate>
 /** 工具栏 */
 @property (nonatomic,strong) GLChatInputToolBar *toolbar;
 /** 当前面板 */
 @property (nonatomic,weak)  UIView<GLChatInputAbleView> *panel;
 /** 视频选择器,作为Pannel */
-@property (nonatomic,strong) UIView<GLChatInputAbleView> *pickVideoCollectionView;
+@property (nonatomic,strong) GLPickPictureVideoView *pickVideoCollectionView;
 /** 图片选择器,作为Pannel */
-@property (nonatomic,strong) GLPickPictureView *pickPictureCollectionView;
+@property (nonatomic,strong) GLPickPictureVideoView *pickPictureCollectionView;
 /** 表情选择器,作为Pannel */
 //@property (nonatomic,strong) UIView<GLChatInputAbleView> *pickEmojView;
 /** **/
@@ -319,17 +319,20 @@
     return _maskView;
 }
 
-- (UIView<GLChatInputAbleView> *)pickVideoCollectionView {
+- (GLPickPictureVideoView*)pickVideoCollectionView {
     if (!_pickVideoCollectionView) {
-        _pickVideoCollectionView = (UIView<GLChatInputAbleView> *)[[UIView alloc]init];
-        _pickVideoCollectionView.backgroundColor = [UIColor yellowColor];
+        _pickVideoCollectionView = [[GLPickPictureVideoView alloc]init];
+        _pickVideoCollectionView.type = GLPickPicVidType_Vid;
+        _pickPictureCollectionView.delegate = self;
     }
     return _pickVideoCollectionView;
 }
 
-- (GLPickPictureView *)pickPictureCollectionView {
+- (GLPickPictureVideoView *)pickPictureCollectionView {
     if (!_pickPictureCollectionView) {
-        _pickPictureCollectionView = [[GLPickPictureView alloc]init];
+        _pickPictureCollectionView = [[GLPickPictureVideoView alloc]init];
+        _pickPictureCollectionView.type = GLPickPicVidType_Pic;
+        _pickPictureCollectionView.delegate = self;
     }
     return _pickPictureCollectionView;
 }

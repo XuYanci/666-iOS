@@ -30,10 +30,27 @@
 }
 
 - (void)layoutSubviews {
-    self.pictureImageView.frame = self.contentView.bounds;
-    [self.tickBtn sizeWith:CGSizeMake(30, 30)];
-    [self.tickBtn alignParentRightWithMargin:10.0];
-    [self.tickBtn alignParentTopWithMargin:10.0];
+    
+    if (self.pickPicVidCVType == GLPickPicVidCVType_TakePic) {
+        self.tickBtn.hidden = YES;
+        [self.pictureImageView sizeWith:CGSizeMake(30, 30)];
+        [self.pictureImageView alignParentCenter];
+        self.contentView.backgroundColor = [UIColor yellowColor];
+    }
+    else if(self.pickPicVidCVType == GLPickPicVidCVType_TakeVid) {
+        self.tickBtn.hidden = YES;
+        [self.pictureImageView sizeWith:CGSizeMake(30, 30)];
+        [self.pictureImageView alignParentCenter];
+        self.contentView.backgroundColor = [UIColor yellowColor];
+    }
+    else {
+        self.tickBtn.hidden = NO;
+        self.pictureImageView.frame = self.contentView.bounds;
+        [self.tickBtn sizeWith:CGSizeMake(30, 30)];
+        [self.tickBtn alignParentRightWithMargin:10.0];
+        [self.tickBtn alignParentTopWithMargin:10.0];
+        self.contentView.backgroundColor = [UIColor clearColor];
+    }
 }
 
 #pragma mark - datasource
@@ -48,9 +65,8 @@
     [self.contentView addSubview:self.pictureImageView];
     [self.contentView addSubview:self.tickBtn];
   
- 
-    [self.tickBtn setImage:[UIImage imageNamed:@"qz_btn_select_d"] forState:UIControlStateNormal];
-    [self.tickBtn setImage:[UIImage imageNamed:@"qz_btn_select_s"] forState:UIControlStateSelected];
+    [self.tickBtn setImage:[UIImage imageNamed:@"ft_pic_icon_wrong"] forState:UIControlStateNormal];
+    [self.tickBtn setImage:[UIImage imageNamed:@"ft_pic_icon_dui"] forState:UIControlStateSelected];
     
     [self.tickBtn addTarget:self action:@selector(tick:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -78,6 +94,11 @@
 - (void)setImage:(UIImage *)image {
     _image = image;
     [self.pictureImageView setImage:_image];
+}
+
+- (void)setPickPicVidCVType:(GLPickPicVidCVType)pickPicVidCVType {
+    _pickPicVidCVType = pickPicVidCVType;
+    [self setNeedsReload];
 }
 
 #pragma mark - notification

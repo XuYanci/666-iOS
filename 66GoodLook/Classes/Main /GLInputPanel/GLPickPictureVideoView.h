@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "GLChatInputAbleView.h"
 #import "GLChatInputBaseView.h"
+
+typedef enum : NSUInteger {
+    GLPickPicVidType_Pic,
+    GLPickPicVidType_Vid,
+} GLPickPicVidType;
+
 @protocol GLPickPictureCollectionViewDataSource <NSObject>
 @end
 
@@ -28,11 +34,11 @@
  @helps It helps no other classes.
  @helper    No helper exists for this class.
  */
-@interface GLPickPictureView : GLChatInputBaseView
+@interface GLPickPictureVideoView : UIView
 
 @property (nonatomic,weak) id <GLPickPictureCollectionViewDelegate> delegate;
 @property (nonatomic,weak) id <GLPickPictureCollectionViewDataSource> dataSource;
-
+@property (nonatomic,assign) GLPickPicVidType type;
 /**
  重载数据
  */
