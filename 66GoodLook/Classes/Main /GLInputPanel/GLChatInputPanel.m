@@ -14,7 +14,11 @@
 #import "GLPickEmojView.h"
 #import <Masonry/Masonry.h>
 
-@interface GLChatInputPanel()<GLChatInputToolBarDelegate,GLChatInputToolBarDataSource,GLPickPictureCollectionViewDelegate,GLChatInputAbleViewDelegate>
+@interface GLChatInputPanel()<GLChatInputToolBarDelegate,
+                                GLChatInputToolBarDataSource,
+                                GLPickPicVidViewDelegate,
+                                GLChatInputAbleViewDelegate,
+                                GLPickPicVidViewDataSource>
 /** 工具栏 */
 @property (nonatomic,strong) GLChatInputToolBar *toolbar;
 /** 当前面板 */
@@ -155,6 +159,21 @@
     }
 }
 
+#pragma mark -  GLPickPicVidViewDelegate
+- (void)glPickPictureCollectionView:(id)sender
+                       didPickAsset:(PHAsset *)pictureAsset
+                     thumbnailImage:(UIImage *)image
+                          assetType:(GLPickPicVidType) type {
+    
+}
+
+
+- (void)glPickPictureCollectionView:(id)sender
+                     didUnPickAsset:(PHAsset *)pictureAsset
+                     thumbnailImage:(UIImage *)image
+                          assetType:(GLPickPicVidType) type {
+    
+}
 
 #pragma mark - user events
 #pragma mark - functions

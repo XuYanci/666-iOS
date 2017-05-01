@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "66GoodLook/Classes/Main /GLInputPanel/GLChatInputToolBar.m"
-            timestampString = "514971826.011292"
+            filePath = "66GoodLook/Classes/Main /GLInputPanel/GLChatInputPanel.m"
+            timestampString = "515302765.592071"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "-showEmojPanel:"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "-glPickPictureCollectionView:didPickAsset:thumbnailImage:assetType:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "66GoodLook/Classes/Main /GLInputPanel/GLChatInputPanel.m"
+            timestampString = "515302766.443218"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "-glPickPictureCollectionView:didUnPickAsset:thumbnailImage:assetType:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

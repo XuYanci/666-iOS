@@ -67,10 +67,7 @@
   
     [self.tickBtn setImage:[UIImage imageNamed:@"ft_pic_icon_wrong"] forState:UIControlStateNormal];
     [self.tickBtn setImage:[UIImage imageNamed:@"ft_pic_icon_dui"] forState:UIControlStateSelected];
-    
-    [self.tickBtn addTarget:self action:@selector(tick:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:@"https://imgsa.baidu.com/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=957c1f4eae86c9171c0e5a6ba8541baa/0ff41bd5ad6eddc4516c4f4d30dbb6fd536633f8.jpg"]];
+//    [self.tickBtn addTarget:self action:@selector(tick:) forControlEvents:UIControlEventTouchUpInside];
     [self setNeedsReload];
 }
 
@@ -101,9 +98,13 @@
     [self setNeedsReload];
 }
 
+- (void)setSelected:(BOOL)selected {
+    [super setSelected:selected];
+    self.tickBtn.selected = selected;
+}
+
 #pragma mark - notification
 #pragma mark - getter and setter
-
 
 - (UIImageView *)pictureImageView {
     if (!_pictureImageView) {
@@ -116,6 +117,7 @@
 - (UIButton *)tickBtn {
     if (!_tickBtn) {
         _tickBtn = [[UIButton alloc]init];
+        _tickBtn.userInteractionEnabled = NO;
     }
     return _tickBtn;
 }

@@ -5,7 +5,7 @@
 //  Created by Yanci on 17/4/20.
 //  Copyright © 2017年 Yanci. All rights reserved.
 //
-#import <Photos/Photos.h>
+
 #import "GLPickPictureVideoView.h"
 #import "GLPickPicVidViewCollectionViewCell.h"
 #import "GLMediaBrowserViewController.h"
@@ -40,8 +40,6 @@
     [_moreBtn setTitle:@"更多" forState:UIControlStateNormal];
     _moreBtn.titleLabel.font = [UIFont systemFontOfSize:12.0];
     [_moreBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-    [_moreBtn addTarget:self action:@selector(clickMore:) forControlEvents:UIControlEventTouchUpInside];
-    
     [self addSubview:_moreBtn];
     
     
@@ -61,7 +59,8 @@
 /** 宏定义 */
 static NSString *const kPickPictureCollectionViewCellIdentifier = @"pickPictureCollectioViewIdentifier";
 static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
-
+static NSUInteger const kPickMaxPictureCount = 4; /* 允许选择相片最大数 */
+static NSUInteger const kPickMaxVideoCount = 1;   /* 允许选择视频最大数 */
 
 @interface GLPickPictureVideoView()<UICollectionViewDelegate,UICollectionViewDataSource,PHPhotoLibraryChangeObserver>
 @property (nonatomic,strong)UICollectionView *collectionView;
@@ -78,6 +77,8 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
     struct {
     }_datasourceHas;    /*! 数据源存在标识 */
     struct {
+        unsigned didPickAsset:1;
+        unsigned didUnPickAsset:1;
     }_delegateHas;      /*! 数据委托存在标识 */
 }
 
@@ -165,10 +166,94 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
 }
 
 #pragma mark - UICollectionViewDelegate
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (BOOL)collectionView:(UICollectionView *)collectionView
+shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        return  YES;
+    }
     
+    if (self.type == GLPickPicVidType_Pic) {
+        NSArray *selectedItems = [collectionView.indexPathsForSelectedItems filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.row > 0"]];
+        if (selectedItems.count > kPickMaxPictureCount - 1) {
+            NSLog(@"select items count > max count");
+            return NO;
+        }
+    }
+    
+    else if (self.type == GLPickPicVidType_Vid) {
+        NSArray *selectedItems = [collectionView.indexPathsForSelectedItems filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.row > 0"]];
+        if (selectedItems.count > kPickMaxVideoCount - 1) {
+            NSLog(@"select items count > max count");
+            return NO;
+        }
+    }
+
+  
+    return YES;
 }
 
+- (BOOL)collectionView:(UICollectionView *)collectionView
+shouldDeselectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+   
+    return YES;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView
+didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    if (indexPath.row == 0 && self.type == GLPickPicVidType_Pic) {
+        NSLog(@"take pic");
+    }
+    else if(indexPath.row == 0 && self.type == GLPickPicVidType_Vid) {
+        NSLog(@"take video");
+    }
+    else {
+        __weak typeof(self) weakSelf = self;
+        PHAsset *asset = [self.allPhotos objectAtIndex:indexPath.row - 1];
+        [self.imageManager requestImageForAsset:asset
+                                     targetSize:self.thumbnailSize
+                                    contentMode:PHImageContentModeAspectFit
+                                        options:nil
+                                  resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+                                      __strong typeof(self)strongSelf = weakSelf;
+                                      if (_delegateHas.didPickAsset) {
+                                          [_delegate glPickPictureCollectionView:strongSelf
+                                                                    didPickAsset:asset
+                                                                  thumbnailImage:result
+                                                                       assetType:strongSelf.type];
+                                      }
+                                  }];
+    }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView
+didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    if (indexPath.row == 0 && self.type == GLPickPicVidType_Pic) {
+        NSLog(@"take pic");
+    }
+    else if(indexPath.row == 0 && self.type == GLPickPicVidType_Vid) {
+        NSLog(@"take video");
+    }
+    else {
+        __weak typeof(self) weakSelf = self;
+        PHAsset *asset = [self.allPhotos objectAtIndex:indexPath.row - 1];
+        [self.imageManager requestImageForAsset:asset
+                                     targetSize:self.thumbnailSize
+                                    contentMode:PHImageContentModeAspectFit
+                                        options:nil
+                                  resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+                                      __strong typeof(self)strongSelf = weakSelf;
+                                      if (_delegateHas.didPickAsset) {
+                                          [_delegate glPickPictureCollectionView:strongSelf
+                                                                    didUnPickAsset:asset
+                                                                  thumbnailImage:result
+                                                                       assetType:strongSelf.type];
+                                      }
+                                  }];
+    }
+    
+}
 #pragma mark - user events
 - (void)clickMore:(id)sender {
     GLMediaBrowserViewController *browserViewController = [[GLMediaBrowserViewController alloc]init];
@@ -189,9 +274,15 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
     [self addSubview:self.headerView];
 }
 
-- (void)setDataSource {}
+- (void)setDataSource:(id<GLPickPicVidViewDataSource>)dataSource {
+    
+}
 
-- (void)setDelegate {}
+- (void)setDelegate:(id<GLPickPicVidViewDelegate>)delegate {
+    if ([delegate respondsToSelector:@selector(glPickPictureCollectionView:didPickAsset:thumbnailImage:assetType:)]) {
+        _delegateHas.didPickAsset = 1;
+    }
+}
 
 - (void)setNeedsReload {
     _needsReload = YES;
@@ -378,6 +469,7 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
         _collectionView.pagingEnabled = FALSE;
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
+        _collectionView.allowsMultipleSelection = YES;
         [_collectionView registerClass:[GLPickPicVidViewCollectionViewCell class]
             forCellWithReuseIdentifier:kPickPictureCollectionViewCellIdentifier];
         _collectionView.backgroundColor = [UIColor whiteColor];
@@ -388,6 +480,7 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
 - (GLPickPictureHeaderView *)headerView {
     if (!_headerView) {
         _headerView = [[GLPickPictureHeaderView alloc]init];
+        [_headerView.moreBtn addTarget:self action:@selector(clickMore:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _headerView;
 }

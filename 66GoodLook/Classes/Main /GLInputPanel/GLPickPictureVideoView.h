@@ -9,26 +9,38 @@
 #import <UIKit/UIKit.h>
 #import "GLChatInputAbleView.h"
 #import "GLChatInputBaseView.h"
+#import <Photos/Photos.h>
 
 typedef enum : NSUInteger {
     GLPickPicVidType_Pic,
     GLPickPicVidType_Vid,
 } GLPickPicVidType;
 
-@protocol GLPickPictureCollectionViewDataSource <NSObject>
+@protocol GLPickPicVidViewDataSource <NSObject>
 @end
 
-@protocol GLPickPictureCollectionViewDelegate <NSObject>
+@protocol GLPickPicVidViewDelegate <NSObject>
+
+/**
+ delegate - pick picture video callback
+
+ @param sender GLPickPictureVideoView
+ @param pictureAsset pick picture video asset
+ */
+- (void)glPickPictureCollectionView:(id)sender didPickAsset:(PHAsset *)pictureAsset  thumbnailImage:(UIImage *)image assetType:(GLPickPicVidType) type;
+
+
+- (void)glPickPictureCollectionView:(id)sender didUnPickAsset:(PHAsset *)pictureAsset  thumbnailImage:(UIImage *)image assetType:(GLPickPicVidType) type;
 @end
 
 /*!
- @class GLPickPictureCollectionView
+ @class GLPickPictureVideoView
  
- @brief The UICollectionView class
+ @brief The UIView class
  
  @discussion    图片选择器
  
- @superclass SuperClass: UICollectionView\n
+ @superclass SuperClass: UIView\n
  @classdesign    No special design is applied here.
  @coclass    None
  @helps It helps no other classes.
@@ -36,8 +48,8 @@ typedef enum : NSUInteger {
  */
 @interface GLPickPictureVideoView : UIView
 
-@property (nonatomic,weak) id <GLPickPictureCollectionViewDelegate> delegate;
-@property (nonatomic,weak) id <GLPickPictureCollectionViewDataSource> dataSource;
+@property (nonatomic,weak) id <GLPickPicVidViewDelegate> delegate;
+@property (nonatomic,weak) id <GLPickPicVidViewDataSource> dataSource;
 @property (nonatomic,assign) GLPickPicVidType type;
 /**
  重载数据
