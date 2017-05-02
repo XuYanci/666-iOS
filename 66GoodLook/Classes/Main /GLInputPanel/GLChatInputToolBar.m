@@ -379,6 +379,7 @@ typedef enum : NSUInteger {
 }
 
 - (void)beginOpenPhoto {
+  
     _barType = GLChatInputToolBarType_Pic;
     [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Pic];
     [self setLeftPicToKeyBoard];
@@ -388,6 +389,7 @@ typedef enum : NSUInteger {
 }
 
 - (void)beginOpenVideo {
+   
     _barType = GLChatInputToolBarType_Video;
     [_delegate glChatInputToolBar:self didSelectToolBarType:GLChatInputToolBarType_Video];
     [self setLeftVideoToKeyBoard];

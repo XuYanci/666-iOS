@@ -9,13 +9,77 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "66GoodLook/Classes/Main /GLInputPanel/GLChatInputPanel.m"
-            timestampString = "515302765.592071"
+            filePath = "66GoodLook/Classes/Main /GLInputPanel/GLPickPicVidThumbnailCollectionView.m"
+            timestampString = "515402897.09175"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "-glPickPictureCollectionView:didPickAsset:thumbnailImage:assetType:"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "@implementation GLPickPicVidThumbnailCollectionView"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "66GoodLook/Classes/Main /GLInputPanel/GLChatInputPanel.m"
+            timestampString = "515430281.515127"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "361"
+            endingLineNumber = "361"
+            landmarkName = "-onKeyboardWillHide:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[GLChatInputPanel onKeyboardWillHide:]"
+                  moduleName = "66GoodLook"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yanci/Desktop/Yanci/YanciXuOwnProject/66GoodLook/66GoodLook/Classes/Main%20/GLInputPanel/GLChatInputPanel.m"
+                  timestampString = "515429575.575141"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "350"
+                  endingLineNumber = "350"
+                  offsetFromSymbolStart = "588">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[GLChatInputPanel onKeyboardWillHide:]_block_invoke"
+                  moduleName = "66GoodLook"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yanci/Desktop/Yanci/YanciXuOwnProject/66GoodLook/66GoodLook/Classes/Main%20/GLInputPanel/GLChatInputPanel.m"
+                  timestampString = "515429575.576632"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "351"
+                  endingLineNumber = "351"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "66GoodLook/Classes/Main /GLInputPanel/GLChatInputPanel.m"
+            timestampString = "515430281.515127"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
+            landmarkName = "-onKeyboardWillHide:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "66GoodLook/Classes/Main /GLInputPanel/GLChatInputPanel.m"
-            timestampString = "515302766.443218"
+            timestampString = "515430281.515127"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "-glPickPictureCollectionView:didUnPickAsset:thumbnailImage:assetType:"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "-glPickPictureCollectionView:didPickAsset:thumbnailImage:assetType:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

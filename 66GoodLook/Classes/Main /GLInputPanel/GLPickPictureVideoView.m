@@ -244,7 +244,7 @@ didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
                                         options:nil
                                   resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
                                       __strong typeof(self)strongSelf = weakSelf;
-                                      if (_delegateHas.didPickAsset) {
+                                      if (_delegateHas.didUnPickAsset) {
                                           [_delegate glPickPictureCollectionView:strongSelf
                                                                     didUnPickAsset:asset
                                                                   thumbnailImage:result
@@ -282,6 +282,11 @@ didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([delegate respondsToSelector:@selector(glPickPictureCollectionView:didPickAsset:thumbnailImage:assetType:)]) {
         _delegateHas.didPickAsset = 1;
     }
+    
+    if ([delegate respondsToSelector:@selector(glPickPictureCollectionView:didUnPickAsset:thumbnailImage:assetType:)]) {
+        _delegateHas.didUnPickAsset = 1;
+    }
+    _delegate = delegate;
 }
 
 - (void)setNeedsReload {
@@ -313,9 +318,11 @@ didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     [self resetCachedAssets];
     
+    self.collectionView.userInteractionEnabled = NO;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self updateCachedAssets];
         [self.collectionView reloadData];
+        self.collectionView.userInteractionEnabled = YES;
     });
 }
 - (void)setFrame:(CGRect)frame {
@@ -491,6 +498,7 @@ didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
     return _imageManager;
 }
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

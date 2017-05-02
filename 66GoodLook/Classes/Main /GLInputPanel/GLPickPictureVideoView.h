@@ -31,6 +31,8 @@ typedef enum : NSUInteger {
 
 
 - (void)glPickPictureCollectionView:(id)sender didUnPickAsset:(PHAsset *)pictureAsset  thumbnailImage:(UIImage *)image assetType:(GLPickPicVidType) type;
+
+
 @end
 
 /*!
@@ -55,4 +57,6 @@ typedef enum : NSUInteger {
  重载数据
  */
 - (void)reloadData;
+
+
 @end
