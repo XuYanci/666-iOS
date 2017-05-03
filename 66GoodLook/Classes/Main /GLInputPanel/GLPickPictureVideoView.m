@@ -176,6 +176,7 @@ shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
         NSArray *selectedItems = [collectionView.indexPathsForSelectedItems filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.row > 0"]];
         if (selectedItems.count > kPickMaxPictureCount - 1) {
             NSLog(@"select items count > max count");
+            [MBProgressHUD showHintHudWithMessage:@"select items count > max count"];
             return NO;
         }
     }
@@ -184,6 +185,7 @@ shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
         NSArray *selectedItems = [collectionView.indexPathsForSelectedItems filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.row > 0"]];
         if (selectedItems.count > kPickMaxVideoCount - 1) {
             NSLog(@"select items count > max count");
+            [MBProgressHUD showHintHudWithMessage:@"select items count > max count"];
             return NO;
         }
     }
