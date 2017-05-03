@@ -15,6 +15,17 @@ typedef enum : NSUInteger {
     GLMediaBrowserType_Both,
 } GLMediaBrowserType;
 
+
+/*!
+ @class GLMediaBrowserViewController
+ @brief The UIViewController class
+ @discussion   媒体库浏览器
+ @superclass SuperClass: UIViewController\n
+ @classdesign    No special design is applied here.
+ @coclass    No coclass
+ @helps It helps no other classes.
+ @helper    No helper exists for this class.
+ */
 @interface GLMediaBrowserViewController : UIViewController
 @property (nonatomic,assign) GLMediaBrowserType type;
 @end

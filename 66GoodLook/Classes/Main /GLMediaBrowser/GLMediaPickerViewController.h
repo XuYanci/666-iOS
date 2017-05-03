@@ -8,6 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef enum : NSUInteger {
+    GLMediaPickerType_Picture,
+    GLMediaPickerType_Video,
+} GLMediaPickerType;
+
+
+/*!
+ @class GLMediaPickerViewController
+ @brief The UIViewController class
+ @discussion   媒体库挑选器
+ @superclass SuperClass: UIViewController\n
+ @classdesign    No special design is applied here.
+ @coclass    No coclass
+ @helps It helps no other classes.
+ @helper    No helper exists for this class.
+ */
 @interface GLMediaPickerViewController : UIViewController
+@property (nonatomic,assign) GLMediaPickerType pickerType;
 
 @end
