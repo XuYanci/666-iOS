@@ -24,4 +24,5 @@
 @property (nonatomic,weak) id <GLPickPicVidThumbnailCollectionViewDelegate> delegate;
 
 - (void)reloadData;
+- (void)reset;
 @end

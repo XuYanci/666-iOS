@@ -47,7 +47,7 @@
     }_delegateHas;      /*! 数据委托存在标识 */
     
     BOOL needProcessingKeyBoardNotif;
-    
+    GLChatInputToolBarType _toolbarType;
 }
 
 /*
@@ -72,6 +72,22 @@
 }
 
 - (void)setPanelType:(GLChatInputPanelType)panelType {
+    
+    if (_panelType != panelType && _panelType == GLChatInputPanelType_Video) {
+        [self.pickPicVidDictionary removeAllObjects];
+        self.pickVideoCollectionView = nil;
+        self.pickPictureCollectionView = nil;
+        [self.pickPicVidThumbnailCollectionView reloadData];
+    }
+    
+    if (_panelType != panelType && _panelType == GLChatInputPanelType_Image
+                                && panelType == GLChatInputPanelType_Video) {
+        [self.pickPicVidDictionary removeAllObjects];
+        self.pickVideoCollectionView = nil;
+        self.pickPictureCollectionView = nil;
+        [self.pickPicVidThumbnailCollectionView reloadData];
+    }
+    
     _panelType = panelType;
     [self setNeedsReload];
 }
@@ -112,26 +128,52 @@
 
 - (void)glChatInputToolBar:(id)sender
       didSelectToolBarType:(GLChatInputToolBarType)toolBarType {
+    
+    
     if (toolBarType == GLChatInputToolBarType_Default) {
         [self.pickPictureCollectionView removeFromSuperview];
         [self.pickVideoCollectionView removeFromSuperview];
-        [self.pickPicVidThumbnailCollectionView removeFromSuperview];
+
+        
+        /** Add thumbnail collection view */
+        [self addSubview:self.pickPicVidThumbnailCollectionView];
+        [self.pickPicVidThumbnailCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(self.mas_left).offset(0);
+            make.right.mas_equalTo(self.mas_right).offset(0);
+            make.height.offset(44.0);
+            make.bottom.mas_equalTo(self.toolbar.mas_top).offset(-5.0);
+        }];
+
+        [self.pickPicVidThumbnailCollectionView reloadData];
+        _toolbarType = toolBarType;
+        
     }
     else if(toolBarType == GLChatInputToolBarType_Emoj) {
         [self.pickPictureCollectionView removeFromSuperview];
         [self.pickVideoCollectionView removeFromSuperview];
-        [self.pickPicVidThumbnailCollectionView removeFromSuperview];
+
+        
+        /** Add thumbnail collection view */
+        [self addSubview:self.pickPicVidThumbnailCollectionView];
+        [self.pickPicVidThumbnailCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(self.mas_left).offset(0);
+            make.right.mas_equalTo(self.mas_right).offset(0);
+            make.height.offset(44.0);
+            make.bottom.mas_equalTo(self.toolbar.mas_top).offset(-5.0);
+        }];
+
+        [self.pickPicVidThumbnailCollectionView reloadData];
+        _toolbarType = toolBarType;
+        
     }
     else if(toolBarType == GLChatInputToolBarType_Pic) {
         
+
         needProcessingKeyBoardNotif = NO;
         [self.toolbar endEditing:YES];
         
-   
+        /** Add thumbnail collection view */
         [self addSubview:self.pickPicVidThumbnailCollectionView];
-        [self.pickPicVidDictionary removeAllObjects];
-        [self.pickPicVidThumbnailCollectionView reloadData];
-        
         [self.pickPicVidThumbnailCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.mas_left).offset(0);
             make.right.mas_equalTo(self.mas_right).offset(0);
@@ -139,8 +181,9 @@
             make.bottom.mas_equalTo(self.toolbar.mas_top).offset(-5.0);
         }];
         
+        [self.pickPicVidThumbnailCollectionView reloadData];
         
-        self.pickPictureCollectionView  = nil;
+        /** Add pick picture collection view */
         [self addSubview:self.pickPictureCollectionView];
         [self.pickPictureCollectionView sizeWith:CGSizeMake([UIScreen mainScreen].bounds.size.width, 200)];
         [self.pickPictureCollectionView alignParentBottom];
@@ -157,24 +200,24 @@
                 needProcessingKeyBoardNotif = YES;
             }];
         }
+         _toolbarType = toolBarType;
     }
     else if(toolBarType == GLChatInputToolBarType_Video) {
+        
         needProcessingKeyBoardNotif = NO;
         [self.toolbar endEditing:YES];
         
- 
+        /** Add thumbnail collection view */
         [self addSubview:self.pickPicVidThumbnailCollectionView];
-        [self.pickPicVidDictionary removeAllObjects];
-        [self.pickPicVidThumbnailCollectionView reloadData];
-        
         [self.pickPicVidThumbnailCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.mas_left).offset(0);
             make.right.mas_equalTo(self.mas_right).offset(0);
             make.height.offset(44.0);
             make.bottom.mas_equalTo(self.toolbar.mas_top).offset(-5.0);
         }];
+        [self.pickPicVidThumbnailCollectionView reloadData];
         
-        self.pickVideoCollectionView  = nil;
+        /** Add pick video collection view */
         [self addSubview:self.pickVideoCollectionView];
         [self.pickVideoCollectionView sizeWith:CGSizeMake([UIScreen mainScreen].bounds.size.width, 200)];
         [self.pickVideoCollectionView alignParentBottom];
@@ -191,6 +234,7 @@
                 needProcessingKeyBoardNotif = YES;
             }];
         }
+         _toolbarType = toolBarType;
 
     }
 }

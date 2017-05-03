@@ -114,6 +114,12 @@ static NSString *const kPickPicVidThumbnailCollectionCellIdentifier = @"kPickPic
     [self.collectionView reloadData];
 }
 
+- (void)reset {
+    [[self.collectionView indexPathsForSelectedItems]enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.collectionView deselectItemAtIndexPath:obj animated:NO];
+    }];
+}
+
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
 }
