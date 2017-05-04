@@ -59,10 +59,9 @@
 /** 宏定义 */
 static NSString *const kPickPictureCollectionViewCellIdentifier = @"pickPictureCollectioViewIdentifier";
 static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
-static NSUInteger const kPickMaxPictureCount = 4; /* 允许选择相片最大数 */
-static NSUInteger const kPickMaxVideoCount = 1;   /* 允许选择视频最大数 */
 
-@interface GLPickPictureVideoView()<UICollectionViewDelegate,UICollectionViewDataSource,PHPhotoLibraryChangeObserver>
+
+@interface GLPickPictureVideoView()<UICollectionViewDelegate,UICollectionViewDataSource,PHPhotoLibraryChangeObserver,GLPickPicVidViewCollectionViewCellDelegate,GLPickPicVidViewCollectionViewCellDataSource>
 @property (nonatomic,strong)UICollectionView *collectionView;
 @property (nonatomic,strong)UICollectionViewLayout *collectionViewLayout;
 @property (nonatomic,strong)GLPickPictureHeaderView *headerView;
@@ -80,6 +79,8 @@ static NSUInteger const kPickMaxVideoCount = 1;   /* 允许选择视频最大数
         unsigned didPickAsset:1;
         unsigned didUnPickAsset:1;
     }_delegateHas;      /*! 数据委托存在标识 */
+    
+    NSUInteger _selectedCount;
 }
 
 #pragma mark - life cycle
@@ -122,6 +123,10 @@ static NSUInteger const kPickMaxVideoCount = 1;   /* 允许选择视频最大数
 
 #pragma mark - datasource
 
+- (NSUInteger)glPickPicVideViewCVCNumberOfSelectedItems {
+    return _selectedCount;
+}
+
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.allPhotos.count + 1;
@@ -130,6 +135,8 @@ static NSUInteger const kPickMaxVideoCount = 1;   /* 允许选择视频最大数
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
     GLPickPicVidViewCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kPickPictureCollectionViewCellIdentifier forIndexPath:indexPath];
+    cell.delegate = self;
+    cell.dataSource = self;
     if (self.type == GLPickPicVidType_Pic) {
         [cell setPickPicVidCVType:GLPickPicVidCVType_Pic];
         if (indexPath.row == 0) {
@@ -161,48 +168,8 @@ static NSUInteger const kPickMaxVideoCount = 1;   /* 允许选择视频最大数
 
 #pragma mark - delegate
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self updateCachedAssets];
-}
-
-#pragma mark - UICollectionViewDelegate
-- (BOOL)collectionView:(UICollectionView *)collectionView
-shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
-        return  YES;
-    }
-    
-    if (self.type == GLPickPicVidType_Pic) {
-        NSArray *selectedItems = [collectionView.indexPathsForSelectedItems filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.row > 0"]];
-        if (selectedItems.count > kPickMaxPictureCount - 1) {
-            NSLog(@"select items count > max count");
-            [MBProgressHUD showHintHudWithMessage:@"select items count > max count"];
-            return NO;
-        }
-    }
-    
-    else if (self.type == GLPickPicVidType_Vid) {
-        NSArray *selectedItems = [collectionView.indexPathsForSelectedItems filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.row > 0"]];
-        if (selectedItems.count > kPickMaxVideoCount - 1) {
-            NSLog(@"select items count > max count");
-            [MBProgressHUD showHintHudWithMessage:@"select items count > max count"];
-            return NO;
-        }
-    }
-
-  
-    return YES;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView
-shouldDeselectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-   
-    return YES;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView
-didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-
+- (void)glPickPicVidViewCVCDidSelected:(id)sender {
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:sender];
     if (indexPath.row == 0 && self.type == GLPickPicVidType_Pic) {
         NSLog(@"take pic");
     }
@@ -225,12 +192,14 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                                                                        assetType:strongSelf.type];
                                       }
                                   }];
+        
+        _selectedCount += 1;
     }
+
 }
 
-- (void)collectionView:(UICollectionView *)collectionView
-didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-
+- (void)glPickPicVidViewCVCDidUnSelected:(id)sender {
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:sender];
     if (indexPath.row == 0 && self.type == GLPickPicVidType_Pic) {
         NSLog(@"take pic");
     }
@@ -248,14 +217,28 @@ didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
                                       __strong typeof(self)strongSelf = weakSelf;
                                       if (_delegateHas.didUnPickAsset) {
                                           [_delegate glPickPictureCollectionView:strongSelf
-                                                                    didUnPickAsset:asset
+                                                                  didUnPickAsset:asset
                                                                   thumbnailImage:result
                                                                        assetType:strongSelf.type];
                                       }
                                   }];
+        
+        _selectedCount -= 1;
     }
-    
+
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self updateCachedAssets];
+}
+
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView
+didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+
+}
+
 #pragma mark - user events
 - (void)clickMore:(id)sender {
     GLMediaBrowserViewController *browserViewController = [[GLMediaBrowserViewController alloc]init];

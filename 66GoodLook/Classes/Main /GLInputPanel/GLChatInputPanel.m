@@ -438,6 +438,7 @@
         _pickVideoCollectionView = [[GLPickPictureVideoView alloc]init];
         _pickVideoCollectionView.type = GLPickPicVidType_Vid;
         _pickVideoCollectionView.delegate = self;
+        _pickVideoCollectionView.dataSource = self;
     }
     return _pickVideoCollectionView;
 }
@@ -447,6 +448,7 @@
         _pickPictureCollectionView = [[GLPickPictureVideoView alloc]init];
         _pickPictureCollectionView.type = GLPickPicVidType_Pic;
         _pickPictureCollectionView.delegate = self;
+        _pickPictureCollectionView.dataSource = self;
     }
     return _pickPictureCollectionView;
 }

@@ -7,6 +7,8 @@
 //
 
 #import "GLPickPicVidViewCollectionViewCell.h"
+static NSUInteger const kPickMaxPictureCount = 4; /* 允许选择相片最大数 */
+static NSUInteger const kPickMaxVideoCount = 1;   /* 允许选择视频最大数 */
 
 @interface GLPickPicVidViewCollectionViewCell()
 @property (nonatomic,strong) UIImageView *pictureImageView;
@@ -16,8 +18,11 @@
 @implementation GLPickPicVidViewCollectionViewCell {
     BOOL _needsReload;  /*! 需要重载 */
     struct {
+        unsigned numberOfSelectedItems:1;
     }_datasourceHas;    /*! 数据源存在标识 */
     struct {
+        unsigned didSelected:1;
+        unsigned didUnSelected:1;
     }_delegateHas;      /*! 数据委托存在标识 */
 }
 
@@ -57,7 +62,24 @@
 #pragma mark - delegate
 #pragma mark - user events
 - (void)tick:(id)sender {
+    
+    if (_datasourceHas.numberOfSelectedItems && !self.tickBtn.selected) {
+        NSUInteger count = [_dataSource glPickPicVideViewCVCNumberOfSelectedItems];
+        if (count > kPickMaxPictureCount - 1 && self.pickPicVidCVType == GLPickPicVidCVType_Pic) {
+            [MBProgressHUD showHintHudWithMessage:@"select items count > max count"]; return;
+        }
+        else if(count > kPickMaxVideoCount - 1 && self.pickPicVidCVType == GLPickPicVidCVType_Vid) {
+            [MBProgressHUD showHintHudWithMessage:@"select items count > max count"];return;
+        }
+    }
+    
     self.tickBtn.selected = !self.tickBtn.selected;
+    if (self.tickBtn.selected &&_delegateHas.didSelected) {
+        [_delegate glPickPicVidViewCVCDidSelected:self];
+    }
+    else if(!self.tickBtn.selected && _delegateHas.didUnSelected) {
+        [_delegate glPickPicVidViewCVCDidUnSelected:self];
+    }
 }
 
 #pragma mark - functions
@@ -67,14 +89,29 @@
   
     [self.tickBtn setImage:[UIImage imageNamed:@"ft_pic_icon_wrong"] forState:UIControlStateNormal];
     [self.tickBtn setImage:[UIImage imageNamed:@"ft_pic_icon_dui"] forState:UIControlStateSelected];
-//    [self.tickBtn addTarget:self action:@selector(tick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.tickBtn addTarget:self action:@selector(tick:) forControlEvents:UIControlEventTouchUpInside];
     [self setNeedsReload];
 }
 
 
-- (void)setDataSource {}
+- (void)setDataSource:(id<GLPickPicVidViewCollectionViewCellDataSource>)dataSource {
+    _dataSource = dataSource;
+    if ([dataSource respondsToSelector:@selector(glPickPicVideViewCVCNumberOfSelectedItems)]) {
+        _datasourceHas.numberOfSelectedItems = 1;
+    }
+}
 
-- (void)setDelegate {}
+- (void)setDelegate:(id<GLPickPicVidViewCollectionViewCellDelegate>)delegate {
+    _delegate = delegate;
+    
+    if ([delegate respondsToSelector:@selector(glPickPicVidViewCVCDidSelected:)]) {
+        _delegateHas.didSelected = 1;
+    }
+    
+    if ([delegate respondsToSelector:@selector(glPickPicVidViewCVCDidUnSelected:)]) {
+        _delegateHas.didUnSelected = 1;
+    }
+}
 
 - (void)setNeedsReload {
     _needsReload = YES;
@@ -98,14 +135,8 @@
     [self setNeedsReload];
 }
 
-- (void)setSelected:(BOOL)selected {
-    [super setSelected:selected];
-    self.tickBtn.selected = selected;
-}
-
 #pragma mark - notification
 #pragma mark - getter and setter
-
 - (UIImageView *)pictureImageView {
     if (!_pictureImageView) {
         _pictureImageView = [[UIImageView alloc]init];
@@ -117,7 +148,6 @@
 - (UIButton *)tickBtn {
     if (!_tickBtn) {
         _tickBtn = [[UIButton alloc]init];
-        _tickBtn.userInteractionEnabled = NO;
     }
     return _tickBtn;
 }
