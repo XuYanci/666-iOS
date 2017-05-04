@@ -66,6 +66,7 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
 @property (nonatomic,strong)UICollectionViewLayout *collectionViewLayout;
 @property (nonatomic,strong)GLPickPictureHeaderView *headerView;
 @property (nonatomic,strong)PHFetchResult<PHAsset *> *allPhotos;
+@property (nonatomic,strong)NSMutableDictionary *selectedStatusDict;
 @property (nonatomic,strong)PHCachingImageManager *imageManager;
 @property (nonatomic,assign)CGRect previousPreheatRect;
 @property (nonatomic,assign)CGSize thumbnailSize;
@@ -78,6 +79,8 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
     struct {
         unsigned didPickAsset:1;
         unsigned didUnPickAsset:1;
+        unsigned didClickOnAsset:1;
+        unsigned didPickMore:1;
     }_delegateHas;      /*! 数据委托存在标识 */
     
     NSUInteger _selectedCount;
@@ -137,6 +140,17 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
     GLPickPicVidViewCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kPickPictureCollectionViewCellIdentifier forIndexPath:indexPath];
     cell.delegate = self;
     cell.dataSource = self;
+    
+    NSNumber *selected =  [self.selectedStatusDict objectForKey:@(indexPath.row)];
+    
+    if (!selected || selected.intValue == 0) {
+        [cell setTickBtnSelected:FALSE];
+    }
+    else if(selected && selected.intValue == 1) {
+        [cell setTickBtnSelected:YES];
+    }
+    
+    
     if (self.type == GLPickPicVidType_Pic) {
         [cell setPickPicVidCVType:GLPickPicVidCVType_Pic];
         if (indexPath.row == 0) {
@@ -194,6 +208,7 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
                                   }];
         
         _selectedCount += 1;
+        [self.selectedStatusDict setObject:@(1) forKey:@(indexPath.row)];
     }
 
 }
@@ -224,6 +239,7 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
                                   }];
         
         _selectedCount -= 1;
+        [self.selectedStatusDict setObject:@(0) forKey:@(indexPath.row)];
     }
 
 }
@@ -236,19 +252,21 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
 
 - (void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-
+    if (indexPath.row == 0 && self.type == GLPickPicVidCVType_Vid) {
+        NSLog(@"take video");
+    }
+    else if(indexPath.row == 0 && self.type == GLPickPicVidCVType_Pic) {
+        NSLog(@"take pic");
+    }
+    else {
+    }
 }
 
 #pragma mark - user events
 - (void)clickMore:(id)sender {
-    GLMediaBrowserViewController *browserViewController = [[GLMediaBrowserViewController alloc]init];
-    if (self.type == GLPickPicVidType_Pic) {
-        browserViewController.type = GLMediaBrowserType_Picture;
+    if (_delegateHas.didPickMore) {
+        [_delegate glPickPictureCollectionViewdidPickMore:self assetType:self.type];
     }
-    else if(self.type == GLPickPicVidType_Vid) {
-        browserViewController.type = GLMediaBrowserType_Video;
-    }
-    [[AppDelegate shareInstance]pushViewController:browserViewController];
 }
 
 #pragma mark - functions
@@ -271,6 +289,12 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([delegate respondsToSelector:@selector(glPickPictureCollectionView:didUnPickAsset:thumbnailImage:assetType:)]) {
         _delegateHas.didUnPickAsset = 1;
     }
+    
+    if ([delegate respondsToSelector:@selector(glPickPictureCollectionViewdidPickMore:assetType:)]) {
+        _delegateHas.didPickMore = 1;
+    }
+    
+    
     _delegate = delegate;
 }
 
@@ -462,7 +486,6 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         _collectionView.pagingEnabled = FALSE;
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
-        _collectionView.allowsMultipleSelection = YES;
         [_collectionView registerClass:[GLPickPicVidViewCollectionViewCell class]
             forCellWithReuseIdentifier:kPickPictureCollectionViewCellIdentifier];
         _collectionView.backgroundColor = [UIColor whiteColor];
@@ -485,6 +508,12 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     return _imageManager;
 }
 
+- (NSMutableDictionary *)selectedStatusDict {
+    if (!_selectedStatusDict) {
+        _selectedStatusDict = [NSMutableDictionary dictionary];
+    }
+    return _selectedStatusDict;
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

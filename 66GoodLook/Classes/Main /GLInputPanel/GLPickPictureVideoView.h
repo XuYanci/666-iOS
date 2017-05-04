@@ -28,11 +28,8 @@ typedef enum : NSUInteger {
  @param pictureAsset pick picture video asset
  */
 - (void)glPickPictureCollectionView:(id)sender didPickAsset:(PHAsset *)pictureAsset  thumbnailImage:(UIImage *)image assetType:(GLPickPicVidType) type;
-
-
 - (void)glPickPictureCollectionView:(id)sender didUnPickAsset:(PHAsset *)pictureAsset  thumbnailImage:(UIImage *)image assetType:(GLPickPicVidType) type;
-
-
+- (void)glPickPictureCollectionViewdidPickMore:(id)sender assetType:(GLPickPicVidType) type;
 @end
 
 /*!

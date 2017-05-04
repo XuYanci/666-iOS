@@ -13,6 +13,8 @@
 #import "GLPickPictureVideoView.h"
 #import "GLPickPicVidThumbnailCollectionView.h"
 #import "GLPickEmojView.h"
+#import "GLMediaBrowserViewController.h"
+#import "GLMediaPickerViewController.h"
 #import <Masonry/Masonry.h>
 
 @interface GLChatInputPanel()<GLChatInputToolBarDelegate,
@@ -73,15 +75,27 @@
 
 - (void)setPanelType:(GLChatInputPanelType)panelType {
     
-    if (_panelType != panelType && _panelType == GLChatInputPanelType_Video) {
+    
+    if (_panelType != panelType
+        && _panelType == GLChatInputPanelType_Video) {
         [self.pickPicVidDictionary removeAllObjects];
         self.pickVideoCollectionView = nil;
         self.pickPictureCollectionView = nil;
         [self.pickPicVidThumbnailCollectionView reloadData];
     }
     
-    if (_panelType != panelType && _panelType == GLChatInputPanelType_Image
-                                && panelType == GLChatInputPanelType_Video) {
+    if (_panelType != panelType
+        && _panelType == GLChatInputPanelType_Image
+        && panelType == GLChatInputPanelType_Video) {
+        [self.pickPicVidDictionary removeAllObjects];
+        self.pickVideoCollectionView = nil;
+        self.pickPictureCollectionView = nil;
+        [self.pickPicVidThumbnailCollectionView reloadData];
+    }
+    
+    if (_panelType != panelType
+        && panelType == GLChatInputPanelType_Video
+        && _panelType == GLChatInputPanelType_Text) {
         [self.pickPicVidDictionary removeAllObjects];
         self.pickVideoCollectionView = nil;
         self.pickPictureCollectionView = nil;
@@ -259,6 +273,23 @@
     [self.pickPicVidDictionary removeObjectForKey:identifier];
     
     [self.pickPicVidThumbnailCollectionView reloadData];
+}
+
+- (void)glPickPictureCollectionViewdidPickMore:(id)sender assetType:(GLPickPicVidType)type {
+    [self dismiss];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        GLMediaPickerViewController *browserViewController = [[GLMediaPickerViewController alloc]init];
+        browserViewController.hidesBottomBarWhenPushed = YES;
+        if (type == GLPickPicVidType_Pic) {
+            browserViewController.pickerType = GLPickPicVidType_Pic;
+        }
+        else if(type == GLPickPicVidType_Vid) {
+            browserViewController.pickerType = GLPickPicVidType_Vid;
+        }
+        [[AppDelegate shareInstance]pushViewController:browserViewController];
+    });
+   
 }
 
 #pragma mark - user events

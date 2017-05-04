@@ -62,7 +62,6 @@ static NSUInteger const kPickMaxVideoCount = 1;   /* 允许选择视频最大数
 #pragma mark - delegate
 #pragma mark - user events
 - (void)tick:(id)sender {
-    
     if (_datasourceHas.numberOfSelectedItems && !self.tickBtn.selected) {
         NSUInteger count = [_dataSource glPickPicVideViewCVCNumberOfSelectedItems];
         if (count > kPickMaxPictureCount - 1 && self.pickPicVidCVType == GLPickPicVidCVType_Pic) {
@@ -133,6 +132,11 @@ static NSUInteger const kPickMaxVideoCount = 1;   /* 允许选择视频最大数
 - (void)setPickPicVidCVType:(GLPickPicVidCVType)pickPicVidCVType {
     _pickPicVidCVType = pickPicVidCVType;
     [self setNeedsReload];
+}
+
+
+- (void)setTickBtnSelected:(BOOL)selected {
+    self.tickBtn.selected = selected;
 }
 
 #pragma mark - notification
