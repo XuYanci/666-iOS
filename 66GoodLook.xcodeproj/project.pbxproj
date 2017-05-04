@@ -57,14 +57,14 @@
 		AD7CF48A1EAFDEA500A9327A /* GLChatMsg.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7CF4891EAFDEA500A9327A /* GLChatMsg.m */; };
 		AD7CF4D01EB0E8DE00A9327A /* GLChatInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7CF4CF1EB0E8DE00A9327A /* GLChatInputTextView.m */; };
 		AD841CB71EB31EA1007A3EDF /* GLPickPicVidViewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CB61EB31EA1007A3EDF /* GLPickPicVidViewCollectionViewCell.m */; };
-		AD841CC71EB388CD007A3EDF /* GLMediaBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CC61EB388CD007A3EDF /* GLMediaBrowserViewController.m */; };
+		AD841CC71EB388CD007A3EDF /* GLAssetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CC61EB388CD007A3EDF /* GLAssetViewController.m */; };
 		AD841CCA1EB38997007A3EDF /* GLAssetLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CC91EB38997007A3EDF /* GLAssetLibraryManager.m */; };
 		AD841CCD1EB38D9D007A3EDF /* GLAssetLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CCC1EB38D9D007A3EDF /* GLAssetLibraryViewController.m */; };
 		AD841CD01EB5761B007A3EDF /* AppDelegate+ViewControllerOpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CCF1EB5761B007A3EDF /* AppDelegate+ViewControllerOpers.m */; };
 		AD841CD31EB75B56007A3EDF /* GLPickPicVidThumbnailCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CD21EB75B56007A3EDF /* GLPickPicVidThumbnailCollectionView.m */; };
 		AD841CD61EB82D4D007A3EDF /* GLAlreadyPickPicVidCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CD51EB82D4D007A3EDF /* GLAlreadyPickPicVidCollectionViewCell.m */; };
 		AD841CD91EB9CE24007A3EDF /* MBProgressHUD+GL.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CD81EB9CE24007A3EDF /* MBProgressHUD+GL.m */; };
-		AD841CDC1EB9D459007A3EDF /* GLMediaPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CDB1EB9D459007A3EDF /* GLMediaPickerViewController.m */; };
+		AD841CDC1EB9D459007A3EDF /* GLAssetGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CDB1EB9D459007A3EDF /* GLAssetGridViewController.m */; };
 		AD9694151EAAF217008D9170 /* GitMarkDown参考.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD9694141EAAF217008D9170 /* GitMarkDown参考.txt */; };
 		ADA17AAF1E9C469B00FA0FF9 /* GLMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AAE1E9C469B00FA0FF9 /* GLMainTabBarViewController.m */; };
 		ADA17AB61E9C579E00FA0FF9 /* GLViewPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AB51E9C579E00FA0FF9 /* GLViewPagerViewController.m */; };
@@ -211,8 +211,8 @@
 		AD7CF4CF1EB0E8DE00A9327A /* GLChatInputTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLChatInputTextView.m; sourceTree = "<group>"; };
 		AD841CB51EB31EA1007A3EDF /* GLPickPicVidViewCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPickPicVidViewCollectionViewCell.h; sourceTree = "<group>"; };
 		AD841CB61EB31EA1007A3EDF /* GLPickPicVidViewCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLPickPicVidViewCollectionViewCell.m; sourceTree = "<group>"; };
-		AD841CC51EB388CD007A3EDF /* GLMediaBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMediaBrowserViewController.h; sourceTree = "<group>"; };
-		AD841CC61EB388CD007A3EDF /* GLMediaBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMediaBrowserViewController.m; sourceTree = "<group>"; };
+		AD841CC51EB388CD007A3EDF /* GLAssetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAssetViewController.h; sourceTree = "<group>"; };
+		AD841CC61EB388CD007A3EDF /* GLAssetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAssetViewController.m; sourceTree = "<group>"; };
 		AD841CC81EB38997007A3EDF /* GLAssetLibraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAssetLibraryManager.h; sourceTree = "<group>"; };
 		AD841CC91EB38997007A3EDF /* GLAssetLibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAssetLibraryManager.m; sourceTree = "<group>"; };
 		AD841CCB1EB38D9D007A3EDF /* GLAssetLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAssetLibraryViewController.h; sourceTree = "<group>"; };
@@ -225,8 +225,8 @@
 		AD841CD51EB82D4D007A3EDF /* GLAlreadyPickPicVidCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAlreadyPickPicVidCollectionViewCell.m; sourceTree = "<group>"; };
 		AD841CD71EB9CE24007A3EDF /* MBProgressHUD+GL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+GL.h"; sourceTree = "<group>"; };
 		AD841CD81EB9CE24007A3EDF /* MBProgressHUD+GL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+GL.m"; sourceTree = "<group>"; };
-		AD841CDA1EB9D459007A3EDF /* GLMediaPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMediaPickerViewController.h; sourceTree = "<group>"; };
-		AD841CDB1EB9D459007A3EDF /* GLMediaPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMediaPickerViewController.m; sourceTree = "<group>"; };
+		AD841CDA1EB9D459007A3EDF /* GLAssetGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAssetGridViewController.h; sourceTree = "<group>"; };
+		AD841CDB1EB9D459007A3EDF /* GLAssetGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAssetGridViewController.m; sourceTree = "<group>"; };
 		AD9694131EAA47AF008D9170 /* GLChatInputAbleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLChatInputAbleView.h; sourceTree = "<group>"; };
 		AD9694141EAAF217008D9170 /* GitMarkDown参考.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "GitMarkDown参考.txt"; sourceTree = "<group>"; };
 		ADA17AAD1E9C469B00FA0FF9 /* GLMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMainTabBarViewController.h; sourceTree = "<group>"; };
@@ -697,10 +697,10 @@
 		AD841CC41EB388BF007A3EDF /* GLMediaBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				AD841CC51EB388CD007A3EDF /* GLMediaBrowserViewController.h */,
-				AD841CC61EB388CD007A3EDF /* GLMediaBrowserViewController.m */,
-				AD841CDA1EB9D459007A3EDF /* GLMediaPickerViewController.h */,
-				AD841CDB1EB9D459007A3EDF /* GLMediaPickerViewController.m */,
+				AD841CC51EB388CD007A3EDF /* GLAssetViewController.h */,
+				AD841CC61EB388CD007A3EDF /* GLAssetViewController.m */,
+				AD841CDA1EB9D459007A3EDF /* GLAssetGridViewController.h */,
+				AD841CDB1EB9D459007A3EDF /* GLAssetGridViewController.m */,
 			);
 			name = GLMediaBrowser;
 			path = "66GoodLook/Classes/Main /GLMediaBrowser";
@@ -1182,7 +1182,7 @@
 				AD31FBA31E9B178900523AC9 /* MD5Encrypt.m in Sources */,
 				AD31FADB1E9B16B400523AC9 /* MXBaseUrl.m in Sources */,
 				AD841CD31EB75B56007A3EDF /* GLPickPicVidThumbnailCollectionView.m in Sources */,
-				AD841CC71EB388CD007A3EDF /* GLMediaBrowserViewController.m in Sources */,
+				AD841CC71EB388CD007A3EDF /* GLAssetViewController.m in Sources */,
 				AD44DC481E9B2453003C1576 /* XYAppAutoSizeScale.m in Sources */,
 				AD42154D1EA8E1D2002FBC26 /* GLPickPictureVideoView.m in Sources */,
 				AD44DC1F1E9B208B003C1576 /* MXRequest.m in Sources */,
@@ -1215,7 +1215,7 @@
 				ADA17AD71E9C5C6600FA0FF9 /* GLMeViewController.m in Sources */,
 				AD841CCA1EB38997007A3EDF /* GLAssetLibraryManager.m in Sources */,
 				AD44DC541E9B2453003C1576 /* UIImageView+DYLYTheme.m in Sources */,
-				AD841CDC1EB9D459007A3EDF /* GLMediaPickerViewController.m in Sources */,
+				AD841CDC1EB9D459007A3EDF /* GLAssetGridViewController.m in Sources */,
 				ADA17AB61E9C579E00FA0FF9 /* GLViewPagerViewController.m in Sources */,
 				AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */,
 				AD44DC501E9B2453003C1576 /* NSObject+DYLYTheme.m in Sources */,

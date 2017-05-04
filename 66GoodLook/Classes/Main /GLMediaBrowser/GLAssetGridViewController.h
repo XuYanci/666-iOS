@@ -10,9 +10,9 @@
 
 
 typedef enum : NSUInteger {
-    GLMediaPickerType_Picture,
-    GLMediaPickerType_Video,
-} GLMediaPickerType;
+    GLAssetGridType_Picture,
+    GLAssetGridType_Video,
+} GLAssetGridType;
 
 
 /*!
@@ -25,7 +25,7 @@ typedef enum : NSUInteger {
  @helps It helps no other classes.
  @helper    No helper exists for this class.
  */
-@interface GLMediaPickerViewController : UIViewController
-@property (nonatomic,assign) GLMediaPickerType pickerType;
+@interface GLAssetGridViewController : UIViewController
+@property (nonatomic,assign) GLAssetGridType pickerType;
 
 @end

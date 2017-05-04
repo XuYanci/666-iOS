@@ -1,18 +1,18 @@
 //
-//  GLMediaPickerViewController.m
+//  GLMediaBrowserViewController.m
 //  66GoodLook
 //
-//  Created by Yanci on 17/5/3.
+//  Created by Yanci on 17/4/28.
 //  Copyright © 2017年 Yanci. All rights reserved.
 //
 
-#import "GLMediaPickerViewController.h"
+#import "GLAssetViewController.h"
 
-@interface GLMediaPickerViewController ()
+@interface GLAssetViewController ()
 
 @end
 
-@implementation GLMediaPickerViewController
+@implementation GLAssetViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -13,8 +13,8 @@
 #import "GLPickPictureVideoView.h"
 #import "GLPickPicVidThumbnailCollectionView.h"
 #import "GLPickEmojView.h"
-#import "GLMediaBrowserViewController.h"
-#import "GLMediaPickerViewController.h"
+#import "GLAssetViewController.h"
+#import "GLAssetGridViewController.h"
 #import <Masonry/Masonry.h>
 
 @interface GLChatInputPanel()<GLChatInputToolBarDelegate,
@@ -279,7 +279,7 @@
     [self dismiss];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        GLMediaPickerViewController *browserViewController = [[GLMediaPickerViewController alloc]init];
+        GLAssetGridViewController *browserViewController = [[GLAssetGridViewController alloc]init];
         browserViewController.hidesBottomBarWhenPushed = YES;
         if (type == GLPickPicVidType_Pic) {
             browserViewController.pickerType = GLPickPicVidType_Pic;

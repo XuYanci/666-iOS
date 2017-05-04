@@ -8,7 +8,7 @@
 
 #import "GLPickPictureVideoView.h"
 #import "GLPickPicVidViewCollectionViewCell.h"
-#import "GLMediaBrowserViewController.h"
+#import "GLAssetViewController.h"
 
 @interface GLPickPictureHeaderView : UIView
 @property (nonatomic,strong)UILabel *choosePicLabel;

@@ -10,10 +10,10 @@
 
 
 typedef enum : NSUInteger {
-    GLMediaBrowserType_Picture,
-    GLMediaBrowserType_Video,
-    GLMediaBrowserType_Both,
-} GLMediaBrowserType;
+    GLAssetType_Picture,
+    GLAssetType_Video,
+    GLAssetType_Both,
+} GLAssetType;
 
 
 /*!
@@ -26,6 +26,6 @@ typedef enum : NSUInteger {
  @helps It helps no other classes.
  @helper    No helper exists for this class.
  */
-@interface GLMediaBrowserViewController : UIViewController
-@property (nonatomic,assign) GLMediaBrowserType type;
+@interface GLAssetViewController : UIViewController
+@property (nonatomic,assign) GLAssetType type;
 @end
