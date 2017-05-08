@@ -15,6 +15,12 @@ typedef enum : NSUInteger {
 } GLAssetGridType;
 
 
+@protocol GLAssetGridViewControllerDataSource <NSObject>
+@end
+
+@protocol GLAssetGridViewControllerDelegate <NSObject>
+@end
+
 /*!
  @class GLMediaPickerViewController
  @brief The UIViewController class
@@ -27,5 +33,8 @@ typedef enum : NSUInteger {
  */
 @interface GLAssetGridViewController : UIViewController
 @property (nonatomic,assign) GLAssetGridType pickerType;
+@property (nonatomic,weak) id <GLAssetGridViewControllerDataSource>dataSource;
+@property (nonatomic,weak) id <GLAssetGridViewControllerDelegate>delegate;
 
+- (void)reloadData;
 @end

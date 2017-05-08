@@ -271,7 +271,6 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
 #pragma mark - functions
 
-
 - (void)commonInit {
     [self addSubview:self.collectionView];
     [self addSubview:self.headerView];
@@ -324,14 +323,13 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     allPhotosOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:false]];
     _allPhotos = [PHAsset fetchAssetsWithOptions:allPhotosOptions];
     [[PHPhotoLibrary sharedPhotoLibrary]registerChangeObserver:self];
-    [self.collectionView reloadData];
+
     
     [self resetCachedAssets];
     
     self.collectionView.userInteractionEnabled = NO;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self updateCachedAssets];
-        [self.collectionView reloadData];
         self.collectionView.userInteractionEnabled = YES;
     });
 }
@@ -514,6 +512,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
     return _selectedStatusDict;
 }
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -287,7 +287,9 @@
         else if(type == GLPickPicVidType_Vid) {
             browserViewController.pickerType = GLPickPicVidType_Vid;
         }
-        [[AppDelegate shareInstance]pushViewController:browserViewController];
+        
+        [[AppDelegate shareInstance]presentViewController:
+         [[UINavigationController alloc]initWithRootViewController:browserViewController] animated:YES completion:nil];
     });
    
 }
