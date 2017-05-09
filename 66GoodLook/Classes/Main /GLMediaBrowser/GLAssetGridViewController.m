@@ -290,9 +290,6 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
     
     allPhotosOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:false]];
     _allPhotos = [PHAsset fetchAssetsWithOptions:allPhotosOptions];
-    [[PHPhotoLibrary sharedPhotoLibrary]registerChangeObserver:self];
-    
-
     [self resetCachedAssets];
     
 

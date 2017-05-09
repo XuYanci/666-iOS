@@ -367,6 +367,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
 #pragma mark - PHPhotoLibraryChangeObserver
 - (void)photoLibraryDidChange:(PHChange *)changeInstance {
+    // TODO:
     
 }
 
