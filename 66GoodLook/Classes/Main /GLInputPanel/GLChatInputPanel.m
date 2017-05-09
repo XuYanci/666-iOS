@@ -142,7 +142,7 @@
 
 - (void)glAssetGridViewController:(id)sende didPickAssets:(NSMutableDictionary <NSString *,SelectAsset*>*)dictionary {
     [self.pickPicVidDictionary removeAllObjects];
-    
+    /** FAQ : Because user select pic sequentally , so can not use dictionary here , later verify */
     NSMutableArray *selectedAssets = [NSMutableArray array];
     [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key,
                                                     SelectAsset * _Nonnull obj,
@@ -290,6 +290,7 @@
                        didPickAsset:(PHAsset *)pictureAsset
                      thumbnailImage:(UIImage *)image
                           assetType:(GLPickPicVidType) type {
+      /** FAQ : Because user select pic sequentally , so can not use dictionary here , later verify */
     NSString *identifier = pictureAsset.localIdentifier;
     [self.pickPicVidDictionary setObject:image forKey:identifier];
     [self.pickPicVidThumbnailCollectionView reloadData];
@@ -300,6 +301,7 @@
                      didUnPickAsset:(PHAsset *)pictureAsset
                      thumbnailImage:(UIImage *)image
                           assetType:(GLPickPicVidType) type {
+      /** FAQ : Because user select pic sequentally , so can not use dictionary here , later verify */
     NSString *identifier = pictureAsset.localIdentifier;
     [self.pickPicVidDictionary removeObjectForKey:identifier];
     [self.pickPicVidThumbnailCollectionView reloadData];
