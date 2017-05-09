@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+////////////////////////// Select Asset  //////////////////////////
+
+@interface SelectAsset:NSObject
+@property (nonatomic,strong)PHAsset *asset;
+@property (nonatomic,strong)UIImage *image;
+@end
+
 
 typedef enum : NSUInteger {
     GLAssetGridType_Picture,
@@ -19,6 +26,7 @@ typedef enum : NSUInteger {
 @end
 
 @protocol GLAssetGridViewControllerDelegate <NSObject>
+- (void)glAssetGridViewController:(id)sender didPickAssets:(NSMutableDictionary *)dictionary;
 @end
 
 /*!
@@ -36,5 +44,6 @@ typedef enum : NSUInteger {
 @property (nonatomic,weak) id <GLAssetGridViewControllerDataSource>dataSource;
 @property (nonatomic,weak) id <GLAssetGridViewControllerDelegate>delegate;
 
+- (id)initWithSelectedAssets:(NSArray *)assets;
 - (void)reloadData;
 @end

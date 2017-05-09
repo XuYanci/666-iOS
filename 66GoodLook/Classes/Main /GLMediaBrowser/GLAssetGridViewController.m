@@ -10,6 +10,11 @@
 #import "GLAssetGridViewController.h"
 #import "GLPickPicVidViewCollectionViewCell.h"
 
+////////////////////////// Select Asset  //////////////////////////
+@implementation SelectAsset
+@end
+
+
 static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPickPicVidViewCollectionViewCellIdentifier";
 
 @interface GLAssetGridViewController ()<UICollectionViewDataSource,
@@ -19,19 +24,33 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
 @property (nonatomic,strong)PHCachingImageManager *imageManager;
 @property (nonatomic,assign)CGRect previousPreheatRect;
 @property (nonatomic,assign)CGSize thumbnailSize;
-@property (nonatomic,strong)NSMutableDictionary *selectedStatusDict;
+@property (nonatomic,strong)NSMutableDictionary <NSString *,SelectAsset*>*selectedAddsets;
+@property (nonatomic,strong)NSArray *preSelectedAssets;
+
 @end
 
 @implementation GLAssetGridViewController {
     BOOL _needsReload;  /*! 需要重载 */
     struct {
+
     }_datasourceHas;    /*! 数据源存在标识 */
     struct {
+        unsigned  didPickAssets:1;
     }_delegateHas;      /*! 数据委托存在标识 */
     NSUInteger _selectedCount;
 }
 
 #pragma mark - life cycle
+
+
+- (id)initWithSelectedAssets:(NSArray *)assets {
+    if (self = [super init]) {
+        [self commonInit];
+        [self _setNeedsReload];
+        _preSelectedAssets = assets;
+    }
+    return self;
+}
 
 - (id)init {
     if (self = [super init]) {
@@ -78,14 +97,6 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
     cell.delegate = self;
     cell.dataSource = self;
     
-    NSNumber *selected =  [self.selectedStatusDict objectForKey:@(indexPath.row)];
-    
-    if (!selected || selected.intValue == 0) {
-        [cell setTickBtnSelected:FALSE];
-    }
-    else if(selected && selected.intValue == 1) {
-        [cell setTickBtnSelected:YES];
-    }
     
     
     if (self.pickerType == GLAssetGridType_Picture) {
@@ -114,6 +125,17 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
                               resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
                                   cell.image = result;
                               }];
+    
+    
+    BOOL selected =  [self.selectedAddsets.allKeys containsObject:asset.localIdentifier];
+    
+    if (!selected ) {
+        [cell setTickBtnSelected:FALSE];
+    }
+    else if(selected) {
+        [cell setTickBtnSelected:YES];
+    }
+    
     return cell;
 }
 #pragma mark - delegate
@@ -145,17 +167,23 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
     else {
         __weak typeof(self) weakSelf = self;
         PHAsset *asset = [self.allPhotos objectAtIndex:indexPath.row - 1];
-        [self.imageManager requestImageForAsset:asset
-                                     targetSize:self.thumbnailSize
-                                    contentMode:PHImageContentModeAspectFit
-                                        options:nil
-                                  resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-                                      __strong typeof(self)strongSelf = weakSelf;
-                               
-                                  }];
-        
         _selectedCount += 1;
-        [self.selectedStatusDict setObject:@(1) forKey:@(indexPath.row)];
+        if (![self.selectedAddsets.allKeys containsObject:asset.localIdentifier]) {
+            
+            SelectAsset *selectAsset = [[SelectAsset alloc]init];
+            selectAsset.asset = asset;
+            [self.selectedAddsets setObject:selectAsset forKey:asset.localIdentifier];
+           
+            [self.imageManager requestImageForAsset:asset
+                                         targetSize:self.thumbnailSize
+                                        contentMode:PHImageContentModeAspectFit
+                                            options:nil
+                                      resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info)
+            {
+//                __strong typeof(self)strongSelf = weakSelf;
+                selectAsset.image = result;
+            }];
+        }
     }
     
 }
@@ -176,12 +204,14 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
                                     contentMode:PHImageContentModeAspectFit
                                         options:nil
                                   resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-                                      __strong typeof(self)strongSelf = weakSelf;
+//                                      __strong typeof(self)strongSelf = weakSelf;
                                     
                                   }];
         
         _selectedCount -= 1;
-        [self.selectedStatusDict setObject:@(0) forKey:@(indexPath.row)];
+        if ([self.selectedAddsets.allKeys containsObject:asset.localIdentifier]) {
+            [self.selectedAddsets removeObjectForKey:asset.localIdentifier];
+        }
     }
     
 }
@@ -191,7 +221,11 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
 #pragma mark - functions
 
 - (void)back {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+        if (_delegateHas.didPickAssets) {
+            [_delegate glAssetGridViewController:self didPickAssets:self.selectedAddsets];
+        }
+    }];
 }
 
 - (void)commonInit {
@@ -210,7 +244,10 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
 }
 
 - (void)setDelegate:(id<GLAssetGridViewControllerDelegate>)delegate {
-    
+    _delegate = delegate;
+    if ([delegate respondsToSelector:@selector(glAssetGridViewController:didPickAssets:)]) {
+        _delegateHas.didPickAssets = 1;
+    }
 }
 
 /**
@@ -254,7 +291,11 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
     allPhotosOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:false]];
     _allPhotos = [PHAsset fetchAssetsWithOptions:allPhotosOptions];
     [[PHPhotoLibrary sharedPhotoLibrary]registerChangeObserver:self];
+    
+
     [self resetCachedAssets];
+    
+
     
     self.collectionView.userInteractionEnabled = NO;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -274,7 +315,34 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
 #pragma mark - Asset Caching
 
 - (void)resetCachedAssets {
+    
+    /** Reset selected assets */
+    [_allPhotos enumerateObjectsUsingBlock:^(PHAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([self.preSelectedAssets containsObject:obj.localIdentifier]) {
+            SelectAsset *selectAsset = [[SelectAsset alloc]init];
+            selectAsset.asset = obj;
+            [self.selectedAddsets setObject:selectAsset forKey:obj.localIdentifier];
+        }
+    }];
+    
+    
+    NSMutableArray *assets = [NSMutableArray array];
+    [self.selectedAddsets.allValues enumerateObjectsUsingBlock:^(SelectAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [assets addObject:obj.asset];
+    }];
+    
     [self.imageManager stopCachingImagesForAllAssets];
+    
+    /** Cache & Request selected assets */
+    [self.imageManager startCachingImagesForAssets:assets targetSize:_thumbnailSize contentMode:PHImageContentModeAspectFit options:nil];
+    [assets enumerateObjectsUsingBlock:^(PHAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [self.imageManager requestImageForAsset:obj targetSize:_thumbnailSize contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+                SelectAsset *selectAsset = [self.selectedAddsets objectForKey:obj.localIdentifier];
+                selectAsset.image = result;
+            }];
+    }];
+    
+    _selectedCount = self.selectedAddsets.count;
 }
 
 - (void)updateCachedAssets {
@@ -404,11 +472,11 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
     return _collectionView;
 }
 
-- (NSMutableDictionary *)selectedStatusDict {
-    if (!_selectedStatusDict) {
-        _selectedStatusDict = [NSMutableDictionary dictionary];
+- (NSMutableDictionary *)selectedAddsets {
+    if (!_selectedAddsets) {
+        _selectedAddsets = [NSMutableDictionary dictionary];
     }
-    return _selectedStatusDict;
+    return _selectedAddsets;
 }
 
 - (PHCachingImageManager *)imageManager {
@@ -417,6 +485,7 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
     }
     return _imageManager;
 }
+
 /*
 #pragma mark - Navigation
 

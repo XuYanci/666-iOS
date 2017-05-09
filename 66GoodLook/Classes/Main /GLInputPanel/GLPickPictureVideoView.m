@@ -66,7 +66,7 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
 @property (nonatomic,strong)UICollectionViewLayout *collectionViewLayout;
 @property (nonatomic,strong)GLPickPictureHeaderView *headerView;
 @property (nonatomic,strong)PHFetchResult<PHAsset *> *allPhotos;
-@property (nonatomic,strong)NSMutableDictionary *selectedStatusDict;
+@property (nonatomic,strong)NSMutableArray *selectedAssets;
 @property (nonatomic,strong)PHCachingImageManager *imageManager;
 @property (nonatomic,assign)CGRect previousPreheatRect;
 @property (nonatomic,assign)CGSize thumbnailSize;
@@ -141,16 +141,7 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
     cell.delegate = self;
     cell.dataSource = self;
     
-    NSNumber *selected =  [self.selectedStatusDict objectForKey:@(indexPath.row)];
-    
-    if (!selected || selected.intValue == 0) {
-        [cell setTickBtnSelected:FALSE];
-    }
-    else if(selected && selected.intValue == 1) {
-        [cell setTickBtnSelected:YES];
-    }
-    
-    
+
     if (self.type == GLPickPicVidType_Pic) {
         [cell setPickPicVidCVType:GLPickPicVidCVType_Pic];
         if (indexPath.row == 0) {
@@ -177,6 +168,17 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
                               resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         cell.image = result;
     }];
+    
+    BOOL selected =  [self.selectedAssets containsObject:asset];
+    
+    if (!selected) {
+        [cell setTickBtnSelected:FALSE];
+    }
+    else if(selected) {
+        [cell setTickBtnSelected:YES];
+    }
+    
+    
     return cell;
 }
 
@@ -208,7 +210,9 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
                                   }];
         
         _selectedCount += 1;
-        [self.selectedStatusDict setObject:@(1) forKey:@(indexPath.row)];
+        if (![self.selectedAssets containsObject:asset]) {
+            [self.selectedAssets addObject:asset];
+        }
     }
 
 }
@@ -239,7 +243,10 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
                                   }];
         
         _selectedCount -= 1;
-        [self.selectedStatusDict setObject:@(0) forKey:@(indexPath.row)];
+    
+        if ([self.selectedAssets containsObject:asset]) {
+            [self.selectedAssets removeObject:asset];
+        }
     }
 
 }
@@ -335,6 +342,26 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
+}
+
+- (void)setSelAssets:(NSArray <PHAsset *>*)selectedAssets {
+    [self.selectedAssets removeAllObjects];
+    /** Fetch all identifiers */
+    NSMutableArray *identifiers = [NSMutableArray array];
+    [selectedAssets enumerateObjectsUsingBlock:^(PHAsset * _Nonnull obj,
+                                                 NSUInteger idx,
+                                                 BOOL * _Nonnull stop) {
+        [identifiers addObject:obj.localIdentifier];
+    }];
+    
+    /** Set select identifiers */
+    [_allPhotos enumerateObjectsUsingBlock:^(PHAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if([identifiers containsObject:obj.localIdentifier]) {
+            [self.selectedAssets addObject:obj];
+        }
+    }];
+    [self.collectionView reloadData];
+    _selectedCount = self.selectedAssets.count;
 }
 #pragma mark - notification
 
@@ -506,11 +533,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     return _imageManager;
 }
 
-- (NSMutableDictionary *)selectedStatusDict {
-    if (!_selectedStatusDict) {
-        _selectedStatusDict = [NSMutableDictionary dictionary];
+- (NSMutableArray *)selectedAssets {
+    if (!_selectedAssets) {
+        _selectedAssets = [NSMutableArray array];
     }
-    return _selectedStatusDict;
+    return _selectedAssets;
 }
 
 

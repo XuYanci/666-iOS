@@ -50,6 +50,14 @@ typedef enum : NSUInteger {
 @property (nonatomic,weak) id <GLPickPicVidViewDelegate> delegate;
 @property (nonatomic,weak) id <GLPickPicVidViewDataSource> dataSource;
 @property (nonatomic,assign) GLPickPicVidType type;
+
+
+/**
+ 设置选择的Asset
+ @param selectedAssets 选择的Asset
+ */
+- (void)setSelAssets:(NSArray *)selectedAssets;
+
 /**
  重载数据
  */

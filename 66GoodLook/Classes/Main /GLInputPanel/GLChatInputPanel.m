@@ -21,7 +21,7 @@
                                 GLChatInputToolBarDataSource,
                                 GLPickPicVidViewDelegate,
                                 GLChatInputAbleViewDelegate,
-                                GLPickPicVidViewDataSource,GLPickPicVidThumbnailCollectionViewDataSource,GLPickPicVidThumbnailCollectionViewDelegate>
+                                GLPickPicVidViewDataSource,GLPickPicVidThumbnailCollectionViewDataSource,GLPickPicVidThumbnailCollectionViewDelegate,GLAssetGridViewControllerDelegate,GLAssetGridViewControllerDataSource>
 /** 工具栏 */
 @property (nonatomic,strong) GLChatInputToolBar *toolbar;
 /** 当前面板 */
@@ -134,6 +134,38 @@
 
 #pragma mark - GLChatInputToolBarDataSource 
 
+
+#pragma mark - GLAssetGridViewControllerDataSource
+
+
+#pragma mark - GLAssetGridViewControllerDelegate
+
+- (void)glAssetGridViewController:(id)sende didPickAssets:(NSMutableDictionary <NSString *,SelectAsset*>*)dictionary {
+    [self.pickPicVidDictionary removeAllObjects];
+    
+    NSMutableArray *selectedAssets = [NSMutableArray array];
+    [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key,
+                                                    SelectAsset * _Nonnull obj,
+                                                    BOOL * _Nonnull stop) {
+        [self.pickPicVidDictionary setObject:obj.image forKey:obj.asset.localIdentifier];
+        [selectedAssets addObject:obj.asset];
+    }];
+    
+    if (self.panelType == GLChatInputPanelType_Image || self.panelType == GLChatInputPanelType_Text) {
+        [self.pickPictureCollectionView setSelAssets:selectedAssets];
+    }
+    else if(self.panelType == GLChatInputPanelType_Video) {
+        [self.pickVideoCollectionView setSelAssets:selectedAssets];
+    }
+    
+    [self.pickPicVidThumbnailCollectionView reloadData];
+    
+    self.alpha = 0.0;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.alpha = 1.0;
+    }];
+    
+}
 
 #pragma mark - delegate
 
@@ -260,7 +292,6 @@
                           assetType:(GLPickPicVidType) type {
     NSString *identifier = pictureAsset.localIdentifier;
     [self.pickPicVidDictionary setObject:image forKey:identifier];
-    
     [self.pickPicVidThumbnailCollectionView reloadData];
 }
 
@@ -271,15 +302,21 @@
                           assetType:(GLPickPicVidType) type {
     NSString *identifier = pictureAsset.localIdentifier;
     [self.pickPicVidDictionary removeObjectForKey:identifier];
-    
     [self.pickPicVidThumbnailCollectionView reloadData];
 }
 
 - (void)glPickPictureCollectionViewdidPickMore:(id)sender assetType:(GLPickPicVidType)type {
-    [self dismiss];
+    
+    
+    self.alpha = 1.0;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.alpha = 0.0;
+    }];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        GLAssetGridViewController *browserViewController = [[GLAssetGridViewController alloc]init];
+        GLAssetGridViewController *browserViewController = [[GLAssetGridViewController alloc]initWithSelectedAssets:self.pickPicVidDictionary.allKeys];
+        [browserViewController setDelegate:self];
+        [browserViewController setDataSource:self];
         browserViewController.hidesBottomBarWhenPushed = YES;
         if (type == GLPickPicVidType_Pic) {
             browserViewController.pickerType = GLPickPicVidType_Pic;
@@ -300,7 +337,6 @@
 - (void)show {
     [[UIApplication sharedApplication].keyWindow addSubview:self];
     self.maskView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
-    
     if (_panelType == GLChatInputPanelType_Text) {
         [self.toolbar beginOpenText];
     }
@@ -313,8 +349,6 @@
     [UIView animateWithDuration:0.5 animations:^{
         self.maskView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
     }];
-    
-
 }
 
 - (void)dismiss {
