@@ -356,9 +356,7 @@
 }
 
 - (void)dismiss {
-    
 
-    
     [self.pickPicVidThumbnailCollectionView removeFromSuperview];
     [self.pickPictureCollectionView removeFromSuperview];
     [self.pickVideoCollectionView removeFromSuperview];
