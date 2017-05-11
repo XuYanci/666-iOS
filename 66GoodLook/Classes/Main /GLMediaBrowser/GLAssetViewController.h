@@ -15,6 +15,12 @@ typedef enum : NSUInteger {
     GLAssetType_Both,
 } GLAssetType;
 
+@protocol GLAssetViewControllerDataSource <NSObject>
+@end
+
+@protocol GLAssetViewControllerDelegate <NSObject>
+@end
+
 
 /*!
  @class GLMediaBrowserViewController
@@ -28,4 +34,7 @@ typedef enum : NSUInteger {
  */
 @interface GLAssetViewController : UIViewController
 @property (nonatomic,assign) GLAssetType type;
+@property (nonatomic,weak) id<GLAssetViewControllerDataSource>dataSource;
+@property (nonatomic,weak) id<GLAssetViewControllerDelegate>delegate;
+
 @end

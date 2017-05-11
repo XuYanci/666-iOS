@@ -326,7 +326,6 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         self.headerView.choosePicLabel.text = @"选择图片(0/4)";
     }
     
-    
     allPhotosOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:false]];
     _allPhotos = [PHAsset fetchAssetsWithOptions:allPhotosOptions];
     [[PHPhotoLibrary sharedPhotoLibrary]registerChangeObserver:self];
@@ -370,7 +369,6 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // TODO:
     
 }
-
 
 #pragma mark - Asset Caching
 

@@ -57,9 +57,10 @@
 #pragma mark - functions
 - (void)commonInit {
     [self setViewControllers:@[[[UINavigationController alloc]initWithRootViewController:self.viewPagerViewController],
-                               [[UINavigationController alloc]initWithRootViewController:self.goodPlayViewController],
-                               [[UINavigationController alloc]initWithRootViewController:self.messageViewController],
-                               [[UINavigationController alloc]initWithRootViewController:self.meViewController]]];
+//                               [[UINavigationController alloc]initWithRootViewController:self.goodPlayViewController],
+//                               [[UINavigationController alloc]initWithRootViewController:self.messageViewController],
+//                               [[UINavigationController alloc]initWithRootViewController:self.meViewController]
+                               ]];
 }
 
 #pragma mark - notification
