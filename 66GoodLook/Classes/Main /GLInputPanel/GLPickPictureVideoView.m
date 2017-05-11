@@ -288,7 +288,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         assetViewController.dataSource = self;
         assetViewController.delegate = self;
         [assetViewController reloadData];
-        [[UIApplication sharedApplication].keyWindow addSubview:assetViewController];
+        [assetViewController show];
     }
 }
 

@@ -50,4 +50,6 @@ typedef void(^GLAssetViewImageAsyncCallback)(UIImage *image);
 @property (nonatomic,weak) id<GLAssetViewControllerDelegate>delegate;
 
 - (void)reloadData;
+- (void)show;
+- (void)dismiss;
 @end

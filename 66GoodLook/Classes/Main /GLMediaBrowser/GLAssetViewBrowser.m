@@ -35,6 +35,7 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
 
 @interface GLAssetViewBrowser ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic,strong) UICollectionView *collectionView;
+@property (nonatomic,strong) UIVisualEffectView *effectView;
 @end
 
 @implementation GLAssetViewBrowser {
@@ -99,14 +100,34 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
 #pragma mark - delegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (_delegateHas.didClickOnItemAtIndex) {
-        [_delegate glAssetViewController:self didClickOnItemAtIndex:indexPath.row];
-    }
+    [self dismiss];
 }
 
 
 #pragma mark - user events
 #pragma mark - functions
+
+- (void)show {
+    [[UIApplication sharedApplication].keyWindow addSubview:self];
+    self.effectView.alpha = 0.0;
+    self.collectionView.alpha = 0.0;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.effectView.alpha = 1.0;
+        self.collectionView.alpha = 1.0;
+    }];
+}
+
+- (void)dismiss {
+    self.effectView.alpha = 1.0;
+    self.collectionView.alpha = 1.0;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.effectView.alpha = 0.0;
+        self.collectionView.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+    }];
+}
+
 
 - (void)setDataSource:(id<GLAssetViewControllerDataSource>)dataSource {
     _dataSource = dataSource;
@@ -129,6 +150,15 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
 }
 
 - (void)commonInit {
+    
+    /** Add blur */
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    effectView.frame = self.bounds;
+    [self addSubview:effectView];
+    _effectView = effectView;
+    
+    /** Add collectionview */
     [self addSubview:self.collectionView];
 }
 
@@ -206,6 +236,7 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         [_collectionView registerClass:[GLAssetCollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifier];
+        _collectionView.backgroundColor = [UIColor clearColor];
     }
     return _collectionView;
 }
