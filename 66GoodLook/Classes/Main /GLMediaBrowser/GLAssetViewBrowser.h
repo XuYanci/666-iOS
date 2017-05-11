@@ -15,10 +15,22 @@ typedef enum : NSUInteger {
     GLAssetType_Both,
 } GLAssetType;
 
+
+typedef void(^GLAssetViewImageAsyncCallback)(UIImage *image);
+
+
+@class GLAssetViewBrowser;
 @protocol GLAssetViewControllerDataSource <NSObject>
+@required
+- (NSUInteger)numberOfItemsInGLAssetViewController:(GLAssetViewBrowser *)assetViewController;
+- (UIImage *)imageForItemInGLAssetViewControllerAtIndex:(NSUInteger)itemIndex;
+
+@optional
+- (void)asyncImageForItemInGLAssetViewControllerAtIndex:(NSUInteger)itemIndex imageAsyncCallback:(GLAssetViewImageAsyncCallback)callback;
 @end
 
 @protocol GLAssetViewControllerDelegate <NSObject>
+- (void)glAssetViewController:(id)sender didClickOnItemAtIndex:(NSUInteger)itemIndex;
 @end
 
 
@@ -32,9 +44,10 @@ typedef enum : NSUInteger {
  @helps It helps no other classes.
  @helper    No helper exists for this class.
  */
-@interface GLAssetViewController : UIViewController
+@interface GLAssetViewBrowser : UIView
 @property (nonatomic,assign) GLAssetType type;
 @property (nonatomic,weak) id<GLAssetViewControllerDataSource>dataSource;
 @property (nonatomic,weak) id<GLAssetViewControllerDelegate>delegate;
 
+- (void)reloadData;
 @end

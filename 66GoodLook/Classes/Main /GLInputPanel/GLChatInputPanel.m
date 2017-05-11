@@ -13,7 +13,7 @@
 #import "GLPickPictureVideoView.h"
 #import "GLPickPicVidThumbnailCollectionView.h"
 #import "GLPickEmojView.h"
-#import "GLAssetViewController.h"
+#import "GLAssetViewBrowser.h"
 #import "GLAssetGridViewController.h"
 #import <Masonry/Masonry.h>
 
@@ -168,7 +168,9 @@
 }
 
 #pragma mark - delegate
-
+- (void)glPickPicVidThumbnailCollectionView:(id)sender didSelectAtIndex:(NSUInteger)index {
+    
+}
 
 #pragma mark - GLChatInputToolBarDelegate
 
@@ -354,6 +356,9 @@
 }
 
 - (void)dismiss {
+    
+
+    
     [self.pickPicVidThumbnailCollectionView removeFromSuperview];
     [self.pickPictureCollectionView removeFromSuperview];
     [self.pickVideoCollectionView removeFromSuperview];

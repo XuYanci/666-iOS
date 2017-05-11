@@ -165,7 +165,6 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
         NSLog(@"take video");
     }
     else {
-        __weak typeof(self) weakSelf = self;
         PHAsset *asset = [self.allPhotos objectAtIndex:indexPath.row - 1];
         _selectedCount += 1;
         if (![self.selectedAddsets.allKeys containsObject:asset.localIdentifier]) {
@@ -197,7 +196,6 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
         NSLog(@"take video");
     }
     else {
-        __weak typeof(self) weakSelf = self;
         PHAsset *asset = [self.allPhotos objectAtIndex:indexPath.row - 1];
         [self.imageManager requestImageForAsset:asset
                                      targetSize:self.thumbnailSize

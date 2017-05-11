@@ -8,7 +8,7 @@
 
 #import "GLPickPictureVideoView.h"
 #import "GLPickPicVidViewCollectionViewCell.h"
-#import "GLAssetViewController.h"
+#import "GLAssetViewBrowser.h"
 
 @interface GLPickPictureHeaderView : UIView
 @property (nonatomic,strong)UILabel *choosePicLabel;
@@ -61,7 +61,7 @@ static NSString *const kPickPictureCollectionViewCellIdentifier = @"pickPictureC
 static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
 
 
-@interface GLPickPictureVideoView()<UICollectionViewDelegate,UICollectionViewDataSource,PHPhotoLibraryChangeObserver,GLPickPicVidViewCollectionViewCellDelegate,GLPickPicVidViewCollectionViewCellDataSource>
+@interface GLPickPictureVideoView()<UICollectionViewDelegate,UICollectionViewDataSource,PHPhotoLibraryChangeObserver,GLPickPicVidViewCollectionViewCellDelegate,GLPickPicVidViewCollectionViewCellDataSource,GLAssetViewControllerDataSource,GLAssetViewControllerDelegate>
 @property (nonatomic,strong)UICollectionView *collectionView;
 @property (nonatomic,strong)UICollectionViewLayout *collectionViewLayout;
 @property (nonatomic,strong)GLPickPictureHeaderView *headerView;
@@ -128,6 +128,23 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
 
 - (NSUInteger)glPickPicVideViewCVCNumberOfSelectedItems {
     return _selectedCount;
+}
+
+#pragma mark - GLAssetViewControllerDataSource
+- (NSUInteger)numberOfItemsInGLAssetViewController:(GLAssetViewBrowser *)assetViewController {
+    return self.allPhotos.count;
+}
+
+- (void)asyncImageForItemInGLAssetViewControllerAtIndex:(NSUInteger)itemIndex imageAsyncCallback:(GLAssetViewImageAsyncCallback)callback {
+    
+    PHAsset *asset = [self.allPhotos objectAtIndex:itemIndex];
+    [self.imageManager requestImageForAsset:asset
+                                 targetSize:[UIScreen mainScreen].bounds.size
+                                contentMode:PHImageContentModeAspectFit
+                                    options:nil
+                              resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+                                  callback(result);
+                              }];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -266,6 +283,12 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         NSLog(@"take pic");
     }
     else {
+        GLAssetViewBrowser *assetViewController = [[GLAssetViewBrowser alloc]init];
+        assetViewController.type = (self.type == GLPickPicVidType_Pic ? GLAssetType_Picture : GLAssetType_Video);
+        assetViewController.dataSource = self;
+        assetViewController.delegate = self;
+        [assetViewController reloadData];
+        [[UIApplication sharedApplication].keyWindow addSubview:assetViewController];
     }
 }
 
