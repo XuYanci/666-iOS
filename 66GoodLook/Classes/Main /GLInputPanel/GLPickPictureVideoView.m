@@ -147,6 +147,20 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
                               }];
 }
 
+#pragma mark - GLAssetViewControllerDelegate
+
+- (CGRect)imageRectForItemInGLAssetViewControllerAtIndex:(NSUInteger)itemIndex {
+    CGRect cellRect = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:itemIndex + 1 inSection:0]].frame;
+    CGRect fromRect = [self.collectionView convertRect:cellRect
+                                           toView:[UIApplication sharedApplication].keyWindow];
+    
+    if (!CGRectIntersectsRect(cellRect, self.collectionView.frame)) {
+        return CGRectZero;
+    }
+    
+    return fromRect;
+}
+
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.allPhotos.count + 1;
@@ -288,7 +302,14 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         assetViewController.dataSource = self;
         assetViewController.delegate = self;
         [assetViewController reloadData];
-        [assetViewController show];
+        
+        CGRect cellRect = [collectionView cellForItemAtIndexPath:indexPath].frame;
+        CGRect fromRect = [collectionView convertRect:cellRect
+                             toView:[UIApplication sharedApplication].keyWindow];
+        
+        [assetViewController showFromOriginRect:fromRect
+                                      thumbnail:nil
+                                      withIndex:indexPath.row - 1];
     }
 }
 

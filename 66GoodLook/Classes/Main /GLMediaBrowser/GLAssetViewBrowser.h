@@ -31,6 +31,7 @@ typedef void(^GLAssetViewImageAsyncCallback)(UIImage *image);
 
 @protocol GLAssetViewControllerDelegate <NSObject>
 - (void)glAssetViewController:(id)sender didClickOnItemAtIndex:(NSUInteger)itemIndex;
+- (CGRect)imageRectForItemInGLAssetViewControllerAtIndex:(NSUInteger)itemIndex;
 @end
 
 
@@ -84,5 +85,5 @@ typedef void(^GLAssetViewImageAsyncCallback)(UIImage *image);
     because browser can scroll to item index, it will dismiss to the origin rect of item index,
     if origin rect of item index is not visiable , it will dismiss centrally.
  */
-- (void)dismissToOriginRect;
+//- (void)dismissToOriginRect;
 @end

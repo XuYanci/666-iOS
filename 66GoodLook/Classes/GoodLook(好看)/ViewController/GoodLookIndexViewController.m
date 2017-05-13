@@ -107,7 +107,7 @@
 - (UIViewController *)viewPager:(GLViewPagerViewController *)viewPager
 contentViewControllerForTabAtIndex:(NSUInteger)index {
     return self.viewControllers[index];
-}n
+}
 #pragma mark - GLViewPagerViewControllerDelegate
 - (void)viewPager:(GLViewPagerViewController *)viewPager didChangeTabToIndex:(NSUInteger)index fromTabIndex:(NSUInteger)fromTabIndex {
     UILabel *prevLabel = (UILabel *)[viewPager tabViewAtIndex:fromTabIndex];
