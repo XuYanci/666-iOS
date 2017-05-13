@@ -171,7 +171,7 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
         imageView.image = _thumbnail;
         imageView.frame = originRect;
         
-        [UIView animateWithDuration:1.0 animations:^{
+        [UIView animateWithDuration:0.5 animations:^{
             imageView.frame = finalRect;
         } completion:^(BOOL finished) {
             [imageView removeFromSuperview];
@@ -187,7 +187,7 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
                 CGRect finalRect = [self calculateScaledFinalFrame:image];
                 imageView.image = image;
                 imageView.frame = originRect;
-                [UIView animateWithDuration:1.0 animations:^{
+                [UIView animateWithDuration:0.5 animations:^{
                     imageView.frame = finalRect;
                 } completion:^(BOOL finished) {
                     [imageView removeFromSuperview];
@@ -216,7 +216,7 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
         imageView.image = originImage;
         imageView.frame = fromRect;
         
-        [UIView animateWithDuration:1.0 animations:^{
+        [UIView animateWithDuration:0.5 animations:^{
             imageView.frame = originRect;
         } completion:^(BOOL finished) {
             [imageView removeFromSuperview];
@@ -231,7 +231,7 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
                 imageView.image = originImage;
                 imageView.frame = fromRect;
                 
-                [UIView animateWithDuration:1.0 animations:^{
+                [UIView animateWithDuration:0.5 animations:^{
                     imageView.frame = originRect;
                 } completion:^(BOOL finished) {
                     [self removeFromSuperview];

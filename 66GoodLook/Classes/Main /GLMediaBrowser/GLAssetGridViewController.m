@@ -9,7 +9,7 @@
 #import <Photos/Photos.h>
 #import "GLAssetGridViewController.h"
 #import "GLPickPicVidViewCollectionViewCell.h"
-
+#import "GLAssetViewBrowser.h"
 ////////////////////////// Select Asset  //////////////////////////
 @implementation SelectAsset
 @end
@@ -18,7 +18,9 @@
 static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPickPicVidViewCollectionViewCellIdentifier";
 
 @interface GLAssetGridViewController ()<UICollectionViewDataSource,
-                                        UICollectionViewDelegate,GLPickPicVidViewCollectionViewCellDelegate,GLPickPicVidViewCollectionViewCellDataSource>
+                                        UICollectionViewDelegate,GLPickPicVidViewCollectionViewCellDelegate,GLPickPicVidViewCollectionViewCellDataSource,
+                                            GLAssetViewControllerDataSource,
+                                            GLAssetViewControllerDelegate>
 @property (nonatomic,strong) UICollectionView  *collectionView;
 @property (nonatomic,strong)PHFetchResult<PHAsset *> *allPhotos;
 @property (nonatomic,strong)PHCachingImageManager *imageManager;
@@ -137,10 +139,65 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
     
     return cell;
 }
+
+#pragma mark - GLAssetViewControllerDataSource
+- (NSUInteger)numberOfItemsInGLAssetViewController:(GLAssetViewBrowser *)assetViewController {
+    return self.allPhotos.count;
+}
+
+- (void)asyncImageForItemInGLAssetViewControllerAtIndex:(NSUInteger)itemIndex imageAsyncCallback:(GLAssetViewImageAsyncCallback)callback {
+    
+    PHAsset *asset = [self.allPhotos objectAtIndex:itemIndex];
+    [self.imageManager requestImageForAsset:asset
+                                 targetSize:[UIScreen mainScreen].bounds.size
+                                contentMode:PHImageContentModeAspectFit
+                                    options:nil
+                              resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+                                  callback(result);
+                              }];
+}
+
+#pragma mark - GLAssetViewControllerDelegate
+
+- (CGRect)imageRectForItemInGLAssetViewControllerAtIndex:(NSUInteger)itemIndex {
+    CGRect cellRect = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:itemIndex + 1 inSection:0]].frame;
+    CGRect fromRect = [self.collectionView convertRect:cellRect
+                                                toView:[UIApplication sharedApplication].keyWindow];
+    
+    if (![self.collectionView.indexPathsForVisibleItems containsObject:[NSIndexPath indexPathForRow:itemIndex + 1 inSection:0]]) {
+        return CGRectZero;
+    }
+    
+    return fromRect;
+}
+
 #pragma mark - delegate
 
+
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if (indexPath.row == 0 && self.pickerType == GLAssetGridType_Picture) {
+        NSLog(@"take video");
+    }
+    else if(indexPath.row == 0 && self.pickerType == GLAssetGridType_Video) {
+        NSLog(@"take pic");
+    }
+    else {
+        GLAssetViewBrowser *assetViewController = [[GLAssetViewBrowser alloc]init];
+        assetViewController.type = (self.pickerType == GLAssetGridType_Picture ? GLAssetType_Picture : GLAssetType_Video);
+        assetViewController.dataSource = self;
+        assetViewController.delegate = self;
+        [assetViewController reloadData];
+        
+        CGRect cellRect = [collectionView cellForItemAtIndexPath:indexPath].frame;
+        CGRect fromRect = [collectionView convertRect:cellRect
+                                               toView:[UIApplication sharedApplication].keyWindow];
+        
+        [assetViewController showFromOriginRect:fromRect
+                                      thumbnail:nil
+                                      withIndex:indexPath.row - 1];
+    }
+
 }
 
 
