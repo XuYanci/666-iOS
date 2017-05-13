@@ -154,7 +154,7 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
     CGRect fromRect = [self.collectionView convertRect:cellRect
                                            toView:[UIApplication sharedApplication].keyWindow];
     
-    if (!CGRectIntersectsRect(cellRect, self.collectionView.frame)) {
+    if (![self.collectionView.indexPathsForVisibleItems containsObject:[NSIndexPath indexPathForRow:itemIndex + 1 inSection:0]]) {
         return CGRectZero;
     }
     
