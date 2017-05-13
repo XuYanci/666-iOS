@@ -50,6 +50,8 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
     }_delegateHas;      /*! 数据委托存在标识 */
     
     NSUInteger _numbersOfItems;
+    CGRect _fromRect;
+    UIImage *_thumbnail;
 }
 
 
@@ -128,6 +130,15 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
     }];
 }
 
+
+- (void)showFromOriginRect:(CGRect)originRect thumbnail:(UIImage *)thumbnail withIndex:(NSUInteger)originIndex {
+    _fromRect = originRect;
+    _thumbnail = thumbnail;
+}
+
+- (void)dismissToOriginRect {
+    
+}
 
 - (void)setDataSource:(id<GLAssetViewControllerDataSource>)dataSource {
     _dataSource = dataSource;

@@ -200,7 +200,6 @@
         [self.pickPictureCollectionView removeFromSuperview];
         [self.pickVideoCollectionView removeFromSuperview];
 
-        
         /** Add thumbnail collection view */
         [self addSubview:self.pickPicVidThumbnailCollectionView];
         [self.pickPicVidThumbnailCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {

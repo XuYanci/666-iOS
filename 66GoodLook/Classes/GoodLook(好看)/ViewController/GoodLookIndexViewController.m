@@ -26,6 +26,8 @@
     [super viewDidLoad];
 
     
+    self.title = @"Good Look";
+    
     // Do any additional setup after loading the view.
     self.dataSource = self;
     self.delegate = self;
@@ -105,7 +107,7 @@
 - (UIViewController *)viewPager:(GLViewPagerViewController *)viewPager
 contentViewControllerForTabAtIndex:(NSUInteger)index {
     return self.viewControllers[index];
-}
+}n
 #pragma mark - GLViewPagerViewControllerDelegate
 - (void)viewPager:(GLViewPagerViewController *)viewPager didChangeTabToIndex:(NSUInteger)index fromTabIndex:(NSUInteger)fromTabIndex {
     UILabel *prevLabel = (UILabel *)[viewPager tabViewAtIndex:fromTabIndex];
