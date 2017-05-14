@@ -181,8 +181,6 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
     }
 }
 
-
-
 #pragma mark - functions
 - (void)commonInit {
     

@@ -361,7 +361,7 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
         
         allPhotosOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:false]];
         _allPhotos = [PHAsset fetchAssetsWithOptions:allPhotosOptions];
-
+        [self resetCachedAssets];
         self.collectionView.userInteractionEnabled = NO;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self updateCachedAssets];
