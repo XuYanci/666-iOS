@@ -9,6 +9,7 @@
 #import "GLPickEmojView.h"
 #import "GLPickEmojCollectionViewFlowLayout.h"
 #import "GLChatMsg.h"
+
 @interface GLCustomerCollectionViewCell : UICollectionViewCell
 @property (nonatomic,strong)UIImage *image;
 @end

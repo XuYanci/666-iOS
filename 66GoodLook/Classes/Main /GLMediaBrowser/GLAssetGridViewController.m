@@ -10,6 +10,8 @@
 #import "GLAssetGridViewController.h"
 #import "GLPickPicVidViewCollectionViewCell.h"
 #import "GLAssetViewBrowser.h"
+#import "GLAssetPlayBackView.h"
+
 ////////////////////////// Select Asset  //////////////////////////
 @implementation SelectAsset
 @end
@@ -34,12 +36,14 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
 @implementation GLAssetGridViewController {
     BOOL _needsReload;  /*! 需要重载 */
     struct {
-
     }_datasourceHas;    /*! 数据源存在标识 */
     struct {
         unsigned  didPickAssets:1;
     }_delegateHas;      /*! 数据委托存在标识 */
+    
     NSUInteger _selectedCount;
+    
+
 }
 
 #pragma mark - life cycle
@@ -97,8 +101,6 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
     GLPickPicVidViewCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kGLPickPicVidViewCollectionViewCellIdentifier forIndexPath:indexPath];
     cell.delegate = self;
     cell.dataSource = self;
-    
-    
     
     if (self.pickerType == GLAssetGridType_Picture) {
         [cell setPickPicVidCVType:GLPickPicVidCVType_Pic];
@@ -173,14 +175,24 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
 
 #pragma mark - delegate
 
-
-
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0 && self.pickerType == GLAssetGridType_Picture) {
         NSLog(@"take video");
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Tips" message:@"Take Photo" preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"Confirm"
+                                                  style:UIAlertActionStyleDefault
+                                                handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
+
     }
     else if(indexPath.row == 0 && self.pickerType == GLAssetGridType_Video) {
         NSLog(@"take pic");
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Tips" message:@"Take Video" preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"Confirm"
+                                                  style:UIAlertActionStyleDefault
+                                                handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
+
     }
     else {
         GLAssetViewBrowser *assetViewController = [[GLAssetViewBrowser alloc]init];
@@ -318,6 +330,7 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
 - (void)_reloadDataIfNeed {
     if (_needsReload) {
         [self reloadData];
+        _needsReload = NO;
     }
 }
 
@@ -331,39 +344,81 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
  重载数据
  */
 - (void)reloadData {
-    PHFetchOptions *allPhotosOptions = [[PHFetchOptions alloc]init];
-    
-    if (self.pickerType == GLAssetGridType_Video) {
-        allPhotosOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType = %d",PHAssetMediaTypeVideo];
-        
+    if ([PHPhotoLibrary authorizationStatus] != PHAuthorizationStatusAuthorized) {
+        [self requestAuthorzationStatus];
     }
-    else if(self.pickerType == GLAssetGridType_Picture) {
-        allPhotosOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType = %d",PHAssetMediaTypeImage];
+    else {
+        PHFetchOptions *allPhotosOptions = [[PHFetchOptions alloc]init];
         
-    }
-    
-    allPhotosOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:false]];
-    _allPhotos = [PHAsset fetchAssetsWithOptions:allPhotosOptions];
-    [self resetCachedAssets];
-    
+        if (self.pickerType == GLAssetGridType_Video) {
+            allPhotosOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType = %d",PHAssetMediaTypeVideo];
+            
+        }
+        else if(self.pickerType == GLAssetGridType_Picture) {
+            allPhotosOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType = %d",PHAssetMediaTypeImage];
+            
+        }
+        
+        allPhotosOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:false]];
+        _allPhotos = [PHAsset fetchAssetsWithOptions:allPhotosOptions];
 
-    
-    self.collectionView.userInteractionEnabled = NO;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self updateCachedAssets];
-        self.collectionView.userInteractionEnabled = YES;
-    });
-    
-    if (self.pickerType == GLAssetGridType_Picture) {
-        self.title = @"全部相册";
-    }
-    else if(self.pickerType == GLAssetGridType_Video) {
-        self.title = @"全部视频";
+        self.collectionView.userInteractionEnabled = NO;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self updateCachedAssets];
+            [self.collectionView reloadData];
+            self.collectionView.userInteractionEnabled = YES;
+        });
+        
+        if (self.pickerType == GLAssetGridType_Picture) {
+            self.title = @"全部相册";
+        }
+        else if(self.pickerType == GLAssetGridType_Video) {
+            self.title = @"全部视频";
+        }
     }
 }
 
 
 #pragma mark - Asset Caching
+
+- (void)requestAuthorzationStatus {
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    
+    switch (status) {
+        case PHAuthorizationStatusAuthorized:
+            [self reloadData];
+            break;
+        case PHAuthorizationStatusDenied:
+        case PHAuthorizationStatusRestricted: {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Tips" message:@"Photo auth status deny or restricted,please auth before" preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"Confirm"
+                                                      style:UIAlertActionStyleDefault
+                                                    handler:nil]];
+            [self presentViewController:alert animated:YES completion:nil];
+            return;
+        }
+            break;
+        case PHAuthorizationStatusNotDetermined: {
+            [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+                if (status == PHAuthorizationStatusRestricted || status == PHAuthorizationStatusDenied) {
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Tips" message:@"Photo auth status deny or restricted,please auth before" preferredStyle:UIAlertControllerStyleAlert];
+                    [alert addAction:[UIAlertAction actionWithTitle:@"Confirm"
+                                                              style:UIAlertActionStyleDefault
+                                                            handler:nil]];
+                    [self presentViewController:alert animated:YES completion:nil];
+                    return;
+                }
+                else if(status == PHAuthorizationStatusAuthorized) {
+                    [self reloadData];
+                }
+            }];
+        }
+            break;
+        default:
+            break;
+    }
+    
+}
 
 - (void)resetCachedAssets {
     
@@ -375,7 +430,6 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
             [self.selectedAddsets setObject:selectAsset forKey:obj.localIdentifier];
         }
     }];
-    
     
     NSMutableArray *assets = [NSMutableArray array];
     [self.selectedAddsets.allValues enumerateObjectsUsingBlock:^(SelectAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -397,6 +451,14 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
 }
 
 - (void)updateCachedAssets {
+    
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    
+    if (status == PHAuthorizationStatusDenied
+        || status == PHAuthorizationStatusRestricted
+        || status == PHAuthorizationStatusNotDetermined) {
+        return;
+    }
     
     CGRect visibleRect = CGRectMake(self.collectionView.contentOffset.x,
                                     self.collectionView.contentOffset.y,

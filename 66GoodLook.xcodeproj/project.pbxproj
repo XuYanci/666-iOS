@@ -53,6 +53,7 @@
 		AD44DC761E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC6D1E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m */; };
 		AD44DC7B1E9B7489003C1576 /* UIView+CustomAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC7A1E9B7489003C1576 /* UIView+CustomAutoLayout.m */; };
 		AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70AF0D1E991E800003F3C8 /* AppDelegate.m */; };
+		AD78F1F41EC8801600205AEB /* GLAssetPlayBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD78F1F31EC8801600205AEB /* GLAssetPlayBackView.m */; };
 		AD7CF4871EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7CF4861EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.m */; };
 		AD7CF48A1EAFDEA500A9327A /* GLChatMsg.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7CF4891EAFDEA500A9327A /* GLChatMsg.m */; };
 		AD7CF4D01EB0E8DE00A9327A /* GLChatInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7CF4CF1EB0E8DE00A9327A /* GLChatInputTextView.m */; };
@@ -202,6 +203,8 @@
 		AD44DC7A1E9B7489003C1576 /* UIView+CustomAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomAutoLayout.m"; sourceTree = "<group>"; };
 		AD70AF0C1E991E800003F3C8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AD70AF0D1E991E800003F3C8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AD78F1F21EC8801600205AEB /* GLAssetPlayBackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAssetPlayBackView.h; sourceTree = "<group>"; };
+		AD78F1F31EC8801600205AEB /* GLAssetPlayBackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAssetPlayBackView.m; sourceTree = "<group>"; };
 		AD7CF4851EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPickEmojCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		AD7CF4861EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLPickEmojCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		AD7CF4881EAFDEA500A9327A /* GLChatMsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLChatMsg.h; path = ../GLChatMsg.h; sourceTree = "<group>"; };
@@ -696,6 +699,8 @@
 				AD841CC61EB388CD007A3EDF /* GLAssetViewBrowser.m */,
 				AD841CDA1EB9D459007A3EDF /* GLAssetGridViewController.h */,
 				AD841CDB1EB9D459007A3EDF /* GLAssetGridViewController.m */,
+				AD78F1F21EC8801600205AEB /* GLAssetPlayBackView.h */,
+				AD78F1F31EC8801600205AEB /* GLAssetPlayBackView.m */,
 			);
 			name = GLMediaBrowser;
 			path = "66GoodLook/Classes/Main /GLMediaBrowser";
@@ -1191,6 +1196,7 @@
 				AD44DC4C1E9B2453003C1576 /* NSObject+DeallocBlock.m in Sources */,
 				AD44DC561E9B2453003C1576 /* UINavigationBar+DYLYTheme.m in Sources */,
 				AD841CD01EB5761B007A3EDF /* AppDelegate+ViewControllerOpers.m in Sources */,
+				AD78F1F41EC8801600205AEB /* GLAssetPlayBackView.m in Sources */,
 				ADA17ADA1E9C5C7000FA0FF9 /* GLMessageViewController.m in Sources */,
 				ADA17AD41E9C5C5600FA0FF9 /* GoodPlayViewController.m in Sources */,
 				AD44DC4D1E9B2453003C1576 /* DYLYColor.m in Sources */,

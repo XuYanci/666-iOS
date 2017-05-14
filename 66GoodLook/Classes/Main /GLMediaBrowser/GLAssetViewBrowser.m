@@ -7,6 +7,8 @@
 //
 
 #import "GLAssetViewBrowser.h"
+#import <AVFoundation/AVFoundation.h>
+#import "GLAssetPlayBackView.h"
 
 @interface GLAssetCollectionViewCell : UICollectionViewCell
 @property (nonatomic,strong)UIImageView *imageView;
@@ -55,6 +57,20 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
     CGRect _fromRect;
     UIImage *_thumbnail;
     NSUInteger _startShowIndex;
+    
+    /** AVPlayer relate items */
+    NSURL *mURL;
+    AVPlayer *mPlayer;
+    AVPlayerItem *mPlayerItem;
+    GLAssetPlayBackView *mPlaybackView;
+    BOOL isSeeking;
+    id mTimeObserver;
+    BOOL seektToZeroBeforePlay;
+    
+    UIPanGestureRecognizer *_swipeVerGestureRecognizer;
+    CGPoint _firstPoint;
+    CGPoint _prePoint;
+    CGPoint _nowPoint;
 }
 
 
@@ -121,7 +137,70 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
 
 
 #pragma mark - user events
+- (void)swipeVerGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer {
+    /** Swipe finish here we recover state*/
+    if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        if (fabs(_nowPoint.y - _firstPoint.y) >= 200.0) {
+            CGRect originRect = CGRectZero;
+            if (_delegateHas.imageRectForItemAtIndex) {
+                originRect = [_delegate imageRectForItemInGLAssetViewControllerAtIndex:
+                              [[self.collectionView indexPathsForVisibleItems]lastObject].row];
+            }
+            if (CGRectEqualToRect(originRect, CGRectZero)) {
+                [self dismiss];
+            }
+            else {
+                [self dismissToOriginRect:originRect];
+            }
+        }
+        else {
+            _nowPoint  = CGPointZero;
+            _prePoint = CGPointZero;
+            [UIView animateWithDuration:0.5 animations:^{
+                self.collectionView.frame = self.bounds;
+                self.collectionView.alpha = 1.0;
+                self.effectView.alpha = 1.0;
+            }];
+        }
+    }
+    /** Swipe going on */
+    else if(panGestureRecognizer.state == UIGestureRecognizerStateChanged) {
+        _prePoint = _nowPoint;
+        _nowPoint = [panGestureRecognizer locationInView:self];
+        
+        if (CGPointEqualToPoint(CGPointZero, _prePoint)) {
+            _prePoint = _nowPoint;
+            _firstPoint = _nowPoint;
+        }
+        CGFloat y =  _nowPoint.y - _prePoint.y;
+        CGRect frameOfCollectionView = self.collectionView.frame;
+        frameOfCollectionView.origin.y += y;
+        self.collectionView.frame = frameOfCollectionView;
+        self.collectionView.alpha = 1.0 - fabs(_nowPoint.y - _firstPoint.y) * 0.005;
+        self.effectView.alpha = 1.0 - fabs(_nowPoint.y - _firstPoint.y) * 0.005;
+    }
+}
+
+
+
 #pragma mark - functions
+- (void)commonInit {
+    
+    /** Add blur */
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    effectView.frame = self.bounds;
+    [self addSubview:effectView];
+    _effectView = effectView;
+    
+    /** Add collectionview */
+    [self addSubview:self.collectionView];
+    
+    /** Add swipe gesture */
+    _swipeVerGestureRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(swipeVerGestureRecognizer:)];
+    [self addGestureRecognizer:_swipeVerGestureRecognizer];
+    _prePoint = _nowPoint = CGPointZero;
+}
 
 - (void)show {
     [[UIApplication sharedApplication].keyWindow addSubview:self];
@@ -144,10 +223,6 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
         [self removeFromSuperview];
     }];
 }
-
-
-
-
 
 - (void)showFromOriginRect:(CGRect)originRect
                  thumbnail:(UIImage *)thumbnail
@@ -286,18 +361,6 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
     return imageFrame;
 }
 
-- (void)commonInit {
-    
-    /** Add blur */
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-    UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    effectView.frame = self.bounds;
-    [self addSubview:effectView];
-    _effectView = effectView;
-    
-    /** Add collectionview */
-    [self addSubview:self.collectionView];
-}
 
 - (void)setNeedsReload {
     _needsReload = YES;
