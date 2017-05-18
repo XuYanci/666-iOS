@@ -42,8 +42,6 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
     }_delegateHas;      /*! 数据委托存在标识 */
     
     NSUInteger _selectedCount;
-    
-
 }
 
 #pragma mark - life cycle

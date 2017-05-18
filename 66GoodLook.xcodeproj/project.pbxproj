@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4F5D972EF683C77E5F896E87 /* libPods-66GoodLook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9622F563800DCCF25F2F4F /* libPods-66GoodLook.a */; };
 		91ECF2F1D576E10E9E70659B /* libPods-66GoodLookTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B391A082D6514E404DDC4429 /* libPods-66GoodLookTests.a */; };
+		AD29C73B1ECAB4AC0061175B /* 长期积累关注点.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD29C73A1ECAB4AC0061175B /* 长期积累关注点.txt */; };
 		AD31FAD91E9B16B400523AC9 /* MXBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F93E1E9B16B400523AC9 /* MXBaseRequest.m */; };
 		AD31FADA1E9B16B400523AC9 /* MXBaseResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F9401E9B16B400523AC9 /* MXBaseResponse.m */; };
 		AD31FADB1E9B16B400523AC9 /* MXBaseUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F9431E9B16B400523AC9 /* MXBaseUrl.m */; };
@@ -77,7 +78,8 @@
 		ADA17AD71E9C5C6600FA0FF9 /* GLMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AD61E9C5C6600FA0FF9 /* GLMeViewController.m */; };
 		ADA17ADA1E9C5C7000FA0FF9 /* GLMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AD91E9C5C7000FA0FF9 /* GLMessageViewController.m */; };
 		ADB0D7CF1EA4FDF0003C4901 /* 设计原则.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADB0D7CE1EA4FDF0003C4901 /* 设计原则.txt */; };
-		ADBBA9651EA64F9F00C58D5C /* 自定义控件结构.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADBBA9641EA64F9F00C58D5C /* 自定义控件结构.txt */; };
+		ADBBA9651EA64F9F00C58D5C /* CustomView结构.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADBBA9641EA64F9F00C58D5C /* CustomView结构.txt */; };
+		ADC0DBB01ECDA17F002859A9 /* CustomViewController结构.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADC0DBAF1ECDA17F002859A9 /* CustomViewController结构.txt */; };
 		ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */; };
 		ADC1720E1E9A44FC005DFCEE /* ApplicationServiceBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC1720D1E9A44FC005DFCEE /* ApplicationServiceBase.m */; };
 		ADC34E4F1E9E571200E3D70B /* GoodLookIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC34E4E1E9E571200E3D70B /* GoodLookIndexViewController.m */; };
@@ -112,6 +114,7 @@
 		61FAFC8764300EFC8C643EB4 /* Pods-66GoodLookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLookTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLookTests/Pods-66GoodLookTests.release.xcconfig"; sourceTree = "<group>"; };
 		6E90646E5998061924E985F4 /* Pods-66GoodLook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLook.release.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLook/Pods-66GoodLook.release.xcconfig"; sourceTree = "<group>"; };
 		7E4DC8BFAB5BB0484E5CA1E9 /* Pods-66GoodLookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLookTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLookTests/Pods-66GoodLookTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AD29C73A1ECAB4AC0061175B /* 长期积累关注点.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "长期积累关注点.txt"; sourceTree = "<group>"; };
 		AD31F93D1E9B16B400523AC9 /* MXBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBaseRequest.h; sourceTree = "<group>"; };
 		AD31F93E1E9B16B400523AC9 /* MXBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXBaseRequest.m; sourceTree = "<group>"; };
 		AD31F93F1E9B16B400523AC9 /* MXBaseResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBaseResponse.h; sourceTree = "<group>"; };
@@ -247,7 +250,8 @@
 		ADA17AD81E9C5C7000FA0FF9 /* GLMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMessageViewController.h; sourceTree = "<group>"; };
 		ADA17AD91E9C5C7000FA0FF9 /* GLMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMessageViewController.m; sourceTree = "<group>"; };
 		ADB0D7CE1EA4FDF0003C4901 /* 设计原则.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "设计原则.txt"; sourceTree = "<group>"; };
-		ADBBA9641EA64F9F00C58D5C /* 自定义控件结构.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "自定义控件结构.txt"; sourceTree = "<group>"; };
+		ADBBA9641EA64F9F00C58D5C /* CustomView结构.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CustomView结构.txt"; sourceTree = "<group>"; };
+		ADC0DBAF1ECDA17F002859A9 /* CustomViewController结构.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CustomViewController结构.txt"; sourceTree = "<group>"; };
 		ADC172061E9A4071005DFCEE /* ApplicationServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceManager.h; sourceTree = "<group>"; };
 		ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationServiceManager.m; sourceTree = "<group>"; };
 		ADC1720C1E9A44FC005DFCEE /* ApplicationServiceBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceBase.h; sourceTree = "<group>"; };
@@ -737,7 +741,9 @@
 				ADA17ABE1E9C586700FA0FF9 /* VC结构注释参考.txt */,
 				ADA17ABF1E9C586700FA0FF9 /* 注释参考.txt */,
 				ADA17AC01E9C586700FA0FF9 /* 项目结构.txt */,
-				ADBBA9641EA64F9F00C58D5C /* 自定义控件结构.txt */,
+				ADBBA9641EA64F9F00C58D5C /* CustomView结构.txt */,
+				ADC0DBAF1ECDA17F002859A9 /* CustomViewController结构.txt */,
+				AD29C73A1ECAB4AC0061175B /* 长期积累关注点.txt */,
 			);
 			path = Docs;
 			sourceTree = SOURCE_ROOT;
@@ -1040,6 +1046,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADC0DBB01ECDA17F002859A9 /* CustomViewController结构.txt in Resources */,
+				AD29C73B1ECAB4AC0061175B /* 长期积累关注点.txt in Resources */,
 				AD44DC521E9B2453003C1576 /* DYLYTheme.plist in Resources */,
 				ADDDB9A81E7780F8003526DF /* LaunchScreen.storyboard in Resources */,
 				ADDDB9A51E7780F8003526DF /* Assets.xcassets in Resources */,
@@ -1047,7 +1055,7 @@
 				AD44DC511E9B2453003C1576 /* README.txt in Resources */,
 				ADA17AC31E9C586700FA0FF9 /* 项目结构.txt in Resources */,
 				ADDDB9A31E7780F8003526DF /* Main.storyboard in Resources */,
-				ADBBA9651EA64F9F00C58D5C /* 自定义控件结构.txt in Resources */,
+				ADBBA9651EA64F9F00C58D5C /* CustomView结构.txt in Resources */,
 				AD42154A1EA8DEA3002FBC26 /* Expression.bundle in Resources */,
 				ADB0D7CF1EA4FDF0003C4901 /* 设计原则.txt in Resources */,
 				ADA17AC21E9C586700FA0FF9 /* 注释参考.txt in Resources */,
