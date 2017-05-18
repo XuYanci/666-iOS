@@ -43,8 +43,17 @@
 
 - (void)reloadData {}
 
-- (void)_setNeedsReload {}
+- (void)_setNeedsReload {
+    _needsReload = YES;
+    [self.view setNeedsLayout];
+}
 
-- (void)_reloadDataIfNeed {}
+- (void)_reloadDataIfNeed {
+    if (_needsReload) {
+    [self reloadData];
+    }
+}
+
+
 
 - (void)_layoutSubviews {}
