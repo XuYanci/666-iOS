@@ -1,13 +1,27 @@
+// GLViewPagerViewController.h
 //
-//  GLMediaBrowserViewController.h
-//  66GoodLook
+// Copyright (c) 2017 XuYanci (http://yanci.me)
 //
-//  Created by Yanci on 17/4/28.
-//  Copyright © 2017年 Yanci. All rights reserved.
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
-
+#import <AVFoundation/AVFoundation.h>
 
 typedef enum : NSUInteger {
     GLAssetType_Picture,
@@ -17,7 +31,7 @@ typedef enum : NSUInteger {
 
 
 typedef void(^GLAssetViewImageAsyncCallback)(UIImage *image);
-
+typedef void(^GLAssetViewVideoAsyncCallback)(AVAsset *playAsset);
 
 @class GLAssetViewBrowser;
 @protocol GLAssetViewControllerDataSource <NSObject>
@@ -25,7 +39,10 @@ typedef void(^GLAssetViewImageAsyncCallback)(UIImage *image);
 - (NSUInteger)numberOfItemsInGLAssetViewController:(GLAssetViewBrowser *)assetViewController;
 @optional
 - (UIImage *)imageForItemInGLAssetViewControllerAtIndex:(NSUInteger)itemIndex;
-- (void)asyncImageForItemInGLAssetViewControllerAtIndex:(NSUInteger)itemIndex imageAsyncCallback:(GLAssetViewImageAsyncCallback)callback;
+- (void)asyncImageForItemInGLAssetViewControllerAtIndex:(NSUInteger)itemIndex
+                                     imageAsyncCallback:(GLAssetViewImageAsyncCallback)callback;
+- (void)asyncVideoForItemInGLAssetViewControllerAtIndex:(NSUInteger)itemIndex
+                                     videoAsyncCallback:(GLAssetViewVideoAsyncCallback)callback;
 @end
 
 @protocol GLAssetViewControllerDelegate <NSObject>

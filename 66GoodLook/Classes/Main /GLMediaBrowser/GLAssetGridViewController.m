@@ -1,16 +1,30 @@
+// GLViewPagerViewController.h
 //
-//  GLMediaPickerViewController.m
-//  66GoodLook
+// Copyright (c) 2017 XuYanci (http://yanci.me)
 //
-//  Created by Yanci on 17/5/3.
-//  Copyright © 2017年 Yanci. All rights reserved.
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
 #import <Photos/Photos.h>
 #import "GLAssetGridViewController.h"
 #import "GLPickPicVidViewCollectionViewCell.h"
 #import "GLAssetViewBrowser.h"
-#import "GLAssetPlayBackView.h"
+ 
 
 ////////////////////////// Select Asset  //////////////////////////
 @implementation SelectAsset
@@ -42,6 +56,8 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
     }_delegateHas;      /*! 数据委托存在标识 */
     
     NSUInteger _selectedCount;
+    
+ 
 }
 
 #pragma mark - life cycle
@@ -87,7 +103,6 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
     // Dispose of any resources that can be recreated.
 }
 
- 
 
 #pragma mark - datasource
 
@@ -153,8 +168,19 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
                                 contentMode:PHImageContentModeAspectFit
                                     options:nil
                               resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-                                  callback(result);
+                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                        callback(result);
+                                    });
                               }];
+}
+
+- (void)asyncVideoForItemInGLAssetViewControllerAtIndex:(NSUInteger)itemIndex videoAsyncCallback:(GLAssetViewVideoAsyncCallback)callback {
+    PHAsset *asset = [self.allPhotos objectAtIndex:itemIndex];
+    [self.imageManager requestAVAssetForVideo:asset options:nil resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            callback(asset);
+        });
+    }];
 }
 
 #pragma mark - GLAssetViewControllerDelegate
@@ -336,7 +362,6 @@ static NSString *const kGLPickPicVidViewCollectionViewCellIdentifier = @"kGLPick
 - (void)_layoutSubviews {
     self.collectionView.frame = self.view.bounds;
 }
-
 
 /**
  重载数据

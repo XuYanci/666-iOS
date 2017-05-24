@@ -147,6 +147,15 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
                               }];
 }
 
+
+- (void)asyncVideoForItemInGLAssetViewControllerAtIndex:(NSUInteger)itemIndex videoAsyncCallback:(GLAssetViewVideoAsyncCallback)callback {
+    PHAsset *asset = [self.allPhotos objectAtIndex:itemIndex];
+    [self.imageManager requestAVAssetForVideo:asset options:nil resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            callback(asset);
+        });
+    }];
+}
 #pragma mark - GLAssetViewControllerDelegate
 
 - (CGRect)imageRectForItemInGLAssetViewControllerAtIndex:(NSUInteger)itemIndex {

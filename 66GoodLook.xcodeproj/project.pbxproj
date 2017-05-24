@@ -83,6 +83,8 @@
 		ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */; };
 		ADC1720E1E9A44FC005DFCEE /* ApplicationServiceBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC1720D1E9A44FC005DFCEE /* ApplicationServiceBase.m */; };
 		ADC34E4F1E9E571200E3D70B /* GoodLookIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC34E4E1E9E571200E3D70B /* GoodLookIndexViewController.m */; };
+		ADC472961ED5646100F35156 /* GLAssetCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC472931ED5646100F35156 /* GLAssetCollectionViewCell.m */; };
+		ADC472971ED5646100F35156 /* GLAssetPlaybackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC472951ED5646100F35156 /* GLAssetPlaybackViewController.m */; };
 		ADDDB99A1E7780F8003526DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDDB9991E7780F8003526DF /* main.m */; };
 		ADDDB9A01E7780F8003526DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDDB99F1E7780F8003526DF /* ViewController.m */; };
 		ADDDB9A31E7780F8003526DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADDDB9A11E7780F8003526DF /* Main.storyboard */; };
@@ -258,6 +260,10 @@
 		ADC1720D1E9A44FC005DFCEE /* ApplicationServiceBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationServiceBase.m; sourceTree = "<group>"; };
 		ADC34E4D1E9E571200E3D70B /* GoodLookIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodLookIndexViewController.h; sourceTree = "<group>"; };
 		ADC34E4E1E9E571200E3D70B /* GoodLookIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodLookIndexViewController.m; sourceTree = "<group>"; };
+		ADC472921ED5646100F35156 /* GLAssetCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAssetCollectionViewCell.h; sourceTree = "<group>"; };
+		ADC472931ED5646100F35156 /* GLAssetCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAssetCollectionViewCell.m; sourceTree = "<group>"; };
+		ADC472941ED5646100F35156 /* GLAssetPlaybackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAssetPlaybackViewController.h; sourceTree = "<group>"; };
+		ADC472951ED5646100F35156 /* GLAssetPlaybackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAssetPlaybackViewController.m; sourceTree = "<group>"; };
 		ADDDB9951E7780F8003526DF /* 66GoodLook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 66GoodLook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADDDB9991E7780F8003526DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ADDDB99E1E7780F8003526DF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -699,12 +705,16 @@
 		AD841CC41EB388BF007A3EDF /* GLMediaBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				ADC472941ED5646100F35156 /* GLAssetPlaybackViewController.h */,
+				ADC472951ED5646100F35156 /* GLAssetPlaybackViewController.m */,
 				AD841CC51EB388CD007A3EDF /* GLAssetViewBrowser.h */,
 				AD841CC61EB388CD007A3EDF /* GLAssetViewBrowser.m */,
 				AD841CDA1EB9D459007A3EDF /* GLAssetGridViewController.h */,
 				AD841CDB1EB9D459007A3EDF /* GLAssetGridViewController.m */,
 				AD78F1F21EC8801600205AEB /* GLAssetPlayBackView.h */,
 				AD78F1F31EC8801600205AEB /* GLAssetPlayBackView.m */,
+				ADC472921ED5646100F35156 /* GLAssetCollectionViewCell.h */,
+				ADC472931ED5646100F35156 /* GLAssetCollectionViewCell.m */,
 			);
 			name = GLMediaBrowser;
 			path = "66GoodLook/Classes/Main /GLMediaBrowser";
@@ -1190,6 +1200,7 @@
 				AD31FBA31E9B178900523AC9 /* MD5Encrypt.m in Sources */,
 				AD31FADB1E9B16B400523AC9 /* MXBaseUrl.m in Sources */,
 				AD841CD31EB75B56007A3EDF /* GLPickPicVidThumbnailCollectionView.m in Sources */,
+				ADC472971ED5646100F35156 /* GLAssetPlaybackViewController.m in Sources */,
 				AD841CC71EB388CD007A3EDF /* GLAssetViewBrowser.m in Sources */,
 				AD44DC481E9B2453003C1576 /* XYAppAutoSizeScale.m in Sources */,
 				AD42154D1EA8E1D2002FBC26 /* GLPickPictureVideoView.m in Sources */,
@@ -1225,6 +1236,7 @@
 				AD44DC541E9B2453003C1576 /* UIImageView+DYLYTheme.m in Sources */,
 				AD841CDC1EB9D459007A3EDF /* GLAssetGridViewController.m in Sources */,
 				ADA17AB61E9C579E00FA0FF9 /* GLViewPagerViewController.m in Sources */,
+				ADC472961ED5646100F35156 /* GLAssetCollectionViewCell.m in Sources */,
 				AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */,
 				AD44DC501E9B2453003C1576 /* NSObject+DYLYTheme.m in Sources */,
 				ADA17AB91E9C581500FA0FF9 /* GoodLookBaseViewController.m in Sources */,

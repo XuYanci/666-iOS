@@ -1,43 +1,35 @@
+// GLViewPagerViewController.h
 //
-//  GLMediaBrowserViewController.m
-//  66GoodLook
+// Copyright (c) 2017 XuYanci (http://yanci.me)
 //
-//  Created by Yanci on 17/4/28.
-//  Copyright © 2017年 Yanci. All rights reserved.
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
 #import "GLAssetViewBrowser.h"
 #import <AVFoundation/AVFoundation.h>
-#import "GLAssetPlayBackView.h"
-
-@interface GLAssetCollectionViewCell : UICollectionViewCell
-@property (nonatomic,strong)UIImageView *imageView;
-@end
-
-@implementation GLAssetCollectionViewCell
-
-- (void)layoutSubviews {
-    self.imageView.frame = self.contentView.bounds;
-    [super layoutSubviews];
-}
-
-- (UIImageView *)imageView {
-    if (!_imageView) {
-        _imageView = [[UIImageView alloc]init];
-        _imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [self.contentView addSubview:_imageView];
-    }
-    return _imageView;
-}
-
-@end
-
+#import "GLAssetCollectionViewCell.h"
 
 static NSString *const kCellIdentifier = @"cellIdentifier";
 
 @interface GLAssetViewBrowser ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic,strong) UICollectionView *collectionView;
 @property (nonatomic,strong) UIVisualEffectView *effectView;
+@property (nonatomic,strong) UILabel *currentPageLabel;
 @end
 
 @implementation GLAssetViewBrowser {
@@ -46,7 +38,7 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
         unsigned numberOfItems:1;
         unsigned imageForItem:1;
         unsigned asyncImageForItem:1;
-
+        unsigned asyncVideoForItem:1;
     }_datasourceHas;    /*! 数据源存在标识 */
     struct {
         unsigned didClickOnItemAtIndex:1;
@@ -58,16 +50,11 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
     UIImage *_thumbnail;
     NSUInteger _startShowIndex;
     
-    /** AVPlayer relate items */
-    NSURL *mURL;
-    AVPlayer *mPlayer;
-    AVPlayerItem *mPlayerItem;
-    GLAssetPlayBackView *mPlaybackView;
-    BOOL isSeeking;
-    id mTimeObserver;
-    BOOL seektToZeroBeforePlay;
+
     
+    /** Pan gesture for dismiss */
     UIPanGestureRecognizer *_swipeVerGestureRecognizer;
+    UITapGestureRecognizer *_tapGestureRecognizer;
     CGPoint _firstPoint;
     CGPoint _prePoint;
     CGPoint _nowPoint;
@@ -106,52 +93,66 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     GLAssetCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier forIndexPath:indexPath];
     if (_datasourceHas.imageForItem) {
         cell.imageView.image = [_dataSource imageForItemInGLAssetViewControllerAtIndex:indexPath.row];
     }
-    if (_datasourceHas.asyncImageForItem) {
+    if (_datasourceHas.asyncImageForItem && self.type == GLAssetType_Picture) {
+        cell.cellType = AssetCollectionViewCellType_Pic;
         [_dataSource asyncImageForItemInGLAssetViewControllerAtIndex:indexPath.row imageAsyncCallback:^(UIImage *image) {
             cell.imageView.image = image;
         }];
     }
+    if (_datasourceHas.asyncVideoForItem && self.type == GLAssetType_Video) {
+        cell.cellType = AssetCollectionViewCellType_Vid;
+        [_dataSource asyncVideoForItemInGLAssetViewControllerAtIndex:indexPath.row videoAsyncCallback:^(AVAsset *playAsset) {
+            [cell setPlayAsset:playAsset];
+        }];
+    }
+    
     return cell;;
 }
 
 #pragma mark - delegate
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGRect originRect = CGRectZero;
-    
-    if (_delegateHas.imageRectForItemAtIndex) {
-        originRect = [_delegate imageRectForItemInGLAssetViewControllerAtIndex:indexPath.row];
-    }
-    
-    if (CGRectEqualToRect(originRect, CGRectZero)) {
-        [self dismiss];
-    }
-    else {
-        [self dismissToOriginRect:originRect];
-    }
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    return YES;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    [(GLAssetCollectionViewCell *)cell stopPlay];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSIndexPath *indexPath = [[self.collectionView indexPathsForVisibleItems]lastObject];
+    self.currentPageLabel.text = [NSString stringWithFormat:@"%ld/%ld",
+                                  (unsigned long)(indexPath.row + 1),
+                                  (unsigned long)_numbersOfItems];
+    [self setNeedsLayout];
+}
 
 #pragma mark - user events
+- (void)tapGestureRecognizer:(UITapGestureRecognizer *)tapGestureRecognizer {
+        CGRect originRect = CGRectZero;
+        if (_delegateHas.imageRectForItemAtIndex) {
+            originRect = [_delegate imageRectForItemInGLAssetViewControllerAtIndex:
+                          [[self.collectionView indexPathsForVisibleItems]lastObject].row];
+        }
+    
+        if (CGRectEqualToRect(originRect, CGRectZero)) {
+            [self dismiss];
+        }
+        else {
+            [self dismissToOriginRect:originRect];
+        }
+}
+
 - (void)swipeVerGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer {
     /** Swipe finish here we recover state*/
     if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
         if (fabs(_nowPoint.y - _firstPoint.y) >= 200.0) {
-            CGRect originRect = CGRectZero;
-            if (_delegateHas.imageRectForItemAtIndex) {
-                originRect = [_delegate imageRectForItemInGLAssetViewControllerAtIndex:
-                              [[self.collectionView indexPathsForVisibleItems]lastObject].row];
-            }
-            if (CGRectEqualToRect(originRect, CGRectZero)) {
-                [self dismiss];
-            }
-            else {
-                [self dismissToOriginRect:originRect];
-            }
+            [self dismiss];
         }
         else {
             _nowPoint  = CGPointZero;
@@ -198,6 +199,13 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
     _swipeVerGestureRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(swipeVerGestureRecognizer:)];
     [self addGestureRecognizer:_swipeVerGestureRecognizer];
     _prePoint = _nowPoint = CGPointZero;
+    
+    _tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGestureRecognizer:)];
+    [self addGestureRecognizer:_tapGestureRecognizer];
+    
+    /** Add current label */
+    [self addSubview:self.currentPageLabel];
+    self.currentPageLabel.text = @"0/0";
 }
 
 - (void)show {
@@ -211,9 +219,6 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
 }
 
 - (void)dismiss {
- 
-    self.effectView.alpha = 1.0;
-    self.collectionView.alpha = 1.0;
     [UIView animateWithDuration:0.5 animations:^{
         self.effectView.alpha = 0.0;
         self.collectionView.alpha = 0.0;
@@ -252,8 +257,8 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
             self.collectionView.hidden = NO;
         }];
     }
-    /** Get origin image */
-    if (_datasourceHas.asyncImageForItem) {
+    /** Get origin image for image picker or video picker */
+    if (_datasourceHas.asyncImageForItem ) {
         [_dataSource asyncImageForItemInGLAssetViewControllerAtIndex:originIndex imageAsyncCallback:^(UIImage *image) {
             if (!originImage) {
                 originImage = image;
@@ -275,15 +280,14 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
 - (void)dismissToOriginRect:(CGRect)originRect {
     self.collectionView.hidden = YES;
     self.effectView.hidden = YES;
-    
-    CGRect fromRect = CGRectZero;
-    fromRect = [self caculateCurrentDisplayImageFrame];
-    
-    UIImageView *imageView = [[UIImageView alloc]init];
-    [self addSubview:imageView];
-    
+
     __block UIImage *originImage = nil;
     if (_datasourceHas.imageForItem) {
+        CGRect fromRect = CGRectZero;
+        fromRect = [self caculateCurrentDisplayImageFrame];
+        UIImageView *imageView = [[UIImageView alloc]init];
+        [self addSubview:imageView];
+        
         originImage = [_dataSource imageForItemInGLAssetViewControllerAtIndex:
                        [[self.collectionView indexPathsForVisibleItems] lastObject].row];
         imageView.image = originImage;
@@ -297,7 +301,12 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
         }];
     }
     
-    if (_datasourceHas.asyncImageForItem) {
+    if (_datasourceHas.asyncImageForItem && self.type == GLAssetType_Picture) {
+        CGRect fromRect = CGRectZero;
+        fromRect = [self caculateCurrentDisplayImageFrame];
+        UIImageView *imageView = [[UIImageView alloc]init];
+        [self addSubview:imageView];
+        
         [_dataSource asyncImageForItemInGLAssetViewControllerAtIndex:[[self.collectionView indexPathsForVisibleItems] lastObject].row imageAsyncCallback:^(UIImage *image) {
             if (!originImage) {
                 originImage = image;
@@ -312,6 +321,11 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
             }
         }];
     }
+    
+    if (_datasourceHas.asyncVideoForItem && self.type == GLAssetType_Video) {
+        [self dismiss];
+        // TODO: Add animations
+    }
 }
 
 - (void)setDataSource:(id<GLAssetViewControllerDataSource>)dataSource {
@@ -324,6 +338,9 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
     }
     if ([dataSource respondsToSelector:@selector(asyncImageForItemInGLAssetViewControllerAtIndex:imageAsyncCallback:)]) {
         _datasourceHas.asyncImageForItem = 1;
+    }
+    if ([dataSource respondsToSelector:@selector(asyncVideoForItemInGLAssetViewControllerAtIndex:videoAsyncCallback:)]) {
+        _datasourceHas.asyncVideoForItem = 1;
     }
   
 }
@@ -350,6 +367,16 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
     return CGRectMake(0.f, top, self.frame.size.width, finalHeight);
 }
 
+- (CGSize)caculateScaledFinalFrameForPlayerItem:(AVPlayerItem *)playerItem {
+    AVAssetTrack *track = [[playerItem.asset tracksWithMediaType:AVMediaTypeVideo]objectAtIndex:0];
+    CGSize size = CGSizeApplyAffineTransform(track.naturalSize, track.preferredTransform);
+    CGSize videoSize = CGSizeMake(fabs(size.width), fabs(size.height));
+    CGSize actualSize = CGSizeMake([UIScreen mainScreen].bounds.size.width,
+                                   [UIScreen mainScreen].bounds.size.width  / (videoSize.width / videoSize.height ) );
+    
+    return actualSize;
+}
+
 - (CGRect)caculateCurrentDisplayImageFrame {
     UIImageView *iv = ((GLAssetCollectionViewCell *)[[self.collectionView visibleCells]lastObject]).imageView;
     CGSize imageSize = iv.image.size;
@@ -373,6 +400,13 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
 
 - (void)_layoutSubviews {
     self.collectionView.frame = self.bounds;
+    [self.currentPageLabel sizeToFit];
+    
+    CGRect frameOfCurrentPageLabel = self.currentPageLabel.frame;
+    self.currentPageLabel.frame = CGRectMake(self.bounds.size.width - self.currentPageLabel.intrinsicContentSize.width - 10,
+                                             self.bounds.size.height - self.currentPageLabel.intrinsicContentSize.height - 10,
+                                             frameOfCurrentPageLabel.size.width,
+                                             frameOfCurrentPageLabel.size.height);
 }
 
 - (void)reloadData {
@@ -387,13 +421,20 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
         
     }];
     
-    
     self.collectionView.contentInset = UIEdgeInsetsZero;
     [weakSelf.collectionView reloadData];
     
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:_startShowIndex inSection:0]atScrollPosition:UICollectionViewScrollPositionNone
                                         animated:NO];
+    self.currentPageLabel.text = [NSString stringWithFormat:@"%ld/%ld",(unsigned long)(_startShowIndex + 1),(unsigned long)_numbersOfItems];
+    [self setNeedsLayout];
     
+    if (self.type == GLAssetType_Video) {
+        self.currentPageLabel.hidden = YES;
+    }
+    else if (self.type == GLAssetType_Picture) {
+        self.currentPageLabel.hidden = NO;
+    }
 }
 
 
@@ -443,6 +484,13 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
     return _collectionView;
 }
 
+- (UILabel *)currentPageLabel {
+    if (!_currentPageLabel) {
+        _currentPageLabel = [[UILabel alloc]init];
+        _currentPageLabel.textColor = [UIColor whiteColor];
+    }
+    return _currentPageLabel;
+}
 
 /*
 #pragma mark - Navigation
@@ -455,3 +503,4 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
 */
 
 @end
+

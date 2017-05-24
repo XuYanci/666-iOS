@@ -31,33 +31,33 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "425"
             endingLineNumber = "425"
-            landmarkName = "-resetCachedAssets"
+            landmarkName = "-requestAuthorzationStatus"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[GLAssetGridViewController resetCachedAssets]"
+                  symbolName = "-[GLAssetGridViewController requestAuthorzationStatus]"
                   moduleName = "66GoodLook"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yanci/Desktop/Yanci/YanciXuOwnProject/66GoodLook/66GoodLook/Classes/Main%20/GLMediaBrowser/GLAssetGridViewController.m"
-                  timestampString = "516462260.159605"
+                  timestampString = "517302173.698133"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "426"
-                  endingLineNumber = "426"
-                  offsetFromSymbolStart = "28">
+                  startingLineNumber = "425"
+                  endingLineNumber = "425"
+                  offsetFromSymbolStart = "428">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__46-[GLAssetGridViewController resetCachedAssets]_block_invoke"
+                  symbolName = "__54-[GLAssetGridViewController requestAuthorzationStatus]_block_invoke"
                   moduleName = "66GoodLook"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yanci/Desktop/Yanci/YanciXuOwnProject/66GoodLook/66GoodLook/Classes/Main%20/GLMediaBrowser/GLAssetGridViewController.m"
-                  timestampString = "516462260.161027"
+                  timestampString = "517302173.700592"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "426"
@@ -65,6 +65,38 @@
                   offsetFromSymbolStart = "24">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "66GoodLook/Classes/Main /GLInputPanel/GLPickPictureVideoView.m"
+            timestampString = "517302172.623059"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
+            landmarkName = "-glPickPicVidViewCVCDidUnSelected:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "66GoodLook/Classes/Main /GLInputPanel/GLPickPictureVideoView.m"
+            timestampString = "517302172.623059"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "400"
+            endingLineNumber = "400"
+            landmarkName = "-setSelAssets:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
