@@ -1,4 +1,4 @@
- # 66GoodLook
+ # 666
 an exercise project like 66.
  
 # Demo演示
