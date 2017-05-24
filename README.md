@@ -1,5 +1,5 @@
  # 66GoodLook
- 66GoodLook is an exercise project. 
+an exercise project like 66.
  
 # Demo演示
  ![Mou](./readme~resource/present.gif)
