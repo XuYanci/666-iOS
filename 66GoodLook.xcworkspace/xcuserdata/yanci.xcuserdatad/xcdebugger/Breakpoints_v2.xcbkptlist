@@ -42,7 +42,7 @@
                   moduleName = "66GoodLook"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yanci/Desktop/Yanci/YanciXuOwnProject/66GoodLook/66GoodLook/Classes/Main%20/GLMediaBrowser/GLAssetGridViewController.m"
-                  timestampString = "517302173.698133"
+                  timestampString = "517302410.079922"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "425"
@@ -57,7 +57,7 @@
                   moduleName = "66GoodLook"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yanci/Desktop/Yanci/YanciXuOwnProject/66GoodLook/66GoodLook/Classes/Main%20/GLMediaBrowser/GLAssetGridViewController.m"
-                  timestampString = "517302173.700592"
+                  timestampString = "517302410.081401"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "426"
@@ -74,28 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "66GoodLook/Classes/Main /GLInputPanel/GLPickPictureVideoView.m"
-            timestampString = "517302172.623059"
+            timestampString = "517302409.000918"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
             landmarkName = "-glPickPicVidViewCVCDidUnSelected:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "66GoodLook/Classes/Main /GLInputPanel/GLPickPictureVideoView.m"
-            timestampString = "517302172.623059"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "400"
-            endingLineNumber = "400"
-            landmarkName = "-setSelAssets:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

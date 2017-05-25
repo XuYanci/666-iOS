@@ -156,6 +156,7 @@ static CGFloat const kPickPictureCollectionViewHeaderHeight = 44.0;
         });
     }];
 }
+
 #pragma mark - GLAssetViewControllerDelegate
 
 - (CGRect)imageRectForItemInGLAssetViewControllerAtIndex:(NSUInteger)itemIndex {
