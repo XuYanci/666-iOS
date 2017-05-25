@@ -10,5 +10,5 @@
 #define XYMacroAppAppearance_h
 
 
-v
+
 #endif /* XYMacroAppAppearance_h */

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ADDDB9941E7780F8003526DF"
-               BuildableName = "66GoodLook.app"
-               BlueprintName = "66GoodLook"
-               ReferencedContainer = "container:66GoodLook.xcodeproj">
+               BuildableName = "666.app"
+               BlueprintName = "666"
+               ReferencedContainer = "container:666.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ADDDB9AD1E7780F8003526DF"
-               BuildableName = "66GoodLookTests.xctest"
-               BlueprintName = "66GoodLookTests"
-               ReferencedContainer = "container:66GoodLook.xcodeproj">
+               BuildableName = "666Tests.xctest"
+               BlueprintName = "666Tests"
+               ReferencedContainer = "container:666.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ADDDB9B81E7780F8003526DF"
-               BuildableName = "66GoodLookUITests.xctest"
-               BlueprintName = "66GoodLookUITests"
-               ReferencedContainer = "container:66GoodLook.xcodeproj">
+               BuildableName = "666UITests.xctest"
+               BlueprintName = "666UITests"
+               ReferencedContainer = "container:666.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ADDDB9941E7780F8003526DF"
-            BuildableName = "66GoodLook.app"
-            BlueprintName = "66GoodLook"
-            ReferencedContainer = "container:66GoodLook.xcodeproj">
+            BuildableName = "666.app"
+            BlueprintName = "666"
+            ReferencedContainer = "container:666.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ADDDB9941E7780F8003526DF"
-            BuildableName = "66GoodLook.app"
-            BlueprintName = "66GoodLook"
-            ReferencedContainer = "container:66GoodLook.xcodeproj">
+            BuildableName = "666.app"
+            BlueprintName = "666"
+            ReferencedContainer = "container:666.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ADDDB9941E7780F8003526DF"
-            BuildableName = "66GoodLook.app"
-            BlueprintName = "66GoodLook"
-            ReferencedContainer = "container:66GoodLook.xcodeproj">
+            BuildableName = "666.app"
+            BlueprintName = "666"
+            ReferencedContainer = "container:666.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
