@@ -53,6 +53,7 @@
 		AD44DC751E9B6FC7003C1576 /* UIImage+GradientColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC6A1E9B6FC7003C1576 /* UIImage+GradientColor.m */; };
 		AD44DC761E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC6D1E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m */; };
 		AD44DC7B1E9B7489003C1576 /* UIView+CustomAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC7A1E9B7489003C1576 /* UIView+CustomAutoLayout.m */; };
+		AD6B224C1ED6787C00C92220 /* iOS 保持界面流畅的技巧 | Garan no dou.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AD6B224B1ED6787C00C92220 /* iOS 保持界面流畅的技巧 | Garan no dou.pdf */; };
 		AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70AF0D1E991E800003F3C8 /* AppDelegate.m */; };
 		AD78F1F41EC8801600205AEB /* GLAssetPlayBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD78F1F31EC8801600205AEB /* GLAssetPlayBackView.m */; };
 		AD7CF4871EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7CF4861EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.m */; };
@@ -207,6 +208,7 @@
 		AD44DC781E9B7424003C1576 /* XYMacroAppAppearance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMacroAppAppearance.h; sourceTree = "<group>"; };
 		AD44DC791E9B7489003C1576 /* UIView+CustomAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomAutoLayout.h"; sourceTree = "<group>"; };
 		AD44DC7A1E9B7489003C1576 /* UIView+CustomAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomAutoLayout.m"; sourceTree = "<group>"; };
+		AD6B224B1ED6787C00C92220 /* iOS 保持界面流畅的技巧 | Garan no dou.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "iOS 保持界面流畅的技巧 | Garan no dou.pdf"; sourceTree = "<group>"; };
 		AD70AF0C1E991E800003F3C8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AD70AF0D1E991E800003F3C8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AD78F1F21EC8801600205AEB /* GLAssetPlayBackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAssetPlayBackView.h; sourceTree = "<group>"; };
@@ -748,6 +750,7 @@
 		ADA17ABD1E9C586700FA0FF9 /* Docs */ = {
 			isa = PBXGroup;
 			children = (
+				AD6B224B1ED6787C00C92220 /* iOS 保持界面流畅的技巧 | Garan no dou.pdf */,
 				AD9694141EAAF217008D9170 /* GitMarkDown参考.txt */,
 				ADB0D7CE1EA4FDF0003C4901 /* 设计原则.txt */,
 				ADA17ABE1E9C586700FA0FF9 /* VC结构注释参考.txt */,
@@ -1063,6 +1066,7 @@
 				AD29C73B1ECAB4AC0061175B /* 长期积累关注点.txt in Resources */,
 				AD44DC521E9B2453003C1576 /* DYLYTheme.plist in Resources */,
 				ADDDB9A81E7780F8003526DF /* LaunchScreen.storyboard in Resources */,
+				AD6B224C1ED6787C00C92220 /* iOS 保持界面流畅的技巧 | Garan no dou.pdf in Resources */,
 				ADDDB9A51E7780F8003526DF /* Assets.xcassets in Resources */,
 				AD9694151EAAF217008D9170 /* GitMarkDown参考.txt in Resources */,
 				ADC472991ED5B77700F35156 /* 66网络抓包分析 in Resources */,
