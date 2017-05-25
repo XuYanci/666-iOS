@@ -26,7 +26,7 @@
     [super viewDidLoad];
 
     
-    self.title = @"Good Look";
+    self.title = @"666";
     
     // Do any additional setup after loading the view.
     self.dataSource = self;
