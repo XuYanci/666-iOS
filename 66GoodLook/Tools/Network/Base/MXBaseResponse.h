@@ -17,9 +17,9 @@
 
 
 /** 服务器放回相关参数定义 */
-@property (nonatomic,strong)NSNumber *status;
-@property (nonatomic,strong)NSString *msg;
-
+@property (nonatomic,strong)NSNumber *retCode;
+@property (nonatomic,strong)NSString *retMessage;
+@property (nonatomic,strong)NSString *pageCount;
 
 
 @end

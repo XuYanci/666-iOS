@@ -13,4 +13,15 @@
 #import "MXNetworkConnect+Model.h"
 #import "MXNetworkConnection+BaseUrl.h"
 
+/** 获取主题请求 */
+#import "GLGetDefaultTopicListRequest.h"
+#import "GLGetDefaultTopicListResponse.h"
+
+/** 获取关注动态请求 */
+#import "GLGetDynamicListRequest.h"
+#import "GLGetDynamicListResponse.h"
+
+/** 获取精选请求 */
+#import "GLGetFineSelectionListRequest.h"
+#import "GLGetFineSelectionListResponse.h"
 #endif /* DYLYNetworkKit_h */

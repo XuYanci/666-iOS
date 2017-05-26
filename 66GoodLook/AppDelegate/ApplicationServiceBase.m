@@ -11,7 +11,21 @@
 @implementation ApplicationServiceBase
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-   
+    
+    
+    GLGetFineSelectionListRequest *request = [[GLGetFineSelectionListRequest alloc]init];
+    [MXNetworkConnection sendGetRequestWithMethod:@"getFineSelectionList"
+                                     requestModel:request
+                                    responseClass:[GLGetFineSelectionListResponse class] beforeSendCallback:^{
+        
+    } SuccessCallBack:^(id result) {
+        
+    } ErrorCallback:^(NSError *error) {
+        
+    } CompleteCallback:^(NSError *error, id result) {
+        
+    }];
+    
     return YES;
 }
 

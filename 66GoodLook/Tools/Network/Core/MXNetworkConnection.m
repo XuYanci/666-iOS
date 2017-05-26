@@ -58,6 +58,8 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setTimeoutInterval:DYLY_REQUEST_TIMEOUT];
      manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/json",@"text/html",@"application/json",@"text/plain", nil];
+    [manager.requestSerializer setValue:@"ios" forHTTPHeaderField:@"client-info"];
+    
     if (beforeSendCallback) {
          beforeSendCallback();
     }   

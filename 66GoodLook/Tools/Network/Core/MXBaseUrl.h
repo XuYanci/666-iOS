@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
- 
+
+/** 图片服务器url前缀 */
+#define GL_MEDIAURL_PREFIX                  @"http://7xj5zf.com2.z0.glb.qiniucdn.com"
 /*! 服务器url前缀*/
 #define MAXER_URL_PREFIX                    @"http://re30.66yxq.com:8075/gateway-web/"
 /*! url拼接*/
