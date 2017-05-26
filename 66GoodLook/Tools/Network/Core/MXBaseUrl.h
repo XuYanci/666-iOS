@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
  
 /*! 服务器url前缀*/
-#define MAXER_URL_PREFIX                    BaseURL
+#define MAXER_URL_PREFIX                    @"http://re30.66yxq.com:8075/gateway-web/"
 /*! url拼接*/
 #define MAXER_URL_LINK(prefix , suffix)     [NSString stringWithFormat:@"%@%@",prefix,suffix]
 /*! 请求超时时间 */

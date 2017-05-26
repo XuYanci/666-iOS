@@ -12,7 +12,12 @@
 
 
 + (NSDictionary *)UrlMethodMapper {
-    return @{ };
+    return @{
+                @"getDefaultTopicList": MAXER_URL_LINK(MAXER_URL_PREFIX, @"/home/getDefaultTopicList"),
+                @"getAttentionDynamicList": MAXER_URL_LINK(MAXER_URL_PREFIX, @"/home/getAttentionDynamicList"),
+                @"getDynamicList":MAXER_URL_LINK(MAXER_URL_PREFIX, @"/home/getDynamicList"),
+                @"getFineSelectionList":MAXER_URL_LINK(MAXER_URL_PREFIX, @"/home/getFineSelectionList"),
+             };
 }
 
 + (NSString *)baseUrl:(NSString *)method {

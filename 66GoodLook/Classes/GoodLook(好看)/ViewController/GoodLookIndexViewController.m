@@ -17,7 +17,6 @@
 @property (nonatomic,strong)NSArray *tagTitles;
 @property (nonatomic,strong)GoodLookFloatView *floatView;
 @property (nonatomic,strong)GLChatInputPanel *inputPanel;
-
 @end
 
 @implementation GoodLookIndexViewController
@@ -91,8 +90,6 @@
     return self.viewControllers.count;
 }
 
-
-
 - (UIView *)viewPager:(GLViewPagerViewController *)viewPager
       viewForTabIndex:(NSUInteger)index {
     UILabel *label = [[UILabel alloc]init];
@@ -163,6 +160,7 @@ contentViewControllerForTabAtIndex:(NSUInteger)index {
         [self.inputPanel show];
     }
 }
+
 #pragma mark - getter and setter 
 - (GoodLookFloatView *)floatView {
     if (!_floatView) {
