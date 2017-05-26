@@ -60,6 +60,9 @@
 		AD6B22581ED8125D00C92220 /* GLGetDynamicListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6B22571ED8125D00C92220 /* GLGetDynamicListResponse.m */; };
 		AD6B225B1ED8196C00C92220 /* GLGetFineSelectionListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6B225A1ED8196C00C92220 /* GLGetFineSelectionListRequest.m */; };
 		AD6B225E1ED8198800C92220 /* GLGetFineSelectionListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6B225D1ED8198800C92220 /* GLGetFineSelectionListResponse.m */; };
+		AD6B22711ED81DFA00C92220 /* GoodPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6B22641ED81DFA00C92220 /* GoodPlayViewController.m */; };
+		AD6B22721ED81DFA00C92220 /* GLMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6B226A1ED81DFA00C92220 /* GLMeViewController.m */; };
+		AD6B22731ED81DFA00C92220 /* GLMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6B22701ED81DFA00C92220 /* GLMessageViewController.m */; };
 		AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70AF0D1E991E800003F3C8 /* AppDelegate.m */; };
 		AD78F1F41EC8801600205AEB /* GLAssetPlayBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD78F1F31EC8801600205AEB /* GLAssetPlayBackView.m */; };
 		AD7CF4871EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7CF4861EAF086B00A9327A /* GLPickEmojCollectionViewFlowLayout.m */; };
@@ -81,9 +84,6 @@
 		ADA17AC11E9C586700FA0FF9 /* VC结构注释参考.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA17ABE1E9C586700FA0FF9 /* VC结构注释参考.txt */; };
 		ADA17AC21E9C586700FA0FF9 /* 注释参考.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA17ABF1E9C586700FA0FF9 /* 注释参考.txt */; };
 		ADA17AC31E9C586700FA0FF9 /* 项目结构.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA17AC01E9C586700FA0FF9 /* 项目结构.txt */; };
-		ADA17AD41E9C5C5600FA0FF9 /* GoodPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AD31E9C5C5600FA0FF9 /* GoodPlayViewController.m */; };
-		ADA17AD71E9C5C6600FA0FF9 /* GLMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AD61E9C5C6600FA0FF9 /* GLMeViewController.m */; };
-		ADA17ADA1E9C5C7000FA0FF9 /* GLMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AD91E9C5C7000FA0FF9 /* GLMessageViewController.m */; };
 		ADB0D7CF1EA4FDF0003C4901 /* 设计原则.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADB0D7CE1EA4FDF0003C4901 /* 设计原则.txt */; };
 		ADBBA9651EA64F9F00C58D5C /* CustomView结构.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADBBA9641EA64F9F00C58D5C /* CustomView结构.txt */; };
 		ADC0DBB01ECDA17F002859A9 /* CustomViewController结构.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADC0DBAF1ECDA17F002859A9 /* CustomViewController结构.txt */; };
@@ -227,6 +227,12 @@
 		AD6B225A1ED8196C00C92220 /* GLGetFineSelectionListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLGetFineSelectionListRequest.m; sourceTree = "<group>"; };
 		AD6B225C1ED8198800C92220 /* GLGetFineSelectionListResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLGetFineSelectionListResponse.h; sourceTree = "<group>"; };
 		AD6B225D1ED8198800C92220 /* GLGetFineSelectionListResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLGetFineSelectionListResponse.m; sourceTree = "<group>"; };
+		AD6B22631ED81DFA00C92220 /* GoodPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodPlayViewController.h; sourceTree = "<group>"; };
+		AD6B22641ED81DFA00C92220 /* GoodPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodPlayViewController.m; sourceTree = "<group>"; };
+		AD6B22691ED81DFA00C92220 /* GLMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeViewController.h; sourceTree = "<group>"; };
+		AD6B226A1ED81DFA00C92220 /* GLMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMeViewController.m; sourceTree = "<group>"; };
+		AD6B226F1ED81DFA00C92220 /* GLMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMessageViewController.h; sourceTree = "<group>"; };
+		AD6B22701ED81DFA00C92220 /* GLMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMessageViewController.m; sourceTree = "<group>"; };
 		AD70AF0C1E991E800003F3C8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AD70AF0D1E991E800003F3C8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AD78F1F21EC8801600205AEB /* GLAssetPlayBackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAssetPlayBackView.h; sourceTree = "<group>"; };
@@ -266,12 +272,6 @@
 		ADA17ABE1E9C586700FA0FF9 /* VC结构注释参考.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "VC结构注释参考.txt"; sourceTree = "<group>"; };
 		ADA17ABF1E9C586700FA0FF9 /* 注释参考.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "注释参考.txt"; sourceTree = "<group>"; };
 		ADA17AC01E9C586700FA0FF9 /* 项目结构.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "项目结构.txt"; sourceTree = "<group>"; };
-		ADA17AD21E9C5C5600FA0FF9 /* GoodPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodPlayViewController.h; sourceTree = "<group>"; };
-		ADA17AD31E9C5C5600FA0FF9 /* GoodPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodPlayViewController.m; sourceTree = "<group>"; };
-		ADA17AD51E9C5C6600FA0FF9 /* GLMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeViewController.h; sourceTree = "<group>"; };
-		ADA17AD61E9C5C6600FA0FF9 /* GLMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMeViewController.m; sourceTree = "<group>"; };
-		ADA17AD81E9C5C7000FA0FF9 /* GLMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMessageViewController.h; sourceTree = "<group>"; };
-		ADA17AD91E9C5C7000FA0FF9 /* GLMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMessageViewController.m; sourceTree = "<group>"; };
 		ADB0D7CE1EA4FDF0003C4901 /* 设计原则.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "设计原则.txt"; sourceTree = "<group>"; };
 		ADBBA9641EA64F9F00C58D5C /* CustomView结构.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CustomView结构.txt"; sourceTree = "<group>"; };
 		ADC0DBAF1ECDA17F002859A9 /* CustomViewController结构.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CustomViewController结构.txt"; sourceTree = "<group>"; };
@@ -589,14 +589,113 @@
 			path = CommonLibrary;
 			sourceTree = "<group>";
 		};
+		AD6B225F1ED81DFA00C92220 /* GoodPlay(好玩) */ = {
+			isa = PBXGroup;
+			children = (
+				AD6B22601ED81DFA00C92220 /* Model */,
+				AD6B22611ED81DFA00C92220 /* View */,
+				AD6B22621ED81DFA00C92220 /* ViewController */,
+			);
+			path = "GoodPlay(好玩)";
+			sourceTree = "<group>";
+		};
+		AD6B22601ED81DFA00C92220 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AD6B22611ED81DFA00C92220 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AD6B22621ED81DFA00C92220 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AD6B22631ED81DFA00C92220 /* GoodPlayViewController.h */,
+				AD6B22641ED81DFA00C92220 /* GoodPlayViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		AD6B22651ED81DFA00C92220 /* Me(我) */ = {
+			isa = PBXGroup;
+			children = (
+				AD6B22661ED81DFA00C92220 /* Model */,
+				AD6B22671ED81DFA00C92220 /* View */,
+				AD6B22681ED81DFA00C92220 /* ViewController */,
+			);
+			path = "Me(我)";
+			sourceTree = "<group>";
+		};
+		AD6B22661ED81DFA00C92220 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AD6B22671ED81DFA00C92220 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AD6B22681ED81DFA00C92220 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AD6B22691ED81DFA00C92220 /* GLMeViewController.h */,
+				AD6B226A1ED81DFA00C92220 /* GLMeViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		AD6B226B1ED81DFA00C92220 /* Message(消息) */ = {
+			isa = PBXGroup;
+			children = (
+				AD6B226C1ED81DFA00C92220 /* Model */,
+				AD6B226D1ED81DFA00C92220 /* View */,
+				AD6B226E1ED81DFA00C92220 /* ViewController */,
+			);
+			path = "Message(消息)";
+			sourceTree = "<group>";
+		};
+		AD6B226C1ED81DFA00C92220 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AD6B226D1ED81DFA00C92220 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AD6B226E1ED81DFA00C92220 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AD6B226F1ED81DFA00C92220 /* GLMessageViewController.h */,
+				AD6B22701ED81DFA00C92220 /* GLMessageViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		AD70AF021E991E280003F3C8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				AD6B225F1ED81DFA00C92220 /* GoodPlay(好玩) */,
+				AD6B22651ED81DFA00C92220 /* Me(我) */,
+				AD6B226B1ED81DFA00C92220 /* Message(消息) */,
 				ADA17AAC1E9C469B00FA0FF9 /* Main  */,
 				AD70AF131E9920340003F3C8 /* GoodLook(好看) */,
-				ADA17AC61E9C5BFE00FA0FF9 /* GoodPlay(好玩) */,
-				ADA17AC71E9C5BFE00FA0FF9 /* Me(我) */,
-				ADA17AC81E9C5BFE00FA0FF9 /* Message(消息) */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -793,108 +892,6 @@
 			);
 			path = Docs;
 			sourceTree = SOURCE_ROOT;
-		};
-		ADA17AC61E9C5BFE00FA0FF9 /* GoodPlay(好玩) */ = {
-			isa = PBXGroup;
-			children = (
-				ADA17AC91E9C5C2300FA0FF9 /* Model */,
-				ADA17ACA1E9C5C2300FA0FF9 /* View */,
-				ADA17ACB1E9C5C2300FA0FF9 /* ViewController */,
-			);
-			name = "GoodPlay(好玩)";
-			path = "66GoodLook/Classes/GoodPlay(好玩)";
-			sourceTree = SOURCE_ROOT;
-		};
-		ADA17AC71E9C5BFE00FA0FF9 /* Me(我) */ = {
-			isa = PBXGroup;
-			children = (
-				ADA17ACC1E9C5C3800FA0FF9 /* Model */,
-				ADA17ACD1E9C5C3800FA0FF9 /* View */,
-				ADA17ACE1E9C5C3800FA0FF9 /* ViewController */,
-			);
-			name = "Me(我)";
-			path = "66GoodLook/Classes/Me(我)";
-			sourceTree = SOURCE_ROOT;
-		};
-		ADA17AC81E9C5BFE00FA0FF9 /* Message(消息) */ = {
-			isa = PBXGroup;
-			children = (
-				ADA17ACF1E9C5C4400FA0FF9 /* Model */,
-				ADA17AD01E9C5C4400FA0FF9 /* View */,
-				ADA17AD11E9C5C4400FA0FF9 /* ViewController */,
-			);
-			name = "Message(消息)";
-			path = "66GoodLook/Classes/Message(消息)";
-			sourceTree = SOURCE_ROOT;
-		};
-		ADA17AC91E9C5C2300FA0FF9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		ADA17ACA1E9C5C2300FA0FF9 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		ADA17ACB1E9C5C2300FA0FF9 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				ADA17AD21E9C5C5600FA0FF9 /* GoodPlayViewController.h */,
-				ADA17AD31E9C5C5600FA0FF9 /* GoodPlayViewController.m */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		ADA17ACC1E9C5C3800FA0FF9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		ADA17ACD1E9C5C3800FA0FF9 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		ADA17ACE1E9C5C3800FA0FF9 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				ADA17AD51E9C5C6600FA0FF9 /* GLMeViewController.h */,
-				ADA17AD61E9C5C6600FA0FF9 /* GLMeViewController.m */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		ADA17ACF1E9C5C4400FA0FF9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		ADA17AD01E9C5C4400FA0FF9 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		ADA17AD11E9C5C4400FA0FF9 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				ADA17AD81E9C5C7000FA0FF9 /* GLMessageViewController.h */,
-				ADA17AD91E9C5C7000FA0FF9 /* GLMessageViewController.m */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
 		};
 		ADDDB98C1E7780F8003526DF = {
 			isa = PBXGroup;
@@ -1234,6 +1231,8 @@
 				AD4215471EA8DA28002FBC26 /* GLChatInputPanel.m in Sources */,
 				AD841CCD1EB38D9D007A3EDF /* GLAssetLibraryViewController.m in Sources */,
 				AD44DC721E9B6FC7003C1576 /* NSString+OAURLEncodingAdditions.m in Sources */,
+				AD6B22711ED81DFA00C92220 /* GoodPlayViewController.m in Sources */,
+				AD6B22721ED81DFA00C92220 /* GLMeViewController.m in Sources */,
 				AD44DC571E9B2453003C1576 /* UIView+DYLYTheme.m in Sources */,
 				ADA17ABC1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m in Sources */,
 				AD31FBA31E9B178900523AC9 /* MD5Encrypt.m in Sources */,
@@ -1257,8 +1256,6 @@
 				AD44DC561E9B2453003C1576 /* UINavigationBar+DYLYTheme.m in Sources */,
 				AD841CD01EB5761B007A3EDF /* AppDelegate+ViewControllerOpers.m in Sources */,
 				AD78F1F41EC8801600205AEB /* GLAssetPlayBackView.m in Sources */,
-				ADA17ADA1E9C5C7000FA0FF9 /* GLMessageViewController.m in Sources */,
-				ADA17AD41E9C5C5600FA0FF9 /* GoodPlayViewController.m in Sources */,
 				AD6B22521ED80F2E00C92220 /* GLGetDefaultTopicListResponse.m in Sources */,
 				AD44DC4D1E9B2453003C1576 /* DYLYColor.m in Sources */,
 				AD44DC7B1E9B7489003C1576 /* UIView+CustomAutoLayout.m in Sources */,
@@ -1275,7 +1272,6 @@
 				AD31FBA21E9B178900523AC9 /* GTMBase64.m in Sources */,
 				AD6B225B1ED8196C00C92220 /* GLGetFineSelectionListRequest.m in Sources */,
 				ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */,
-				ADA17AD71E9C5C6600FA0FF9 /* GLMeViewController.m in Sources */,
 				AD44DC541E9B2453003C1576 /* UIImageView+DYLYTheme.m in Sources */,
 				AD841CDC1EB9D459007A3EDF /* GLAssetGridViewController.m in Sources */,
 				ADA17AB61E9C579E00FA0FF9 /* GLViewPagerViewController.m in Sources */,
@@ -1283,6 +1279,7 @@
 				AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */,
 				AD44DC501E9B2453003C1576 /* NSObject+DYLYTheme.m in Sources */,
 				ADA17AB91E9C581500FA0FF9 /* GoodLookBaseViewController.m in Sources */,
+				AD6B22731ED81DFA00C92220 /* GLMessageViewController.m in Sources */,
 				AD31FBA11E9B178900523AC9 /* DesHelper.m in Sources */,
 				AD44DC4E1E9B2453003C1576 /* DYLYImage.m in Sources */,
 				AD44DC761E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m in Sources */,
