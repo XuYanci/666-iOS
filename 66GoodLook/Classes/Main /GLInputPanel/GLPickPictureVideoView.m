@@ -369,6 +369,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 - (void)reloadData {
+    
+    if ([PHPhotoLibrary authorizationStatus] != PHAuthorizationStatusAuthorized) {
+        [self requestAuthorzationStatus];
+    }
+    else {
     PHFetchOptions *allPhotosOptions = [[PHFetchOptions alloc]init];
     
     if (self.type == GLPickPicVidType_Vid) {
@@ -390,8 +395,10 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.collectionView.userInteractionEnabled = NO;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self updateCachedAssets];
+        [self.collectionView reloadData];
         self.collectionView.userInteractionEnabled = YES;
     });
+    }
 }
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
@@ -425,6 +432,47 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 #pragma mark - Asset Caching
+
+
+- (void)requestAuthorzationStatus {
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    
+    switch (status) {
+        case PHAuthorizationStatusAuthorized:
+            [self reloadData];
+            break;
+        case PHAuthorizationStatusDenied:
+        case PHAuthorizationStatusRestricted: {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Tips" message:@"Photo auth status deny or restricted,please auth before" preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"Confirm"
+                                                      style:UIAlertActionStyleDefault
+                                                    handler:nil]];
+            [[AppDelegate  shareInstance]presentViewController:alert animated:YES completion:nil];
+            return;
+        }
+            break;
+        case PHAuthorizationStatusNotDetermined: {
+            [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+                if (status == PHAuthorizationStatusRestricted || status == PHAuthorizationStatusDenied) {
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Tips" message:@"Photo auth status deny or restricted,please auth before" preferredStyle:UIAlertControllerStyleAlert];
+                    [alert addAction:[UIAlertAction actionWithTitle:@"Confirm"
+                                                              style:UIAlertActionStyleDefault
+                                                            handler:nil]];
+                    [[AppDelegate  shareInstance]presentViewController:alert animated:YES completion:nil];
+                    return;
+                }
+                else if(status == PHAuthorizationStatusAuthorized) {
+                    [self reloadData];
+                }
+            }];
+        }
+            break;
+        default:
+            break;
+    }
+    
+}
+
 
 - (void)resetCachedAssets {
     [self.imageManager stopCachingImagesForAllAssets];
