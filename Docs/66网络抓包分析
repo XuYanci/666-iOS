@@ -1,6 +1,7 @@
 **** 请求头需要加上 key <client-info>  value <ios> 否则请求返回错误
 
 ------------------------------------------------------------------------------------------
+说明: 获取主题列表
 api: getDefaultTopicList
 url: http://re30.66yxq.com:8075/gateway-web/home/getDefaultTopicList
 method: post
@@ -31,6 +32,7 @@ response:
 }
 
 ------------------------------------------------------------------------------------------
+说明: 获取关注动态列表
 api: getAttentionDynamicList
 url: http://re30.66yxq.com:8075/gateway-web/home/getAttentionDynamicList
 method: get
@@ -220,6 +222,7 @@ response:
 }
 
 ------------------------------------------------------------------------------------------
+说明: 获取精选列表
 api: getFineSelectionList
 url: http://re30.66yxq.com:8075/gateway-web/home/getFineSelectionList
 method: get
@@ -636,6 +639,7 @@ response:
 }
 
 ------------------------------------------------------------------------------------------
+说明: 获取动态列表
 api: getDynamicList
 url: http://re30.66yxq.com:8075/gateway-web/home/getDynamicList?topicId=2
 method: get
