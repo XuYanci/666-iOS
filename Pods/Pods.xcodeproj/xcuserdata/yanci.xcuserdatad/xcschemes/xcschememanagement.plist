@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>KMCGeigerCounter.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -34,12 +39,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-66GoodLook.xcscheme</key>
+		<key>Pods-666.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-66GoodLookTests.xcscheme</key>
+		<key>Pods-666Tests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -72,12 +77,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3C8200D040A3F4ECD30B692F427E10E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5437890023F30CA85DFCA260CA914D48</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>85912CD4150ACA07CE21AE7FFC672441</key>
+		<key>70F73C5C931F35D75B2CE2E3CD67062E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7235A36284A4C7EE20B73AC385868579</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9096B75894EB2AEC5ACAFB68B281259B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,17 +112,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CE50610C494135555F77286BFB14AC4C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FA0543C3DFED27F62D8D7413BA7FD4DB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FFF56F95D8F3146E493307EEA455DAC5</key>
+		<key>F81E52EAF1FCEA14C984BC8CE201C209</key>
 		<dict>
 			<key>primary</key>
 			<true/>

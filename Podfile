@@ -1,5 +1,5 @@
 # Uncomment this line to define a global platform for your project
-workspace ’66GoodLook.xcworkspace'
+workspace ’666.xcworkspace'
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 inhibit_all_warnings!
@@ -16,14 +16,14 @@ def pods
     pod 'MJRefresh', '~> 3.1.0'              # 上下拉刷新
     pod 'BlocksKit', '~> 2.2.5'              # 闭包编程
     pod 'DZNEmptyDataSet', '~> 1.8.1'        # 刷新无数据界面
-    
+    pod 'KMCGeigerCounter', '~> 0.2.2'       # FPS显示
 end
 
-target '66GoodLook' do
+target '666' do
     pods
 end
 
-target '66GoodLookTests’ do
+target '666Tests’ do
 
 end
 

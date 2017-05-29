@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4F5D972EF683C77E5F896E87 /* libPods-66GoodLook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9622F563800DCCF25F2F4F /* libPods-66GoodLook.a */; };
+		61B048241673206380F133E0 /* libPods-666.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4079F017B03A5A1AA1DDFDE /* libPods-666.a */; };
 		91ECF2F1D576E10E9E70659B /* libPods-66GoodLookTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B391A082D6514E404DDC4429 /* libPods-66GoodLookTests.a */; };
 		AD29C73B1ECAB4AC0061175B /* 长期积累关注点.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD29C73A1ECAB4AC0061175B /* 长期积累关注点.txt */; };
 		AD31FAD91E9B16B400523AC9 /* MXBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F93E1E9B16B400523AC9 /* MXBaseRequest.m */; };
@@ -101,6 +102,7 @@
 		ADDDB9B31E7780F8003526DF /* _6GoodLookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDDB9B21E7780F8003526DF /* _6GoodLookTests.m */; };
 		ADDDB9BE1E7780F8003526DF /* _6GoodLookUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDDB9BD1E7780F8003526DF /* _6GoodLookUITests.m */; };
 		ADFFFBD41EA5FBDF002CB3DC /* GoodLookFloatView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFFFBD31EA5FBDF002CB3DC /* GoodLookFloatView.m */; };
+		EE9FCF507C315539122D6A9D /* libPods-666Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1621F566BC6F5F70E89C7E75 /* libPods-666Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,9 +123,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1621F566BC6F5F70E89C7E75 /* libPods-666Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-666Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AF8B8F9FECF83C1A41A3186 /* Pods-666.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-666.release.xcconfig"; path = "Pods/Target Support Files/Pods-666/Pods-666.release.xcconfig"; sourceTree = "<group>"; };
 		61FAFC8764300EFC8C643EB4 /* Pods-66GoodLookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLookTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLookTests/Pods-66GoodLookTests.release.xcconfig"; sourceTree = "<group>"; };
 		6E90646E5998061924E985F4 /* Pods-66GoodLook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLook.release.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLook/Pods-66GoodLook.release.xcconfig"; sourceTree = "<group>"; };
+		765F4A3BF95EC02887C37617 /* Pods-666.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-666.debug.xcconfig"; path = "Pods/Target Support Files/Pods-666/Pods-666.debug.xcconfig"; sourceTree = "<group>"; };
 		7E4DC8BFAB5BB0484E5CA1E9 /* Pods-66GoodLookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLookTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLookTests/Pods-66GoodLookTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8CD2016F59DB096FB62C4451 /* Pods-666Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-666Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-666Tests/Pods-666Tests.release.xcconfig"; sourceTree = "<group>"; };
 		AD29C73A1ECAB4AC0061175B /* 长期积累关注点.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "长期积累关注点.txt"; sourceTree = "<group>"; };
 		AD31F93D1E9B16B400523AC9 /* MXBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBaseRequest.h; sourceTree = "<group>"; };
 		AD31F93E1E9B16B400523AC9 /* MXBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXBaseRequest.m; sourceTree = "<group>"; };
@@ -305,6 +311,8 @@
 		B391A082D6514E404DDC4429 /* libPods-66GoodLookTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-66GoodLookTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9622F563800DCCF25F2F4F /* libPods-66GoodLook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-66GoodLook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1ECAD29C0C02707D92F82DA /* Pods-66GoodLook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLook/Pods-66GoodLook.debug.xcconfig"; sourceTree = "<group>"; };
+		F4079F017B03A5A1AA1DDFDE /* libPods-666.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-666.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2614F7CF7470FCF40984DC /* Pods-666Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-666Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-666Tests/Pods-666Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F5D972EF683C77E5F896E87 /* libPods-66GoodLook.a in Frameworks */,
+				61B048241673206380F133E0 /* libPods-666.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91ECF2F1D576E10E9E70659B /* libPods-66GoodLookTests.a in Frameworks */,
+				EE9FCF507C315539122D6A9D /* libPods-666Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +349,8 @@
 			children = (
 				DC9622F563800DCCF25F2F4F /* libPods-66GoodLook.a */,
 				B391A082D6514E404DDC4429 /* libPods-66GoodLookTests.a */,
+				F4079F017B03A5A1AA1DDFDE /* libPods-666.a */,
+				1621F566BC6F5F70E89C7E75 /* libPods-666Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -970,6 +982,10 @@
 				6E90646E5998061924E985F4 /* Pods-66GoodLook.release.xcconfig */,
 				7E4DC8BFAB5BB0484E5CA1E9 /* Pods-66GoodLookTests.debug.xcconfig */,
 				61FAFC8764300EFC8C643EB4 /* Pods-66GoodLookTests.release.xcconfig */,
+				765F4A3BF95EC02887C37617 /* Pods-666.debug.xcconfig */,
+				5AF8B8F9FECF83C1A41A3186 /* Pods-666.release.xcconfig */,
+				FB2614F7CF7470FCF40984DC /* Pods-666Tests.debug.xcconfig */,
+				8CD2016F59DB096FB62C4451 /* Pods-666Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1137,7 +1153,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-66GoodLookTests/Pods-66GoodLookTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-666Tests/Pods-666Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7ACA8E20E6F5E4F8C1C7A09F /* [CP] Copy Pods Resources */ = {
@@ -1152,7 +1168,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-66GoodLook/Pods-66GoodLook-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-666/Pods-666-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		971477AE8E0667EB8FEE8258 /* [CP] Embed Pods Frameworks */ = {
@@ -1167,7 +1183,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-66GoodLook/Pods-66GoodLook-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-666/Pods-666-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B00CE6D87F86956293F7CA5A /* [CP] Check Pods Manifest.lock */ = {
@@ -1212,7 +1228,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-66GoodLookTests/Pods-66GoodLookTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-666Tests/Pods-666Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1442,7 +1458,7 @@
 		};
 		ADDDB9C31E7780F8003526DF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E1ECAD29C0C02707D92F82DA /* Pods-66GoodLook.debug.xcconfig */;
+			baseConfigurationReference = 765F4A3BF95EC02887C37617 /* Pods-666.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YM2JKQV767;
@@ -1471,7 +1487,7 @@
 		};
 		ADDDB9C41E7780F8003526DF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E90646E5998061924E985F4 /* Pods-66GoodLook.release.xcconfig */;
+			baseConfigurationReference = 5AF8B8F9FECF83C1A41A3186 /* Pods-666.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
@@ -1501,7 +1517,7 @@
 		};
 		ADDDB9C61E7780F8003526DF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E4DC8BFAB5BB0484E5CA1E9 /* Pods-66GoodLookTests.debug.xcconfig */;
+			baseConfigurationReference = FB2614F7CF7470FCF40984DC /* Pods-666Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 32URLK6K7Y;
@@ -1515,7 +1531,7 @@
 		};
 		ADDDB9C71E7780F8003526DF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 61FAFC8764300EFC8C643EB4 /* Pods-66GoodLookTests.release.xcconfig */;
+			baseConfigurationReference = 8CD2016F59DB096FB62C4451 /* Pods-666Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 32URLK6K7Y;

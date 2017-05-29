@@ -7,10 +7,11 @@
 //
 
 #import "ApplicationServiceBase.h"
-
+ 
 @implementation ApplicationServiceBase
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+   
     return YES;
 }
 

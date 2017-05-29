@@ -65,7 +65,6 @@ static void *AVPlayerDemoPlaybackViewControllerCurrentItemObservationContext = &
     [super viewDidAppear:animated];
 }
 
-
 #pragma mark - life cycle
 - (void)loadView {
     self.view = [[UIView alloc]initWithFrame:[UIScreen mainScreen].bounds];
@@ -234,8 +233,6 @@ static void *AVPlayerDemoPlaybackViewControllerCurrentItemObservationContext = &
         [_movieViewParentViewBefore addSubview:self.container];
        
     }];
-    
-    
 }
 
 - (void)startPlay {
