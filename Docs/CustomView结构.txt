@@ -1,28 +1,17 @@
-### 接口声明 ###
-
 @protocol CustomViewDataSource <NSObject>
 @end
 
 @protocol CustomViewDelegate <NSObject>
 @end
-
-/**
-悬浮视图
-*/
+ 
 @interface CustomView : UIView
 @property (nonatomic,weak)id <CustomViewDataSource>dataSource;
 @property (nonatomic,weak)id <CustomViewDelegate>delegate;
 
-/**
-重载数据
-*/
 - (void)reloadData;
 @end
 
-
-### 实现声明 ###
 #import "CustomView.h"
-
 @interface CustomView()
 @end
 

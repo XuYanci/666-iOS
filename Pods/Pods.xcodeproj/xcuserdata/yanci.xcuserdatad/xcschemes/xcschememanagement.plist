@@ -19,11 +19,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>KMCGeigerCounter.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,22 +77,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4E73CB123ED135CD71B04B936EBFF7BA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5437890023F30CA85DFCA260CA914D48</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>70F73C5C931F35D75B2CE2E3CD67062E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7235A36284A4C7EE20B73AC385868579</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9096B75894EB2AEC5ACAFB68B281259B</key>
+		<key>987120AEB1DA1F845E42157E8EB7D95F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,7 +102,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F81E52EAF1FCEA14C984BC8CE201C209</key>
+		<key>EAE8BA5EFC1DEE6DE630D04A5E4624E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

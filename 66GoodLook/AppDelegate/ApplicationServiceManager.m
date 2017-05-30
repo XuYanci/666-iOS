@@ -10,7 +10,7 @@
 #import "ApplicationServiceManager.h"
 #import "ApplicationServiceBase.h"
 #import "GLMainTabBarViewController.h"
-#import "KMCGeigerCounter.h"
+
 @interface ApplicationServiceManager ()
 @property (nonatomic,strong) NSArray *services;
 @end
@@ -30,10 +30,10 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [[GLMainTabBarViewController alloc]init];
-
+    [self.window makeKeyAndVisible];
+ 
     // Override point for customization after application launch.
     for (id <ApplicationService> service in [self services]) {
         if ([service respondsToSelector:@selector(application:didFinishLaunchingWithOptions:)]) {
