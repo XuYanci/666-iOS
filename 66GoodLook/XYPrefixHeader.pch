@@ -9,6 +9,7 @@
 #import <SDWebImage/UIButton+WebCache.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <YYKit/YYKit.h>
 /**
  * XYKit 
  * 1. 主题库
@@ -17,7 +18,6 @@
 
 #import "DYLYThemeKit.h"
 #import "MXNetworkKit.h"
-
 
 /**
  * Macros

@@ -57,14 +57,14 @@
         return;
     }
     
-    NSDictionary *parameters = [request yy_modelToJSONObject];
+    NSDictionary *parameters = [request modelToJSONObject];
     [self sendPostRequestWithUrl:[MXBaseUrl baseUrl:method]
                       parameters:parameters
               beforeSendCallback:beforeSendCallback
                  SuccessCallBack:^(id result) {
 
                      if (successCallback) {
-                         MXBaseResponse *response = [responseClass yy_modelWithJSON:result];
+                         MXBaseResponse *response = [responseClass modelWithJSON:result];
                         
                          successCallback(response);
                          if (needCache) {
@@ -82,7 +82,7 @@
                 }
                 CompleteCallback:^(NSError *error, id result) {
                     if (completeCallback) {
-                        MXBaseResponse *response = [responseClass yy_modelWithJSON:result];
+                        MXBaseResponse *response = [responseClass modelWithJSON:result];
                         completeCallback(error,
                                          response);
                     }
@@ -127,14 +127,14 @@
     }
     
     
-    NSDictionary *parameters = [request yy_modelToJSONObject];
+    NSDictionary *parameters = [request modelToJSONObject];
     [self sendGetRequestWithUrl:[MXBaseUrl baseUrl:method]
                      parameters:parameters
              beforeSendCallback:beforeSendCallback
                 SuccessCallBack:^(id result)
      {
          if (successCallback) {
-             MXBaseResponse *response = [responseClass yy_modelWithJSON:result];
+             MXBaseResponse *response = [responseClass modelWithJSON:result];
             
              successCallback(response);
              if (needCache) {
@@ -152,7 +152,7 @@
      CompleteCallback:^(NSError *error, id result)
      {
          if (completeCallback) {
-             MXBaseResponse *response = [responseClass yy_modelWithJSON:result];
+             MXBaseResponse *response = [responseClass modelWithJSON:result];
              completeCallback(error,
                               response);
          }
@@ -194,7 +194,7 @@
 + (NSString *)cacheFileName:(NSString *)requestMethod
                      apiUrl:(NSString *)apiUrl
                     request:(MXBaseRequest *)request {
-    NSDictionary *parameters = [request yy_modelToJSONObject];
+    NSDictionary *parameters = [request modelToJSONObject];
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
     NSString *requestInfo = [NSString stringWithFormat:@"Method:%@ apiUrl:%@ Argument:%@ AppVersion:%@",requestMethod,apiUrl,parameters,app_Version];
@@ -231,7 +231,7 @@
     NSString *cacheFullPath = [self cacheBasePath];
     cacheFullPath = [cacheFullPath stringByAppendingString:@"/"];
     cacheFullPath = [cacheFullPath stringByAppendingString:cacheFileName];
-    [[response yy_modelToJSONString]writeToFile:cacheFullPath atomically:true encoding:NSUnicodeStringEncoding error:nil];
+    [[response modelToJSONString]writeToFile:cacheFullPath atomically:true encoding:NSUnicodeStringEncoding error:nil];
 }
 
 // 读取Response
@@ -240,7 +240,7 @@
     cacheFullPath = [cacheFullPath stringByAppendingString:@"/"];
     cacheFullPath = [cacheFullPath stringByAppendingString:cacheFileName];
     NSString *cacheJsonString = [NSString stringWithContentsOfFile:cacheFullPath encoding:NSUnicodeStringEncoding error:nil];
-    return [[responseClass class] yy_modelWithJSON:cacheJsonString];
+    return [[responseClass class] modelWithJSON:cacheJsonString];
 }
 
 + (void)clearCache:(NSError *__autoreleasing *)error {

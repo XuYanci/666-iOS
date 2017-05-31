@@ -24,6 +24,7 @@
     /*! Config request & response */
     [manager.requestSerializer setTimeoutInterval:DYLY_REQUEST_TIMEOUT];
      manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/json",@"text/html",@"application/json", nil];
+    [manager.requestSerializer setValue:@"ios" forHTTPHeaderField:@"client-info"];
     
     if (beforeSendCallback) {
         beforeSendCallback();

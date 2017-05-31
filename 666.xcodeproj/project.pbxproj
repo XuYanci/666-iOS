@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F5D972EF683C77E5F896E87 /* libPods-66GoodLook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9622F563800DCCF25F2F4F /* libPods-66GoodLook.a */; };
 		61B048241673206380F133E0 /* libPods-666.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4079F017B03A5A1AA1DDFDE /* libPods-666.a */; };
 		91ECF2F1D576E10E9E70659B /* libPods-66GoodLookTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B391A082D6514E404DDC4429 /* libPods-66GoodLookTests.a */; };
+		AD244EC81EDD7A9200E7FEAD /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD244EC71EDD7A9200E7FEAD /* YYFPSLabel.m */; };
 		AD29C73B1ECAB4AC0061175B /* 长期积累关注点.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD29C73A1ECAB4AC0061175B /* 长期积累关注点.txt */; };
 		AD31FAD91E9B16B400523AC9 /* MXBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F93E1E9B16B400523AC9 /* MXBaseRequest.m */; };
 		AD31FADA1E9B16B400523AC9 /* MXBaseResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F9401E9B16B400523AC9 /* MXBaseResponse.m */; };
@@ -130,6 +130,8 @@
 		765F4A3BF95EC02887C37617 /* Pods-666.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-666.debug.xcconfig"; path = "Pods/Target Support Files/Pods-666/Pods-666.debug.xcconfig"; sourceTree = "<group>"; };
 		7E4DC8BFAB5BB0484E5CA1E9 /* Pods-66GoodLookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLookTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLookTests/Pods-66GoodLookTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8CD2016F59DB096FB62C4451 /* Pods-666Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-666Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-666Tests/Pods-666Tests.release.xcconfig"; sourceTree = "<group>"; };
+		AD244EC61EDD7A9200E7FEAD /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
+		AD244EC71EDD7A9200E7FEAD /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
 		AD29C73A1ECAB4AC0061175B /* 长期积累关注点.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "长期积累关注点.txt"; sourceTree = "<group>"; };
 		AD31F93D1E9B16B400523AC9 /* MXBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBaseRequest.h; sourceTree = "<group>"; };
 		AD31F93E1E9B16B400523AC9 /* MXBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXBaseRequest.m; sourceTree = "<group>"; };
@@ -320,7 +322,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F5D972EF683C77E5F896E87 /* libPods-66GoodLook.a in Frameworks */,
 				61B048241673206380F133E0 /* libPods-666.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -597,6 +598,8 @@
 		AD44DC7C1E9B75F4003C1576 /* CommonLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				AD244EC61EDD7A9200E7FEAD /* YYFPSLabel.h */,
+				AD244EC71EDD7A9200E7FEAD /* YYFPSLabel.m */,
 			);
 			path = CommonLibrary;
 			sourceTree = "<group>";
@@ -1244,6 +1247,7 @@
 				AD6B22551ED8124B00C92220 /* GLGetDynamicListRequest.m in Sources */,
 				AD31FADD1E9B16B400523AC9 /* MXNetworkConnection+BaseUrl.m in Sources */,
 				ADDDB9A01E7780F8003526DF /* ViewController.m in Sources */,
+				AD244EC81EDD7A9200E7FEAD /* YYFPSLabel.m in Sources */,
 				AD4215471EA8DA28002FBC26 /* GLChatInputPanel.m in Sources */,
 				AD841CCD1EB38D9D007A3EDF /* GLAssetLibraryViewController.m in Sources */,
 				AD44DC721E9B6FC7003C1576 /* NSString+OAURLEncodingAdditions.m in Sources */,
@@ -1490,7 +1494,7 @@
 			baseConfigurationReference = 5AF8B8F9FECF83C1A41A3186 /* Pods-666.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = YM2JKQV767;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/66GoodLook/XYPrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1512,6 +1516,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.caigoutong.66;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c35a670f-a15e-45e6-a434-e48eba9fdeb7";
+				PROVISIONING_PROFILE_SPECIFIER = com.caigoutong.66;
 			};
 			name = Release;
 		};

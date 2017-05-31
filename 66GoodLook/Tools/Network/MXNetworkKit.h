@@ -9,7 +9,7 @@
 #ifndef MXNetworkKit_h
 #define MXNetworkKit_h
 
-#import <YYModel/YYModel.h>
+#import <YYKit/YYKit.h>
 #import "MXNetworkConnect+Model.h"
 #import "MXNetworkConnection+BaseUrl.h"
 

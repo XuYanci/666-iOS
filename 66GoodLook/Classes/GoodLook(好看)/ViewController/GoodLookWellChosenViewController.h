@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GoodLookWellChosenViewController : UIViewController
-
+@property (nonatomic,strong)GLGetDefaultTopicListModel *model;
 @end

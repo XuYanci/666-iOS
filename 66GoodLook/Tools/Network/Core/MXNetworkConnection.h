@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <YYModel/YYModel.h>
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 #import "MXBaseUrl.h"
-
+#import <YYKit/YYKit.h>
 
 typedef enum : NSUInteger {
     MXRequestResultSuccess,

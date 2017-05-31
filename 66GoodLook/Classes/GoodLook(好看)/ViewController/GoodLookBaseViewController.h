@@ -10,4 +10,6 @@
 
 @interface GoodLookBaseViewController : UIViewController
 
+/** 如果model是空的，则表示这是一个请求关注列表 */
+@property (nonatomic,strong)GLGetDefaultTopicListModel *model;
 @end

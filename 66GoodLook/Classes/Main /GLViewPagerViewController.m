@@ -554,7 +554,7 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
         leftMinusCurrentWidth = CGRectGetWidth(previousTabView.frame) - CGRectGetWidth(currentTabView.frame);
         rightMinusCurrentWidth = CGRectGetWidth(afterTabView.frame) - CGRectGetWidth(currentTabView.frame);
     }
-    NSLog(@"left tab offset = %lf,right tab offset = %lf",leftTabOffsetWidth,rightTabOffsetWidth);
+//    NSLog(@"left tab offset = %lf,right tab offset = %lf",leftTabOffsetWidth,rightTabOffsetWidth);
 }
 
 

@@ -49,7 +49,6 @@ static NSString *const kCellIdentifier = @"cellIdentifier";
     CGRect _fromRect;
     UIImage *_thumbnail;
     NSUInteger _startShowIndex;
-    
 
     
     /** Pan gesture for dismiss */

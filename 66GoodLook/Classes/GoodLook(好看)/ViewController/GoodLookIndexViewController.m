@@ -13,13 +13,16 @@
 #import "GLChatInputPanel.h"
 
 @interface GoodLookIndexViewController ()<GLViewPagerViewControllerDataSource,GLViewPagerViewControllerDelegate,GoodLookFloatViewDelegate>
-@property (nonatomic,strong)NSArray *viewControllers;
-@property (nonatomic,strong)NSArray *tagTitles;
+@property (nonatomic,strong)NSMutableArray *viewControllers;
+@property (nonatomic,strong)NSMutableArray *tagTitles;
 @property (nonatomic,strong)GoodLookFloatView *floatView;
 @property (nonatomic,strong)GLChatInputPanel *inputPanel;
+@property (nonatomic,strong)GLGetDefaultTopicListResponse *response;
 @end
 
 @implementation GoodLookIndexViewController
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,34 +43,23 @@
     
     GoodLookBaseViewController *concernViewController = [[GoodLookBaseViewController alloc]init];
     GoodLookWellChosenViewController *wellChosenViewController = [[GoodLookWellChosenViewController alloc]init];
-    GoodLookWellChosenViewController *SignOnViewController = [[GoodLookWellChosenViewController alloc]init];
-    GoodLookBaseViewController *girlSchoolViewController = [[GoodLookBaseViewController alloc]init];
-    GoodLookBaseViewController *lolFriendDiscussViewController = [[GoodLookBaseViewController alloc]init];
-    GoodLookBaseViewController *lolFillWaterViewController = [[GoodLookBaseViewController alloc]init];
-    
+   
     /** 设置内容视图 */
-    self.viewControllers = @[
-                              concernViewController,
-                              wellChosenViewController,
-                              SignOnViewController,
-                              girlSchoolViewController,
-                              lolFriendDiscussViewController,
-                              lolFillWaterViewController,
-                              ];
+    self.viewControllers = [ NSMutableArray array];
+    [self.viewControllers addObject:concernViewController];
+    [self.viewControllers addObject:wellChosenViewController];
+    
     /** 设置标签标题 */
-    self.tagTitles = @[
-                       @"关注",
-                       @"精选",
-                       @"签到夺金",
-                       @"女子学院",
-                       @"撸友讨论",
-                       @"灌水区",
-                       ];
+    self.tagTitles = [NSMutableArray array];
+    [self.tagTitles addObject:@"关注"];
+    [self.tagTitles addObject:@"精选"];
     
     /** 添加悬浮视图 */
     [self.view addSubview:self.floatView];
     [self.floatView resetPosition];
-   
+    
+    /** 加载请求 */
+    [self loadRequest];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -161,7 +153,47 @@ contentViewControllerForTabAtIndex:(NSUInteger)index {
     }
 }
 
-#pragma mark - getter and setter 
+#pragma mark - funcs
+- (void)loadRequest {
+    GLGetDefaultTopicListRequest *request = [[GLGetDefaultTopicListRequest alloc]init];
+    [MXNetworkConnection sendGetRequestWithMethod:@"getDefaultTopicList"
+                                     requestModel:request
+                                    responseClass:[GLGetDefaultTopicListResponse class] beforeSendCallback:^{
+                                        
+                                    } SuccessCallBack:^(GLGetDefaultTopicListResponse *result) {
+                                        _response = result;
+                                        [self processResponse];
+                                    } ErrorCallback:^(NSError *error) {
+                                        [self showHintHudWithMessage:error.localizedDescription];
+                                    } CompleteCallback:^(NSError *error, id result) {
+                                        
+                                    }];
+}
+
+- (void)processResponse {
+    [self.viewControllers removeAllObjects];
+    [self.tagTitles removeAllObjects];
+    GoodLookBaseViewController *concernViewController = [[GoodLookBaseViewController alloc]init];
+    GoodLookWellChosenViewController *wellChosenViewController = [[GoodLookWellChosenViewController alloc]init];
+    [self.viewControllers addObject:concernViewController];
+    [self.viewControllers addObject:wellChosenViewController];
+    [self.tagTitles addObject:@"关注"];
+    [self.tagTitles addObject:@"精选"];
+    
+    NSArray *sortedArray =  [_response.result sortedArrayUsingComparator:^NSComparisonResult(GLGetDefaultTopicListModel* obj1,   GLGetDefaultTopicListModel* obj2) {
+        return (obj1.ID.intValue > obj2.ID.intValue);
+    }];
+    
+    [sortedArray enumerateObjectsUsingBlock:^(GLGetDefaultTopicListModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        GoodLookBaseViewController *viewController = [[GoodLookBaseViewController alloc]init];
+        viewController.model = obj;
+        [self.viewControllers addObject:viewController];
+        [self.tagTitles addObject:obj.title];
+    }];
+    [self reloadData];
+}
+
+#pragma mark - getter and setter
 - (GoodLookFloatView *)floatView {
     if (!_floatView) {
         _floatView = [[GoodLookFloatView alloc]init];
