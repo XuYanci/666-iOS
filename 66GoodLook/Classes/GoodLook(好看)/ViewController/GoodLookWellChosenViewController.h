@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol GoodLookWellChosenViewControllerDataSource <NSObject>
+@end
+
+@protocol GoodLookWellChosenViewControllerDelegate <NSObject>
+@end
+
 @interface GoodLookWellChosenViewController : UIViewController
 @property (nonatomic,strong)GLGetDefaultTopicListModel *model;
+@property (nonatomic,weak) id<GoodLookWellChosenViewControllerDataSource>dataSource;
+@property (nonatomic,weak) id<GoodLookWellChosenViewControllerDelegate>delegate;
+
+- (void)reloadData;
 @end

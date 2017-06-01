@@ -1,5 +1,5 @@
 //
-//  GLRefreshHeader.h
+//  GLRefreshFooter.h
 //  666
 //
 //  Created by Yanci on 17/6/1.
@@ -8,6 +8,6 @@
 
 #import <MJRefresh/MJRefresh.h>
 
-@interface GLRefreshHeader : MJRefreshHeader
+@interface GLRefreshFooter : MJRefreshAutoGifFooter
 
 @end

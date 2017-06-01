@@ -10,6 +10,8 @@
 		61B048241673206380F133E0 /* libPods-666.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4079F017B03A5A1AA1DDFDE /* libPods-666.a */; };
 		91ECF2F1D576E10E9E70659B /* libPods-66GoodLookTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B391A082D6514E404DDC4429 /* libPods-66GoodLookTests.a */; };
 		AD0082401EDFFE580010BD08 /* GLRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AD00823F1EDFFE580010BD08 /* GLRefreshHeader.m */; };
+		AD0082431EE0176D0010BD08 /* GLWellChosenCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0082421EE0176D0010BD08 /* GLWellChosenCollectionViewCell.m */; };
+		AD0082461EE01F470010BD08 /* GLRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0082451EE01F470010BD08 /* GLRefreshFooter.m */; };
 		AD244EC81EDD7A9200E7FEAD /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD244EC71EDD7A9200E7FEAD /* YYFPSLabel.m */; };
 		AD29C73B1ECAB4AC0061175B /* 长期积累关注点.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD29C73A1ECAB4AC0061175B /* 长期积累关注点.txt */; };
 		AD31FAD91E9B16B400523AC9 /* MXBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F93E1E9B16B400523AC9 /* MXBaseRequest.m */; };
@@ -133,6 +135,10 @@
 		8CD2016F59DB096FB62C4451 /* Pods-666Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-666Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-666Tests/Pods-666Tests.release.xcconfig"; sourceTree = "<group>"; };
 		AD00823E1EDFFE580010BD08 /* GLRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLRefreshHeader.h; sourceTree = "<group>"; };
 		AD00823F1EDFFE580010BD08 /* GLRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLRefreshHeader.m; sourceTree = "<group>"; };
+		AD0082411EE0176D0010BD08 /* GLWellChosenCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLWellChosenCollectionViewCell.h; sourceTree = "<group>"; };
+		AD0082421EE0176D0010BD08 /* GLWellChosenCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLWellChosenCollectionViewCell.m; sourceTree = "<group>"; };
+		AD0082441EE01F470010BD08 /* GLRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLRefreshFooter.h; sourceTree = "<group>"; };
+		AD0082451EE01F470010BD08 /* GLRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLRefreshFooter.m; sourceTree = "<group>"; };
 		AD244EC61EDD7A9200E7FEAD /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
 		AD244EC71EDD7A9200E7FEAD /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
 		AD29C73A1ECAB4AC0061175B /* 长期积累关注点.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "长期积累关注点.txt"; sourceTree = "<group>"; };
@@ -364,6 +370,8 @@
 			children = (
 				AD00823E1EDFFE580010BD08 /* GLRefreshHeader.h */,
 				AD00823F1EDFFE580010BD08 /* GLRefreshHeader.m */,
+				AD0082441EE01F470010BD08 /* GLRefreshFooter.h */,
+				AD0082451EE01F470010BD08 /* GLRefreshFooter.m */,
 			);
 			path = GLRefresh;
 			sourceTree = "<group>";
@@ -900,6 +908,8 @@
 			children = (
 				ADFFFBD21EA5FBDF002CB3DC /* GoodLookFloatView.h */,
 				ADFFFBD31EA5FBDF002CB3DC /* GoodLookFloatView.m */,
+				AD0082411EE0176D0010BD08 /* GLWellChosenCollectionViewCell.h */,
+				AD0082421EE0176D0010BD08 /* GLWellChosenCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1295,6 +1305,7 @@
 				AD841CD91EB9CE24007A3EDF /* MBProgressHUD+GL.m in Sources */,
 				AD7CF48A1EAFDEA500A9327A /* GLChatMsg.m in Sources */,
 				ADC1720E1E9A44FC005DFCEE /* ApplicationServiceBase.m in Sources */,
+				AD0082461EE01F470010BD08 /* GLRefreshFooter.m in Sources */,
 				AD31FADC1E9B16B400523AC9 /* MXNetworkConnect+Model.m in Sources */,
 				AD44DC6F1E9B6FC7003C1576 /* NSDictionary+Validation.m in Sources */,
 				AD44DC491E9B2453003C1576 /* DYLYColorTable.m in Sources */,
@@ -1306,6 +1317,7 @@
 				AD6B225B1ED8196C00C92220 /* GLGetFineSelectionListRequest.m in Sources */,
 				ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */,
 				AD44DC541E9B2453003C1576 /* UIImageView+DYLYTheme.m in Sources */,
+				AD0082431EE0176D0010BD08 /* GLWellChosenCollectionViewCell.m in Sources */,
 				AD841CDC1EB9D459007A3EDF /* GLAssetGridViewController.m in Sources */,
 				ADA17AB61E9C579E00FA0FF9 /* GLViewPagerViewController.m in Sources */,
 				ADC472961ED5646100F35156 /* GLAssetCollectionViewCell.m in Sources */,
