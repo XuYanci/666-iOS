@@ -35,10 +35,18 @@ static NSString * kStringImagePath5 = @"xialashuaxin-icon-6";
     
     [self beginRefreshingWithCompletionBlock:^{
         NSLog(@"animation begin");
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+        animation.repeatCount = HUGE_VALF;
+        animation.duration = 0.5;
+        animation.autoreverses = YES;
+        animation.fromValue = @(-M_PI_2 * 0.5);
+        animation.toValue = @(M_PI_2 * 0.5);
+        [self.stringView.layer addAnimation:animation forKey:@"justrotate"];
     }];
     
     [self endRefreshingWithCompletionBlock:^{
         NSLog(@"animation end");
+        [self.stringView.layer removeAnimationForKey:@"justrotate"];
     }];
     
     [self addSubview:self.contentView];
@@ -47,9 +55,10 @@ static NSString * kStringImagePath5 = @"xialashuaxin-icon-6";
     
     [self.backgroundView setImage:[UIImage imageNamed:@"xialashuaxin-icon-1"]];
     [self.stringView setImage:[UIImage imageNamed:kStringImagePath1]];
-    
+    self.stringView.layer.anchorPoint = CGPointMake(0.5, 0.0);
+
     [self.backgroundView sizeToFit];
-    self.mj_h = CGRectGetHeight(self.backgroundView.bounds);
+    self.mj_h = CGRectGetHeight(self.backgroundView.bounds) + 10.0;
 }
 
 - (void)placeSubviews
@@ -58,7 +67,7 @@ static NSString * kStringImagePath5 = @"xialashuaxin-icon-6";
     self.contentView.frame = self.bounds;
     self.backgroundView.frame = self.contentView.bounds;
     [self.stringView sizeToFit];
-    [self.stringView setCenter:CGPointMake(60.0, CGRectGetHeight(self.stringView.bounds) / 2.0)];
+    [self.stringView setCenter:CGPointMake(60.0, CGRectGetHeight(self.stringView.bounds) / 2.0 - 20.0)];
 }
 
 

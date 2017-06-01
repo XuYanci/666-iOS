@@ -18,4 +18,24 @@
 }
 */
 
+- (void)prepare {
+    [super prepare];
+    
+    NSArray *array = @[
+                       
+                       [UIImage imageNamed:@"xiala_jiazai_01"],
+                       [UIImage imageNamed:@"xiala_jiazai_02"],
+                       [UIImage imageNamed:@"xiala_jiazai_03"],
+                       [UIImage imageNamed:@"xiala_jiazai_04"],
+                       [UIImage imageNamed:@"xiala_jiazai_05"],
+                       [UIImage imageNamed:@"xiala_jiazai_06"],
+                       [UIImage imageNamed:@"xiala_jiazai_07"],
+                       [UIImage imageNamed:@"xiala_jiazai_08"],
+                       [UIImage imageNamed:@"xiala_jiazai_09"],
+                       [UIImage imageNamed:@"xiala_jiazai_10"],
+                       ];
+    [self setImages:array forState:MJRefreshStateRefreshing];
+    self.refreshingTitleHidden = YES;
+}
+
 @end

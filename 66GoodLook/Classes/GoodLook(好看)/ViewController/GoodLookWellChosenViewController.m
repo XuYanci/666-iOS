@@ -9,6 +9,7 @@
 #import "GoodLookWellChosenViewController.h"
 #import "GLWellChosenCollectionViewCell.h"
 #import "GLRefreshHeader.h"
+#import "GLRefreshFooter.h"
 
 #define kCollectionViewBackgroundColor  [UIColor whiteColor]
 static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChosenCollectionViewCellIdentifier";
@@ -147,6 +148,13 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
         _collectionView.mj_header = [GLRefreshHeader headerWithRefreshingBlock:^{
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [_collectionView.mj_header endRefreshing];
+            });
+        }];
+        
+        
+        _collectionView.mj_footer = [GLRefreshFooter footerWithRefreshingBlock:^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [_collectionView.mj_footer endRefreshing];
             });
         }];
     }
