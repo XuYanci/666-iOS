@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		61B048241673206380F133E0 /* libPods-666.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4079F017B03A5A1AA1DDFDE /* libPods-666.a */; };
 		91ECF2F1D576E10E9E70659B /* libPods-66GoodLookTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B391A082D6514E404DDC4429 /* libPods-66GoodLookTests.a */; };
+		AD0082401EDFFE580010BD08 /* GLRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AD00823F1EDFFE580010BD08 /* GLRefreshHeader.m */; };
 		AD244EC81EDD7A9200E7FEAD /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD244EC71EDD7A9200E7FEAD /* YYFPSLabel.m */; };
 		AD29C73B1ECAB4AC0061175B /* 长期积累关注点.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD29C73A1ECAB4AC0061175B /* 长期积累关注点.txt */; };
 		AD31FAD91E9B16B400523AC9 /* MXBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F93E1E9B16B400523AC9 /* MXBaseRequest.m */; };
@@ -130,6 +131,8 @@
 		765F4A3BF95EC02887C37617 /* Pods-666.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-666.debug.xcconfig"; path = "Pods/Target Support Files/Pods-666/Pods-666.debug.xcconfig"; sourceTree = "<group>"; };
 		7E4DC8BFAB5BB0484E5CA1E9 /* Pods-66GoodLookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLookTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLookTests/Pods-66GoodLookTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8CD2016F59DB096FB62C4451 /* Pods-666Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-666Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-666Tests/Pods-666Tests.release.xcconfig"; sourceTree = "<group>"; };
+		AD00823E1EDFFE580010BD08 /* GLRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLRefreshHeader.h; sourceTree = "<group>"; };
+		AD00823F1EDFFE580010BD08 /* GLRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLRefreshHeader.m; sourceTree = "<group>"; };
 		AD244EC61EDD7A9200E7FEAD /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
 		AD244EC71EDD7A9200E7FEAD /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
 		AD29C73A1ECAB4AC0061175B /* 长期积累关注点.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "长期积累关注点.txt"; sourceTree = "<group>"; };
@@ -354,6 +357,15 @@
 				1621F566BC6F5F70E89C7E75 /* libPods-666Tests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD00823A1EDFFC0D0010BD08 /* GLRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				AD00823E1EDFFE580010BD08 /* GLRefreshHeader.h */,
+				AD00823F1EDFFE580010BD08 /* GLRefreshHeader.m */,
+			);
+			path = GLRefresh;
 			sourceTree = "<group>";
 		};
 		AD31F93C1E9B16B400523AC9 /* Base */ = {
@@ -871,6 +883,7 @@
 		ADA17AAC1E9C469B00FA0FF9 /* Main  */ = {
 			isa = PBXGroup;
 			children = (
+				AD00823A1EDFFC0D0010BD08 /* GLRefresh */,
 				AD841CBE1EB387EE007A3EDF /* GLAssetLibrary */,
 				AD841CC41EB388BF007A3EDF /* GLMediaBrowser */,
 				AD42153F1EA8DA28002FBC26 /* GLInputPanel */,
@@ -1304,6 +1317,7 @@
 				AD44DC4E1E9B2453003C1576 /* DYLYImage.m in Sources */,
 				AD44DC761E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m in Sources */,
 				AD31FBA01E9B178900523AC9 /* AESHelper.m in Sources */,
+				AD0082401EDFFE580010BD08 /* GLRefreshHeader.m in Sources */,
 				AD4215461EA8DA28002FBC26 /* GLChatInputBaseView.m in Sources */,
 				AD44DC531E9B2453003C1576 /* UIButton+DYLYTheme.m in Sources */,
 				AD31FAD91E9B16B400523AC9 /* MXBaseRequest.m in Sources */,

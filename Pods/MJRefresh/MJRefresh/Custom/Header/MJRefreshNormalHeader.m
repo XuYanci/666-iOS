@@ -86,6 +86,7 @@
     self.arrowView.tintColor = self.stateLabel.textColor;
 }
 
+
 - (void)setState:(MJRefreshState)state
 {
     MJRefreshCheckState
