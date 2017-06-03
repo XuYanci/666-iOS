@@ -22,7 +22,6 @@
     [super prepare];
     
     NSArray *array = @[
-                       
                        [UIImage imageNamed:@"xiala_jiazai_01"],
                        [UIImage imageNamed:@"xiala_jiazai_02"],
                        [UIImage imageNamed:@"xiala_jiazai_03"],

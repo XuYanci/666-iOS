@@ -45,6 +45,7 @@ PODS:
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
+  - ZYCornerRadius (1.0.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.6.3)
@@ -55,6 +56,7 @@ DEPENDENCIES:
   - MJRefresh (~> 3.1.0)
   - SDWebImage (~> 3.7.5)
   - YYKit (~> 1.0.9)
+  - ZYCornerRadius (~> 1.0.2)
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
@@ -65,7 +67,8 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+  ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
 
-PODFILE CHECKSUM: 7bc1cd4cdd43650a208c2a5c1c0214b8d8badd47
+PODFILE CHECKSUM: 9e7f132b6e7738890bcd11d1d0f7e184c51cd246
 
-COCOAPODS: 1.2.0.beta.1
+COCOAPODS: 1.2.1

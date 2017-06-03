@@ -64,11 +64,17 @@ static const CGFloat kConverImageViewHeight  =  170.0;
         make.left.mas_equalTo(self.contentView.mas_left).offset(10);
     }];
     
-    self.avatarImageView.layer.cornerRadius = 35.0 / 2.0;
-    self.avatarImageView.layer.masksToBounds = YES;
-    self.avatarImageView.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.avatarImageView.layer.borderWidth = 1.0;
-
+    ///Method 1: set cornerRadius and masksToBounds will cause off-screen
+//        self.avatarImageView.layer.cornerRadius = 35.0 / 2.0;
+//        self.avatarImageView.layer.masksToBounds = YES;
+//        self.avatarImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+//        self.avatarImageView.layer.borderWidth = 1.0;
+    
+    /// Method 2: use zy pod for adding corner , it test ok
+    [self.avatarImageView zy_attachBorderWidth:1.0 color:[UIColor whiteColor]];
+    [self.avatarImageView zy_cornerRadiusAdvance:35.0 / 2.0 rectCornerType:UIRectCornerAllCorners];
+    
+    
     [self.nicknameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.avatarImageView.mas_right).offset(10);
         make.top.mas_equalTo(self.coverImageView.mas_bottom).offset(5.0);
@@ -76,7 +82,7 @@ static const CGFloat kConverImageViewHeight  =  170.0;
     
     [self.recommendDescLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.contentView.mas_left).offset(10);
-        make.top.mas_equalTo(self.avatarImageView.mas_bottom).offset(10);
+        make.top.mas_equalTo(self.avatarImageView.mas_bottom).offset(5);
         make.right.mas_equalTo(self.contentView.mas_right).offset(-10);
     }];
     
@@ -127,6 +133,7 @@ static const CGFloat kConverImageViewHeight  =  170.0;
         _nicknameLabel = [[UILabel alloc]init];
         _nicknameLabel.font = [UIFont systemFontOfSize:12.0];
         _nicknameLabel.textColor = [UIColor lightGrayColor];
+
     }
     return _nicknameLabel;
 }
@@ -136,6 +143,7 @@ static const CGFloat kConverImageViewHeight  =  170.0;
         _recommendDescLabel = [[UILabel alloc]init];
         _recommendDescLabel.font = [UIFont systemFontOfSize:14.0];
         _recommendDescLabel.numberOfLines = 2;
+        
     }
     return _recommendDescLabel;
 }
