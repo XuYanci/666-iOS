@@ -11,7 +11,7 @@
 #import "GLRefreshHeader.h"
 #import "GLRefreshFooter.h"
 
-#define kCollectionViewBackgroundColor  [UIColor whiteColor]
+#define kCollectionViewBackgroundColor [UIColor colorWithRed:248.0 / 255.0 green:248.0 / 255.0 blue:248.0 / 255.0 alpha:1.0]
 static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChosenCollectionViewCellIdentifier";
 //static NSUInteger const listCountPerPage = 20;
 
@@ -39,14 +39,12 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // Do any additional setup after loading the view.
     [self commonInit];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self headerRefresh];
     });
- 
 }
 
 - (void)viewWillLayoutSubviews {
@@ -78,8 +76,16 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    GLGetFineSelectionListResDynamicModel *listItemModel = [self.dynamicList objectAtIndex:indexPath.row];
     GLWellChosenCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:glWellChosenCollectionViewCellIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor lightGrayColor];
+    NSString *imageUrl = [NSString stringWithFormat:@"%@/%@",GL_MEDIAURL_PREFIX,listItemModel.coverUrl ];
+    [cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]
+                           placeholderImage:nil];
+    NSString *avatarImageUrl = [NSString stringWithFormat:@"%@",listItemModel.headerUrl ];
+    [cell.avatarImageView sd_setImageWithURL:[NSURL URLWithString:avatarImageUrl] placeholderImage:[UIImage imageNamed:@"gj_img_logo"]];
+    
+    cell.nicknameLabel.text = listItemModel.memberName;
+    cell.recommendDescLabel.text = listItemModel.caption;
     return cell;
 }
 #pragma mark - delegate
@@ -93,6 +99,13 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
     } SuccessCallBack:^(GLGetFineSelectionListResponse *result) {
         [self.dynamicList removeAllObjects];
         [self.dynamicList addObjectsFromArray:result.result.dynamic];
+        
+        _last_adSort = result.result.adSort;
+        _last_attentionTimestamp = result.result.attentionTimestamp;
+        _last_timestamp = result.result.timestamp;
+        self.collectionView.mj_footer = [GLRefreshFooter footerWithRefreshingBlock:^{
+            [self footerRefresh];
+        }];
     } ErrorCallback:^(NSError *error) {
         [self showHintHudWithMessage:error.localizedDescription];
     } CompleteCallback:^(NSError *error, id result) {
@@ -103,8 +116,45 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
 }
 
 - (void)footerRefresh {
+    GLGetFineSelectionListRequest *request = [[GLGetFineSelectionListRequest alloc]init];
+    request.adSort = _last_adSort;
+    request.attentionTimestamp = _last_attentionTimestamp.stringValue;
+    request.timestamp = _last_timestamp.stringValue;
+    
+    [MXNetworkConnection sendGetRequestWithMethod:@"getFineSelectionList" requestModel:request  responseClass:[GLGetFineSelectionListResponse class] beforeSendCallback:^{
+        
+    } SuccessCallBack:^(GLGetFineSelectionListResponse* result) {
+        
+        
+        [self.collectionView.mj_footer endRefreshing];
+        
+
+        NSMutableArray *insertIndexPathes = [NSMutableArray array];
+        NSUInteger beginIndexPath = self.dynamicList.count;
+        NSUInteger endIndexPath = self.dynamicList.count + result.result.dynamic.count;
+        
+        
+        for (NSUInteger i = beginIndexPath; i < endIndexPath; i++) {
+            [insertIndexPathes addObject:[NSIndexPath indexPathForRow:beginIndexPath inSection:0]];
+        }
+        [self.dynamicList addObjectsFromArray:result.result.dynamic];
+        [self.collectionView insertItemsAtIndexPaths:insertIndexPathes];
+        
+        _last_adSort = result.result.adSort;
+        _last_attentionTimestamp = result.result.attentionTimestamp;
+        _last_timestamp = result.result.timestamp;
+        
+        
+
+        
+    } ErrorCallback:^(NSError *error) {
+        
+    } CompleteCallback:^(NSError *error, id result) {
+      
+    }];
     
 }
+
 
 - (void)commonInit {
     self.collectionView.frame = self.view.bounds;
@@ -172,7 +222,7 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
                                paddingRight:10
                                  paddingTop:10
                               paddingBottom:10
-                                 cellHeight:100.0
+                                 cellHeight:240.0
                                 cellSpacing:10.0
                                   cellCount:2]];
         [_collectionView registerClass:[GLWellChosenCollectionViewCell class] forCellWithReuseIdentifier:glWellChosenCollectionViewCellIdentifier];

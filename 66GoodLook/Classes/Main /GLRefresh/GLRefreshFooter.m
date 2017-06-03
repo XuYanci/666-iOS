@@ -36,6 +36,9 @@
                        ];
     [self setImages:array forState:MJRefreshStateRefreshing];
     self.refreshingTitleHidden = YES;
+    self.automaticallyRefresh = YES;
+    self.automaticallyHidden = YES;
 }
+
 
 @end

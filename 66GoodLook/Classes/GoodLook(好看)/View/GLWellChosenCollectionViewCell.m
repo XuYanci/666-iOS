@@ -8,11 +8,10 @@
 
 #import "GLWellChosenCollectionViewCell.h"
 
+static const CGFloat kConverImageViewHeight  =  170.0;
+
 @interface GLWellChosenCollectionViewCell()
-@property (nonatomic,strong) UIImageView *coverImageView;
-@property (nonatomic,strong) UIImageView *avatarImageView;
-@property (nonatomic,strong) UILabel *nicknameLabel;
-@property (nonatomic,strong) UILabel *recommendDescLabel;
+
 @end
 
 
@@ -27,13 +26,14 @@
 #pragma mark - life cycle
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        [self setNeedsReload];
+        [self commonInit];
     }
     return self;
 }
 
 - (void)layoutSubviews {
     [self _reloadDataIfNeeded];
+    [self _layoutSubviews];
     [super layoutSubviews];
 }
 
@@ -43,7 +43,45 @@
 #pragma mark - functions
 
 
-- (void)commonInit {}
+- (void)commonInit {
+    [self.contentView addSubview:self.coverImageView];
+    [self.contentView addSubview:self.avatarImageView];
+    [self.contentView addSubview:self.nicknameLabel];
+    [self.contentView addSubview:self.recommendDescLabel];
+    self.contentView.backgroundColor = [UIColor whiteColor];
+    
+    [self.coverImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.contentView.mas_left).offset(0);
+        make.right.mas_equalTo(self.contentView.mas_right).offset(0);
+        make.top.mas_equalTo(self.contentView.mas_top).offset(0);
+        make.height.offset(kConverImageViewHeight);
+    }];
+    
+    [self.avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.coverImageView.mas_bottom).offset(-10);
+        make.height.offset(35.0);
+        make.width.offset(35.0);
+        make.left.mas_equalTo(self.contentView.mas_left).offset(10);
+    }];
+    
+    self.avatarImageView.layer.cornerRadius = 35.0 / 2.0;
+    self.avatarImageView.layer.masksToBounds = YES;
+    self.avatarImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.avatarImageView.layer.borderWidth = 1.0;
+
+    [self.nicknameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.avatarImageView.mas_right).offset(10);
+        make.top.mas_equalTo(self.coverImageView.mas_bottom).offset(5.0);
+    }];
+    
+    [self.recommendDescLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.contentView.mas_left).offset(10);
+        make.top.mas_equalTo(self.avatarImageView.mas_bottom).offset(10);
+        make.right.mas_equalTo(self.contentView.mas_right).offset(-10);
+    }];
+    
+    [self setNeedsReload];
+}
 
 - (void)setDataSource {}
 
@@ -58,9 +96,48 @@
         [self reloadData];
     }
 }
+
+- (void)_layoutSubviews {
+    
+}
+
 - (void)reloadData {}
 - (void)setFrame:(CGRect)frame { [super setFrame:frame];}
 #pragma mark - notification
 #pragma mark - getter and setter
+
+- (UIImageView *)coverImageView {
+    if (!_coverImageView) {
+        _coverImageView = [[UIImageView alloc]init];
+        _coverImageView.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    return _coverImageView;
+}
+
+- (UIImageView *)avatarImageView {
+    if (!_avatarImageView) {
+        _avatarImageView = [[UIImageView alloc]init];
+        _avatarImageView.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    return _avatarImageView;
+}
+
+- (UILabel *)nicknameLabel {
+    if (!_nicknameLabel) {
+        _nicknameLabel = [[UILabel alloc]init];
+        _nicknameLabel.font = [UIFont systemFontOfSize:12.0];
+        _nicknameLabel.textColor = [UIColor lightGrayColor];
+    }
+    return _nicknameLabel;
+}
+
+- (UILabel *)recommendDescLabel {
+    if (!_recommendDescLabel) {
+        _recommendDescLabel = [[UILabel alloc]init];
+        _recommendDescLabel.font = [UIFont systemFontOfSize:14.0];
+        _recommendDescLabel.numberOfLines = 2;
+    }
+    return _recommendDescLabel;
+}
 
 @end

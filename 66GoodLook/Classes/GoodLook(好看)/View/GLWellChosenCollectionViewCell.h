@@ -18,5 +18,12 @@
 @end
 
 @interface GLWellChosenCollectionViewCell : UICollectionViewCell
+@property (nonatomic,strong) UIImageView *coverImageView;
+@property (nonatomic,strong) UIImageView *avatarImageView;
+@property (nonatomic,strong) UILabel *nicknameLabel;
+@property (nonatomic,strong) UILabel *recommendDescLabel;
 
+@property (nonatomic,weak) id<GLWellChosenCollectionViewCellDataSource>dataSource;
+@property (nonatomic,weak) id<GLWellChosenCollectionViewCellDelegate>delegate;
+- (void)reloadData;
 @end
