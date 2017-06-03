@@ -10,6 +10,7 @@
 #import "YYFPSLabel.h"
 @implementation ApplicationServiceBase
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    
     /** Add fps label */

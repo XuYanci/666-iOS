@@ -13,7 +13,7 @@
 		AD0082431EE0176D0010BD08 /* GLWellChosenCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0082421EE0176D0010BD08 /* GLWellChosenCollectionViewCell.m */; };
 		AD0082461EE01F470010BD08 /* GLRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0082451EE01F470010BD08 /* GLRefreshFooter.m */; };
 		AD244EC81EDD7A9200E7FEAD /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD244EC71EDD7A9200E7FEAD /* YYFPSLabel.m */; };
-		AD29C73B1ECAB4AC0061175B /* 长期积累关注点.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD29C73A1ECAB4AC0061175B /* 长期积累关注点.txt */; };
+		AD29C73B1ECAB4AC0061175B /* concern_point.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD29C73A1ECAB4AC0061175B /* concern_point.txt */; };
 		AD31FAD91E9B16B400523AC9 /* MXBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F93E1E9B16B400523AC9 /* MXBaseRequest.m */; };
 		AD31FADA1E9B16B400523AC9 /* MXBaseResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F9401E9B16B400523AC9 /* MXBaseResponse.m */; };
 		AD31FADB1E9B16B400523AC9 /* MXBaseUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F9431E9B16B400523AC9 /* MXBaseUrl.m */; };
@@ -80,17 +80,17 @@
 		AD841CD61EB82D4D007A3EDF /* GLAlreadyPickPicVidCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CD51EB82D4D007A3EDF /* GLAlreadyPickPicVidCollectionViewCell.m */; };
 		AD841CD91EB9CE24007A3EDF /* MBProgressHUD+GL.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CD81EB9CE24007A3EDF /* MBProgressHUD+GL.m */; };
 		AD841CDC1EB9D459007A3EDF /* GLAssetGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CDB1EB9D459007A3EDF /* GLAssetGridViewController.m */; };
-		AD9694151EAAF217008D9170 /* GitMarkDown参考.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD9694141EAAF217008D9170 /* GitMarkDown参考.txt */; };
+		AD9694151EAAF217008D9170 /* ref_gitmarkdown.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD9694141EAAF217008D9170 /* ref_gitmarkdown.txt */; };
 		ADA17AAF1E9C469B00FA0FF9 /* GLMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AAE1E9C469B00FA0FF9 /* GLMainTabBarViewController.m */; };
 		ADA17AB61E9C579E00FA0FF9 /* GLViewPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AB51E9C579E00FA0FF9 /* GLViewPagerViewController.m */; };
 		ADA17AB91E9C581500FA0FF9 /* GoodLookBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AB81E9C581500FA0FF9 /* GoodLookBaseViewController.m */; };
 		ADA17ABC1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17ABB1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m */; };
-		ADA17AC11E9C586700FA0FF9 /* VC结构注释参考.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA17ABE1E9C586700FA0FF9 /* VC结构注释参考.txt */; };
-		ADA17AC21E9C586700FA0FF9 /* 注释参考.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA17ABF1E9C586700FA0FF9 /* 注释参考.txt */; };
-		ADA17AC31E9C586700FA0FF9 /* 项目结构.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA17AC01E9C586700FA0FF9 /* 项目结构.txt */; };
-		ADB0D7CF1EA4FDF0003C4901 /* 设计原则.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADB0D7CE1EA4FDF0003C4901 /* 设计原则.txt */; };
-		ADBBA9651EA64F9F00C58D5C /* CustomView结构.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADBBA9641EA64F9F00C58D5C /* CustomView结构.txt */; };
-		ADC0DBB01ECDA17F002859A9 /* CustomViewController结构.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADC0DBAF1ECDA17F002859A9 /* CustomViewController结构.txt */; };
+		ADA17AC11E9C586700FA0FF9 /* ref_note_viewcontroller.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA17ABE1E9C586700FA0FF9 /* ref_note_viewcontroller.txt */; };
+		ADA17AC21E9C586700FA0FF9 /* ref_note.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA17ABF1E9C586700FA0FF9 /* ref_note.txt */; };
+		ADA17AC31E9C586700FA0FF9 /* structure_project in Resources */ = {isa = PBXBuildFile; fileRef = ADA17AC01E9C586700FA0FF9 /* structure_project */; };
+		ADB0D7CF1EA4FDF0003C4901 /* designpattern.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADB0D7CE1EA4FDF0003C4901 /* designpattern.txt */; };
+		ADBBA9651EA64F9F00C58D5C /* structure_view.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADBBA9641EA64F9F00C58D5C /* structure_view.txt */; };
+		ADC0DBB01ECDA17F002859A9 /* structure_viewcontroller.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADC0DBAF1ECDA17F002859A9 /* structure_viewcontroller.txt */; };
 		ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */; };
 		ADC1720E1E9A44FC005DFCEE /* ApplicationServiceBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC1720D1E9A44FC005DFCEE /* ApplicationServiceBase.m */; };
 		ADC34E4F1E9E571200E3D70B /* GoodLookIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC34E4E1E9E571200E3D70B /* GoodLookIndexViewController.m */; };
@@ -141,7 +141,7 @@
 		AD0082451EE01F470010BD08 /* GLRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLRefreshFooter.m; sourceTree = "<group>"; };
 		AD244EC61EDD7A9200E7FEAD /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
 		AD244EC71EDD7A9200E7FEAD /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
-		AD29C73A1ECAB4AC0061175B /* 长期积累关注点.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "长期积累关注点.txt"; sourceTree = "<group>"; };
+		AD29C73A1ECAB4AC0061175B /* concern_point.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = concern_point.txt; sourceTree = "<group>"; };
 		AD31F93D1E9B16B400523AC9 /* MXBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBaseRequest.h; sourceTree = "<group>"; };
 		AD31F93E1E9B16B400523AC9 /* MXBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXBaseRequest.m; sourceTree = "<group>"; };
 		AD31F93F1E9B16B400523AC9 /* MXBaseResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBaseResponse.h; sourceTree = "<group>"; };
@@ -277,7 +277,7 @@
 		AD841CDA1EB9D459007A3EDF /* GLAssetGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAssetGridViewController.h; sourceTree = "<group>"; };
 		AD841CDB1EB9D459007A3EDF /* GLAssetGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAssetGridViewController.m; sourceTree = "<group>"; };
 		AD9694131EAA47AF008D9170 /* GLChatInputAbleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLChatInputAbleView.h; sourceTree = "<group>"; };
-		AD9694141EAAF217008D9170 /* GitMarkDown参考.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "GitMarkDown参考.txt"; sourceTree = "<group>"; };
+		AD9694141EAAF217008D9170 /* ref_gitmarkdown.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ref_gitmarkdown.txt; sourceTree = "<group>"; };
 		ADA17AAD1E9C469B00FA0FF9 /* GLMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMainTabBarViewController.h; sourceTree = "<group>"; };
 		ADA17AAE1E9C469B00FA0FF9 /* GLMainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMainTabBarViewController.m; sourceTree = "<group>"; };
 		ADA17AB41E9C579E00FA0FF9 /* GLViewPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLViewPagerViewController.h; sourceTree = "<group>"; };
@@ -286,12 +286,12 @@
 		ADA17AB81E9C581500FA0FF9 /* GoodLookBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodLookBaseViewController.m; sourceTree = "<group>"; };
 		ADA17ABA1E9C583900FA0FF9 /* GoodLookWellChosenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodLookWellChosenViewController.h; sourceTree = "<group>"; };
 		ADA17ABB1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodLookWellChosenViewController.m; sourceTree = "<group>"; };
-		ADA17ABE1E9C586700FA0FF9 /* VC结构注释参考.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "VC结构注释参考.txt"; sourceTree = "<group>"; };
-		ADA17ABF1E9C586700FA0FF9 /* 注释参考.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "注释参考.txt"; sourceTree = "<group>"; };
-		ADA17AC01E9C586700FA0FF9 /* 项目结构.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "项目结构.txt"; sourceTree = "<group>"; };
-		ADB0D7CE1EA4FDF0003C4901 /* 设计原则.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "设计原则.txt"; sourceTree = "<group>"; };
-		ADBBA9641EA64F9F00C58D5C /* CustomView结构.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CustomView结构.txt"; sourceTree = "<group>"; };
-		ADC0DBAF1ECDA17F002859A9 /* CustomViewController结构.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CustomViewController结构.txt"; sourceTree = "<group>"; };
+		ADA17ABE1E9C586700FA0FF9 /* ref_note_viewcontroller.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ref_note_viewcontroller.txt; sourceTree = "<group>"; };
+		ADA17ABF1E9C586700FA0FF9 /* ref_note.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ref_note.txt; sourceTree = "<group>"; };
+		ADA17AC01E9C586700FA0FF9 /* structure_project */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = structure_project; sourceTree = "<group>"; };
+		ADB0D7CE1EA4FDF0003C4901 /* designpattern.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = designpattern.txt; sourceTree = "<group>"; };
+		ADBBA9641EA64F9F00C58D5C /* structure_view.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = structure_view.txt; sourceTree = "<group>"; };
+		ADC0DBAF1ECDA17F002859A9 /* structure_viewcontroller.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = structure_viewcontroller.txt; sourceTree = "<group>"; };
 		ADC172061E9A4071005DFCEE /* ApplicationServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceManager.h; sourceTree = "<group>"; };
 		ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationServiceManager.m; sourceTree = "<group>"; };
 		ADC1720C1E9A44FC005DFCEE /* ApplicationServiceBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceBase.h; sourceTree = "<group>"; };
@@ -918,14 +918,14 @@
 			isa = PBXGroup;
 			children = (
 				AD6B224B1ED6787C00C92220 /* iOS 保持界面流畅的技巧 | Garan no dou.pdf */,
-				AD9694141EAAF217008D9170 /* GitMarkDown参考.txt */,
-				ADB0D7CE1EA4FDF0003C4901 /* 设计原则.txt */,
-				ADA17ABE1E9C586700FA0FF9 /* VC结构注释参考.txt */,
-				ADA17ABF1E9C586700FA0FF9 /* 注释参考.txt */,
-				ADA17AC01E9C586700FA0FF9 /* 项目结构.txt */,
-				ADBBA9641EA64F9F00C58D5C /* CustomView结构.txt */,
-				ADC0DBAF1ECDA17F002859A9 /* CustomViewController结构.txt */,
-				AD29C73A1ECAB4AC0061175B /* 长期积累关注点.txt */,
+				AD9694141EAAF217008D9170 /* ref_gitmarkdown.txt */,
+				ADB0D7CE1EA4FDF0003C4901 /* designpattern.txt */,
+				ADA17ABE1E9C586700FA0FF9 /* ref_note_viewcontroller.txt */,
+				ADA17ABF1E9C586700FA0FF9 /* ref_note.txt */,
+				ADA17AC01E9C586700FA0FF9 /* structure_project */,
+				ADBBA9641EA64F9F00C58D5C /* structure_view.txt */,
+				ADC0DBAF1ECDA17F002859A9 /* structure_viewcontroller.txt */,
+				AD29C73A1ECAB4AC0061175B /* concern_point.txt */,
 				ADC472981ED5B77700F35156 /* 66网络抓包分析 */,
 			);
 			path = Docs;
@@ -1131,22 +1131,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADC0DBB01ECDA17F002859A9 /* CustomViewController结构.txt in Resources */,
-				AD29C73B1ECAB4AC0061175B /* 长期积累关注点.txt in Resources */,
+				ADC0DBB01ECDA17F002859A9 /* structure_viewcontroller.txt in Resources */,
+				AD29C73B1ECAB4AC0061175B /* concern_point.txt in Resources */,
 				AD44DC521E9B2453003C1576 /* DYLYTheme.plist in Resources */,
 				ADDDB9A81E7780F8003526DF /* LaunchScreen.storyboard in Resources */,
 				AD6B224C1ED6787C00C92220 /* iOS 保持界面流畅的技巧 | Garan no dou.pdf in Resources */,
 				ADDDB9A51E7780F8003526DF /* Assets.xcassets in Resources */,
-				AD9694151EAAF217008D9170 /* GitMarkDown参考.txt in Resources */,
+				AD9694151EAAF217008D9170 /* ref_gitmarkdown.txt in Resources */,
 				ADC472991ED5B77700F35156 /* 66网络抓包分析 in Resources */,
 				AD44DC511E9B2453003C1576 /* README.txt in Resources */,
-				ADA17AC31E9C586700FA0FF9 /* 项目结构.txt in Resources */,
+				ADA17AC31E9C586700FA0FF9 /* structure_project in Resources */,
 				ADDDB9A31E7780F8003526DF /* Main.storyboard in Resources */,
-				ADBBA9651EA64F9F00C58D5C /* CustomView结构.txt in Resources */,
+				ADBBA9651EA64F9F00C58D5C /* structure_view.txt in Resources */,
 				AD42154A1EA8DEA3002FBC26 /* Expression.bundle in Resources */,
-				ADB0D7CF1EA4FDF0003C4901 /* 设计原则.txt in Resources */,
-				ADA17AC21E9C586700FA0FF9 /* 注释参考.txt in Resources */,
-				ADA17AC11E9C586700FA0FF9 /* VC结构注释参考.txt in Resources */,
+				ADB0D7CF1EA4FDF0003C4901 /* designpattern.txt in Resources */,
+				ADA17AC21E9C586700FA0FF9 /* ref_note.txt in Resources */,
+				ADA17AC11E9C586700FA0FF9 /* ref_note_viewcontroller.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,5 +9,7 @@
 #import "MXBaseRequest.h"
 
 @interface GLGetFineSelectionListRequest : MXBaseRequest
-
+@property (nonatomic,strong) NSString *attentionTimestamp;
+@property (nonatomic,strong) NSString *timestamp;
+@property (nonatomic,strong) NSString *adSort;
 @end

@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol GLWellChosenCollectionViewCellDataSource <NSObject>
+
+@end
+
+@protocol GLWellChosenCollectionViewCellDelegate <NSObject>
+
+
+@end
+
 @interface GLWellChosenCollectionViewCell : UICollectionViewCell
 
 @end
