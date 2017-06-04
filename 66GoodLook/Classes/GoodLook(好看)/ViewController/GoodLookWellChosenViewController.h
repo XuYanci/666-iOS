@@ -18,6 +18,6 @@
 @property (nonatomic,strong)GLGetDefaultTopicListModel *model;
 @property (nonatomic,weak) id<GoodLookWellChosenViewControllerDataSource>dataSource;
 @property (nonatomic,weak) id<GoodLookWellChosenViewControllerDelegate>delegate;
-
+ 
 - (void)reloadData;
 @end

@@ -27,9 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
     self.title = @"666";
-    
     // Do any additional setup after loading the view.
     self.dataSource = self;
     self.delegate = self;
@@ -43,7 +41,8 @@
     
     GoodLookBaseViewController *concernViewController = [[GoodLookBaseViewController alloc]init];
     GoodLookWellChosenViewController *wellChosenViewController = [[GoodLookWellChosenViewController alloc]init];
-   
+ 
+    
     /** 设置内容视图 */
     self.viewControllers = [ NSMutableArray array];
     [self.viewControllers addObject:concernViewController];
@@ -60,6 +59,8 @@
     
     /** 加载请求 */
     [self loadRequest];
+
+
 }
 
 - (void)didReceiveMemoryWarning {

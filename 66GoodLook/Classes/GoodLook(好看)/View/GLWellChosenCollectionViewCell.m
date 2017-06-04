@@ -49,49 +49,19 @@ static const CGFloat kConverImageViewHeight  =  170.0;
     [self.contentView addSubview:self.nicknameLabel];
     [self.contentView addSubview:self.recommendDescLabel];
     self.contentView.backgroundColor = [UIColor whiteColor];
-    
-//    [self.coverImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(self.contentView.mas_left).offset(0);
-//        make.right.mas_equalTo(self.contentView.mas_right).offset(0);
-//        make.top.mas_equalTo(self.contentView.mas_top).offset(0);
-//        make.height.offset(kConverImageViewHeight);
-//    }];
-//    
-//    [self.avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.mas_equalTo(self.coverImageView.mas_bottom).offset(-10);
-//        make.height.offset(35.0);
-//        make.width.offset(35.0);
-//        make.left.mas_equalTo(self.contentView.mas_left).offset(10);
-//    }];
-    
-    ///Method 1: set cornerRadius and masksToBounds will cause off-screen
-//        self.avatarImageView.layer.cornerRadius = 35.0 / 2.0;
-//        self.avatarImageView.layer.masksToBounds = YES;
-//        self.avatarImageView.layer.borderColor = [UIColor whiteColor].CGColor;
-//        self.avatarImageView.layer.borderWidth = 1.0;
-    
-    /// **Optimize** Method 2: use zy pod for adding corner , it test ok
+
     [self.avatarImageView zy_attachBorderWidth:1.0 color:[UIColor whiteColor]];
     [self.avatarImageView zy_cornerRadiusAdvance:35.0 / 2.0 rectCornerType:UIRectCornerAllCorners];
-    
-    
-//    [self.nicknameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(self.avatarImageView.mas_right).offset(10);
-//        make.top.mas_equalTo(self.coverImageView.mas_bottom).offset(5.0);
-//    }];
-//    
-//    [self.recommendDescLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(self.contentView.mas_left).offset(10);
-//        make.top.mas_equalTo(self.avatarImageView.mas_bottom).offset(5);
-//        make.right.mas_equalTo(self.contentView.mas_right).offset(-10);
-//    }];
-    
     [self setNeedsReload];
 }
 
-- (void)setDataSource {}
+- (void)setDataSource:(id<GLWellChosenCollectionViewCellDataSource>)dataSource {
+    
+}
 
-- (void)setDelegate {}
+- (void)setDelegate:(id<GLWellChosenCollectionViewCellDelegate>)delegate {
+    
+}
 
 - (void)setNeedsReload {
     _needsReload = YES;
@@ -143,6 +113,7 @@ static const CGFloat kConverImageViewHeight  =  170.0;
     if (!_avatarImageView) {
         _avatarImageView = [[UIImageView alloc]init];
         _avatarImageView.contentMode = UIViewContentModeScaleAspectFit;
+ 
     }
     return _avatarImageView;
 }
@@ -152,8 +123,7 @@ static const CGFloat kConverImageViewHeight  =  170.0;
         _nicknameLabel = [[UILabel alloc]init];
         _nicknameLabel.font = [UIFont systemFontOfSize:12.0];
         _nicknameLabel.textColor = [UIColor lightGrayColor];
-        _nicknameLabel.backgroundColor = [UIColor whiteColor];
-        _nicknameLabel.alpha = 1.0;
+ 
     }
     return _nicknameLabel;
 }
@@ -163,8 +133,7 @@ static const CGFloat kConverImageViewHeight  =  170.0;
         _recommendDescLabel = [[UILabel alloc]init];
         _recommendDescLabel.font = [UIFont systemFontOfSize:14.0];
         _recommendDescLabel.numberOfLines = 2;
-        _recommendDescLabel.backgroundColor = [UIColor whiteColor];
-        _recommendDescLabel.alpha = 1.0;
+ 
     }
     return _recommendDescLabel;
 }
