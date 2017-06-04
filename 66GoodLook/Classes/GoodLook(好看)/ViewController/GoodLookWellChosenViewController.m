@@ -78,10 +78,11 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     GLGetFineSelectionListResDynamicModel *listItemModel = [self.dynamicList objectAtIndex:indexPath.row];
     GLWellChosenCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:glWellChosenCollectionViewCellIdentifier forIndexPath:indexPath];
-    NSString *imageUrl = [NSString stringWithFormat:@"%@/%@",GL_MEDIAURL_PREFIX,listItemModel.coverUrl ];
+  
+    NSString *imageUrl = [NSString stringWithFormat:@"%@/%@?imageView2/1/format/jpg/quality/60/w/345/h/332/",GL_MEDIAURL_PREFIX,listItemModel.coverUrl];
     [cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]
                            placeholderImage:nil];
-    NSString *avatarImageUrl = [NSString stringWithFormat:@"%@",listItemModel.headerUrl ];
+    NSString *avatarImageUrl = [NSString stringWithFormat:@"%@?imageView2/1/format/jpg/quality/60/w/70/h/70/",listItemModel.headerUrl ];
     [cell.avatarImageView sd_setImageWithURL:[NSURL URLWithString:avatarImageUrl] placeholderImage:[UIImage imageNamed:@"gj_img_logo"]];
     
     cell.nicknameLabel.text = listItemModel.memberName;
@@ -139,6 +140,8 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
         }
         [self.dynamicList addObjectsFromArray:result.result.dynamic];
         [self.collectionView insertItemsAtIndexPaths:insertIndexPathes];
+        
+        NSLog(@"count = %ld",self.dynamicList.count);
         
         _last_adSort = result.result.adSort;
         _last_attentionTimestamp = result.result.attentionTimestamp;
