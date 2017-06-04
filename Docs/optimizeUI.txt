@@ -1,0 +1,9 @@
+Prevent What:
+1. Prevent use autolayout
+2. Prevent use cornerRadius & maskToBounds together
+
+Prefer What:
+1. Prefer use non autolayout, just setframe , bounds , center .
+2. Use drawing image to replace cornerRadius & maskToBounds
+
+

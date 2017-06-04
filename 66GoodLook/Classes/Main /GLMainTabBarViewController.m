@@ -71,7 +71,8 @@
         _viewPagerViewController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"666"
                                                                           image:[[UIImage imageNamed:@"lab_home_d"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
                                                                   selectedImage:[[UIImage imageNamed:@"lab_home_s"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-
+        [_viewPagerViewController.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}
+                                                           forState:UIControlStateSelected];
     }
     return _viewPagerViewController;
 }

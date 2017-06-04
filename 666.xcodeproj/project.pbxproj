@@ -88,6 +88,7 @@
 		ADA17AC11E9C586700FA0FF9 /* ref_note_viewcontroller.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA17ABE1E9C586700FA0FF9 /* ref_note_viewcontroller.txt */; };
 		ADA17AC21E9C586700FA0FF9 /* ref_note.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA17ABF1E9C586700FA0FF9 /* ref_note.txt */; };
 		ADA17AC31E9C586700FA0FF9 /* structure_project in Resources */ = {isa = PBXBuildFile; fileRef = ADA17AC01E9C586700FA0FF9 /* structure_project */; };
+		ADA7ECB11EE3D45100D3D142 /* optimizeUI.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA7ECB01EE3D45100D3D142 /* optimizeUI.txt */; };
 		ADB0D7CF1EA4FDF0003C4901 /* designpattern.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADB0D7CE1EA4FDF0003C4901 /* designpattern.txt */; };
 		ADBBA9651EA64F9F00C58D5C /* structure_view.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADBBA9641EA64F9F00C58D5C /* structure_view.txt */; };
 		ADC0DBB01ECDA17F002859A9 /* structure_viewcontroller.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADC0DBAF1ECDA17F002859A9 /* structure_viewcontroller.txt */; };
@@ -289,6 +290,7 @@
 		ADA17ABE1E9C586700FA0FF9 /* ref_note_viewcontroller.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ref_note_viewcontroller.txt; sourceTree = "<group>"; };
 		ADA17ABF1E9C586700FA0FF9 /* ref_note.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ref_note.txt; sourceTree = "<group>"; };
 		ADA17AC01E9C586700FA0FF9 /* structure_project */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = structure_project; sourceTree = "<group>"; };
+		ADA7ECB01EE3D45100D3D142 /* optimizeUI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = optimizeUI.txt; sourceTree = "<group>"; };
 		ADB0D7CE1EA4FDF0003C4901 /* designpattern.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = designpattern.txt; sourceTree = "<group>"; };
 		ADBBA9641EA64F9F00C58D5C /* structure_view.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = structure_view.txt; sourceTree = "<group>"; };
 		ADC0DBAF1ECDA17F002859A9 /* structure_viewcontroller.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = structure_viewcontroller.txt; sourceTree = "<group>"; };
@@ -927,6 +929,7 @@
 				ADC0DBAF1ECDA17F002859A9 /* structure_viewcontroller.txt */,
 				AD29C73A1ECAB4AC0061175B /* concern_point.txt */,
 				ADC472981ED5B77700F35156 /* 66网络抓包分析 */,
+				ADA7ECB01EE3D45100D3D142 /* optimizeUI.txt */,
 			);
 			path = Docs;
 			sourceTree = SOURCE_ROOT;
@@ -1142,6 +1145,7 @@
 				AD44DC511E9B2453003C1576 /* README.txt in Resources */,
 				ADA17AC31E9C586700FA0FF9 /* structure_project in Resources */,
 				ADDDB9A31E7780F8003526DF /* Main.storyboard in Resources */,
+				ADA7ECB11EE3D45100D3D142 /* optimizeUI.txt in Resources */,
 				ADBBA9651EA64F9F00C58D5C /* structure_view.txt in Resources */,
 				AD42154A1EA8DEA3002FBC26 /* Expression.bundle in Resources */,
 				ADB0D7CF1EA4FDF0003C4901 /* designpattern.txt in Resources */,

@@ -18,6 +18,10 @@
     fpsLabel.backgroundColor = [UIColor greenColor];
     [[UIApplication sharedApplication].keyWindow addSubview:fpsLabel];
     
+    [[UINavigationBar appearance]setBarTintColor:[UIColor colorWithRed:254.0/255.0
+                                                                 green:206.0/255.0
+                                                                  blue:0.0
+                                                                 alpha:1.0]];
     
     return YES;
 }

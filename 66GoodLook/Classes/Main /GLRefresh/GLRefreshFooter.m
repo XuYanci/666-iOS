@@ -34,9 +34,8 @@
                        [UIImage imageNamed:@"xiala_jiazai_10"],
                        ];
     [self setImages:array forState:MJRefreshStateRefreshing];
-    self.refreshingTitleHidden = YES;
-    self.automaticallyRefresh = YES;
-    self.automaticallyHidden = YES;
+    [self setTitle:@"" forState:MJRefreshStateIdle];
+    [self setRefreshingTitleHidden:YES];
 }
 
 

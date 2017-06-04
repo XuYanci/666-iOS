@@ -79,6 +79,7 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
     GLGetFineSelectionListResDynamicModel *listItemModel = [self.dynamicList objectAtIndex:indexPath.row];
     GLWellChosenCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:glWellChosenCollectionViewCellIdentifier forIndexPath:indexPath];
   
+    // ** Optimize **   Do not use big picture 
     NSString *imageUrl = [NSString stringWithFormat:@"%@/%@?imageView2/1/format/jpg/quality/60/w/345/h/332/",GL_MEDIAURL_PREFIX,listItemModel.coverUrl];
     [cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]
                            placeholderImage:nil];
@@ -126,10 +127,6 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
         
     } SuccessCallBack:^(GLGetFineSelectionListResponse* result) {
         
-        
-        [self.collectionView.mj_footer endRefreshing];
-        
-
         NSMutableArray *insertIndexPathes = [NSMutableArray array];
         NSUInteger beginIndexPath = self.dynamicList.count;
         NSUInteger endIndexPath = self.dynamicList.count + result.result.dynamic.count;
@@ -138,22 +135,19 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
         for (NSUInteger i = beginIndexPath; i < endIndexPath; i++) {
             [insertIndexPathes addObject:[NSIndexPath indexPathForRow:beginIndexPath inSection:0]];
         }
-        [self.dynamicList addObjectsFromArray:result.result.dynamic];
-        [self.collectionView insertItemsAtIndexPaths:insertIndexPathes];
         
-        NSLog(@"count = %ld",self.dynamicList.count);
         
         _last_adSort = result.result.adSort;
         _last_attentionTimestamp = result.result.attentionTimestamp;
         _last_timestamp = result.result.timestamp;
-        
-        
+        [self.dynamicList addObjectsFromArray:result.result.dynamic];
+        [self.collectionView insertItemsAtIndexPaths:insertIndexPathes];
+    
 
-        
     } ErrorCallback:^(NSError *error) {
-        
+        [self showHintHudWithMessage:error.localizedDescription];
     } CompleteCallback:^(NSError *error, id result) {
-      
+        [self.collectionView.mj_footer endRefreshing];
     }];
     
 }

@@ -70,7 +70,7 @@ static const CGFloat kConverImageViewHeight  =  170.0;
 //        self.avatarImageView.layer.borderColor = [UIColor whiteColor].CGColor;
 //        self.avatarImageView.layer.borderWidth = 1.0;
     
-    /// Method 2: use zy pod for adding corner , it test ok
+    /// **Optimize** Method 2: use zy pod for adding corner , it test ok
     [self.avatarImageView zy_attachBorderWidth:1.0 color:[UIColor whiteColor]];
     [self.avatarImageView zy_cornerRadiusAdvance:35.0 / 2.0 rectCornerType:UIRectCornerAllCorners];
     
@@ -104,6 +104,8 @@ static const CGFloat kConverImageViewHeight  =  170.0;
 }
 
 - (void)_layoutSubviews {
+    
+    /** Optimize **  use non-autolayout */
     self.coverImageView.frame = CGRectMake(0,
                                            0,
                                            CGRectGetWidth(self.contentView.frame),
