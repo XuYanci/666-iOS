@@ -8,6 +8,8 @@
 
 #import "ApplicationServiceBase.h"
 #import "YYFPSLabel.h"
+#import "GoodLookIndexViewController.h"
+
 @implementation ApplicationServiceBase
 
 
@@ -29,4 +31,7 @@
     return YES;
 }
 
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    [[NSNotificationCenter defaultCenter]postNotificationName:kNotificationShowNaviBar object:nil];
+}
 @end

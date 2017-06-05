@@ -275,28 +275,58 @@
 }
 
 - (void)resetPosition {
-
     [self updatePosition:CGPointMake([UIScreen mainScreen].bounds.size.width, 0)];
 }
 
 - (void)updatePosition:(CGPoint)point {
-    
+   
     /* 悬浮点在右边 */
     if (point.x > [UIScreen mainScreen].bounds.size.width / 2.0) {
         CGRect frame =  self.frame;
         frame.origin.x = [UIScreen mainScreen].bounds.size.width  - 44.0 - 20.0;
-        frame.origin.y = [UIScreen mainScreen].bounds.size.height  - 64.0 - 44.0 - 10.0;
+        if (!_naviBarHidden) { /** 导航栏未隐藏 */
+            frame.origin.y = [UIScreen mainScreen].bounds.size.height  - 64.0 - 44.0 - 10.0;
+        }
+        else {                  /** 导航栏隐藏 */
+            frame.origin.y = [UIScreen mainScreen].bounds.size.height  - 20.0 - 44.0 - 10.0;
+        }
         self.frame = frame;
     }
     /* 悬浮点在左边 */
     else {
         CGRect frame =  self.frame;
         frame.origin.x =  20.0;
-        frame.origin.y = [UIScreen mainScreen].bounds.size.height  - 64.0 - 44.0 - 10.0;
+        if (!_naviBarHidden) {  /** 导航栏未隐藏 */
+             frame.origin.y = [UIScreen mainScreen].bounds.size.height  - 64.0 - 44.0 - 10.0;
+        }
+        else {                  /** 导航栏隐藏 */
+             frame.origin.y = [UIScreen mainScreen].bounds.size.height  - 20.0 - 44.0 - 10.0;
+        }
         self.frame = frame;
     }
     
 }
+
+- (void)resetPositionWhenNaviHidden {
+    CGPoint point = CGPointMake([UIScreen mainScreen].bounds.size.width, 0);
+    
+    /* 悬浮点在右边 */
+    if (point.x > [UIScreen mainScreen].bounds.size.width / 2.0) {
+        CGRect frame =  self.frame;
+        frame.origin.x = [UIScreen mainScreen].bounds.size.width  - 44.0 - 20.0;
+        frame.origin.y = [UIScreen mainScreen].bounds.size.height - 44.0 - 10.0;
+        self.frame = frame;
+    }
+    /* 悬浮点在左边 */
+    else {
+        CGRect frame =  self.frame;
+        frame.origin.x =  20.0;
+        frame.origin.y = [UIScreen mainScreen].bounds.size.height - 44.0 - 10.0;
+        self.frame = frame;
+    }
+
+}
+
 
 #pragma mark - notification
 #pragma mark - getter and setter

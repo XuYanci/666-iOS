@@ -96,12 +96,13 @@ NSString* const  kNotificationHideNaviBar = @"notif_hideNaviBar";
             rect.origin.y -= 44.0;
             rect.size.height += 44.0;
             navBarTransitionView.frame = rect;
+            [self.floatView setNaviBarHidden:YES];
+            [self.floatView updatePosition:self.floatView.frame.origin];
+            [self.navigationController.navigationBar setTitleTextAttributes:
+             @{NSForegroundColorAttributeName:[UIColor colorWithWhite:0 alpha:0.0]}];
         }];
-        
         _showNaviBar = NO;
     }
-    
-
 }
 
 - (void)animationShowNaviBar {
@@ -115,11 +116,13 @@ NSString* const  kNotificationHideNaviBar = @"notif_hideNaviBar";
             rect.origin.y += 44.0;
             rect.size.height -= 44.0;
             navBarTransitionView.frame = rect;
+            [self.floatView setNaviBarHidden:NO];
+            [self.floatView updatePosition:self.floatView.frame.origin];
+            [self.navigationController.navigationBar setTitleTextAttributes:
+             @{NSForegroundColorAttributeName:[UIColor colorWithWhite:0 alpha:1.0]}];
         }];
-        
         _showNaviBar = YES;
     }
-  
 }
 
 - (void)didReceiveMemoryWarning {

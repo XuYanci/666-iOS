@@ -113,7 +113,7 @@ static const CGFloat kConverImageViewHeight  =  170.0;
     if (!_avatarImageView) {
         _avatarImageView = [[UIImageView alloc]init];
         _avatarImageView.contentMode = UIViewContentModeScaleAspectFit;
- 
+        
     }
     return _avatarImageView;
 }
@@ -123,7 +123,7 @@ static const CGFloat kConverImageViewHeight  =  170.0;
         _nicknameLabel = [[UILabel alloc]init];
         _nicknameLabel.font = [UIFont systemFontOfSize:12.0];
         _nicknameLabel.textColor = [UIColor lightGrayColor];
- 
+        _nicknameLabel.backgroundColor = [UIColor whiteColor];
     }
     return _nicknameLabel;
 }
@@ -133,7 +133,8 @@ static const CGFloat kConverImageViewHeight  =  170.0;
         _recommendDescLabel = [[UILabel alloc]init];
         _recommendDescLabel.font = [UIFont systemFontOfSize:14.0];
         _recommendDescLabel.numberOfLines = 2;
- 
+        _recommendDescLabel.textColor = [UIColor blackColor];
+        _recommendDescLabel.backgroundColor = [UIColor whiteColor];
     }
     return _recommendDescLabel;
 }

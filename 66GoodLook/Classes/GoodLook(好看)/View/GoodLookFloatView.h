@@ -36,15 +36,16 @@ typedef enum : NSUInteger {
 @interface GoodLookFloatView : UIView
 @property (nonatomic,weak)id <GoodLookFloatViewDataSource>dataSource;
 @property (nonatomic,weak)id <GoodLookFloatViewDelegate>delegate;
+@property (nonatomic,assign)BOOL naviBarHidden;
 
 /**
  重载数据
  */
 - (void)reloadData;
 
-/**
- 重置位置
- */
+/** 重置位置 */
 - (void)resetPosition;
+/** 更新位置 */
+- (void)updatePosition:(CGPoint)point;
 
 @end

@@ -7,3 +7,7 @@ Prefer What:
 2. Use drawing image to replace cornerRadius & maskToBounds
 
 
+
+Point:
+1. Property ShouldRatize will cause offscreen render.
+2. Color Non-standard surface format - perhaps (UILabel) set backgroundcolor and textcolor explicitly will fix it

@@ -117,7 +117,7 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
         }
         else {
             _scrollDirection = GoodLookScrollDirection_Down;
-                      [[NSNotificationCenter defaultCenter]postNotificationName:kNotificationShowNaviBar object:nil];
+            [[NSNotificationCenter defaultCenter]postNotificationName:kNotificationShowNaviBar object:nil];
         }
     }
     else if (_lastContentOffset < scrollView.contentOffset.y) {
