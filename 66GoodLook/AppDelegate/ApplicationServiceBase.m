@@ -31,7 +31,4 @@
     return YES;
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    [[NSNotificationCenter defaultCenter]postNotificationName:kNotificationShowNaviBar object:nil];
-}
 @end

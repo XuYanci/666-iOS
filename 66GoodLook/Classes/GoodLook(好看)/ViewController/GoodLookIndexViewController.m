@@ -75,7 +75,9 @@ NSString* const  kNotificationHideNaviBar = @"notif_hideNaviBar";
                                             selector:@selector(animationShowNaviBar)
                                                 name:kNotificationShowNaviBar
                                               object:nil];
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(animationShowNaviBar)
+                                                name:UIApplicationDidBecomeActiveNotification object:nil];
    
     
 }
@@ -98,6 +100,8 @@ NSString* const  kNotificationHideNaviBar = @"notif_hideNaviBar";
             navBarTransitionView.frame = rect;
             [self.floatView setNaviBarHidden:YES];
             [self.floatView updatePosition:self.floatView.frame.origin];
+        } completion:^(BOOL finished) {
+            
             [self.navigationController.navigationBar setTitleTextAttributes:
              @{NSForegroundColorAttributeName:[UIColor colorWithWhite:0 alpha:0.0]}];
         }];
@@ -109,6 +113,9 @@ NSString* const  kNotificationHideNaviBar = @"notif_hideNaviBar";
     NSLog(@"animationShowNaviBar");
     
     if (!_showNaviBar) {
+        [self.navigationController.navigationBar setTitleTextAttributes:
+         @{NSForegroundColorAttributeName:[UIColor colorWithWhite:0 alpha:1.0]}];
+        
         [UIView animateWithDuration:0.5 animations:^{
             self.navigationController.navigationBar.height = 44.0;
             UIView* navBarTransitionView = [self.navigationController.view.subviews objectAtIndex:0];
@@ -118,8 +125,7 @@ NSString* const  kNotificationHideNaviBar = @"notif_hideNaviBar";
             navBarTransitionView.frame = rect;
             [self.floatView setNaviBarHidden:NO];
             [self.floatView updatePosition:self.floatView.frame.origin];
-            [self.navigationController.navigationBar setTitleTextAttributes:
-             @{NSForegroundColorAttributeName:[UIColor colorWithWhite:0 alpha:1.0]}];
+        } completion:^(BOOL finished) {
         }];
         _showNaviBar = YES;
     }

@@ -96,10 +96,11 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
   
     // ** Optimize **   Do not use big picture 
     NSString *imageUrl = [NSString stringWithFormat:@"%@/%@?imageView2/1/format/jpg/quality/60/w/345/h/332/",GL_MEDIAURL_PREFIX,listItemModel.coverUrl];
-    [cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]
-                           placeholderImage:nil];
+    [cell.coverImageView setImageWithURL:[NSURL URLWithString:imageUrl]
+                           placeholder:nil];
     NSString *avatarImageUrl = [NSString stringWithFormat:@"%@?imageView2/1/format/jpg/quality/60/w/70/h/70/",listItemModel.headerUrl ];
-    [cell.avatarImageView sd_setImageWithURL:[NSURL URLWithString:avatarImageUrl] placeholderImage:[UIImage imageNamed:@"gj_img_logo"]];
+    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:avatarImageUrl]
+                              placeholder:[UIImage imageNamed:@"gj_img_logo"]];
     
     cell.nicknameLabel.text = listItemModel.memberName;
     cell.recommendDescLabel.text = listItemModel.caption;
@@ -198,8 +199,16 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
     [self.view addSubview:self.collectionView];
     [self _setNeedsReload];
     _scrollDirection = GoodLookScrollDirection_None;
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(applicationDidBecomeActive)
+                                                name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 
+
+- (void)applicationDidBecomeActive {
+    _scrollDirection = GoodLookScrollDirection_None;
+}
 
 - (void)reloadData {
     [self.collectionView reloadData];
