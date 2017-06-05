@@ -10,10 +10,16 @@
 #import "GLWellChosenCollectionViewCell.h"
 #import "GLRefreshHeader.h"
 #import "GLRefreshFooter.h"
+#import "GoodLookIndexViewController.h"
+
+typedef enum : NSUInteger {
+    GoodLookScrollDirection_None,
+    GoodLookScrollDirection_Up,
+    GoodLookScrollDirection_Down,
+} GoodLookScrollDirection;
 
 #define kCollectionViewBackgroundColor [UIColor colorWithRed:248.0 / 255.0 green:248.0 / 255.0 blue:248.0 / 255.0 alpha:1.0]
 static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChosenCollectionViewCellIdentifier";
-//static NSUInteger const listCountPerPage = 20;
 
 @interface GoodLookWellChosenViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic,strong)UICollectionView *collectionView;
@@ -35,6 +41,8 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
     NSString *_last_adSort;
     NSNumber *_last_attentionTimestamp;
     NSNumber *_last_timestamp;
+    CGFloat _lastContentOffset;
+    GoodLookScrollDirection _scrollDirection;
 }
 
 - (void)viewDidLoad {
@@ -98,7 +106,32 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
     return cell;
 }
 #pragma mark - delegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    _lastContentOffset = scrollView.contentOffset.y;
+}
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (_lastContentOffset > scrollView.contentOffset.y) {
+        if (_scrollDirection == GoodLookScrollDirection_Down) {
+            
+        }
+        else {
+            _scrollDirection = GoodLookScrollDirection_Down;
+                      [[NSNotificationCenter defaultCenter]postNotificationName:kNotificationShowNaviBar object:nil];
+        }
+    }
+    else if (_lastContentOffset < scrollView.contentOffset.y) {
+        if (_scrollDirection == GoodLookScrollDirection_Up) {
+            
+        }
+        else {
+            _scrollDirection = GoodLookScrollDirection_Up;
+            [[NSNotificationCenter defaultCenter]postNotificationName:kNotificationHideNaviBar object:nil];
+        }
+    }
+    
+    
+}
 
 #pragma mark - funcs
 - (void)headerRefresh {
@@ -164,6 +197,7 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
     self.collectionView.frame = self.view.bounds;
     [self.view addSubview:self.collectionView];
     [self _setNeedsReload];
+    _scrollDirection = GoodLookScrollDirection_None;
 }
 
 

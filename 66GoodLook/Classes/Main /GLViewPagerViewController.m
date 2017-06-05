@@ -409,6 +409,10 @@ static const GLTabAnimationType kTabAnimationType = GLTabAnimationType_none;
  
     CGFloat topLayoutGuide = self.topLayoutGuide.length;
     CGFloat bottomLayoutGuide = self.bottomLayoutGuide.length;
+//    
+//    if (self.navigationController && !self.navigationController.navigationBarHidden) {
+//        topLayoutGuide = CGRectGetHeight(self.navigationController.navigationBar.frame) + 20.0;
+//    }
     
     /** 布局TabContentView */
     CGRect tabContentViewFrame = self.tabContentView.frame;

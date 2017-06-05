@@ -12,6 +12,9 @@
 #import "GoodLookFloatView.h"
 #import "GLChatInputPanel.h"
 
+NSString* const  kNotificationShowNaviBar = @"notif_showNaviBar";
+NSString* const  kNotificationHideNaviBar = @"notif_hideNaviBar";
+
 @interface GoodLookIndexViewController ()<GLViewPagerViewControllerDataSource,GLViewPagerViewControllerDelegate,GoodLookFloatViewDelegate>
 @property (nonatomic,strong)NSMutableArray *viewControllers;
 @property (nonatomic,strong)NSMutableArray *tagTitles;
@@ -20,7 +23,9 @@
 @property (nonatomic,strong)GLGetDefaultTopicListResponse *response;
 @end
 
-@implementation GoodLookIndexViewController
+@implementation GoodLookIndexViewController {
+    BOOL _showNaviBar;
+}
 
 
 
@@ -28,6 +33,7 @@
     [super viewDidLoad];
 
     self.title = @"666";
+    _showNaviBar = YES;
     // Do any additional setup after loading the view.
     self.dataSource = self;
     self.delegate = self;
@@ -59,8 +65,61 @@
     
     /** 加载请求 */
     [self loadRequest];
+    
+    /** Add notification */
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(animationHideNaviBar)
+                                                name:kNotificationHideNaviBar
+                                              object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(animationShowNaviBar)
+                                                name:kNotificationShowNaviBar
+                                              object:nil];
+    
+   
+    
+}
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
 
+- (void)animationHideNaviBar {
+    NSLog(@"animationHideNaviBar");
+
+    // Here has a funny thing , if you change navigationbar height , and change view height will not effective, but change navbar transitionview will effective.
+    if (_showNaviBar) {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.navigationController.navigationBar.height = 1.0;
+            UIView* navBarTransitionView = [self.navigationController.view.subviews objectAtIndex:0];
+            CGRect rect = navBarTransitionView.frame;
+            rect.origin.y -= 44.0;
+            rect.size.height += 44.0;
+            navBarTransitionView.frame = rect;
+        }];
+        
+        _showNaviBar = NO;
+    }
+    
+
+}
+
+- (void)animationShowNaviBar {
+    NSLog(@"animationShowNaviBar");
+    
+    if (!_showNaviBar) {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.navigationController.navigationBar.height = 44.0;
+            UIView* navBarTransitionView = [self.navigationController.view.subviews objectAtIndex:0];
+            CGRect rect = navBarTransitionView.frame;
+            rect.origin.y += 44.0;
+            rect.size.height -= 44.0;
+            navBarTransitionView.frame = rect;
+        }];
+        
+        _showNaviBar = YES;
+    }
+  
 }
 
 - (void)didReceiveMemoryWarning {
@@ -140,6 +199,8 @@ contentViewControllerForTabAtIndex:(NSUInteger)index {
 
 #pragma mark - GoodLookFloatViewDelegate
 - (void)floatView:(id)sender didPickEdit:(GLEditType)editType {
+    [self animationShowNaviBar];
+    
     if (editType == GLEditText) {
         [self.inputPanel setPanelType:GLChatInputPanelType_Text];
         [self.inputPanel show];
