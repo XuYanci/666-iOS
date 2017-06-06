@@ -1,0 +1,18 @@
+1. CategoryWithProperty
+<<<<
+@interface NSObject (CategoryWithProperty)
+@property (nonatomic, strong) NSObject *property;
+@end
+
+@implementation NSObject (CategoryWithProperty)
+
+- (NSObject *)property {
+return objc_getAssociatedObject(self, @selector(property));
+}
+
+- (void)setProperty:(NSObject *)value {
+objc_setAssociatedObject(self, @selector(property), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+@end
+>>>>

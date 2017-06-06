@@ -1,0 +1,11 @@
+1.https://medium.com/ios-os-x-development/ios-interview-questions-13840247a57a
+2.https://medium.com/ios-os-x-development/50-ios-interview-questions-and-answers-part-2-45f952230b9f
+3.https://medium.com/ios-os-x-development/50-ios-interview-questions-and-answers-part-3-3fad146b6c3d
+4.https://github.com/kamranahmedse/design-patterns-for-humans
+5.iOS保持界面流畅的技巧
+6.CoreData & Fmdb (Active-Record)
+7.PTT udp communicate framework summary
+8.AudioUnit & Bluetooth
+9.TCP & UDP
+10.http://www.jianshu.com/p/911549ae4bf8
+11.https://yanci.me/Translate-iOS-Architecture-Patterns/

@@ -1,0 +1,18 @@
+Explain View Controller Lifecycle events order ?
+There are a few different lifecycle event
+- loadView
+Creates the view that the controller manages. It’s only called when the view controller is created and only when done programatically.
+- viewDidLoad
+Called after the controller’s view is loaded into memory. It’s only called when the view is created.
+- viewWillAppear
+It’s called whenever the view is presented on the screen. In this step the view has bounds defined but the orientation is not applied.
+- viewWillLayoutSubviews
+Called to notify the view controller that its view is about to layout its subviews. This method is called every time the frame changes
+- viewDidLayoutSubviews
+Called to notify the view controller that its view has just laid out its subviews. Make additional changes here after the view lays out its subviews.
+- viewDidAppear
+Notifies the view controller that its view was added to a view hierarchy.
+- viewWillDisappear
+Before the transition to the next view controller happens and the origin view controller gets removed from screen, this method gets called.
+- viewDidDisappear
+After a view controller gets removed from the screen, this method gets called. You usually override this method to stop tasks that are should not run while a view controller is not on screen.

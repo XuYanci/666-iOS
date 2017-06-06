@@ -106,8 +106,6 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
-    
     if (_lastContentOffset > scrollView.contentOffset.y) {
         if (_scrollDirection == GoodLookScrollDirection_Down) {
             
