@@ -11,13 +11,7 @@
 #import "GLRefreshHeader.h"
 #import "GLRefreshFooter.h"
 #import "GoodLookIndexViewController.h"
-
-typedef enum : NSUInteger {
-    GoodLookScrollDirection_None,
-    GoodLookScrollDirection_Up,
-    GoodLookScrollDirection_Down,
-} GoodLookScrollDirection;
-
+ 
 #define kCollectionViewBackgroundColor [UIColor colorWithRed:248.0 / 255.0 green:248.0 / 255.0 blue:248.0 / 255.0 alpha:1.0]
 static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChosenCollectionViewCellIdentifier";
 
@@ -112,6 +106,8 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    
     if (_lastContentOffset > scrollView.contentOffset.y) {
         if (_scrollDirection == GoodLookScrollDirection_Down) {
             
@@ -199,21 +195,19 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
     [self.view addSubview:self.collectionView];
     [self _setNeedsReload];
     _scrollDirection = GoodLookScrollDirection_None;
-    
-    [[NSNotificationCenter defaultCenter]addObserver:self
-                                            selector:@selector(applicationDidBecomeActive)
-                                                name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 
 
-- (void)applicationDidBecomeActive {
-    _scrollDirection = GoodLookScrollDirection_None;
-}
+
 
 - (void)reloadData {
     [self.collectionView reloadData];
 }
 
+
+- (void)resetScrollDirection:(GoodLookScrollDirection)direction {
+    _scrollDirection = direction;
+}
 
 
 - (void)_setNeedsReload {

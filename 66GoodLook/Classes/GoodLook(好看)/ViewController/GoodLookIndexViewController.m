@@ -87,8 +87,11 @@ NSString* const  kNotificationHideNaviBar = @"notif_hideNaviBar";
 }
 
 - (void)animationHideNaviBar {
-    NSLog(@"animationHideNaviBar");
-
+    NSLog(@"animationHideNaviBar");    
+    /** Sync direction */
+    GoodLookWellChosenViewController *wellChosenViewController = [self.viewControllers objectAtIndex:1];
+    [wellChosenViewController resetScrollDirection:GoodLookScrollDirection_Up];
+  
     // Here has a funny thing , if you change navigationbar height , and change view height will not effective, but change navbar transitionview will effective.
     if (_showNaviBar) {
         [UIView animateWithDuration:0.5 animations:^{
@@ -111,6 +114,9 @@ NSString* const  kNotificationHideNaviBar = @"notif_hideNaviBar";
 
 - (void)animationShowNaviBar {
     NSLog(@"animationShowNaviBar");
+    
+    GoodLookWellChosenViewController *wellChosenViewController = [self.viewControllers objectAtIndex:1];
+    [wellChosenViewController resetScrollDirection:GoodLookScrollDirection_Down];
     
     if (!_showNaviBar) {
         [self.navigationController.navigationBar setTitleTextAttributes:

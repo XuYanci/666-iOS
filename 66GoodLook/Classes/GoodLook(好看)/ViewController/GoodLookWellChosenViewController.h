@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef enum : NSUInteger {
+    GoodLookScrollDirection_None,
+    GoodLookScrollDirection_Up,
+    GoodLookScrollDirection_Down,
+} GoodLookScrollDirection;
+
+
 @protocol GoodLookWellChosenViewControllerDataSource <NSObject>
 @end
 
@@ -20,4 +28,6 @@
 @property (nonatomic,weak) id<GoodLookWellChosenViewControllerDelegate>delegate;
  
 - (void)reloadData;
+- (void)resetScrollDirection:(GoodLookScrollDirection)direction;
+
 @end
