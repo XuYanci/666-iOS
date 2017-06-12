@@ -86,6 +86,11 @@ NSString* const  kNotificationHideNaviBar = @"notif_hideNaviBar";
     [super viewDidAppear:animated];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+     [[NSNotificationCenter defaultCenter]postNotificationName:kNotificationShowNaviBar object:nil];
+}
+
 - (void)animationHideNaviBar {
     NSLog(@"animationHideNaviBar");    
     /** Sync direction */
@@ -104,7 +109,6 @@ NSString* const  kNotificationHideNaviBar = @"notif_hideNaviBar";
             [self.floatView setNaviBarHidden:YES];
             [self.floatView updatePosition:self.floatView.frame.origin];
         } completion:^(BOOL finished) {
-            
             [self.navigationController.navigationBar setTitleTextAttributes:
              @{NSForegroundColorAttributeName:[UIColor colorWithWhite:0 alpha:0.0]}];
         }];
@@ -131,7 +135,10 @@ NSString* const  kNotificationHideNaviBar = @"notif_hideNaviBar";
             navBarTransitionView.frame = rect;
             [self.floatView setNaviBarHidden:NO];
             [self.floatView updatePosition:self.floatView.frame.origin];
+            
         } completion:^(BOOL finished) {
+            [self.navigationController.navigationBar setTitleTextAttributes:
+             @{NSForegroundColorAttributeName:[UIColor colorWithWhite:0 alpha:1.0]}];
         }];
         _showNaviBar = YES;
     }
@@ -214,7 +221,8 @@ contentViewControllerForTabAtIndex:(NSUInteger)index {
 
 #pragma mark - GoodLookFloatViewDelegate
 - (void)floatView:(id)sender didPickEdit:(GLEditType)editType {
-    [self animationShowNaviBar];
+//    [self animationShowNaviBar];
+     [[NSNotificationCenter defaultCenter]postNotificationName:kNotificationShowNaviBar object:nil];
     
     if (editType == GLEditText) {
         [self.inputPanel setPanelType:GLChatInputPanelType_Text];

@@ -89,11 +89,13 @@
 		ADA17AC21E9C586700FA0FF9 /* ref_note.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA17ABF1E9C586700FA0FF9 /* ref_note.txt */; };
 		ADA17AC31E9C586700FA0FF9 /* structure_project in Resources */ = {isa = PBXBuildFile; fileRef = ADA17AC01E9C586700FA0FF9 /* structure_project */; };
 		ADA7ECB11EE3D45100D3D142 /* optimizeUI.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA7ECB01EE3D45100D3D142 /* optimizeUI.txt */; };
-		ADA7ECB31EE6667B00D3D142 /* interview.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA7ECB21EE6667B00D3D142 /* interview.txt */; };
+		ADA7ECB31EE6667B00D3D142 /* prepare_interview.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA7ECB21EE6667B00D3D142 /* prepare_interview.txt */; };
 		ADA7ECB51EE69EB100D3D142 /* trick_objc_syntax.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA7ECB41EE69EB100D3D142 /* trick_objc_syntax.txt */; };
 		ADA7ECB71EE6E1FC00D3D142 /* lifecycle_viewcontroller.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA7ECB61EE6E1FC00D3D142 /* lifecycle_viewcontroller.txt */; };
+		ADA7ECBC1EE6F40600D3D142 /* summary_instantmessage in Resources */ = {isa = PBXBuildFile; fileRef = ADA7ECBB1EE6F40600D3D142 /* summary_instantmessage */; };
 		ADB0D7CF1EA4FDF0003C4901 /* designpattern.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADB0D7CE1EA4FDF0003C4901 /* designpattern.txt */; };
 		ADBBA9651EA64F9F00C58D5C /* structure_view.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADBBA9641EA64F9F00C58D5C /* structure_view.txt */; };
+		ADBF2A951EE99AA400E21879 /* faq_tech.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADBF2A941EE99AA400E21879 /* faq_tech.txt */; };
 		ADC0DBB01ECDA17F002859A9 /* structure_viewcontroller.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADC0DBAF1ECDA17F002859A9 /* structure_viewcontroller.txt */; };
 		ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */; };
 		ADC1720E1E9A44FC005DFCEE /* ApplicationServiceBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC1720D1E9A44FC005DFCEE /* ApplicationServiceBase.m */; };
@@ -294,11 +296,13 @@
 		ADA17ABF1E9C586700FA0FF9 /* ref_note.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ref_note.txt; sourceTree = "<group>"; };
 		ADA17AC01E9C586700FA0FF9 /* structure_project */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = structure_project; sourceTree = "<group>"; };
 		ADA7ECB01EE3D45100D3D142 /* optimizeUI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = optimizeUI.txt; sourceTree = "<group>"; };
-		ADA7ECB21EE6667B00D3D142 /* interview.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interview.txt; sourceTree = "<group>"; };
+		ADA7ECB21EE6667B00D3D142 /* prepare_interview.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prepare_interview.txt; sourceTree = "<group>"; };
 		ADA7ECB41EE69EB100D3D142 /* trick_objc_syntax.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = trick_objc_syntax.txt; sourceTree = "<group>"; };
 		ADA7ECB61EE6E1FC00D3D142 /* lifecycle_viewcontroller.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lifecycle_viewcontroller.txt; sourceTree = "<group>"; };
+		ADA7ECBB1EE6F40600D3D142 /* summary_instantmessage */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = summary_instantmessage; sourceTree = "<group>"; };
 		ADB0D7CE1EA4FDF0003C4901 /* designpattern.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = designpattern.txt; sourceTree = "<group>"; };
 		ADBBA9641EA64F9F00C58D5C /* structure_view.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = structure_view.txt; sourceTree = "<group>"; };
+		ADBF2A941EE99AA400E21879 /* faq_tech.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = faq_tech.txt; sourceTree = "<group>"; };
 		ADC0DBAF1ECDA17F002859A9 /* structure_viewcontroller.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = structure_viewcontroller.txt; sourceTree = "<group>"; };
 		ADC172061E9A4071005DFCEE /* ApplicationServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceManager.h; sourceTree = "<group>"; };
 		ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationServiceManager.m; sourceTree = "<group>"; };
@@ -936,9 +940,11 @@
 				AD29C73A1ECAB4AC0061175B /* concern_point.txt */,
 				ADC472981ED5B77700F35156 /* 66网络抓包分析 */,
 				ADA7ECB01EE3D45100D3D142 /* optimizeUI.txt */,
-				ADA7ECB21EE6667B00D3D142 /* interview.txt */,
+				ADA7ECB21EE6667B00D3D142 /* prepare_interview.txt */,
 				ADA7ECB41EE69EB100D3D142 /* trick_objc_syntax.txt */,
 				ADA7ECB61EE6E1FC00D3D142 /* lifecycle_viewcontroller.txt */,
+				ADA7ECBB1EE6F40600D3D142 /* summary_instantmessage */,
+				ADBF2A941EE99AA400E21879 /* faq_tech.txt */,
 			);
 			path = Docs;
 			sourceTree = SOURCE_ROOT;
@@ -1144,13 +1150,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADC0DBB01ECDA17F002859A9 /* structure_viewcontroller.txt in Resources */,
+				ADA7ECBC1EE6F40600D3D142 /* summary_instantmessage in Resources */,
 				AD29C73B1ECAB4AC0061175B /* concern_point.txt in Resources */,
 				AD44DC521E9B2453003C1576 /* DYLYTheme.plist in Resources */,
 				ADDDB9A81E7780F8003526DF /* LaunchScreen.storyboard in Resources */,
 				AD6B224C1ED6787C00C92220 /* iOS 保持界面流畅的技巧 | Garan no dou.pdf in Resources */,
 				ADDDB9A51E7780F8003526DF /* Assets.xcassets in Resources */,
 				ADA7ECB71EE6E1FC00D3D142 /* lifecycle_viewcontroller.txt in Resources */,
-				ADA7ECB31EE6667B00D3D142 /* interview.txt in Resources */,
+				ADA7ECB31EE6667B00D3D142 /* prepare_interview.txt in Resources */,
 				AD9694151EAAF217008D9170 /* ref_gitmarkdown.txt in Resources */,
 				ADC472991ED5B77700F35156 /* 66网络抓包分析 in Resources */,
 				AD44DC511E9B2453003C1576 /* README.txt in Resources */,
@@ -1163,6 +1170,7 @@
 				ADB0D7CF1EA4FDF0003C4901 /* designpattern.txt in Resources */,
 				ADA17AC21E9C586700FA0FF9 /* ref_note.txt in Resources */,
 				ADA17AC11E9C586700FA0FF9 /* ref_note_viewcontroller.txt in Resources */,
+				ADBF2A951EE99AA400E21879 /* faq_tech.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

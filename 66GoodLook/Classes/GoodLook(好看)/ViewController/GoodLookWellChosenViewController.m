@@ -35,7 +35,6 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
     NSString *_last_adSort;
     NSNumber *_last_attentionTimestamp;
     NSNumber *_last_timestamp;
-    CGFloat _lastContentOffset;
     GoodLookScrollDirection _scrollDirection;
 }
 
@@ -87,8 +86,7 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     GLGetFineSelectionListResDynamicModel *listItemModel = [self.dynamicList objectAtIndex:indexPath.row];
     GLWellChosenCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:glWellChosenCollectionViewCellIdentifier forIndexPath:indexPath];
-  
-    // ** Optimize **   Do not use big picture 
+    
     NSString *imageUrl = [NSString stringWithFormat:@"%@/%@?imageView2/1/format/jpg/quality/60/w/345/h/332/",GL_MEDIAURL_PREFIX,listItemModel.coverUrl];
     [cell.coverImageView setImageWithURL:[NSURL URLWithString:imageUrl]
                            placeholder:nil];
@@ -102,20 +100,19 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
 }
 #pragma mark - delegate
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    _lastContentOffset = scrollView.contentOffset.y;
+    
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (_lastContentOffset > scrollView.contentOffset.y) {
+    if ([scrollView.panGestureRecognizer translationInView:scrollView].y > 0) {
         if (_scrollDirection == GoodLookScrollDirection_Down) {
-            
         }
         else {
             _scrollDirection = GoodLookScrollDirection_Down;
             [[NSNotificationCenter defaultCenter]postNotificationName:kNotificationShowNaviBar object:nil];
         }
     }
-    else if (_lastContentOffset < scrollView.contentOffset.y) {
+    else {
         if (_scrollDirection == GoodLookScrollDirection_Up) {
             
         }
@@ -125,7 +122,12 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
         }
     }
     
-    
+    /** Auto refresh */
+    if (scrollView.contentSize.height - scrollView.contentOffset.y > scrollView.contentSize.height/1.5 ) {
+    }
+    else {
+        [self.collectionView.mj_footer beginRefreshing];
+    }
 }
 
 #pragma mark - funcs

@@ -8,6 +8,12 @@
 
 #import "GLWellChosenCollectionViewCell.h"
 
+/*
+ Optimized:
+ 1. replace uiimageview with calayer;
+ 2. repalce uilabel with draw string;
+ **/
+
 static const CGFloat kConverImageViewHeight  =  170.0;
 
 @interface GLWellChosenCollectionViewCell()
@@ -74,8 +80,7 @@ static const CGFloat kConverImageViewHeight  =  170.0;
 }
 
 - (void)_layoutSubviews {
-    
-    /** Optimize **  use non-autolayout */
+
     self.coverImageView.frame = CGRectMake(0,
                                            0,
                                            CGRectGetWidth(self.contentView.frame),

@@ -10,3 +10,28 @@ L - 里氏替换原则
 I - 接口隔离原则
 D - 依赖倒置原则
 D - 迪米特法则
+
+Most common Cocoa design patterns:
+Creational: Singleton.
+Structural: Decorator, Adapter, Facade.
+Behavioral: Observer, and, Memento
+
+MVC:
+
+|View|ViewController| -> (owns and updates)  |model|
+                      <- (notifiy)
+
+
+MVP:
+* 依赖展示和状态
+
+|View|ViewController|  -> (owns and send user action) | Presenter | -> (owns and updates) | Model|
+                      <- (updates)                                  <-  (notifies)
+
+MVVM:
+* 更新View和数据状态
+|View|ViewController|  -> (owns) |view model|            -> (owns and updates) | Model |
+                       <-> (data and use action binding) <- (notifies)
+
+
+
