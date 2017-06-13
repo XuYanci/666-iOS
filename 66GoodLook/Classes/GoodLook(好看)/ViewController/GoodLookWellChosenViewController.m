@@ -104,33 +104,13 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if ([scrollView.panGestureRecognizer translationInView:scrollView].y > 0) {
-        if (_scrollDirection == GoodLookScrollDirection_Down) {
-        }
-        else {
-            _scrollDirection = GoodLookScrollDirection_Down;
-            [[NSNotificationCenter defaultCenter]postNotificationName:kNotificationShowNaviBar object:nil];
-        }
-    }
-    else {
-        if (_scrollDirection == GoodLookScrollDirection_Up) {
-            
-        }
-        else {
-            _scrollDirection = GoodLookScrollDirection_Up;
-            [[NSNotificationCenter defaultCenter]postNotificationName:kNotificationHideNaviBar object:nil];
-        }
-    }
-    
-    /** Auto refresh */
-    if (scrollView.contentSize.height - scrollView.contentOffset.y > scrollView.contentSize.height/1.5 ) {
-    }
-    else {
-        [self.collectionView.mj_footer beginRefreshing];
-    }
+    [self autoHideNav:scrollView];
+    [self autoRefresh:scrollView];
 }
 
 #pragma mark - funcs
+
+
 - (void)headerRefresh {
     
     [MXNetworkConnection sendGetRequestWithMethod:@"getFineSelectionList" requestModel:nil responseClass:[GLGetFineSelectionListResponse class] beforeSendCallback:^{
@@ -189,6 +169,42 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
     
 }
 
+- (void)autoHideNav:(UIScrollView *)scrollView  {
+    if ([scrollView.panGestureRecognizer translationInView:scrollView].y > 0) {
+        if (_scrollDirection == GoodLookScrollDirection_Down) {
+        }
+        else {
+            _scrollDirection = GoodLookScrollDirection_Down;
+            [[NSNotificationCenter defaultCenter]postNotificationName:kNotificationShowNaviBar object:nil];
+        }
+    }
+    else {
+        if (_scrollDirection == GoodLookScrollDirection_Up) {
+            
+        }
+        else {
+            _scrollDirection = GoodLookScrollDirection_Up;
+            [[NSNotificationCenter defaultCenter]postNotificationName:kNotificationHideNaviBar object:nil];
+        }
+    }
+    
+}
+
+- (void)autoRefresh:(UIScrollView *)scrollView {
+    float scrollViewHeight = scrollView.frame.size.height;
+    float scrollContentSizeHeight = scrollView.contentSize.height;
+    float scrollOffset = scrollView.contentOffset.y;
+    
+    if (scrollOffset == 0)
+    {
+        // then we are at the top
+    }
+    else if (scrollOffset + scrollViewHeight > scrollContentSizeHeight / 1.5)
+    {
+        // then we are at the end
+        [self.collectionView.mj_footer beginRefreshing];
+    }
+}
 
 - (void)commonInit {
     self.collectionView.frame = self.view.bounds;
