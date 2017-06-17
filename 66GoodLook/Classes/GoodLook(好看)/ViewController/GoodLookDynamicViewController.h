@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol GoodLookDynamicViewControllerDataSource <NSObject>
+@end
+
+@protocol GoodLookDynamicViewControllerDelegate <NSObject>
+@end
+
+
 @interface GoodLookDynamicViewController : UIViewController
 
+@property (nonatomic,weak)id <GoodLookDynamicViewControllerDataSource>dataSource;
+@property (nonatomic,weak)id <GoodLookDynamicViewControllerDelegate>delegate;
 /** 如果model是空的，则表示这是一个请求关注列表 */
 @property (nonatomic,strong)GLGetDefaultTopicListModel *model;
 @end

@@ -108,6 +108,11 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
     [self autoRefresh:scrollView];
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self showHintHudWithMessage:@"Tap!"];
+}
+
 #pragma mark - funcs
 
 
@@ -212,9 +217,6 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
     [self _setNeedsReload];
     _scrollDirection = GoodLookScrollDirection_None;
 }
-
-
-
 
 - (void)reloadData {
     [self.collectionView reloadData];

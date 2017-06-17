@@ -1,12 +1,32 @@
+// GLViewPagerViewController.h
 //
-//  GLViewPagerViewController.h
-//  66GoodLook
+// Copyright (c) 2017 XuYanci (http://yanci.me)
 //
-//  Created by Yanci on 17/4/11.
-//  Copyright © 2017年 Yanci. All rights reserved.
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
+
+typedef enum : NSUInteger {
+    GLIndicatorType_Rect,
+    GLIndicatorType_Line,
+    GLIndicatorType_Default = GLIndicatorType_Line,
+} GLIndicatorType;
 
 typedef enum : NSUInteger {
     GLTabAnimationType_none,    /** 无动画 */
@@ -114,6 +134,9 @@ contentViewControllerForTabAtIndex:(NSUInteger)index;
 @property (nonatomic,assign)CGFloat animationTabDuration;
 /** 标签动画类型 */
 @property (nonatomic,assign)GLTabAnimationType tabAnimationType;
+/** 支持阿拉伯 when ture, all layout will reverse*/
+@property (nonatomic,assign)BOOL supportArabic;
+
 
 /** 重新加载数据,会调用DataSource方法并重新构建视图 */
 - (void)reloadData;

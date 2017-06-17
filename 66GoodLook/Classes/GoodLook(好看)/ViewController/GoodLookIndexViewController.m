@@ -7,7 +7,7 @@
 //
 
 #import "GoodLookIndexViewController.h"
-#import "GoodLookBaseViewController.h"
+#import "GoodLookDynamicViewController.h"
 #import "GoodLookWellChosenViewController.h"
 #import "GoodLookFloatView.h"
 #import "GLChatInputPanel.h"
@@ -45,7 +45,7 @@ NSString* const  kNotificationHideNaviBar = @"notif_hideNaviBar";
     self.tabAnimationType = GLTabAnimationType_whileScrolling;
     self.indicatorColor = [UIColor colorWithRed:255.0/255.0 green:205.0 / 255.0 blue:0.0 alpha:1.0];
     
-    GoodLookBaseViewController *concernViewController = [[GoodLookBaseViewController alloc]init];
+    GoodLookDynamicViewController *concernViewController = [[GoodLookDynamicViewController alloc]init];
     GoodLookWellChosenViewController *wellChosenViewController = [[GoodLookWellChosenViewController alloc]init];
  
     
@@ -258,7 +258,7 @@ contentViewControllerForTabAtIndex:(NSUInteger)index {
 - (void)processResponse {
     [self.viewControllers removeAllObjects];
     [self.tagTitles removeAllObjects];
-    GoodLookBaseViewController *concernViewController = [[GoodLookBaseViewController alloc]init];
+    GoodLookDynamicViewController *concernViewController = [[GoodLookDynamicViewController alloc]init];
     GoodLookWellChosenViewController *wellChosenViewController = [[GoodLookWellChosenViewController alloc]init];
     [self.viewControllers addObject:concernViewController];
     [self.viewControllers addObject:wellChosenViewController];
@@ -270,7 +270,7 @@ contentViewControllerForTabAtIndex:(NSUInteger)index {
     }];
     
     [sortedArray enumerateObjectsUsingBlock:^(GLGetDefaultTopicListModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        GoodLookBaseViewController *viewController = [[GoodLookBaseViewController alloc]init];
+        GoodLookDynamicViewController *viewController = [[GoodLookDynamicViewController alloc]init];
         viewController.model = obj;
         [self.viewControllers addObject:viewController];
         [self.tagTitles addObject:obj.title];
