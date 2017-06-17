@@ -960,7 +960,7 @@
 		ADDDB98C1E7780F8003526DF = {
 			isa = PBXGroup;
 			children = (
-				ADDDB9971E7780F8003526DF /* 66GoodLook */,
+				ADDDB9971E7780F8003526DF /* 666 */,
 				ADDDB9B11E7780F8003526DF /* 66GoodLookTests */,
 				ADDDB9BC1E7780F8003526DF /* 66GoodLookUITests */,
 				ADDDB9961E7780F8003526DF /* Products */,
@@ -979,7 +979,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ADDDB9971E7780F8003526DF /* 66GoodLook */ = {
+		ADDDB9971E7780F8003526DF /* 666 */ = {
 			isa = PBXGroup;
 			children = (
 				ADA17ABD1E9C586700FA0FF9 /* Docs */,
@@ -997,6 +997,7 @@
 				ADDDB9A91E7780F8003526DF /* Info.plist */,
 				ADDDB9981E7780F8003526DF /* Supporting Files */,
 			);
+			name = 666;
 			path = 66GoodLook;
 			sourceTree = "<group>";
 		};
