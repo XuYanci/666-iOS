@@ -24,6 +24,7 @@
 		AD31FBA11E9B178900523AC9 /* DesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31FB981E9B178900523AC9 /* DesHelper.m */; };
 		AD31FBA21E9B178900523AC9 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31FB9B1E9B178900523AC9 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AD31FBA31E9B178900523AC9 /* MD5Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31FB9F1E9B178900523AC9 /* MD5Encrypt.m */; };
+		AD3E8E571EF2CAAF005DB10F /* db_relations.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD3E8E561EF2CAAF005DB10F /* db_relations.txt */; };
 		AD4215461EA8DA28002FBC26 /* GLChatInputBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4215411EA8DA28002FBC26 /* GLChatInputBaseView.m */; };
 		AD4215471EA8DA28002FBC26 /* GLChatInputPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4215431EA8DA28002FBC26 /* GLChatInputPanel.m */; };
 		AD4215481EA8DA28002FBC26 /* GLChatInputToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4215451EA8DA28002FBC26 /* GLChatInputToolBar.m */; };
@@ -57,6 +58,7 @@
 		AD44DC751E9B6FC7003C1576 /* UIImage+GradientColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC6A1E9B6FC7003C1576 /* UIImage+GradientColor.m */; };
 		AD44DC761E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC6D1E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m */; };
 		AD44DC7B1E9B7489003C1576 /* UIView+CustomAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44DC7A1E9B7489003C1576 /* UIView+CustomAutoLayout.m */; };
+		AD59FD4D1EF57EF0008FC3AD /* GLDynamicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD59FD4C1EF57EF0008FC3AD /* GLDynamicTableViewCell.m */; };
 		AD6B224C1ED6787C00C92220 /* iOS 保持界面流畅的技巧 | Garan no dou.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AD6B224B1ED6787C00C92220 /* iOS 保持界面流畅的技巧 | Garan no dou.pdf */; };
 		AD6B224F1ED80F1E00C92220 /* GLGetDefaultTopicListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6B224E1ED80F1E00C92220 /* GLGetDefaultTopicListRequest.m */; };
 		AD6B22521ED80F2E00C92220 /* GLGetDefaultTopicListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6B22511ED80F2E00C92220 /* GLGetDefaultTopicListResponse.m */; };
@@ -83,7 +85,7 @@
 		AD9694151EAAF217008D9170 /* ref_gitmarkdown.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD9694141EAAF217008D9170 /* ref_gitmarkdown.txt */; };
 		ADA17AAF1E9C469B00FA0FF9 /* GLMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AAE1E9C469B00FA0FF9 /* GLMainTabBarViewController.m */; };
 		ADA17AB61E9C579E00FA0FF9 /* GLViewPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AB51E9C579E00FA0FF9 /* GLViewPagerViewController.m */; };
-		ADA17AB91E9C581500FA0FF9 /* GoodLookBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AB81E9C581500FA0FF9 /* GoodLookBaseViewController.m */; };
+		ADA17AB91E9C581500FA0FF9 /* GoodLookDynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AB81E9C581500FA0FF9 /* GoodLookDynamicViewController.m */; };
 		ADA17ABC1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17ABB1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m */; };
 		ADA17AC11E9C586700FA0FF9 /* ref_note_viewcontroller.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA17ABE1E9C586700FA0FF9 /* ref_note_viewcontroller.txt */; };
 		ADA17AC21E9C586700FA0FF9 /* ref_note.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA17ABF1E9C586700FA0FF9 /* ref_note.txt */; };
@@ -170,6 +172,7 @@
 		AD31FB9C1E9B178900523AC9 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		AD31FB9E1E9B178900523AC9 /* MD5Encrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Encrypt.h; sourceTree = "<group>"; };
 		AD31FB9F1E9B178900523AC9 /* MD5Encrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Encrypt.m; sourceTree = "<group>"; };
+		AD3E8E561EF2CAAF005DB10F /* db_relations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = db_relations.txt; sourceTree = "<group>"; };
 		AD4215401EA8DA28002FBC26 /* GLChatInputBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLChatInputBaseView.h; sourceTree = "<group>"; };
 		AD4215411EA8DA28002FBC26 /* GLChatInputBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLChatInputBaseView.m; sourceTree = "<group>"; };
 		AD4215421EA8DA28002FBC26 /* GLChatInputPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLChatInputPanel.h; sourceTree = "<group>"; };
@@ -237,6 +240,8 @@
 		AD44DC781E9B7424003C1576 /* XYMacroAppAppearance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMacroAppAppearance.h; sourceTree = "<group>"; };
 		AD44DC791E9B7489003C1576 /* UIView+CustomAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomAutoLayout.h"; sourceTree = "<group>"; };
 		AD44DC7A1E9B7489003C1576 /* UIView+CustomAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomAutoLayout.m"; sourceTree = "<group>"; };
+		AD59FD4B1EF57EF0008FC3AD /* GLDynamicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLDynamicTableViewCell.h; sourceTree = "<group>"; };
+		AD59FD4C1EF57EF0008FC3AD /* GLDynamicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLDynamicTableViewCell.m; sourceTree = "<group>"; };
 		AD6B224B1ED6787C00C92220 /* iOS 保持界面流畅的技巧 | Garan no dou.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "iOS 保持界面流畅的技巧 | Garan no dou.pdf"; sourceTree = "<group>"; };
 		AD6B224D1ED80F1E00C92220 /* GLGetDefaultTopicListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLGetDefaultTopicListRequest.h; sourceTree = "<group>"; };
 		AD6B224E1ED80F1E00C92220 /* GLGetDefaultTopicListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLGetDefaultTopicListRequest.m; sourceTree = "<group>"; };
@@ -288,8 +293,8 @@
 		ADA17AAE1E9C469B00FA0FF9 /* GLMainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMainTabBarViewController.m; sourceTree = "<group>"; };
 		ADA17AB41E9C579E00FA0FF9 /* GLViewPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLViewPagerViewController.h; sourceTree = "<group>"; };
 		ADA17AB51E9C579E00FA0FF9 /* GLViewPagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLViewPagerViewController.m; sourceTree = "<group>"; };
-		ADA17AB71E9C581500FA0FF9 /* GoodLookBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodLookBaseViewController.h; sourceTree = "<group>"; };
-		ADA17AB81E9C581500FA0FF9 /* GoodLookBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodLookBaseViewController.m; sourceTree = "<group>"; };
+		ADA17AB71E9C581500FA0FF9 /* GoodLookDynamicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodLookDynamicViewController.h; sourceTree = "<group>"; };
+		ADA17AB81E9C581500FA0FF9 /* GoodLookDynamicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodLookDynamicViewController.m; sourceTree = "<group>"; };
 		ADA17ABA1E9C583900FA0FF9 /* GoodLookWellChosenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodLookWellChosenViewController.h; sourceTree = "<group>"; };
 		ADA17ABB1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodLookWellChosenViewController.m; sourceTree = "<group>"; };
 		ADA17ABE1E9C586700FA0FF9 /* ref_note_viewcontroller.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ref_note_viewcontroller.txt; sourceTree = "<group>"; };
@@ -856,8 +861,8 @@
 			children = (
 				ADC34E4D1E9E571200E3D70B /* GoodLookIndexViewController.h */,
 				ADC34E4E1E9E571200E3D70B /* GoodLookIndexViewController.m */,
-				ADA17AB71E9C581500FA0FF9 /* GoodLookBaseViewController.h */,
-				ADA17AB81E9C581500FA0FF9 /* GoodLookBaseViewController.m */,
+				ADA17AB71E9C581500FA0FF9 /* GoodLookDynamicViewController.h */,
+				ADA17AB81E9C581500FA0FF9 /* GoodLookDynamicViewController.m */,
 				ADA17ABA1E9C583900FA0FF9 /* GoodLookWellChosenViewController.h */,
 				ADA17ABB1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m */,
 			);
@@ -922,6 +927,8 @@
 				ADFFFBD31EA5FBDF002CB3DC /* GoodLookFloatView.m */,
 				AD0082411EE0176D0010BD08 /* GLWellChosenCollectionViewCell.h */,
 				AD0082421EE0176D0010BD08 /* GLWellChosenCollectionViewCell.m */,
+				AD59FD4B1EF57EF0008FC3AD /* GLDynamicTableViewCell.h */,
+				AD59FD4C1EF57EF0008FC3AD /* GLDynamicTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -945,6 +952,7 @@
 				ADA7ECB61EE6E1FC00D3D142 /* lifecycle_viewcontroller.txt */,
 				ADA7ECBB1EE6F40600D3D142 /* summary_instantmessage */,
 				ADBF2A941EE99AA400E21879 /* faq_tech.txt */,
+				AD3E8E561EF2CAAF005DB10F /* db_relations.txt */,
 			);
 			path = Docs;
 			sourceTree = SOURCE_ROOT;
@@ -1158,6 +1166,7 @@
 				ADDDB9A51E7780F8003526DF /* Assets.xcassets in Resources */,
 				ADA7ECB71EE6E1FC00D3D142 /* lifecycle_viewcontroller.txt in Resources */,
 				ADA7ECB31EE6667B00D3D142 /* prepare_interview.txt in Resources */,
+				AD3E8E571EF2CAAF005DB10F /* db_relations.txt in Resources */,
 				AD9694151EAAF217008D9170 /* ref_gitmarkdown.txt in Resources */,
 				ADC472991ED5B77700F35156 /* 66网络抓包分析 in Resources */,
 				AD44DC511E9B2453003C1576 /* README.txt in Resources */,
@@ -1289,6 +1298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADFFFBD41EA5FBDF002CB3DC /* GoodLookFloatView.m in Sources */,
+				AD59FD4D1EF57EF0008FC3AD /* GLDynamicTableViewCell.m in Sources */,
 				AD44DC4F1E9B2453003C1576 /* DYLYThemeManager.m in Sources */,
 				AD44DC4B1E9B2453003C1576 /* DKDeallocBlockExecutor.m in Sources */,
 				AD6B22551ED8124B00C92220 /* GLGetDynamicListRequest.m in Sources */,
@@ -1347,7 +1357,7 @@
 				ADC472961ED5646100F35156 /* GLAssetCollectionViewCell.m in Sources */,
 				AD70AF0E1E991E800003F3C8 /* AppDelegate.m in Sources */,
 				AD44DC501E9B2453003C1576 /* NSObject+DYLYTheme.m in Sources */,
-				ADA17AB91E9C581500FA0FF9 /* GoodLookBaseViewController.m in Sources */,
+				ADA17AB91E9C581500FA0FF9 /* GoodLookDynamicViewController.m in Sources */,
 				AD6B22731ED81DFA00C92220 /* GLMessageViewController.m in Sources */,
 				AD31FBA11E9B178900523AC9 /* DesHelper.m in Sources */,
 				AD44DC4E1E9B2453003C1576 /* DYLYImage.m in Sources */,

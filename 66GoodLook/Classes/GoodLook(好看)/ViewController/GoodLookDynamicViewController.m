@@ -6,14 +6,14 @@
 //  Copyright © 2017年 Yanci. All rights reserved.
 //
 
-#import "GoodLookBaseViewController.h"
+#import "GoodLookDynamicViewController.h"
 
 
-@interface GoodLookBaseViewController ()
+@interface GoodLookDynamicViewController ()
  
 @end
 
-@implementation GoodLookBaseViewController
+@implementation GoodLookDynamicViewController
 
 
 #pragma mark - life cycle
