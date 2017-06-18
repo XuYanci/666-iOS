@@ -61,11 +61,15 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GLDynamicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellDynamicIdentifier];
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row];
     return cell;
 }
 
 #pragma mark - delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 660.0 / 2.0;
+}
+
 #pragma mark - user events
 #pragma mark - functions
 

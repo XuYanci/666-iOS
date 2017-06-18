@@ -26,12 +26,12 @@
                   moduleName = "666"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yanci/Desktop/Yanci/YanciXuOwnProject/66GoodLook/66GoodLook/Classes/Main%20/GLMediaBrowser/GLAssetGridViewController.m"
-                  timestampString = "519406335.412421"
+                  timestampString = "519468607.508099"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "425"
                   endingLineNumber = "425"
-                  offsetFromSymbolStart = "428">
+                  offsetFromSymbolStart = "405">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -41,12 +41,12 @@
                   moduleName = "666"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yanci/Desktop/Yanci/YanciXuOwnProject/66GoodLook/66GoodLook/Classes/Main%20/GLMediaBrowser/GLAssetGridViewController.m"
-                  timestampString = "519406335.415371"
+                  timestampString = "519468607.511056"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "426"
                   endingLineNumber = "426"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -224,6 +224,22 @@
             startingLineNumber = "80"
             endingLineNumber = "80"
             landmarkName = "-debugDescription"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "66GoodLook/Classes/GoodLook(&#x597d;&#x770b;)/View/GLDynamicTableViewCell.m"
+            timestampString = "519467930.234616"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "-awakeFromNib"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
