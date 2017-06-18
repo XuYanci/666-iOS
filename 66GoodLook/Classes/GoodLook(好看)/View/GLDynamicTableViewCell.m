@@ -105,10 +105,24 @@
     [self.titleLabel alignParentTopWithMargin:5.0];
     [self.titleLabel scaleToLeftOf:self.timeLabel margin:10.0];
     
-    [self.detailTitleLabel sizeToFit];
     [self.detailTitleLabel layoutBelow:self.titleLabel margin:10.0];
     [self.detailTitleLabel alignLeft:self.titleLabel margin:0];
     [self.detailTitleLabel scaleToParentRightWithMargin:10.0];
+    [self.detailTitleLabel sizeToFit]; /** size to fit must place here, other it first time will only display one line */
+    
+    [self.imageContainer sizeWith:CGSizeMake(0, 165.0)];
+    [self.imageContainer layoutBelow:self.detailTitleLabel margin:10.0];
+    [self.imageContainer alignLeft:self.detailTitleLabel margin:0];
+    [self.imageContainer scaleToParentRightWithMargin:10.0];
+    
+    [self.commentBtn sizeToFit];
+    [self.commentBtn layoutBelow:self.imageContainer margin:10.0];
+    [self.commentBtn alignParentRightWithMargin:10.0];
+    
+    [self.likeBtn sizeToFit];
+    [self.likeBtn layoutToLeftOf:self.commentBtn margin:10.0];
+    [self.likeBtn layoutBelow:self.imageContainer margin:10.0];
+    
 }
 
 - (void)reloadData {}
@@ -142,8 +156,9 @@
 - (UILabel *)detailTitleLabel {
     if (!_detailTitleLabel) {
         _detailTitleLabel = [[UILabel alloc]init];
-        _detailTitleLabel.text = @"GLViewPagerViewController is an common public control, it is usally used in news, here use UIPageViewController and UIScrollView as tab container to build it.";
         _detailTitleLabel.numberOfLines = 3;
+        _detailTitleLabel.text = @"GLViewPagerViewController is an common public control, it is usally used in news, here use UIPageViewController and UIScrollView as tab container to build it.";
+    
     }
     return _detailTitleLabel;
 }
@@ -151,6 +166,7 @@
 - (UIButton *)commentBtn {
     if (!_commentBtn) {
         _commentBtn = [[UIButton alloc]init];
+        [_commentBtn setImage:[UIImage imageNamed:@"faxian_pinlun"] forState:UIControlStateNormal];
     }
     return _commentBtn;
 }
@@ -158,6 +174,7 @@
 - (UIButton *)likeBtn {
     if (!_likeBtn) {
         _likeBtn = [[UIButton alloc]init];
+        [_likeBtn setImage:[UIImage imageNamed:@"dianzan_icon"] forState:UIControlStateNormal];
     }
     return _likeBtn;
 }
@@ -165,6 +182,7 @@
 - (UIView *)imageContainer {
     if (!_imageContainer) {
         _imageContainer = [[UIView alloc]init];
+        _imageContainer.layer.contents = (id)[UIImage imageNamed:@"huati_bg1"].CGImage;
     }
     return _imageContainer;
 }
