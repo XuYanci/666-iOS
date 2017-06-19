@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    GoodLookDScrollDirection_None,
+    GoodLookDScrollDirection_Up,
+    GoodLookDScrollDirection_Down,
+} GoodLookDScrollDirection;
+
+
 @protocol GoodLookDynamicViewControllerDataSource <NSObject>
 @end
 
@@ -21,4 +28,7 @@
 @property (nonatomic,weak)id <GoodLookDynamicViewControllerDelegate>delegate;
 /** 如果model是空的，则表示这是一个请求关注列表 */
 @property (nonatomic,strong)GLGetDefaultTopicListModel *model;
+
+- (void)resetScrollDirection:(GoodLookDScrollDirection)direction;
+
 @end

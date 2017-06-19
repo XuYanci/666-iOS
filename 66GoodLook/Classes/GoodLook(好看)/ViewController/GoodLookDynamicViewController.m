@@ -10,7 +10,7 @@
 #import "GLRefreshHeader.h"
 #import "GLRefreshFooter.h"
 #import "GLDynamicTableViewCell.h"
-
+#import "GoodLookIndexViewController.h"
 static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
 
 @interface GoodLookDynamicViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -29,6 +29,7 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
     NSString *_last_adSort;
     NSNumber *_last_attentionTimestamp;
     NSNumber *_last_timestamp;
+    GoodLookDScrollDirection _scrollDirection;
 }
 
 
@@ -71,19 +72,33 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GLGetAttentionDynamicListResDynamicModel *listItemModel = [self.dynamicList objectAtIndex:indexPath.row];
     GLDynamicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellDynamicIdentifier];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSString *avatarImageUrl = [NSString stringWithFormat:@"%@?imageView2/1/format/jpg/quality/60/w/70/h/70/",listItemModel.headerUrl ];
     [cell.avatarImageView setImageWithURL:[NSURL URLWithString:avatarImageUrl]
                               placeholder:[UIImage imageNamed:@"gj_img_logo"]];
     cell.titleLabel.text = listItemModel.memberName;
     cell.detailTitleLabel.text = listItemModel.caption;
+    
+    NSMutableArray *imageList = [NSMutableArray array];
+    [listItemModel.mediaList enumerateObjectsUsingBlock:^(GLGetAttentionDynamicListResMediaListModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [imageList addObject:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@?imageView2/1/format/jpg/quality/60/w/%@/h/%@/",GL_MEDIAURL_PREFIX,obj.url,obj.width,obj.height]]];
+    }];
+    
+    [cell setDynamicImages:imageList];
     return cell;
 }
 
 #pragma mark - delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 660.0 / 2.0;
+    return 660 / 2.0; /** dynamic height */
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self autoHideNav:scrollView];
+    [self autoRefresh:scrollView];
+}
+
 
 #pragma mark - user events
 #pragma mark - functions
@@ -114,7 +129,7 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
         
         GLGetAttentionDynamicListResDynamicModel *dynamic = self.dynamicList.lastObject;
         _last_adSort = result.result.adSort;
-        _last_timestamp = dynamic.createDate;
+        _last_timestamp = dynamic.updateDate;
         
     } ErrorCallback:^(NSError *error) {
         [self showHintHudWithMessage:error.localizedDescription];
@@ -156,6 +171,10 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
         [self.tableView insertRowsAtIndexPaths:insertIndexPathes withRowAnimation:UITableViewRowAnimationNone];
         [self.tableView endUpdates];
         
+        GLGetAttentionDynamicListResDynamicModel *dynamic = self.dynamicList.lastObject;
+        _last_adSort = result.result.adSort;
+        _last_timestamp = dynamic.updateDate;
+        
     } ErrorCallback:^(NSError *error) {
         [self showHintHudWithMessage:error.localizedDescription];
         
@@ -190,6 +209,43 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
 
 - (void)setDelegate:(id<GoodLookDynamicViewControllerDelegate>)delegate {
     
+}
+
+- (void)autoHideNav:(UIScrollView *)scrollView  {
+    if ([scrollView.panGestureRecognizer translationInView:scrollView].y > 0) {
+        if (_scrollDirection == GoodLookDScrollDirection_Down) {
+        }
+        else {
+            _scrollDirection = GoodLookDScrollDirection_Down;
+            [[NSNotificationCenter defaultCenter]postNotificationName:kNotificationShowNaviBar object:nil];
+        }
+    }
+    else {
+        if (_scrollDirection == GoodLookDScrollDirection_Up) {
+            
+        }
+        else {
+            _scrollDirection = GoodLookDScrollDirection_Up;
+            [[NSNotificationCenter defaultCenter]postNotificationName:kNotificationHideNaviBar object:nil];
+        }
+    }
+    
+}
+
+- (void)autoRefresh:(UIScrollView *)scrollView {
+    float scrollViewHeight = scrollView.frame.size.height;
+    float scrollContentSizeHeight = scrollView.contentSize.height;
+    float scrollOffset = scrollView.contentOffset.y;
+    
+    if (scrollOffset == 0)
+    {
+        // then we are at the top
+    }
+    else if (scrollOffset + scrollViewHeight > scrollContentSizeHeight / 1.5)
+    {
+        // then we are at the end
+        [self.tableView.mj_footer beginRefreshing];
+    }
 }
 
 #pragma mark - notification

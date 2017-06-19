@@ -7,9 +7,10 @@
 //
 
 #import "GLDynamicTableViewCell.h"
+#import "GLDynamicImageContainer.h"
 
 @interface GLDynamicTableViewCell()
-@property (nonatomic,strong) UIView *imageContainer;       /* 图片容器 */
+@property (nonatomic,strong) GLDynamicImageContainer *imageContainer;       /* 图片容器 */
 @end
 
 
@@ -59,6 +60,9 @@
 #pragma mark - user events
 #pragma mark - functions
 
+- (void)setDynamicImages:(NSArray <NSURL *>*)images {
+    [self.imageContainer setDynamicImages:images];
+}
 
 - (void)commonInit {
     [self.contentView addSubview:self.avatarImageView];
@@ -116,12 +120,11 @@
     [self.imageContainer scaleToParentRightWithMargin:10.0];
     
     [self.commentBtn sizeToFit];
-    [self.commentBtn layoutBelow:self.imageContainer margin:10.0];
     [self.commentBtn alignParentRightWithMargin:10.0];
-    
+    [self.commentBtn alignParentBottomWithMargin:20.0];
     [self.likeBtn sizeToFit];
     [self.likeBtn layoutToLeftOf:self.commentBtn margin:10.0];
-    [self.likeBtn layoutBelow:self.imageContainer margin:10.0];
+    [self.likeBtn alignParentBottomWithMargin:20.0];
     
 }
 
@@ -181,10 +184,7 @@
 
 - (UIView *)imageContainer {
     if (!_imageContainer) {
-        _imageContainer = [[UIView alloc]init];
-        _imageContainer.layer.contents = (id)[UIImage imageWithColor:[UIColor lightGrayColor]].CGImage;
-        _imageContainer.layer.cornerRadius = 5.0;
-        _imageContainer.layer.masksToBounds = YES;
+        _imageContainer = [[GLDynamicImageContainer alloc]init];
     }
     return _imageContainer;
 }

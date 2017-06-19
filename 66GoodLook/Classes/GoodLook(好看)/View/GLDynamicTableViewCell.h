@@ -26,5 +26,7 @@
 @property (nonatomic,weak) id<GLDynamicTableViewCellDataSource>dataSource;
 @property (nonatomic,weak) id<GLDynamicTableViewCellDelegate>delegate;
 
+- (void)setDynamicImages:(NSArray *)images;
+
 - (void)reloadData;
 @end
