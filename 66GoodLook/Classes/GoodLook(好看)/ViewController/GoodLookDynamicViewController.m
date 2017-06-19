@@ -79,12 +79,14 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
     cell.titleLabel.text = listItemModel.memberName;
     cell.detailTitleLabel.text = listItemModel.caption;
     
-    NSMutableArray *imageList = [NSMutableArray array];
-    [listItemModel.mediaList enumerateObjectsUsingBlock:^(GLGetAttentionDynamicListResMediaListModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [imageList addObject:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@?imageView2/1/format/jpg/quality/60/w/%@/h/%@/",GL_MEDIAURL_PREFIX,obj.url,obj.width,obj.height]]];
-    }];
-    
-    [cell setDynamicImages:imageList];
+    /** Config images */
+    if (listItemModel.type.intValue == 1 || listItemModel.type.intValue == 2) {
+        NSMutableArray *imageList = [NSMutableArray array];
+        [listItemModel.mediaList enumerateObjectsUsingBlock:^(GLGetAttentionDynamicListResMediaListModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [imageList addObject:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@?imageView2/1/format/jpg/quality/60/w/%@/h/%@/",GL_MEDIAURL_PREFIX,obj.url,obj.width,obj.height]]];
+        }];
+        [cell setDynamicImages:imageList];
+    }
     return cell;
 }
 
@@ -129,7 +131,7 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
         
         GLGetAttentionDynamicListResDynamicModel *dynamic = self.dynamicList.lastObject;
         _last_adSort = result.result.adSort;
-        _last_timestamp = dynamic.updateDate;
+        _last_timestamp = self.model ? dynamic.updateDate :  dynamic.createDate;
         
     } ErrorCallback:^(NSError *error) {
         [self showHintHudWithMessage:error.localizedDescription];
@@ -173,7 +175,7 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
         
         GLGetAttentionDynamicListResDynamicModel *dynamic = self.dynamicList.lastObject;
         _last_adSort = result.result.adSort;
-        _last_timestamp = dynamic.updateDate;
+        _last_timestamp = self.model ? dynamic.updateDate :  dynamic.createDate;
         
     } ErrorCallback:^(NSError *error) {
         [self showHintHudWithMessage:error.localizedDescription];

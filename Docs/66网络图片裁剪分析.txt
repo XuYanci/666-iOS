@@ -1,0 +1,10 @@
+参考url: https://developer.qiniu.com/dora/manual/1279/basic-processing-images-imageview2
+图像格式使用webp (这个是google的图像格式) : http://isux.tencent.com/introduction-of-webp.html
+
+主要是这两种裁剪:
+
+** 基本裁剪 **
+http://7xj5zf.com2.z0.glb.qiniucdn.com/o_1binr4819eqi1sv4uln1tr15gsg.jpg?imageView2/1/format/webp/quality/60/w/620/h/349/
+
+** 复杂裁剪 **
+http://7xj5zf.com2.z0.glb.qiniucdn.com/b74833f9-b42d-4987-91a3-325a57f73e93?imageMogr2/crop/!720x800a0a480/format/webp/quality/60/thumbnail/306.00x348.75

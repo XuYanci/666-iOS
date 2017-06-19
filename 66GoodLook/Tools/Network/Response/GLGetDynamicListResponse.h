@@ -18,6 +18,7 @@
 
 @interface GLGetAttentionDynamicListResDynamicModel : NSObject
 @property (nonatomic,copy) NSArray <GLGetAttentionDynamicListResMediaListModel *>*mediaList;
+@property (nonatomic,copy) NSString *coverUrl;
 @property (nonatomic,copy) NSString *entityType;
 @property (nonatomic,copy) NSString *memberId;
 @property (nonatomic,copy) NSString *memberName;
