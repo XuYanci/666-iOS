@@ -57,9 +57,12 @@
         return;
     }
     
-    NSDictionary *parameters = [request modelToJSONObject];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:[request modelToJSONObject]];
+    [parameters removeObjectForKey:@"cachePolicy"];
+    [parameters removeObjectForKey:@"cacheTimeOutInterval"];
+    
     [self sendPostRequestWithUrl:[MXBaseUrl baseUrl:method]
-                      parameters:parameters
+                      parameters:parameters.count > 0 ? parameters : nil
               beforeSendCallback:beforeSendCallback
                  SuccessCallBack:^(id result) {
 
@@ -126,10 +129,14 @@
         return;
     }
     
+ 
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:[request modelToJSONObject]];
+    [parameters removeObjectForKey:@"cachePolicy"];
+    [parameters removeObjectForKey:@"cacheTimeOutInterval"];
     
-    NSDictionary *parameters = [request modelToJSONObject];
+    
     [self sendGetRequestWithUrl:[MXBaseUrl baseUrl:method]
-                     parameters:parameters
+                     parameters:parameters.count > 0 ? parameters : nil
              beforeSendCallback:beforeSendCallback
                 SuccessCallBack:^(id result)
      {

@@ -182,7 +182,9 @@
 - (UIView *)imageContainer {
     if (!_imageContainer) {
         _imageContainer = [[UIView alloc]init];
-        _imageContainer.layer.contents = (id)[UIImage imageNamed:@"huati_bg1"].CGImage;
+        _imageContainer.layer.contents = (id)[UIImage imageWithColor:[UIColor lightGrayColor]].CGImage;
+        _imageContainer.layer.cornerRadius = 5.0;
+        _imageContainer.layer.masksToBounds = YES;
     }
     return _imageContainer;
 }

@@ -9,5 +9,7 @@
 #import "MXBaseRequest.h"
 
 @interface GLGetDynamicListRequest : MXBaseRequest
-
+@property (nonatomic,copy)NSString *topicId;
+@property (nonatomic,copy)NSString *adSort;
+@property (nonatomic,copy)NSNumber *timestamp;
 @end

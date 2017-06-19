@@ -231,10 +231,10 @@
 		AD44DC621E9B6FC7003C1576 /* NSString+JSONCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSONCategories.m"; sourceTree = "<group>"; };
 		AD44DC631E9B6FC7003C1576 /* NSString+OAURLEncodingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+OAURLEncodingAdditions.h"; sourceTree = "<group>"; };
 		AD44DC641E9B6FC7003C1576 /* NSString+OAURLEncodingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+OAURLEncodingAdditions.m"; sourceTree = "<group>"; };
-		AD44DC671E9B6FC7003C1576 /* UIFont+Replacement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Replacement.h"; sourceTree = "<group>"; };
-		AD44DC681E9B6FC7003C1576 /* UIFont+Replacement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Replacement.m"; sourceTree = "<group>"; };
-		AD44DC691E9B6FC7003C1576 /* UIImage+GradientColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GradientColor.h"; sourceTree = "<group>"; };
-		AD44DC6A1E9B6FC7003C1576 /* UIImage+GradientColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GradientColor.m"; sourceTree = "<group>"; };
+		AD44DC671E9B6FC7003C1576 /* UIFont+Replacement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+Replacement.h"; path = "../NSCategory/UIFont+Replacement.h"; sourceTree = "<group>"; };
+		AD44DC681E9B6FC7003C1576 /* UIFont+Replacement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+Replacement.m"; path = "../NSCategory/UIFont+Replacement.m"; sourceTree = "<group>"; };
+		AD44DC691E9B6FC7003C1576 /* UIImage+GradientColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+GradientColor.h"; path = "../NSCategory/UIImage+GradientColor.h"; sourceTree = "<group>"; };
+		AD44DC6A1E9B6FC7003C1576 /* UIImage+GradientColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GradientColor.m"; path = "../NSCategory/UIImage+GradientColor.m"; sourceTree = "<group>"; };
 		AD44DC6C1E9B6FC7003C1576 /* UIViewController+MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MBProgressHUD.h"; sourceTree = "<group>"; };
 		AD44DC6D1E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MBProgressHUD.m"; sourceTree = "<group>"; };
 		AD44DC771E9B70C6003C1576 /* XYPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPrefixHeader.pch; sourceTree = "<group>"; };
@@ -614,10 +614,6 @@
 				AD44DC621E9B6FC7003C1576 /* NSString+JSONCategories.m */,
 				AD44DC631E9B6FC7003C1576 /* NSString+OAURLEncodingAdditions.h */,
 				AD44DC641E9B6FC7003C1576 /* NSString+OAURLEncodingAdditions.m */,
-				AD44DC671E9B6FC7003C1576 /* UIFont+Replacement.h */,
-				AD44DC681E9B6FC7003C1576 /* UIFont+Replacement.m */,
-				AD44DC691E9B6FC7003C1576 /* UIImage+GradientColor.h */,
-				AD44DC6A1E9B6FC7003C1576 /* UIImage+GradientColor.m */,
 			);
 			path = NSCategory;
 			sourceTree = "<group>";
@@ -625,6 +621,10 @@
 		AD44DC6B1E9B6FC7003C1576 /* UICategory */ = {
 			isa = PBXGroup;
 			children = (
+				AD44DC671E9B6FC7003C1576 /* UIFont+Replacement.h */,
+				AD44DC681E9B6FC7003C1576 /* UIFont+Replacement.m */,
+				AD44DC691E9B6FC7003C1576 /* UIImage+GradientColor.h */,
+				AD44DC6A1E9B6FC7003C1576 /* UIImage+GradientColor.m */,
 				AD44DC6C1E9B6FC7003C1576 /* UIViewController+MBProgressHUD.h */,
 				AD44DC6D1E9B6FC7003C1576 /* UIViewController+MBProgressHUD.m */,
 				AD44DC791E9B7489003C1576 /* UIView+CustomAutoLayout.h */,
