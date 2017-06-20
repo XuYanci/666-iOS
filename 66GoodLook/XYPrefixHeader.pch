@@ -50,6 +50,9 @@
  *
  * Common Library
  */
+
+#import "YYFPSLabel.h"
+#import "GLQiniuImageHelper.h"
  
 
 

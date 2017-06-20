@@ -13,6 +13,11 @@
 @property (nonatomic,copy) NSNumber *width;
 @property (nonatomic,copy) NSNumber *height;
 @property (nonatomic,copy) NSNumber *type;
+@property (nonatomic,copy) NSNumber *duration;
+@property (nonatomic,copy) NSNumber *startX;
+@property (nonatomic,copy) NSNumber *startY;
+@property (nonatomic,copy) NSNumber *cropWidth;
+@property (nonatomic,copy) NSNumber *cropHeight;
 @property (nonatomic,copy) NSNumber *amount;
 @end
 

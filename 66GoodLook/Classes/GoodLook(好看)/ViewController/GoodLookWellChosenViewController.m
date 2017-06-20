@@ -87,10 +87,23 @@ static  NSString* const glWellChosenCollectionViewCellIdentifier  = @"glWellChos
     GLGetFineSelectionListResDynamicModel *listItemModel = [self.dynamicList objectAtIndex:indexPath.row];
     GLWellChosenCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:glWellChosenCollectionViewCellIdentifier forIndexPath:indexPath];
     
-    NSString *imageUrl = [NSString stringWithFormat:@"%@/%@?imageView2/1/format/jpg/quality/60/w/345/h/332/",GL_MEDIAURL_PREFIX,listItemModel.coverUrl];
+    
+    
+    NSString *imageUrl =  [GLQiniuImageHelper imageView2:GL_MEDIAURL_PREFIX
+                                               imagePath:listItemModel.coverUrl
+                                                  format:@"webp"
+                                                 quality:@"60"
+                                                   width:@"345"
+                                                  height:@"332"];
     [cell.coverImageView setImageWithURL:[NSURL URLWithString:imageUrl]
                            placeholder:nil];
-    NSString *avatarImageUrl = [NSString stringWithFormat:@"%@?imageView2/1/format/jpg/quality/60/w/70/h/70/",listItemModel.headerUrl ];
+    
+    NSString *avatarImageUrl =  [GLQiniuImageHelper imageView2:GL_MEDIAURL_PREFIX
+                                                     imagePath:listItemModel.coverUrl
+                                                        format:@"webp"
+                                                       quality:@"60"
+                                                         width:@"70"
+                                                        height:@"70"];
     [cell.avatarImageView setImageWithURL:[NSURL URLWithString:avatarImageUrl]
                               placeholder:[UIImage imageNamed:@"gj_img_logo"]];
     
