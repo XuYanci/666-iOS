@@ -73,12 +73,8 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
     GLGetAttentionDynamicListResDynamicModel *listItemModel = [self.dynamicList objectAtIndex:indexPath.row];
     GLDynamicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellDynamicIdentifier];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    
-    
-    
-    
-    NSString *avatarImageUrl = [GLQiniuImageHelper imageView2:@""
+
+    NSString *avatarImageUrl = [GLQiniuImageHelper imageView2:GL_MEDIAURL_PREFIX
                                                     imagePath:listItemModel.headerUrl format:@"webp"
                                                       quality:@"60"
                                                         width:@"70"
@@ -125,7 +121,41 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
 #pragma mark - delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 660 / 2.0; /** dynamic height */
+    
+    GLGetAttentionDynamicListResDynamicModel *listItemModel = [self.dynamicList objectAtIndex:indexPath.row];
+    
+    /** Config images */
+    NSMutableArray *imageList = [NSMutableArray array];
+    if (listItemModel.type.intValue == 1) {
+        [listItemModel.mediaList enumerateObjectsUsingBlock:^(GLGetAttentionDynamicListResMediaListModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            if (obj.startY.intValue == 0 && obj.startX.intValue == 0) {
+                NSString *imageUrl = [GLQiniuImageHelper imageView2:GL_MEDIAURL_PREFIX
+                                                          imagePath:obj.url
+                                                             format:@"webp"
+                                                            quality:@"60"
+                                                              width:obj.width.stringValue
+                                                             height:obj.height.stringValue];
+                [imageList addObject:[NSURL URLWithString:imageUrl]];
+            }
+            else {
+                NSString *imageUrl =  [GLQiniuImageHelper imageMogr2:GL_MEDIAURL_PREFIX
+                                                           imagePath:obj.url
+                                                           cropWidth:obj.cropWidth.stringValue
+                                                          cropHeight:obj.cropHeight.stringValue
+                                                              startX:obj.startX.stringValue
+                                                              startY:obj.startY.stringValue
+                                                              format:@"webp"
+                                                             quality:@"60"
+                                                      thumbnailWidth:obj.width.stringValue
+                                                     thumbnailHeight:obj.height.stringValue];
+                [imageList addObject:[NSURL URLWithString:imageUrl]];
+            }
+        }];
+    }
+    return [GLDynamicTableViewCell estimateHeight:listItemModel.caption
+                                           images:imageList
+                                             type:listItemModel.type.intValue];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

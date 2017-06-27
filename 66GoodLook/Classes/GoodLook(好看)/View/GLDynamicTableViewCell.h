@@ -26,7 +26,15 @@
 @property (nonatomic,weak) id<GLDynamicTableViewCellDataSource>dataSource;
 @property (nonatomic,weak) id<GLDynamicTableViewCellDelegate>delegate;
 
+/**
+ 计算高度
+ @param detailTitle 详细标题
+ @param images 图片Url集合
+ @param type 类型 图片、视频等
+ @return 返回列表行高度
+ */
++ (CGFloat)estimateHeight:(NSString *)detailTitle images:(NSArray *)images type:(NSUInteger)type;
 - (void)setDynamicImages:(NSArray *)images;
-
 - (void)reloadData;
+
 @end

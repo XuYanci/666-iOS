@@ -26,12 +26,12 @@
                   moduleName = "666"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yanci/Desktop/Yanci/YanciXuOwnProject/66GoodLook/66GoodLook/Classes/Main%20/GLMediaBrowser/GLAssetGridViewController.m"
-                  timestampString = "519624874.768628"
+                  timestampString = "520160858.929925"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "425"
                   endingLineNumber = "425"
-                  offsetFromSymbolStart = "428">
+                  offsetFromSymbolStart = "405">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -41,12 +41,12 @@
                   moduleName = "666"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yanci/Desktop/Yanci/YanciXuOwnProject/66GoodLook/66GoodLook/Classes/Main%20/GLMediaBrowser/GLAssetGridViewController.m"
-                  timestampString = "519624874.770362"
+                  timestampString = "520160858.933611"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "426"
                   endingLineNumber = "426"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>

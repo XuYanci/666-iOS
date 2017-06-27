@@ -60,6 +60,10 @@
 #pragma mark - user events
 #pragma mark - functions
 
+- (CGFloat)estimateHeight:(NSString *)detailTitle images:(NSArray *)images {
+    return 660 / 2.0;
+}
+
 - (void)setDynamicImages:(NSArray <NSURL *>*)images {
     [self.imageContainer setDynamicImages:images];
 }
