@@ -10,4 +10,5 @@
 
 @interface GLDynamicImageContainer : UIView
 - (void)setDynamicImages:(NSArray <NSURL *> *)images;
+- (NSArray <NSURL *> *)getDynamicImages;
 @end

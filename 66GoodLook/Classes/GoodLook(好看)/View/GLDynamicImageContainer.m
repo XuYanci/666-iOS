@@ -203,5 +203,9 @@
     
     [self setNeedsLayout];
 }
+    
+- (NSArray <NSURL *> *)getDynamicImages {
+    return _images;
+}
 
 @end

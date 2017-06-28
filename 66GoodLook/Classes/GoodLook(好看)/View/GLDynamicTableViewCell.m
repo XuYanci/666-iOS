@@ -60,8 +60,18 @@
 #pragma mark - user events
 #pragma mark - functions
 
-- (CGFloat)estimateHeight:(NSString *)detailTitle images:(NSArray *)images {
-    return 660 / 2.0;
++ (CGFloat)estimateHeight:(NSString *)detailTitle
+                   images:(NSArray *)images
+                     type:(NSUInteger)type {
+    
+    CGFloat width = [UIScreen mainScreen].bounds.size.width - 10 - 45 - 10 - 10;
+    UIFont  *font = [UIFont systemFontOfSize:17.0];
+    CGRect rect =  [detailTitle boundingRectWithSize:CGSizeMake(width, HUGE_VALF)
+                                             options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin
+                                          attributes:@{NSFontAttributeName : font}
+                                             context:nil];
+    CGFloat height =  5.0 + 45.0 + 5.0 + rect.size.height + (images.count > 0 ? 165.0 : 0.0) + 10.0 + 20.0 + 10.0;
+    return height;
 }
 
 - (void)setDynamicImages:(NSArray <NSURL *>*)images {
@@ -113,23 +123,34 @@
     [self.titleLabel alignParentTopWithMargin:5.0];
     [self.titleLabel scaleToLeftOf:self.timeLabel margin:10.0];
     
-    [self.detailTitleLabel layoutBelow:self.titleLabel margin:10.0];
+    [self.detailTitleLabel layoutBelow:self.avatarImageView margin:5.0];
     [self.detailTitleLabel alignLeft:self.titleLabel margin:0];
     [self.detailTitleLabel scaleToParentRightWithMargin:10.0];
     [self.detailTitleLabel sizeToFit]; /** size to fit must place here, other it first time will only display one line */
     
-    [self.imageContainer sizeWith:CGSizeMake(0, 165.0)];
-    [self.imageContainer layoutBelow:self.detailTitleLabel margin:10.0];
-    [self.imageContainer alignLeft:self.detailTitleLabel margin:0];
-    [self.imageContainer scaleToParentRightWithMargin:10.0];
-    
-    [self.commentBtn sizeToFit];
-    [self.commentBtn alignParentRightWithMargin:10.0];
-    [self.commentBtn alignParentBottomWithMargin:20.0];
-    [self.likeBtn sizeToFit];
-    [self.likeBtn layoutToLeftOf:self.commentBtn margin:10.0];
-    [self.likeBtn alignParentBottomWithMargin:20.0];
-    
+    if ([self.imageContainer getDynamicImages].count == 0) {
+        [self.imageContainer sizeWith:CGSizeZero];
+        [self.commentBtn sizeToFit];
+        [self.commentBtn alignParentRightWithMargin:10.0];
+        [self.commentBtn layoutBelow:self.detailTitleLabel margin:10.0];
+        [self.likeBtn sizeToFit];
+        [self.likeBtn layoutToLeftOf:self.commentBtn margin:10.0];
+        [self.likeBtn layoutBelow:self.detailTitleLabel margin:10.0];
+    }
+    else {
+        
+        [self.imageContainer sizeWith:CGSizeMake(0, 165.0)];
+        [self.imageContainer layoutBelow:self.detailTitleLabel margin:10.0];
+        [self.imageContainer alignLeft:self.detailTitleLabel margin:0];
+        [self.imageContainer scaleToParentRightWithMargin:10.0];
+        
+        [self.commentBtn sizeToFit];
+        [self.commentBtn alignParentRightWithMargin:10.0];
+        [self.commentBtn layoutBelow:self.imageContainer margin:10.0];
+        [self.likeBtn sizeToFit];
+        [self.likeBtn layoutToLeftOf:self.commentBtn margin:10.0];
+        [self.likeBtn layoutBelow:self.imageContainer margin:10.0];
+    }
 }
 
 - (void)reloadData {}
@@ -165,7 +186,6 @@
         _detailTitleLabel = [[UILabel alloc]init];
         _detailTitleLabel.numberOfLines = 3;
         _detailTitleLabel.text = @"GLViewPagerViewController is an common public control, it is usally used in news, here use UIPageViewController and UIScrollView as tab container to build it.";
-    
     }
     return _detailTitleLabel;
 }

@@ -85,9 +85,11 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
     cell.titleLabel.text = listItemModel.memberName;
     cell.detailTitleLabel.text = listItemModel.caption;
     
+    
+    NSMutableArray *imageList = [NSMutableArray array];
+    
     /** Config images */
     if (listItemModel.type.intValue == 1) {
-        NSMutableArray *imageList = [NSMutableArray array];
         [listItemModel.mediaList enumerateObjectsUsingBlock:^(GLGetAttentionDynamicListResMediaListModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             
             if (obj.startY.intValue == 0 && obj.startX.intValue == 0) {
@@ -113,8 +115,12 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
                 [imageList addObject:[NSURL URLWithString:imageUrl]];
             }
         }];
-        [cell setDynamicImages:imageList];
     }
+    /* Config video */
+    else if(listItemModel.type.intValue == 2) {
+    }
+    else {}
+    [cell setDynamicImages:imageList];
     return cell;
 }
 
@@ -153,6 +159,9 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
             }
         }];
     }
+    /* Config video */
+    else if(listItemModel.type.intValue == 2) {}
+    else {}
     return [GLDynamicTableViewCell estimateHeight:listItemModel.caption
                                            images:imageList
                                              type:listItemModel.type.intValue];
