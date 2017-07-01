@@ -16,6 +16,7 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
 @interface GoodLookDynamicViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)NSMutableArray *dynamicList;       /** list data */
+@property (nonatomic,strong)NSMutableArray *cacheCellRowHeights;
 @end
 
 @implementation GoodLookDynamicViewController {
@@ -120,6 +121,7 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
     else if(listItemModel.type.intValue == 2) {
     }
     else {}
+    
     [cell setDynamicImages:imageList];
     return cell;
 }
@@ -127,44 +129,8 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
 #pragma mark - delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    GLGetAttentionDynamicListResDynamicModel *listItemModel = [self.dynamicList objectAtIndex:indexPath.row];
-    
-    /** Config images */
-    NSMutableArray *imageList = [NSMutableArray array];
-    if (listItemModel.type.intValue == 1) {
-        [listItemModel.mediaList enumerateObjectsUsingBlock:^(GLGetAttentionDynamicListResMediaListModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            
-            if (obj.startY.intValue == 0 && obj.startX.intValue == 0) {
-                NSString *imageUrl = [GLQiniuImageHelper imageView2:GL_MEDIAURL_PREFIX
-                                                          imagePath:obj.url
-                                                             format:@"webp"
-                                                            quality:@"60"
-                                                              width:obj.width.stringValue
-                                                             height:obj.height.stringValue];
-                [imageList addObject:[NSURL URLWithString:imageUrl]];
-            }
-            else {
-                NSString *imageUrl =  [GLQiniuImageHelper imageMogr2:GL_MEDIAURL_PREFIX
-                                                           imagePath:obj.url
-                                                           cropWidth:obj.cropWidth.stringValue
-                                                          cropHeight:obj.cropHeight.stringValue
-                                                              startX:obj.startX.stringValue
-                                                              startY:obj.startY.stringValue
-                                                              format:@"webp"
-                                                             quality:@"60"
-                                                      thumbnailWidth:obj.width.stringValue
-                                                     thumbnailHeight:obj.height.stringValue];
-                [imageList addObject:[NSURL URLWithString:imageUrl]];
-            }
-        }];
-    }
-    /* Config video */
-    else if(listItemModel.type.intValue == 2) {}
-    else {}
-    return [GLDynamicTableViewCell estimateHeight:listItemModel.caption
-                                           images:imageList
-                                             type:listItemModel.type.intValue];
+    NSNumber *cellHeight = [self.cacheCellRowHeights objectAtIndex:indexPath.row];
+    return cellHeight.floatValue;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -196,6 +162,11 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
         [self.dynamicList removeAllObjects];
         [self.dynamicList addObjectsFromArray:result.result.dynamic];
         
+        [self.cacheCellRowHeights  removeAllObjects];
+        [result.result.dynamic enumerateObjectsUsingBlock:^(GLGetAttentionDynamicListResDynamicModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [self.cacheCellRowHeights addObject:[NSNumber numberWithFloat:[self getCellRowHeightForModel:obj]]];
+        }];
+        
         self.tableView.mj_footer = [GLRefreshFooter footerWithRefreshingBlock:^{
             [self footerRefresh];
         }];
@@ -208,6 +179,8 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
         [self showHintHudWithMessage:error.localizedDescription];
     } CompleteCallback:^(NSError *error, id result) {
         [self.tableView.mj_header endRefreshing];
+        
+ 
         [self.tableView reloadData];
         
     }];
@@ -239,6 +212,10 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
         }
         
         [self.dynamicList addObjectsFromArray:result.result.dynamic];
+        [result.result.dynamic enumerateObjectsUsingBlock:^(GLGetAttentionDynamicListResDynamicModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [self.cacheCellRowHeights addObject:[NSNumber numberWithFloat:[self getCellRowHeightForModel:obj]]];
+        }];
+        
         
         [self.tableView beginUpdates];
         [self.tableView insertRowsAtIndexPaths:insertIndexPathes withRowAnimation:UITableViewRowAnimationNone];
@@ -259,6 +236,10 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
 
 - (void)reloadData {
     
+}
+    
+- (void)resetScrollDirection:(GoodLookDScrollDirection)direction {
+    _scrollDirection = direction;
 }
 
 - (void)_setNeedsReload {
@@ -321,6 +302,44 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
     }
 }
 
+- (CGFloat)getCellRowHeightForModel:(GLGetAttentionDynamicListResDynamicModel *)listItemModel {
+    /** Config images */
+    NSMutableArray *imageList = [NSMutableArray array];
+    if (listItemModel.type.intValue == 1) {
+        [listItemModel.mediaList enumerateObjectsUsingBlock:^(GLGetAttentionDynamicListResMediaListModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            if (obj.startY.intValue == 0 && obj.startX.intValue == 0) {
+                NSString *imageUrl = [GLQiniuImageHelper imageView2:GL_MEDIAURL_PREFIX
+                                                          imagePath:obj.url
+                                                             format:@"webp"
+                                                            quality:@"60"
+                                                              width:obj.width.stringValue
+                                                             height:obj.height.stringValue];
+                [imageList addObject:[NSURL URLWithString:imageUrl]];
+            }
+            else {
+                NSString *imageUrl =  [GLQiniuImageHelper imageMogr2:GL_MEDIAURL_PREFIX
+                                                           imagePath:obj.url
+                                                           cropWidth:obj.cropWidth.stringValue
+                                                          cropHeight:obj.cropHeight.stringValue
+                                                              startX:obj.startX.stringValue
+                                                              startY:obj.startY.stringValue
+                                                              format:@"webp"
+                                                             quality:@"60"
+                                                      thumbnailWidth:obj.width.stringValue
+                                                     thumbnailHeight:obj.height.stringValue];
+                [imageList addObject:[NSURL URLWithString:imageUrl]];
+            }
+        }];
+    }
+    /* Config video */
+    else if(listItemModel.type.intValue == 2) {}
+    else {}
+    return [GLDynamicTableViewCell estimateHeight:listItemModel.caption
+                                           images:imageList
+                                             type:listItemModel.type.intValue];
+}
+    
 #pragma mark - notification
 #pragma mark - getter and setter
 
@@ -345,5 +364,11 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
     return _dynamicList;
 }
 
+- (NSMutableArray *)cacheCellRowHeights {
+    if (!_cacheCellRowHeights) {
+        _cacheCellRowHeights = [NSMutableArray array];
+    }
+    return _cacheCellRowHeights;
+}
 
 @end

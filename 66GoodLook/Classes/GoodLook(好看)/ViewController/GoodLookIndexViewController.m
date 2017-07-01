@@ -97,6 +97,12 @@ NSString* const  kNotificationHideNaviBar = @"notif_hideNaviBar";
     GoodLookWellChosenViewController *wellChosenViewController = [self.viewControllers objectAtIndex:1];
     [wellChosenViewController resetScrollDirection:GoodLookScrollDirection_Up];
   
+    
+    for (NSUInteger i = 1; i < self.viewControllers.count; i++) {
+        GoodLookDynamicViewController *dynamicViewController = [self.viewControllers objectAtIndex:i];
+        [dynamicViewController resetScrollDirection:GoodLookDScrollDirection_Up];
+    }
+    
     // Here has a funny thing , if you change navigationbar height , and change view height will not effective, but change navbar transitionview will effective.
     if (_showNaviBar) {
         [UIView animateWithDuration:0.5 animations:^{
@@ -121,6 +127,12 @@ NSString* const  kNotificationHideNaviBar = @"notif_hideNaviBar";
     
     GoodLookWellChosenViewController *wellChosenViewController = [self.viewControllers objectAtIndex:1];
     [wellChosenViewController resetScrollDirection:GoodLookScrollDirection_Down];
+    
+    for (NSUInteger i = 1; i < self.viewControllers.count; i++) {
+        GoodLookDynamicViewController *dynamicViewController = [self.viewControllers objectAtIndex:i];
+        [dynamicViewController resetScrollDirection:GoodLookDScrollDirection_Down];
+    }
+    
     
     if (!_showNaviBar) {
         [self.navigationController.navigationBar setTitleTextAttributes:

@@ -64,15 +64,19 @@
                    images:(NSArray *)images
                      type:(NSUInteger)type {
     
-    CGFloat width = [UIScreen mainScreen].bounds.size.width - 10 - 45 - 10 - 10;
+    UILabel *detailTitleLabel = prototypeDetailTitleLabel();
+    CGFloat width = [UIScreen mainScreen].bounds.size.width - 10 - 35 - 10 - 10;
     UIFont  *font = [UIFont systemFontOfSize:17.0];
-    CGRect rect =  [detailTitle boundingRectWithSize:CGSizeMake(width, HUGE_VALF)
-                                             options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin
-                                          attributes:@{NSFontAttributeName : font}
-                                             context:nil];
-    CGFloat height =  5.0 + 45.0 + 5.0 + rect.size.height + (images.count > 0 ? 165.0 : 0.0) + 10.0 + 20.0 + 10.0;
-    return height;
+    
+    detailTitleLabel.text = detailTitle;
+    detailTitleLabel.font = font;
+    detailTitleLabel.numberOfLines = 3;
+    
+    CGFloat height = [detailTitleLabel sizeThatFits:CGSizeMake(width, HUGE_VALF)].height;
+    CGFloat estimateHeight =  5.0 + 45.0 + 5.0 + height + (images.count > 0 ? 165.0 : 0.0) + 10.0 + 20.0 + 10.0;
+    return estimateHeight;
 }
+
 
 - (void)setDynamicImages:(NSArray <NSURL *>*)images {
     [self.imageContainer setDynamicImages:images];
@@ -124,7 +128,7 @@
     [self.titleLabel scaleToLeftOf:self.timeLabel margin:10.0];
     
     [self.detailTitleLabel layoutBelow:self.avatarImageView margin:5.0];
-    [self.detailTitleLabel alignLeft:self.titleLabel margin:0];
+    [self.detailTitleLabel layoutToRightOf:self.avatarImageView margin:10.0];
     [self.detailTitleLabel scaleToParentRightWithMargin:10.0];
     [self.detailTitleLabel sizeToFit]; /** size to fit must place here, other it first time will only display one line */
     
@@ -188,6 +192,13 @@
         _detailTitleLabel.text = @"GLViewPagerViewController is an common public control, it is usally used in news, here use UIPageViewController and UIScrollView as tab container to build it.";
     }
     return _detailTitleLabel;
+}
+    
+static UILabel* prototypeDetailTitleLabel() {
+    static UILabel *titleLabel = nil;
+    titleLabel = [[UILabel alloc]init];
+    titleLabel.numberOfLines = 3;
+    return titleLabel;
 }
 
 - (UIButton *)commentBtn {
