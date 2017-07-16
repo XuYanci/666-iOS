@@ -37,4 +37,13 @@
 - (void)setDynamicImages:(NSArray *)images;
 - (void)reloadData;
 
+/**
+ 计算图片占用宽度
+
+ @param imagesCount 图片个数
+ @return 图片占用宽度
+ */
+- (NSArray*)rectsForImages:(NSUInteger)imageCount;
+
+
 @end

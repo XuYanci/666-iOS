@@ -79,6 +79,8 @@
 
 
 - (void)setDynamicImages:(NSArray <NSURL *>*)images {
+  
+
     [self.imageContainer setDynamicImages:images];
 }
 
@@ -159,6 +161,92 @@
 
 - (void)reloadData {}
 - (void)setFrame:(CGRect)frame { [super setFrame:frame];}
+
+- (NSArray*)rectsForImages:(NSUInteger)imageCount {
+    NSMutableArray *arr = [NSMutableArray array];
+    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width - 10  - 35 - 10, 165.0);
+    if (imageCount == 1) {
+        NSValue *value = [NSValue valueWithCGRect:CGRectMake(0, 0, size.width, size.height)];
+        [arr addObject:value];
+    }
+    else if(imageCount == 2) {
+        CGFloat width = size.width;
+        CGFloat height = size.height;
+        CGRect rect1 = CGRectMake(0,
+                                  0,
+                                  width / 2.0 - 5.0,
+                                  height);
+        
+        CGRect rect2 =  CGRectMake(0,
+                                   0,
+                                   width / 2.0 - 5.0,
+                                   height);
+        
+        NSValue *value = [NSValue valueWithCGRect:rect1];
+        [arr addObject:value];
+        NSValue *value1 = [NSValue valueWithCGRect:rect2];
+        [arr addObject:value1];
+        
+    }
+    else if(imageCount == 3) {
+        CGFloat width = size.width;
+        CGFloat height = size.height;
+        
+        CGRect rect1 = CGRectMake(0,
+                                  0,
+                                  width / 2.0 - 5.0,
+                                  height);
+        
+        CGRect rect2 = CGRectMake(0,
+                                  0,
+                                  width / 2.0 - 5.0,
+                                  height / 2.0 - 5.0);
+        
+        CGRect rect3 = CGRectMake(0,
+                                  0,
+                                  width / 2.0 - 5.0,
+                                  height / 2.0 - 5.0);
+        
+        NSValue *value = [NSValue valueWithCGRect:rect1];
+        [arr addObject:value];
+        NSValue *value1 = [NSValue valueWithCGRect:rect2];
+        [arr addObject:value1];
+        NSValue *value2 = [NSValue valueWithCGRect:rect3];
+        [arr addObject:value2];
+    }
+    else if(imageCount == 4) {
+        CGFloat width = size.width;
+        CGFloat height = size.height;
+        
+        CGRect rect1 = CGRectMake(0,
+                                  0,
+                                  width / 2.0 - 5.0,
+                                  height / 2.0 - 5.0);
+        CGRect rect2 = CGRectMake(0,
+                                  0,
+                                  width / 2.0 - 5.0,
+                                  height / 2.0 - 5.0);
+        CGRect rect3 = CGRectMake(0,
+                                  0,
+                                  width / 2.0 - 5.0,
+                                  height / 2.0 - 5.0);
+        CGRect rect4 = CGRectMake(0,
+                                  0,
+                                  width / 2.0 - 5.0,
+                                  height / 2.0 - 5.0);
+        
+        NSValue *value = [NSValue valueWithCGRect:rect1];
+        [arr addObject:value];
+        NSValue *value1 = [NSValue valueWithCGRect:rect2];
+        [arr addObject:value1];
+        NSValue *value2 = [NSValue valueWithCGRect:rect3];
+        [arr addObject:value2];
+        NSValue *value3 = [NSValue valueWithCGRect:rect4];
+        [arr addObject:value3];
+    }
+    return arr;
+}
+
 #pragma mark - notification
 #pragma mark - getter and setter
 - (UIImageView *)avatarImageView {

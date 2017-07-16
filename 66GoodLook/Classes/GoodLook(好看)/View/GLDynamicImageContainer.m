@@ -124,6 +124,7 @@
             imageView.layer.masksToBounds = YES;
             [imageView setImageWithURL:[images firstObject] placeholder:[UIImage imageWithColor:[UIColor redColor]]];
             [self addSubview:imageView];
+        
         }
             break;
         case 2:
