@@ -4,14 +4,15 @@
 
 # Project Structure 
 
-![666](./readme~resource/project_structure.png)
+<img src="./readme~resource/project_structure.png" width = "160" height = "80" alt="" align=center />
 
 # Demo Run 
- <img src="./readme~resource/1.png" style="width:124px;height:220px; align:left" />
- <img src="./readme~resource/2.png" style="width:124px;height:220px; align:left" />
- <img src="./readme~resource/3.png" style="width:124px;height:220px; align:left" />
- <img src="./readme~resource/4.png" style="width:124px;height:220px; align:left" />
- <img src="./readme~resource/5.png" style="width:124px;height:220px; align:left" />
+ <img src="./readme~resource/1.png" width = "188" height = "333" alt="" align=center />
+ <img src="./readme~resource/2.png" width = "188" height = "333" alt="" align=center />
+ <img src="./readme~resource/3.png" width = "188" height = "333" alt="" align=center />
+ <img src="./readme~resource/4.png" width = "188" height = "333" alt="" align=center />
+ <img src="./readme~resource/5.png" width = "188" height = "333" alt="" align=center />
+
 # Requirements
 +Supports iOS 9 and above.
 
