@@ -1,18 +1,22 @@
- # 666
-an exercise project like 66.
- 
-# Demo演示
+# 666 
 
- <img src="./readme~resource/1.png" width = "188" height = "333" alt="" align=center />
+蹲家时间模仿起小点推荐的App “66” 中的好看界面 . 
 
- <img src="./readme~resource/2.png" width = "188" height = "333" alt="" align=center />
+# Project Structure 
 
- <img src="./readme~resource/3.png" width = "188" height = "333" alt="" align=center />
+![666](./readme~resource/project_structure.png)
 
- <img src="./readme~resource/4.png" width = "188" height = "333" alt="" align=center />
-
- <img src="./readme~resource/5.png" width = "188" height = "333" alt="" align=center />
-
-
+# Demo Run 
+ <img src="./readme~resource/1.png" style="width:124px;height:220px; align:left" />
+ <img src="./readme~resource/2.png" style="width:124px;height:220px; align:left" />
+ <img src="./readme~resource/3.png" style="width:124px;height:220px; align:left" />
+ <img src="./readme~resource/4.png" style="width:124px;height:220px; align:left" />
+ <img src="./readme~resource/5.png" style="width:124px;height:220px; align:left" />
 # Requirements
 +Supports iOS 9 and above.
+
+# Continue 
+
+
+
+
