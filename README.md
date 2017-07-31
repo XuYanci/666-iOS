@@ -4,7 +4,7 @@
 
 # Project Structure 
 
-<img src="./readme~resource/project_structure.png" width = "160" height = "80" alt="" align=center />
+<img src="./readme~resource/project_structure.png" width = "400" height = "328" alt="" align=center />
 
 # Demo Run 
  <img src="./readme~resource/1.png" width = "188" height = "333" alt="" align=center />
