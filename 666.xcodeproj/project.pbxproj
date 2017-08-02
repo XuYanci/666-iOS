@@ -13,7 +13,6 @@
 		AD0082431EE0176D0010BD08 /* GLWellChosenCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0082421EE0176D0010BD08 /* GLWellChosenCollectionViewCell.m */; };
 		AD0082461EE01F470010BD08 /* GLRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0082451EE01F470010BD08 /* GLRefreshFooter.m */; };
 		AD244EC81EDD7A9200E7FEAD /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD244EC71EDD7A9200E7FEAD /* YYFPSLabel.m */; };
-		AD29C73B1ECAB4AC0061175B /* concern_point.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD29C73A1ECAB4AC0061175B /* concern_point.txt */; };
 		AD31FAD91E9B16B400523AC9 /* MXBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F93E1E9B16B400523AC9 /* MXBaseRequest.m */; };
 		AD31FADA1E9B16B400523AC9 /* MXBaseResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F9401E9B16B400523AC9 /* MXBaseResponse.m */; };
 		AD31FADB1E9B16B400523AC9 /* MXBaseUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31F9431E9B16B400523AC9 /* MXBaseUrl.m */; };
@@ -24,7 +23,6 @@
 		AD31FBA11E9B178900523AC9 /* DesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31FB981E9B178900523AC9 /* DesHelper.m */; };
 		AD31FBA21E9B178900523AC9 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31FB9B1E9B178900523AC9 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AD31FBA31E9B178900523AC9 /* MD5Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = AD31FB9F1E9B178900523AC9 /* MD5Encrypt.m */; };
-		AD3E8E571EF2CAAF005DB10F /* db_relations.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD3E8E561EF2CAAF005DB10F /* db_relations.txt */; };
 		AD4215461EA8DA28002FBC26 /* GLChatInputBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4215411EA8DA28002FBC26 /* GLChatInputBaseView.m */; };
 		AD4215471EA8DA28002FBC26 /* GLChatInputPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4215431EA8DA28002FBC26 /* GLChatInputPanel.m */; };
 		AD4215481EA8DA28002FBC26 /* GLChatInputToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4215451EA8DA28002FBC26 /* GLChatInputToolBar.m */; };
@@ -61,9 +59,7 @@
 		AD59FD4D1EF57EF0008FC3AD /* GLDynamicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD59FD4C1EF57EF0008FC3AD /* GLDynamicTableViewCell.m */; };
 		AD59FD501EF66B6D008FC3AD /* GoodLookDynamicDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD59FD4F1EF66B6D008FC3AD /* GoodLookDynamicDetailViewController.m */; };
 		AD6118051EF7FB66005FCD47 /* GLDynamicImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6118041EF7FB66005FCD47 /* GLDynamicImageContainer.m */; };
-		AD6118071EF81B8B005FCD47 /* 66网络图片裁剪分析.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD6118061EF81B8B005FCD47 /* 66网络图片裁剪分析.txt */; };
 		AD61180A1EF8CDDF005FCD47 /* GLQiniuImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6118091EF8CDDF005FCD47 /* GLQiniuImageHelper.m */; };
-		AD6B224C1ED6787C00C92220 /* iOS 保持界面流畅的技巧 | Garan no dou.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AD6B224B1ED6787C00C92220 /* iOS 保持界面流畅的技巧 | Garan no dou.pdf */; };
 		AD6B224F1ED80F1E00C92220 /* GLGetDefaultTopicListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6B224E1ED80F1E00C92220 /* GLGetDefaultTopicListRequest.m */; };
 		AD6B22521ED80F2E00C92220 /* GLGetDefaultTopicListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6B22511ED80F2E00C92220 /* GLGetDefaultTopicListResponse.m */; };
 		AD6B22551ED8124B00C92220 /* GLGetDynamicListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6B22541ED8124B00C92220 /* GLGetDynamicListRequest.m */; };
@@ -86,29 +82,15 @@
 		AD841CD61EB82D4D007A3EDF /* GLAlreadyPickPicVidCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CD51EB82D4D007A3EDF /* GLAlreadyPickPicVidCollectionViewCell.m */; };
 		AD841CD91EB9CE24007A3EDF /* MBProgressHUD+GL.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CD81EB9CE24007A3EDF /* MBProgressHUD+GL.m */; };
 		AD841CDC1EB9D459007A3EDF /* GLAssetGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD841CDB1EB9D459007A3EDF /* GLAssetGridViewController.m */; };
-		AD9694151EAAF217008D9170 /* ref_gitmarkdown.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD9694141EAAF217008D9170 /* ref_gitmarkdown.txt */; };
 		ADA17AAF1E9C469B00FA0FF9 /* GLMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AAE1E9C469B00FA0FF9 /* GLMainTabBarViewController.m */; };
 		ADA17AB61E9C579E00FA0FF9 /* GLViewPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AB51E9C579E00FA0FF9 /* GLViewPagerViewController.m */; };
 		ADA17AB91E9C581500FA0FF9 /* GoodLookDynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AB81E9C581500FA0FF9 /* GoodLookDynamicViewController.m */; };
 		ADA17ABC1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17ABB1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m */; };
-		ADA17AC11E9C586700FA0FF9 /* ref_note_viewcontroller.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA17ABE1E9C586700FA0FF9 /* ref_note_viewcontroller.txt */; };
-		ADA17AC21E9C586700FA0FF9 /* ref_note.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA17ABF1E9C586700FA0FF9 /* ref_note.txt */; };
-		ADA17AC31E9C586700FA0FF9 /* structure_project in Resources */ = {isa = PBXBuildFile; fileRef = ADA17AC01E9C586700FA0FF9 /* structure_project */; };
-		ADA7ECB11EE3D45100D3D142 /* optimizeUI.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA7ECB01EE3D45100D3D142 /* optimizeUI.txt */; };
-		ADA7ECB31EE6667B00D3D142 /* prepare_interview.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA7ECB21EE6667B00D3D142 /* prepare_interview.txt */; };
-		ADA7ECB51EE69EB100D3D142 /* trick_objc_syntax.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA7ECB41EE69EB100D3D142 /* trick_objc_syntax.txt */; };
-		ADA7ECB71EE6E1FC00D3D142 /* lifecycle_viewcontroller.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADA7ECB61EE6E1FC00D3D142 /* lifecycle_viewcontroller.txt */; };
-		ADA7ECBC1EE6F40600D3D142 /* summary_instantmessage in Resources */ = {isa = PBXBuildFile; fileRef = ADA7ECBB1EE6F40600D3D142 /* summary_instantmessage */; };
-		ADB0D7CF1EA4FDF0003C4901 /* designpattern.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADB0D7CE1EA4FDF0003C4901 /* designpattern.txt */; };
-		ADBBA9651EA64F9F00C58D5C /* structure_view.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADBBA9641EA64F9F00C58D5C /* structure_view.txt */; };
-		ADBF2A951EE99AA400E21879 /* faq_tech.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADBF2A941EE99AA400E21879 /* faq_tech.txt */; };
-		ADC0DBB01ECDA17F002859A9 /* structure_viewcontroller.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADC0DBAF1ECDA17F002859A9 /* structure_viewcontroller.txt */; };
 		ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */; };
 		ADC1720E1E9A44FC005DFCEE /* ApplicationServiceBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC1720D1E9A44FC005DFCEE /* ApplicationServiceBase.m */; };
 		ADC34E4F1E9E571200E3D70B /* GoodLookIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC34E4E1E9E571200E3D70B /* GoodLookIndexViewController.m */; };
 		ADC472961ED5646100F35156 /* GLAssetCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC472931ED5646100F35156 /* GLAssetCollectionViewCell.m */; };
 		ADC472971ED5646100F35156 /* GLAssetPlaybackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC472951ED5646100F35156 /* GLAssetPlaybackViewController.m */; };
-		ADC472991ED5B77700F35156 /* 66网络抓包分析 in Resources */ = {isa = PBXBuildFile; fileRef = ADC472981ED5B77700F35156 /* 66网络抓包分析 */; };
 		ADDDB99A1E7780F8003526DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDDB9991E7780F8003526DF /* main.m */; };
 		ADDDB9A01E7780F8003526DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDDB99F1E7780F8003526DF /* ViewController.m */; };
 		ADDDB9A31E7780F8003526DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADDDB9A11E7780F8003526DF /* Main.storyboard */; };
@@ -153,7 +135,6 @@
 		AD0082451EE01F470010BD08 /* GLRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLRefreshFooter.m; sourceTree = "<group>"; };
 		AD244EC61EDD7A9200E7FEAD /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
 		AD244EC71EDD7A9200E7FEAD /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
-		AD29C73A1ECAB4AC0061175B /* concern_point.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = concern_point.txt; sourceTree = "<group>"; };
 		AD31F93D1E9B16B400523AC9 /* MXBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBaseRequest.h; sourceTree = "<group>"; };
 		AD31F93E1E9B16B400523AC9 /* MXBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXBaseRequest.m; sourceTree = "<group>"; };
 		AD31F93F1E9B16B400523AC9 /* MXBaseResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBaseResponse.h; sourceTree = "<group>"; };
@@ -176,7 +157,6 @@
 		AD31FB9C1E9B178900523AC9 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		AD31FB9E1E9B178900523AC9 /* MD5Encrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Encrypt.h; sourceTree = "<group>"; };
 		AD31FB9F1E9B178900523AC9 /* MD5Encrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Encrypt.m; sourceTree = "<group>"; };
-		AD3E8E561EF2CAAF005DB10F /* db_relations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = db_relations.txt; sourceTree = "<group>"; };
 		AD4215401EA8DA28002FBC26 /* GLChatInputBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLChatInputBaseView.h; sourceTree = "<group>"; };
 		AD4215411EA8DA28002FBC26 /* GLChatInputBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLChatInputBaseView.m; sourceTree = "<group>"; };
 		AD4215421EA8DA28002FBC26 /* GLChatInputPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLChatInputPanel.h; sourceTree = "<group>"; };
@@ -250,10 +230,8 @@
 		AD59FD4F1EF66B6D008FC3AD /* GoodLookDynamicDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodLookDynamicDetailViewController.m; sourceTree = "<group>"; };
 		AD6118031EF7FB66005FCD47 /* GLDynamicImageContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLDynamicImageContainer.h; sourceTree = "<group>"; };
 		AD6118041EF7FB66005FCD47 /* GLDynamicImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLDynamicImageContainer.m; sourceTree = "<group>"; };
-		AD6118061EF81B8B005FCD47 /* 66网络图片裁剪分析.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "66网络图片裁剪分析.txt"; sourceTree = "<group>"; };
 		AD6118081EF8CDDF005FCD47 /* GLQiniuImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLQiniuImageHelper.h; sourceTree = "<group>"; };
 		AD6118091EF8CDDF005FCD47 /* GLQiniuImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLQiniuImageHelper.m; sourceTree = "<group>"; };
-		AD6B224B1ED6787C00C92220 /* iOS 保持界面流畅的技巧 | Garan no dou.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "iOS 保持界面流畅的技巧 | Garan no dou.pdf"; sourceTree = "<group>"; };
 		AD6B224D1ED80F1E00C92220 /* GLGetDefaultTopicListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLGetDefaultTopicListRequest.h; sourceTree = "<group>"; };
 		AD6B224E1ED80F1E00C92220 /* GLGetDefaultTopicListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLGetDefaultTopicListRequest.m; sourceTree = "<group>"; };
 		AD6B22501ED80F2E00C92220 /* GLGetDefaultTopicListResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLGetDefaultTopicListResponse.h; sourceTree = "<group>"; };
@@ -299,7 +277,6 @@
 		AD841CDA1EB9D459007A3EDF /* GLAssetGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAssetGridViewController.h; sourceTree = "<group>"; };
 		AD841CDB1EB9D459007A3EDF /* GLAssetGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAssetGridViewController.m; sourceTree = "<group>"; };
 		AD9694131EAA47AF008D9170 /* GLChatInputAbleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLChatInputAbleView.h; sourceTree = "<group>"; };
-		AD9694141EAAF217008D9170 /* ref_gitmarkdown.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ref_gitmarkdown.txt; sourceTree = "<group>"; };
 		ADA17AAD1E9C469B00FA0FF9 /* GLMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMainTabBarViewController.h; sourceTree = "<group>"; };
 		ADA17AAE1E9C469B00FA0FF9 /* GLMainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMainTabBarViewController.m; sourceTree = "<group>"; };
 		ADA17AB41E9C579E00FA0FF9 /* GLViewPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLViewPagerViewController.h; sourceTree = "<group>"; };
@@ -308,18 +285,6 @@
 		ADA17AB81E9C581500FA0FF9 /* GoodLookDynamicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodLookDynamicViewController.m; sourceTree = "<group>"; };
 		ADA17ABA1E9C583900FA0FF9 /* GoodLookWellChosenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodLookWellChosenViewController.h; sourceTree = "<group>"; };
 		ADA17ABB1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodLookWellChosenViewController.m; sourceTree = "<group>"; };
-		ADA17ABE1E9C586700FA0FF9 /* ref_note_viewcontroller.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ref_note_viewcontroller.txt; sourceTree = "<group>"; };
-		ADA17ABF1E9C586700FA0FF9 /* ref_note.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ref_note.txt; sourceTree = "<group>"; };
-		ADA17AC01E9C586700FA0FF9 /* structure_project */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = structure_project; sourceTree = "<group>"; };
-		ADA7ECB01EE3D45100D3D142 /* optimizeUI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = optimizeUI.txt; sourceTree = "<group>"; };
-		ADA7ECB21EE6667B00D3D142 /* prepare_interview.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prepare_interview.txt; sourceTree = "<group>"; };
-		ADA7ECB41EE69EB100D3D142 /* trick_objc_syntax.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = trick_objc_syntax.txt; sourceTree = "<group>"; };
-		ADA7ECB61EE6E1FC00D3D142 /* lifecycle_viewcontroller.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lifecycle_viewcontroller.txt; sourceTree = "<group>"; };
-		ADA7ECBB1EE6F40600D3D142 /* summary_instantmessage */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = summary_instantmessage; sourceTree = "<group>"; };
-		ADB0D7CE1EA4FDF0003C4901 /* designpattern.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = designpattern.txt; sourceTree = "<group>"; };
-		ADBBA9641EA64F9F00C58D5C /* structure_view.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = structure_view.txt; sourceTree = "<group>"; };
-		ADBF2A941EE99AA400E21879 /* faq_tech.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = faq_tech.txt; sourceTree = "<group>"; };
-		ADC0DBAF1ECDA17F002859A9 /* structure_viewcontroller.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = structure_viewcontroller.txt; sourceTree = "<group>"; };
 		ADC172061E9A4071005DFCEE /* ApplicationServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceManager.h; sourceTree = "<group>"; };
 		ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationServiceManager.m; sourceTree = "<group>"; };
 		ADC1720C1E9A44FC005DFCEE /* ApplicationServiceBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceBase.h; sourceTree = "<group>"; };
@@ -330,7 +295,6 @@
 		ADC472931ED5646100F35156 /* GLAssetCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAssetCollectionViewCell.m; sourceTree = "<group>"; };
 		ADC472941ED5646100F35156 /* GLAssetPlaybackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAssetPlaybackViewController.h; sourceTree = "<group>"; };
 		ADC472951ED5646100F35156 /* GLAssetPlaybackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAssetPlaybackViewController.m; sourceTree = "<group>"; };
-		ADC472981ED5B77700F35156 /* 66网络抓包分析 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "66网络抓包分析"; sourceTree = "<group>"; };
 		ADDDB9951E7780F8003526DF /* 666.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 666.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADDDB9991E7780F8003526DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ADDDB99E1E7780F8003526DF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -950,31 +914,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		ADA17ABD1E9C586700FA0FF9 /* Docs */ = {
-			isa = PBXGroup;
-			children = (
-				AD6B224B1ED6787C00C92220 /* iOS 保持界面流畅的技巧 | Garan no dou.pdf */,
-				AD9694141EAAF217008D9170 /* ref_gitmarkdown.txt */,
-				ADB0D7CE1EA4FDF0003C4901 /* designpattern.txt */,
-				ADA17ABE1E9C586700FA0FF9 /* ref_note_viewcontroller.txt */,
-				ADA17ABF1E9C586700FA0FF9 /* ref_note.txt */,
-				ADA17AC01E9C586700FA0FF9 /* structure_project */,
-				ADBBA9641EA64F9F00C58D5C /* structure_view.txt */,
-				ADC0DBAF1ECDA17F002859A9 /* structure_viewcontroller.txt */,
-				AD29C73A1ECAB4AC0061175B /* concern_point.txt */,
-				ADC472981ED5B77700F35156 /* 66网络抓包分析 */,
-				AD6118061EF81B8B005FCD47 /* 66网络图片裁剪分析.txt */,
-				ADA7ECB01EE3D45100D3D142 /* optimizeUI.txt */,
-				ADA7ECB21EE6667B00D3D142 /* prepare_interview.txt */,
-				ADA7ECB41EE69EB100D3D142 /* trick_objc_syntax.txt */,
-				ADA7ECB61EE6E1FC00D3D142 /* lifecycle_viewcontroller.txt */,
-				ADA7ECBB1EE6F40600D3D142 /* summary_instantmessage */,
-				ADBF2A941EE99AA400E21879 /* faq_tech.txt */,
-				AD3E8E561EF2CAAF005DB10F /* db_relations.txt */,
-			);
-			path = Docs;
-			sourceTree = SOURCE_ROOT;
-		};
 		ADDDB98C1E7780F8003526DF = {
 			isa = PBXGroup;
 			children = (
@@ -1000,7 +939,6 @@
 		ADDDB9971E7780F8003526DF /* 666 */ = {
 			isa = PBXGroup;
 			children = (
-				ADA17ABD1E9C586700FA0FF9 /* Docs */,
 				AD70AF051E991E280003F3C8 /* ThridLib */,
 				AD70AF021E991E280003F3C8 /* Classes */,
 				AD70AF041E991E280003F3C8 /* Macro */,
@@ -1176,30 +1114,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADC0DBB01ECDA17F002859A9 /* structure_viewcontroller.txt in Resources */,
-				ADA7ECBC1EE6F40600D3D142 /* summary_instantmessage in Resources */,
-				AD29C73B1ECAB4AC0061175B /* concern_point.txt in Resources */,
 				AD44DC521E9B2453003C1576 /* DYLYTheme.plist in Resources */,
 				ADDDB9A81E7780F8003526DF /* LaunchScreen.storyboard in Resources */,
-				AD6B224C1ED6787C00C92220 /* iOS 保持界面流畅的技巧 | Garan no dou.pdf in Resources */,
 				ADDDB9A51E7780F8003526DF /* Assets.xcassets in Resources */,
-				ADA7ECB71EE6E1FC00D3D142 /* lifecycle_viewcontroller.txt in Resources */,
-				ADA7ECB31EE6667B00D3D142 /* prepare_interview.txt in Resources */,
-				AD3E8E571EF2CAAF005DB10F /* db_relations.txt in Resources */,
-				AD9694151EAAF217008D9170 /* ref_gitmarkdown.txt in Resources */,
-				ADC472991ED5B77700F35156 /* 66网络抓包分析 in Resources */,
 				AD44DC511E9B2453003C1576 /* README.txt in Resources */,
-				ADA17AC31E9C586700FA0FF9 /* structure_project in Resources */,
 				ADDDB9A31E7780F8003526DF /* Main.storyboard in Resources */,
-				ADA7ECB11EE3D45100D3D142 /* optimizeUI.txt in Resources */,
-				ADA7ECB51EE69EB100D3D142 /* trick_objc_syntax.txt in Resources */,
-				ADBBA9651EA64F9F00C58D5C /* structure_view.txt in Resources */,
 				AD42154A1EA8DEA3002FBC26 /* Expression.bundle in Resources */,
-				AD6118071EF81B8B005FCD47 /* 66网络图片裁剪分析.txt in Resources */,
-				ADB0D7CF1EA4FDF0003C4901 /* designpattern.txt in Resources */,
-				ADA17AC21E9C586700FA0FF9 /* ref_note.txt in Resources */,
-				ADA17AC11E9C586700FA0FF9 /* ref_note_viewcontroller.txt in Resources */,
-				ADBF2A951EE99AA400E21879 /* faq_tech.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

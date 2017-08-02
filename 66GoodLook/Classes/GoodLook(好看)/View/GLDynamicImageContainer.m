@@ -160,11 +160,11 @@
             [self addSubview:secondImageView];
             [self addSubview:thirdImageView];
             
-            [firstImageView setImageWithURL:[images firstObject] placeholder:[UIImage imageWithColor:[UIColor redColor]]];
+            [firstImageView setImageWithURL:[images objectAtIndex:0] placeholder:[UIImage imageWithColor:[UIColor redColor]]];
             
-            [secondImageView setImageWithURL:[images lastObject] placeholder:[UIImage imageWithColor:[UIColor greenColor]]];
+            [secondImageView setImageWithURL:[images objectAtIndex:1] placeholder:[UIImage imageWithColor:[UIColor greenColor]]];
             
-            [thirdImageView setImageWithURL:[images lastObject] placeholder:[UIImage imageWithColor:[UIColor blueColor]]];
+            [thirdImageView setImageWithURL:[images objectAtIndex:2] placeholder:[UIImage imageWithColor:[UIColor blueColor]]];
             
         }
             break;
@@ -188,13 +188,13 @@
             [self addSubview:thirdImageView];
             [self addSubview:fourImageView];
             
-            [firstImageView setImageWithURL:[images firstObject] placeholder:[UIImage imageWithColor:[UIColor redColor]]];
+            [firstImageView setImageWithURL:[images objectAtIndex:0] placeholder:[UIImage imageWithColor:[UIColor redColor]]];
             
-            [secondImageView setImageWithURL:[images lastObject] placeholder:[UIImage imageWithColor:[UIColor greenColor]]];
+            [secondImageView setImageWithURL:[images objectAtIndex:1] placeholder:[UIImage imageWithColor:[UIColor greenColor]]];
             
-            [thirdImageView setImageWithURL:[images lastObject] placeholder:[UIImage imageWithColor:[UIColor blueColor]]];
+            [thirdImageView setImageWithURL:[images objectAtIndex:2] placeholder:[UIImage imageWithColor:[UIColor blueColor]]];
             
-             [fourImageView setImageWithURL:[images lastObject] placeholder:[UIImage imageWithColor:[UIColor yellowColor]]];
+             [fourImageView setImageWithURL:[images objectAtIndex:3] placeholder:[UIImage imageWithColor:[UIColor yellowColor]]];
             
         }
             break;
