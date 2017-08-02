@@ -1,3 +1,0 @@
-FAQ: NSTimer 导致的循环引用如何打破
-ANSWER: https://stackoverflow.com/questions/3618479/how-to-create-weak-reference-in-objective-c
-
