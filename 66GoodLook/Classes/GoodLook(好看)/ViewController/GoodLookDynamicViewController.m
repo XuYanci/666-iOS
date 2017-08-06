@@ -96,34 +96,40 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
         
         
         [listItemModel.mediaList enumerateObjectsUsingBlock:^(GLGetAttentionDynamicListResMediaListModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
             if (obj.startY.intValue == 0 && obj.startX.intValue == 0) {
-                
-                NSValue *value = [imageRects objectAtIndex:idx];
-                CGRect rectForImage = value.CGRectValue;
-
-                NSString *imageUrl = [GLQiniuImageHelper imageView2:GL_MEDIAURL_PREFIX
+                if (idx < imageRects.count) {
+                    NSValue *value = [imageRects objectAtIndex:idx];
+                    CGRect rectForImage = value.CGRectValue;
+                    
+                    NSString *imageUrl = [GLQiniuImageHelper imageView2:GL_MEDIAURL_PREFIX
                                                               imagePath:obj.url
                                                                  format:@"webp"
                                                                 quality:@"60"
                                                                   width:[NSString stringWithFormat:@"%.0f",(rectForImage.size.width)]                                                                 height:[NSString stringWithFormat:@"%.0f",(rectForImage.size.height)]];
-                [imageList addObject:[NSURL URLWithString:imageUrl]];
+                    [imageList addObject:[NSURL URLWithString:imageUrl]];
+
+                }
             }
             else {
-                NSValue *value = [imageRects objectAtIndex:idx];
-                CGRect rectForImage = value.CGRectValue;
-                
-                NSString *imageUrl = [NSString stringWithFormat:@"%@/%@",GL_MEDIAURL_PREFIX,obj.url];
-                     imageUrl =  [GLQiniuImageHelper imageMogr2:GL_MEDIAURL_PREFIX
-                                                               imagePath:obj.url
-                                                               cropWidth:obj.cropWidth.stringValue
-                                                              cropHeight:obj.cropHeight.stringValue
-                                                                  startX:obj.startX.stringValue
-                                                                  startY:obj.startY.stringValue
-                                                                  format:@"webp"
-                                                                 quality:@"60"
-                                                          thumbnailWidth:[NSString stringWithFormat:@"%.0f",rectForImage.size.width]
-                                                         thumbnailHeight:[NSString stringWithFormat:@"%.0f",rectForImage.size.height]];
-                [imageList addObject:[NSURL URLWithString:imageUrl]];
+                if (idx < imageRects.count) {
+                    
+                    NSValue *value = [imageRects objectAtIndex:idx];
+                    CGRect rectForImage = value.CGRectValue;
+                    
+                    NSString *imageUrl = [NSString stringWithFormat:@"%@/%@",GL_MEDIAURL_PREFIX,obj.url];
+                         imageUrl =  [GLQiniuImageHelper imageMogr2:GL_MEDIAURL_PREFIX
+                                                                   imagePath:obj.url
+                                                                   cropWidth:obj.cropWidth.stringValue
+                                                                  cropHeight:obj.cropHeight.stringValue
+                                                                      startX:obj.startX.stringValue
+                                                                      startY:obj.startY.stringValue
+                                                                      format:@"webp"
+                                                                     quality:@"60"
+                                                              thumbnailWidth:[NSString stringWithFormat:@"%.0f",rectForImage.size.width]
+                                                             thumbnailHeight:[NSString stringWithFormat:@"%.0f",rectForImage.size.height]];
+                    [imageList addObject:[NSURL URLWithString:imageUrl]];
+                }
             }
         }];
     }

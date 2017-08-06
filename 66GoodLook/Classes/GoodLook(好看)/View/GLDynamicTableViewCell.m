@@ -214,7 +214,7 @@
         NSValue *value2 = [NSValue valueWithCGRect:rect3];
         [arr addObject:value2];
     }
-    else if(imageCount == 4) {
+    else if(imageCount >= 4) {
         CGFloat width = size.width;
         CGFloat height = size.height;
         
