@@ -86,6 +86,9 @@
 		ADA17AB61E9C579E00FA0FF9 /* GLViewPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AB51E9C579E00FA0FF9 /* GLViewPagerViewController.m */; };
 		ADA17AB91E9C581500FA0FF9 /* GoodLookDynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17AB81E9C581500FA0FF9 /* GoodLookDynamicViewController.m */; };
 		ADA17ABC1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA17ABB1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m */; };
+		ADADBF031F473C4400CFA077 /* 66截图分析 in Resources */ = {isa = PBXBuildFile; fileRef = ADADBF021F473C4400CFA077 /* 66截图分析 */; };
+		ADADBF051F473C5700CFA077 /* 66抓包数据 in Resources */ = {isa = PBXBuildFile; fileRef = ADADBF041F473C5700CFA077 /* 66抓包数据 */; };
+		ADADBF071F473D2C00CFA077 /* 66抓包分析 in Resources */ = {isa = PBXBuildFile; fileRef = ADADBF061F473D2C00CFA077 /* 66抓包分析 */; };
 		ADC172081E9A4071005DFCEE /* ApplicationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */; };
 		ADC1720E1E9A44FC005DFCEE /* ApplicationServiceBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC1720D1E9A44FC005DFCEE /* ApplicationServiceBase.m */; };
 		ADC34E4F1E9E571200E3D70B /* GoodLookIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC34E4E1E9E571200E3D70B /* GoodLookIndexViewController.m */; };
@@ -285,6 +288,9 @@
 		ADA17AB81E9C581500FA0FF9 /* GoodLookDynamicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodLookDynamicViewController.m; sourceTree = "<group>"; };
 		ADA17ABA1E9C583900FA0FF9 /* GoodLookWellChosenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodLookWellChosenViewController.h; sourceTree = "<group>"; };
 		ADA17ABB1E9C583900FA0FF9 /* GoodLookWellChosenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodLookWellChosenViewController.m; sourceTree = "<group>"; };
+		ADADBF021F473C4400CFA077 /* 66截图分析 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "66截图分析"; sourceTree = "<group>"; };
+		ADADBF041F473C5700CFA077 /* 66抓包数据 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "66抓包数据"; sourceTree = "<group>"; };
+		ADADBF061F473D2C00CFA077 /* 66抓包分析 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "66抓包分析"; sourceTree = "<group>"; };
 		ADC172061E9A4071005DFCEE /* ApplicationServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceManager.h; sourceTree = "<group>"; };
 		ADC172071E9A4071005DFCEE /* ApplicationServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationServiceManager.m; sourceTree = "<group>"; };
 		ADC1720C1E9A44FC005DFCEE /* ApplicationServiceBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationServiceBase.h; sourceTree = "<group>"; };
@@ -914,6 +920,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		ADADBF011F473C3000CFA077 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				ADADBF041F473C5700CFA077 /* 66抓包数据 */,
+				ADADBF021F473C4400CFA077 /* 66截图分析 */,
+				ADADBF061F473D2C00CFA077 /* 66抓包分析 */,
+			);
+			path = Docs;
+			sourceTree = SOURCE_ROOT;
+		};
 		ADDDB98C1E7780F8003526DF = {
 			isa = PBXGroup;
 			children = (
@@ -939,6 +955,7 @@
 		ADDDB9971E7780F8003526DF /* 666 */ = {
 			isa = PBXGroup;
 			children = (
+				ADADBF011F473C3000CFA077 /* Docs */,
 				AD70AF051E991E280003F3C8 /* ThridLib */,
 				AD70AF021E991E280003F3C8 /* Classes */,
 				AD70AF041E991E280003F3C8 /* Macro */,
@@ -1115,11 +1132,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD44DC521E9B2453003C1576 /* DYLYTheme.plist in Resources */,
+				ADADBF071F473D2C00CFA077 /* 66抓包分析 in Resources */,
 				ADDDB9A81E7780F8003526DF /* LaunchScreen.storyboard in Resources */,
+				ADADBF051F473C5700CFA077 /* 66抓包数据 in Resources */,
 				ADDDB9A51E7780F8003526DF /* Assets.xcassets in Resources */,
 				AD44DC511E9B2453003C1576 /* README.txt in Resources */,
 				ADDDB9A31E7780F8003526DF /* Main.storyboard in Resources */,
 				AD42154A1EA8DEA3002FBC26 /* Expression.bundle in Resources */,
+				ADADBF031F473C4400CFA077 /* 66截图分析 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

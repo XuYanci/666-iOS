@@ -1,0 +1,35 @@
+参考url: https://developer.qiniu.com/dora/manual/1279/basic-processing-images-imageview2
+图像格式使用webp(详细解释) : http://isux.tencent.com/introduction-of-webp.html
+
+主要是这两种裁剪(示意):
+
+** 基本裁剪 **
+http://7xj5zf.com2.z0.glb.qiniucdn.com/o_1binr4819eqi1sv4uln1tr15gsg.jpg?imageView2/1/format/webp/quality/60/w/620/h/349/
+
+** 复杂裁剪 **
+http://7xj5zf.com2.z0.glb.qiniucdn.com/b74833f9-b42d-4987-91a3-325a57f73e93?imageMogr2/crop/!720x800a0a480/format/webp/quality/60/thumbnail/306.00x348.75
+
+
+基本裁剪 包含宽高参数
+{
+"url": "777dac63-242d-4d59-82f8-008c6849e97f",
+"width": 480,
+"height": 640,
+"type": 1,
+"amount": 0.0
+},
+
+复杂裁剪 包含 startX,startY,cropWidth,cropHeight几个裁剪参数
+{
+"url": "524fcf5e-eae4-488d-a77a-c4c3945278c9",
+"width": 850,
+"height": 628,
+"type": 1,
+"duration": 0,
+"startX": 142,
+"startY": 0,
+"cropWidth": 565,
+"cropHeight": 628,
+"amount": 10.0
+}
+
