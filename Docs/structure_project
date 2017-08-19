@@ -1,0 +1,28 @@
+项目结构:
+66GoodLook - 66GoodLookApp
+|- Framework 	存放系统库
+|- ThirdLib	存放第三方库 (非Cocoapods或者其他依赖库管理工具)
+|- Classes (根据模块建立目录,再根据业务分类 (Model、View、Controller)
+  |- Introduction (介绍页)
+    |- Model  (存放模型)
+    |- View   (存放视图,xib,或模块需要自定义控件等)
+    |- Controller (存放控制器)
+  |- Others (其他模块等)
+|- Tools （工具类)
+  |- Network 网络工具
+  |- Category (NSCategory , UICategory ) 扩展类
+  |- Theme 主题管理
+  |- UI 存放公用自定义控件等 (AlertView、Animations等)
+  |- Security (加解密)
+  |- RegularExpression (正则表达式)
+|- Macro (存放常用宏定义文件)
+  |- XYMacroUtility    常用工具宏aifiaowoid9iap9difuawfuaw90uj9u9adjiau9didji9WUA9UDu9u9da9uwdu
+  |- XYMacroAppAppearance  应用皮肤宏
+
+Images.Xcassets (图片资源存放)
+说明: 命名以设计师给的为主,一级目录即可,避免多级目录
+
+
+
+
+

@@ -36,6 +36,7 @@ PODS:
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
   - DZNEmptyDataSet (1.8.1)
+  - Kingfisher (3.10.4)
   - Masonry (1.0.2)
   - MBProgressHUD (0.9.2)
   - MJRefresh (3.1.12)
@@ -70,6 +71,7 @@ DEPENDENCIES:
   - AFNetworking (~> 2.6.3)
   - BlocksKit (~> 2.2.5)
   - DZNEmptyDataSet (~> 1.8.1)
+  - Kingfisher
   - Masonry (~> 1.0.0)
   - MBProgressHUD (~> 0.9.2)
   - MJRefresh (~> 3.1.0)
@@ -81,6 +83,7 @@ SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  Kingfisher: dc3a4983e86d2dfa89513664983a82340c11a289
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
@@ -91,6 +94,6 @@ SPEC CHECKSUMS:
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
 
-PODFILE CHECKSUM: a7e39784e849f3acc816b4c5d040fd3b036a943c
+PODFILE CHECKSUM: 9995d8158bd6153608ec7d7c70f76587bbdfd82a
 
 COCOAPODS: 1.2.1

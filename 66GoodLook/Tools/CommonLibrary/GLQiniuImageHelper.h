@@ -28,4 +28,5 @@
           thumbnailWidth:(NSString *)thumbnailWidth
          thumbnailHeight:(NSString *)thumbnailHeight;
 
++ (NSString *)vframe:(NSString *)baseUrl imagePath:(NSString *)imagePath;
 @end

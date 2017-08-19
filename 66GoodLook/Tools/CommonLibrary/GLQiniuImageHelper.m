@@ -23,6 +23,7 @@
     return [NSString stringWithFormat:@"%@/%@?imageView2/1/format/%@/quality/%@/w/%@/h/%@/",baseUrl,imagePath,format,quality,width,height];
 }
 
+ 
 //** 复杂裁剪 **
 //http://7xj5zf.com2.z0.glb.qiniucdn.com/b74833f9-b42d-4987-91a3-325a57f73e93?imageMogr2/crop/!720x800a0a480/format/webp/quality/60/thumbnail/306.00x348.75
 + (NSString *)imageMogr2:(NSString *)baseUrl
@@ -38,5 +39,14 @@
     return [NSString stringWithFormat:@"%@/%@?imageMogr2/crop/!%@x%@a%@a%@/format/%@/quality/%@/thumbnail/%@x%@",baseUrl,imagePath,cropWidth,cropHeight,startX,startY,format,quality,thumbnailWidth,thumbnailHeight];
 }
 
+
+/**
+ 视频裁剪
+ */
+//http://7xj5zf.com2.z0.glb.qiniucdn.com/4ce6cccaf80acefc8395a33342f80540?vframe/jpg/offset/1.5/rotate/auto/
+
++ (NSString *)vframe:(NSString *)baseUrl imagePath:(NSString *)imagePath {
+    return [NSString stringWithFormat:@"%@/%@?vframe/jpg/offset/1.5/rotate/auto/",baseUrl,imagePath];
+}
 
 @end

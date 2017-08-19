@@ -132,13 +132,20 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
                 }
             }
         }];
+        
+        cell.dynamicType = DynamicTypePic;
+        [cell setDynamicImages:imageList];
     }
     /* Config video */
     else if(listItemModel.type.intValue == 2) {
+        cell.dynamicType = DynamicTypeVideo;
+        NSString *imageUrl = [GLQiniuImageHelper vframe:GL_MEDIAURL_PREFIX imagePath:listItemModel.mediaList.lastObject.url];
+        [cell setDynamicVideo:imageUrl
+                      vieoUrl:[NSString stringWithFormat:@"%@/%@",GL_MEDIAURL_PREFIX,listItemModel.mediaList.lastObject.url]];
     }
     else {}
     
-    [cell setDynamicImages:imageList];
+   
     return cell;
 }
 
@@ -349,7 +356,11 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
         }];
     }
     /* Config video */
-    else if(listItemModel.type.intValue == 2) {}
+    else if(listItemModel.type.intValue == 2) {
+//        NSString *imageUrl = listItemModel.coverUrl.length > 0 ? listItemModel.coverUrl : [GLQiniuImageHelper vframe:GL_MEDIAURL_PREFIX imagePath:listItemModel.mediaList.lastObject.url];
+        NSString *imageUrl = @"videoUrl";
+        [imageList addObject:[NSURL URLWithString:imageUrl]];
+    }
     else {}
     return [GLDynamicTableViewCell estimateHeight:listItemModel.caption
                                            images:imageList

@@ -4,7 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 inhibit_all_warnings!
 # Uncomment this line if you're using Swift
-# use_frameworks!
+ use_frameworks!
 
 def pods
     pod 'AFNetworking', '~> 2.6.3'   		 # 网络请求框架
@@ -19,6 +19,8 @@ def pods
     pod 'YYKit', '~> 1.0.9'                  # Powserful kit
     pod 'ZYCornerRadius', '~> 1.0.2'
     pod 'Texture', '~> 2.3.2'                # Powserful smooth kit, later research it
+    
+    pod 'Kingfisher'
 end
 
 target '666' do

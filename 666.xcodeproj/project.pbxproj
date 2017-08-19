@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		61B048241673206380F133E0 /* libPods-666.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4079F017B03A5A1AA1DDFDE /* libPods-666.a */; };
+		1AB07D85647E5BCC17CF4559 /* Pods_666.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB6B5C879F623863F6EF967 /* Pods_666.framework */; };
+		2F3169F64BC591E4EF4307AB /* Pods_666Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B66174244E0D52F6FBFA8C /* Pods_666Tests.framework */; };
 		91ECF2F1D576E10E9E70659B /* libPods-66GoodLookTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B391A082D6514E404DDC4429 /* libPods-66GoodLookTests.a */; };
 		AD0082401EDFFE580010BD08 /* GLRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AD00823F1EDFFE580010BD08 /* GLRefreshHeader.m */; };
 		AD0082431EE0176D0010BD08 /* GLWellChosenCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0082421EE0176D0010BD08 /* GLWellChosenCollectionViewCell.m */; };
@@ -99,7 +100,6 @@
 		ADDDB9B31E7780F8003526DF /* _6GoodLookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDDB9B21E7780F8003526DF /* _6GoodLookTests.m */; };
 		ADDDB9BE1E7780F8003526DF /* _6GoodLookUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDDB9BD1E7780F8003526DF /* _6GoodLookUITests.m */; };
 		ADFFFBD41EA5FBDF002CB3DC /* GoodLookFloatView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFFFBD31EA5FBDF002CB3DC /* GoodLookFloatView.m */; };
-		EE9FCF507C315539122D6A9D /* libPods-666Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1621F566BC6F5F70E89C7E75 /* libPods-666Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,13 +120,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1621F566BC6F5F70E89C7E75 /* libPods-666Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-666Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF8B8F9FECF83C1A41A3186 /* Pods-666.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-666.release.xcconfig"; path = "Pods/Target Support Files/Pods-666/Pods-666.release.xcconfig"; sourceTree = "<group>"; };
 		61FAFC8764300EFC8C643EB4 /* Pods-66GoodLookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLookTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLookTests/Pods-66GoodLookTests.release.xcconfig"; sourceTree = "<group>"; };
 		6E90646E5998061924E985F4 /* Pods-66GoodLook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLook.release.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLook/Pods-66GoodLook.release.xcconfig"; sourceTree = "<group>"; };
 		765F4A3BF95EC02887C37617 /* Pods-666.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-666.debug.xcconfig"; path = "Pods/Target Support Files/Pods-666/Pods-666.debug.xcconfig"; sourceTree = "<group>"; };
 		7E4DC8BFAB5BB0484E5CA1E9 /* Pods-66GoodLookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLookTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLookTests/Pods-66GoodLookTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8CD2016F59DB096FB62C4451 /* Pods-666Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-666Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-666Tests/Pods-666Tests.release.xcconfig"; sourceTree = "<group>"; };
+		92B66174244E0D52F6FBFA8C /* Pods_666Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_666Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD00823E1EDFFE580010BD08 /* GLRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLRefreshHeader.h; sourceTree = "<group>"; };
 		AD00823F1EDFFE580010BD08 /* GLRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLRefreshHeader.m; sourceTree = "<group>"; };
 		AD0082411EE0176D0010BD08 /* GLWellChosenCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLWellChosenCollectionViewCell.h; sourceTree = "<group>"; };
@@ -312,7 +312,7 @@
 		B391A082D6514E404DDC4429 /* libPods-66GoodLookTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-66GoodLookTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9622F563800DCCF25F2F4F /* libPods-66GoodLook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-66GoodLook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1ECAD29C0C02707D92F82DA /* Pods-66GoodLook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-66GoodLook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-66GoodLook/Pods-66GoodLook.debug.xcconfig"; sourceTree = "<group>"; };
-		F4079F017B03A5A1AA1DDFDE /* libPods-666.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-666.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFB6B5C879F623863F6EF967 /* Pods_666.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_666.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2614F7CF7470FCF40984DC /* Pods-666Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-666Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-666Tests/Pods-666Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -321,7 +321,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61B048241673206380F133E0 /* libPods-666.a in Frameworks */,
+				1AB07D85647E5BCC17CF4559 /* Pods_666.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,7 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91ECF2F1D576E10E9E70659B /* libPods-66GoodLookTests.a in Frameworks */,
-				EE9FCF507C315539122D6A9D /* libPods-666Tests.a in Frameworks */,
+				2F3169F64BC591E4EF4307AB /* Pods_666Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,8 +349,8 @@
 			children = (
 				DC9622F563800DCCF25F2F4F /* libPods-66GoodLook.a */,
 				B391A082D6514E404DDC4429 /* libPods-66GoodLookTests.a */,
-				F4079F017B03A5A1AA1DDFDE /* libPods-666.a */,
-				1621F566BC6F5F70E89C7E75 /* libPods-666Tests.a */,
+				EFB6B5C879F623863F6EF967 /* Pods_666.framework */,
+				92B66174244E0D52F6FBFA8C /* Pods_666Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

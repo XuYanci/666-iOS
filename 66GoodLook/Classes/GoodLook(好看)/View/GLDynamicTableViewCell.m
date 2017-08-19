@@ -12,7 +12,7 @@
 
 @interface GLDynamicTableViewCell()
 @property (nonatomic,strong) GLDynamicImageContainer *imageContainer;       /* 图片容器 */
-@property (nonatomic,strong) GLDynamicVideoContainer *videoContainer;                        /* 视频容器 */
+@property (nonatomic,strong) GLDynamicVideoContainer *videoContainer;       /* 视频容器 */
 @end
 
 
@@ -22,6 +22,11 @@
     }_datasourceHas;    /*! 数据源存在标识 */
     struct {
     }_delegateHas;      /*! 数据委托存在标识 */
+}
+
+- (void)prepareForReuse {
+    [_imageContainer setDynamicImages:nil ];
+    [_videoContainer setVideoUrl:nil];
 }
 
 - (void)awakeFromNib {
@@ -81,9 +86,12 @@
 
 
 - (void)setDynamicImages:(NSArray <NSURL *>*)images {
-  
-
     [self.imageContainer setDynamicImages:images];
+}
+
+- (void)setDynamicVideo:(NSString *)defaultImageUrl vieoUrl:(NSString *)videoUrl {
+    
+    [self.videoContainer setDynamicVideoWithImageUrl:defaultImageUrl videoUrl:videoUrl];
 }
 
 - (void)commonInit {
@@ -92,10 +100,13 @@
     [self.contentView addSubview:self.timeLabel];
     [self.contentView addSubview:self.detailTitleLabel];
     [self.contentView addSubview:self.imageContainer];
+    [self.contentView addSubview:self.videoContainer ];
     [self.contentView addSubview:self.likeBtn];
     [self.contentView addSubview:self.commentBtn];
     
+    self.dynamicType = DynamicTypePic;
     [self setNeedsReload];
+    
 }
 
 - (void)setDataSource:(id<GLDynamicTableViewCellDataSource>)dataSource {
@@ -136,29 +147,60 @@
     [self.detailTitleLabel scaleToParentRightWithMargin:10.0];
     [self.detailTitleLabel sizeToFit]; /** size to fit must place here, other it first time will only display one line */
     
-    if ([self.imageContainer getDynamicImages].count == 0) {
-        [self.imageContainer sizeWith:CGSizeZero];
-        [self.commentBtn sizeToFit];
-        [self.commentBtn alignParentRightWithMargin:10.0];
-        [self.commentBtn layoutBelow:self.detailTitleLabel margin:10.0];
-        [self.likeBtn sizeToFit];
-        [self.likeBtn layoutToLeftOf:self.commentBtn margin:10.0];
-        [self.likeBtn layoutBelow:self.detailTitleLabel margin:10.0];
+    if (_dynamicType == DynamicTypePic) {
+        if ([self.imageContainer getDynamicImages].count == 0) {
+            [self.imageContainer sizeWith:CGSizeZero];
+            [self.commentBtn sizeToFit];
+            [self.commentBtn alignParentRightWithMargin:10.0];
+            [self.commentBtn layoutBelow:self.detailTitleLabel margin:10.0];
+            [self.likeBtn sizeToFit];
+            [self.likeBtn layoutToLeftOf:self.commentBtn margin:10.0];
+            [self.likeBtn layoutBelow:self.detailTitleLabel margin:10.0];
+        }
+        else {
+            
+            [self.imageContainer sizeWith:CGSizeMake(0, 165.0)];
+            [self.imageContainer layoutBelow:self.detailTitleLabel margin:10.0];
+            [self.imageContainer alignLeft:self.detailTitleLabel margin:0];
+            [self.imageContainer scaleToParentRightWithMargin:10.0];
+            
+            [self.commentBtn sizeToFit];
+            [self.commentBtn alignParentRightWithMargin:10.0];
+            [self.commentBtn layoutBelow:self.imageContainer margin:10.0];
+            [self.likeBtn sizeToFit];
+            [self.likeBtn layoutToLeftOf:self.commentBtn margin:10.0];
+            [self.likeBtn layoutBelow:self.imageContainer margin:10.0];
+        }
     }
-    else {
-        
-        [self.imageContainer sizeWith:CGSizeMake(0, 165.0)];
-        [self.imageContainer layoutBelow:self.detailTitleLabel margin:10.0];
-        [self.imageContainer alignLeft:self.detailTitleLabel margin:0];
-        [self.imageContainer scaleToParentRightWithMargin:10.0];
-        
-        [self.commentBtn sizeToFit];
-        [self.commentBtn alignParentRightWithMargin:10.0];
-        [self.commentBtn layoutBelow:self.imageContainer margin:10.0];
-        [self.likeBtn sizeToFit];
-        [self.likeBtn layoutToLeftOf:self.commentBtn margin:10.0];
-        [self.likeBtn layoutBelow:self.imageContainer margin:10.0];
+    
+    if (_dynamicType == DynamicTypeVideo) {
+        if (!self.videoContainer.hasVideo) {
+            [self.videoContainer sizeWith:CGSizeZero];
+            [self.commentBtn sizeToFit];
+            [self.commentBtn alignParentRightWithMargin:10.0];
+            [self.commentBtn layoutBelow:self.detailTitleLabel margin:10.0];
+            [self.likeBtn sizeToFit];
+            [self.likeBtn layoutToLeftOf:self.commentBtn margin:10.0];
+            [self.likeBtn layoutBelow:self.detailTitleLabel margin:10.0];
+        }
+        else {
+            [self.videoContainer sizeWith:CGSizeMake(0, 165.0)];
+            [self.videoContainer layoutBelow:self.detailTitleLabel margin:10.0];
+            [self.videoContainer alignLeft:self.detailTitleLabel margin:0];
+            [self.videoContainer scaleToParentRightWithMargin:10.0];
+            
+            [self.commentBtn sizeToFit];
+            [self.commentBtn alignParentRightWithMargin:10.0];
+            [self.commentBtn layoutBelow:self.videoContainer margin:10.0];
+            [self.likeBtn sizeToFit];
+            [self.likeBtn layoutToLeftOf:self.commentBtn margin:10.0];
+            [self.likeBtn layoutBelow:self.videoContainer margin:10.0];
+            
+        }
     }
+    
+    
+    
 }
 
 - (void)reloadData {}
@@ -247,6 +289,24 @@
         [arr addObject:value3];
     }
     return arr;
+}
+
+- (CGRect)rectForVideo {
+    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width - 10  - 35 - 10, 165.0);
+    return CGRectMake(0, 0, size.width, size.height);
+}
+
+- (void)setDynamicType:(DynamicType)dynamicType {
+    _dynamicType = dynamicType;
+
+    if (_dynamicType == DynamicTypePic) {
+        [_videoContainer removeFromSuperview];
+        [self.contentView addSubview:_imageContainer];
+    }
+    else if(_dynamicType == DynamicTypeVideo) {
+        [_imageContainer removeFromSuperview];
+        [self.contentView addSubview:_videoContainer];
+    }
 }
 
 #pragma mark - notification

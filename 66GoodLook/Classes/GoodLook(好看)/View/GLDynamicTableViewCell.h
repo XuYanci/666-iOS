@@ -15,6 +15,11 @@
 @protocol GLDynamicTableViewCellDelegate <NSObject>
 @end
 
+typedef enum : NSUInteger {
+    DynamicTypeVideo,
+    DynamicTypePic,
+} DynamicType;
+
 @interface GLDynamicTableViewCell : UITableViewCell
 @property (nonatomic,strong) UIImageView *avatarImageView; /* 头像 */
 @property (nonatomic,strong) UILabel *titleLabel;          /* 标题 */
@@ -22,6 +27,7 @@
 @property (nonatomic,strong) UILabel *detailTitleLabel;    /* 详细标题 */
 @property (nonatomic,strong) UIButton *commentBtn;         /* 评论按钮 */
 @property (nonatomic,strong) UIButton *likeBtn;            /* 点赞按钮 */
+@property (nonatomic,assign) DynamicType dynamicType;      /* 图片或者视频 */
 
 @property (nonatomic,weak) id<GLDynamicTableViewCellDataSource>dataSource;
 @property (nonatomic,weak) id<GLDynamicTableViewCellDelegate>delegate;
@@ -33,8 +39,10 @@
  @param type 类型 图片、视频等
  @return 返回列表行高度
  */
+
 + (CGFloat)estimateHeight:(NSString *)detailTitle images:(NSArray *)images type:(NSUInteger)type;
 - (void)setDynamicImages:(NSArray *)images;
+- (void)setDynamicVideo:(NSString *)defaultImageUrl vieoUrl:(NSString *)videoUrl;
 - (void)reloadData;
 
 /**
@@ -44,6 +52,7 @@
  @return 图片占用宽度
  */
 - (NSArray*)rectsForImages:(NSUInteger)imageCount;
-
+/** 计算视频占用宽度 */
+- (CGRect) rectForVideo;
 
 @end
