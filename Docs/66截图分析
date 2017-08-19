@@ -9,7 +9,6 @@ http://7xj5zf.com2.z0.glb.qiniucdn.com/o_1binr4819eqi1sv4uln1tr15gsg.jpg?imageVi
 ** 复杂裁剪 **
 http://7xj5zf.com2.z0.glb.qiniucdn.com/b74833f9-b42d-4987-91a3-325a57f73e93?imageMogr2/crop/!720x800a0a480/format/webp/quality/60/thumbnail/306.00x348.75
 
-
 基本裁剪 包含宽高参数
 {
 "url": "777dac63-242d-4d59-82f8-008c6849e97f",
@@ -32,4 +31,25 @@ http://7xj5zf.com2.z0.glb.qiniucdn.com/b74833f9-b42d-4987-91a3-325a57f73e93?imag
 "cropHeight": 628,
 "amount": 10.0
 }
+
+视频部分 包含 宽高 
+
+{
+"url": "4ce6cccaf80acefc8395a33342f80540",
+"width": 480,
+"height": 480,
+"type": 2,
+"amount": 0.0
+}
+
+界面显示:
+
+图片显示分几种，一张图片，两张图片，三张图片，四张图片。
+显示区域都是固定大小，然后根据图片张数做切割，用切割出来的宽高来获取图片。
+
+视频显示分两种，宽 >= 高,  宽 < 高。
+显示区域根据视频显示来处理。
+
+
+
 

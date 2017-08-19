@@ -8,16 +8,10 @@
 
 #import "GLMainTabBarViewController.h"
 #import "GLViewPagerViewController.h"
-#import "GLMeViewController.h"
-#import "GoodPlayViewController.h"
 #import "GoodLookIndexViewController.h"
-#import "GLMessageViewController.h"
 
 @interface GLMainTabBarViewController ()
 @property (nonatomic,strong)GoodLookIndexViewController *viewPagerViewController;
-@property (nonatomic,strong)GoodPlayViewController *goodPlayViewController;
-@property (nonatomic,strong)GLMessageViewController *messageViewController;
-@property (nonatomic,strong)GLMeViewController *meViewController;
 @end
 
 @implementation GLMainTabBarViewController
@@ -75,38 +69,6 @@
                                                            forState:UIControlStateSelected];
     }
     return _viewPagerViewController;
-}
-
-- (GoodPlayViewController *)goodPlayViewController {
-    if (!_goodPlayViewController) {
-        _goodPlayViewController = [[GoodPlayViewController alloc]init];
-        _goodPlayViewController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"好玩"
-                                                                          image:[[UIImage imageNamed:@"faxian_normal_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
-                                                                  selectedImage:[[UIImage imageNamed:@"faxian_press_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    }
-    return _goodPlayViewController;
-}
-
-- (GLMessageViewController *)messageViewController {
-    if (!_messageViewController) {
-         _messageViewController = [[GLMessageViewController alloc]init];
-         _messageViewController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"消息"
-                                                                          image:[[UIImage imageNamed:@"lab_messege_d"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
-                                                                  selectedImage:[[UIImage imageNamed:@"lab_messege_s"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-        
-    }
-    return _messageViewController;
-}
-
-- (GLMeViewController *)meViewController {
-    if (!_meViewController) {
-         _meViewController = [[GLMeViewController alloc]init];
-        _meViewController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"我"
-                                                                     image:[[UIImage imageNamed:@"lab_my_d"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
-                                                             selectedImage:[[UIImage imageNamed:@"lab_my_s"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-        
-    }
-    return _meViewController;
 }
 
 @end

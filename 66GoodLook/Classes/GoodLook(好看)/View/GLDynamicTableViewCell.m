@@ -8,9 +8,11 @@
 
 #import "GLDynamicTableViewCell.h"
 #import "GLDynamicImageContainer.h"
+#import "_66-Swift.h"
 
 @interface GLDynamicTableViewCell()
 @property (nonatomic,strong) GLDynamicImageContainer *imageContainer;       /* 图片容器 */
+@property (nonatomic,strong) GLDynamicVideoContainer *videoContainer;                        /* 视频容器 */
 @end
 
 
@@ -311,4 +313,14 @@ static UILabel* prototypeDetailTitleLabel() {
     }
     return _imageContainer;
 }
+
+- (UIView *)videoContainer {
+    if (!_videoContainer) {
+        _videoContainer = [[GLDynamicVideoContainer alloc]init];
+    }
+    return _videoContainer;
+}
+
+
+
 @end
