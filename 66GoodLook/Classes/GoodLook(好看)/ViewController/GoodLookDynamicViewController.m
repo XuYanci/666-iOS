@@ -97,11 +97,12 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
         
         [listItemModel.mediaList enumerateObjectsUsingBlock:^(GLGetAttentionDynamicListResMediaListModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             
+            NSValue *value = [imageRects objectAtIndex:idx];
+            CGRect rectForImage = value.CGRectValue;
+            
+            // 图片需要裁剪
             if (obj.startY.intValue == 0 && obj.startX.intValue == 0) {
                 if (idx < imageRects.count) {
-                    NSValue *value = [imageRects objectAtIndex:idx];
-                    CGRect rectForImage = value.CGRectValue;
-                    
                     NSString *imageUrl = [GLQiniuImageHelper imageView2:GL_MEDIAURL_PREFIX
                                                               imagePath:obj.url
                                                                  format:@"webp"
@@ -111,12 +112,9 @@ static NSString *const CellDynamicIdentifier = @"CellDynamicIdentifier";
 
                 }
             }
+            // 图片不需要裁剪
             else {
                 if (idx < imageRects.count) {
-                    
-                    NSValue *value = [imageRects objectAtIndex:idx];
-                    CGRect rectForImage = value.CGRectValue;
-                    
                     NSString *imageUrl = [NSString stringWithFormat:@"%@/%@",GL_MEDIAURL_PREFIX,obj.url];
                          imageUrl =  [GLQiniuImageHelper imageMogr2:GL_MEDIAURL_PREFIX
                                                                    imagePath:obj.url
