@@ -19,8 +19,8 @@
 +Supports iOS 9 and above.
 
 # Continue 
-
-添加首页解析视频以及视频播放功能
+添加首页图片浏览
+添加首页视频播放功能
 
 
 
