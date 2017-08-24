@@ -26,6 +26,7 @@ import Kingfisher
     lazy var playBtn:UIButton = {
         let playBtn = UIButton.init()
         playBtn.setImage(UIImage.init(named: "play_icon"), for: UIControlState.normal)
+        playBtn.addTarget(self, action: #selector(self.play), for: UIControlEvents.touchUpInside)
         return playBtn
     }()
     
@@ -90,6 +91,10 @@ import Kingfisher
     }
     
     func  reloadData() {
+        
+    }
+    
+    func play() {
         
     }
     /*
