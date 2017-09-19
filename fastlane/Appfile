@@ -1,0 +1,7 @@
+app_identifier "com.easyorder.kuaihu" # The bundle identifier of your app
+apple_id "apple.dev@easyorder.cn" # Your Apple email address
+
+team_id "9D7U2595N8" # Developer Portal Team ID
+
+# you can even provide different app identifiers, Apple IDs and team names per lane:
+# More information: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Appfile.md

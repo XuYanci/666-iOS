@@ -64,6 +64,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-666UITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Texture.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -122,12 +127,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95EB7F5BC1D3CC5CE1033EBC8C511D09</key>
+		<key>902D961B313F09F206D568484BCE4846</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>AFBE26E7425F21E1D755B69D69D670A6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9D485EC309BF8D7BEF068E2DA39AB60</key>
 		<dict>
 			<key>primary</key>
 			<true/>

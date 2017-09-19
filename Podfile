@@ -28,6 +28,9 @@ target '666' do
 end
 
 target '666Tests’ do
-
+pods
 end
 
+target '666UITests’ do
+pods
+end
