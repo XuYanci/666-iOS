@@ -39,37 +39,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>PINCache.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>PINOperation.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>PINRemoteImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-666.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-666Tests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-666UITests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Texture.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -86,87 +56,6 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>020F65E95F606B95D914E02A0DC7AC74</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1D598892A1DF70FC59D3175D8E2B84BE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1ED8BE8BD6A53853974A60E1AC8B1019</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2F0C0F810568D3E82219429D9D870F04</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>568185361EA6EEE89D2BC833905842FD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5AA9CEE0BF1BB19815FAA445CDA1F7F6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6B1714E816AE794962516E2ECBB40A5A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7D670B32F7AF2F269DF9FEB3A1B0C427</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>902D961B313F09F206D568484BCE4846</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AFBE26E7425F21E1D755B69D69D670A6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C9D485EC309BF8D7BEF068E2DA39AB60</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D386C75EFD4F03725E4EFB866B600B9A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D52144DE9D7255DE912490FF5A806573</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E14A62900910444707A5504D25EC98DC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EED1458C7E9C00E119008A8A87CE3097</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FAC4DBB4F79DBE0FA8D0658CF4970DD0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>

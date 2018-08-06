@@ -18,7 +18,7 @@ def pods
     pod 'DZNEmptyDataSet', '~> 1.8.1'        # 刷新无数据界面
     pod 'YYKit', '~> 1.0.9'                  # Powserful kit
     pod 'ZYCornerRadius', '~> 1.0.2'
-    pod 'Texture', '~> 2.3.2'                # Powserful smooth kit, later research it
+    #  pod 'Texture', '~> 2.3.2'                # Powserful smooth kit, later research it
     
     pod 'Kingfisher'
 end
@@ -26,11 +26,4 @@ end
 target '666' do
     pods
 end
-
-target '666Tests’ do
-pods
-end
-
-target '666UITests’ do
-pods
-end
+ 

@@ -11,23 +11,12 @@
 
 # This is the minimum version number required.
 # Update this, if you use features of a newer version
-fastlane_version "2.57.0"
+fastlane_version "2.57.1"
 
 default_platform :ios
 
-app_name = "666"
-app_identifier = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
-
 platform :ios do
- 
-  lane :development_profiles do
-       match(
-             type: 'development',
-             app_identifier: "#{app_identifier}"
-            )
-  end
- 
- before_all do
+  before_all do
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
     cocoapods
     
@@ -35,14 +24,14 @@ platform :ios do
 
   desc "Runs all the tests"
   lane :test do
-    cocoapods
+    scan
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
     # match(type: "appstore") # more information: https://codesigning.guide
-    gym(scheme: "66GoodLook") # Build your app - more options available
+    gym(scheme: "666") # Build your app - more options available
     pilot
 
     # sh "your_script.sh"
@@ -53,18 +42,12 @@ platform :ios do
   lane :release do
     # match(type: "appstore")
     # snapshot
-    gym(scheme: "66GoodLook") # Build your app - more options available
+    gym(scheme: "666") # Build your app - more options available
     deliver(force: true)
     # frameit
   end
 
   # You can define as many lanes as you want
-  desc "Build Development"
-  lane :build_development do 
-  cocoapods
-  development_profiles
-  gym(clean:true, configuration: "Debug" )
-  end
 
   after_all do |lane|
     # This block is called, only if the executed lane was successful

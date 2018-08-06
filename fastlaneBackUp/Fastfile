@@ -1,0 +1,113 @@
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://docs.fastlane.tools/actions
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "2.57.0"
+
+default_platform :ios
+# 定义App名称
+app_name = "666"
+# 定义AppId
+app_identifier = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
+
+platform :ios do
+ 
+  lane :development_profiles do
+       match(
+             type: 'development',
+             app_identifier: "#{app_identifier}"
+            )
+  end
+ 
+ before_all do
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+    cocoapods
+    
+  end
+
+  # Lane 定义在这里!!!
+  
+  ## Screen shots 
+  #  屏幕截图，添加边框等
+  #  
+  # 
+  lane :screenshots do
+   snapshot
+   frameit(white: true)
+   deliver
+  end
+
+  # Adhoc 版本
+  lane :adhoc do
+    gym(clean: true,
+    scheme: "666",
+    workspace: "666.xcworkspace",
+    configuration: "Release",
+    codesigning_identity: "iPhone Distribution: Shenzhen Easyorder Wireless Connect Technology Co., Ltd.",
+    xcargs: "PROVISIONING_PROFILE_SPECIFIER='AppIdDescEasyOrderKuaiHuDis'",
+    #build_path:
+    #archive_path:
+    #derived_data_path:
+    #output_directory:
+    #export_options:
+    #silent:
+    #sdk:
+    export_method: "ad-hoc"
+    #export_xcargs:
+    )
+    firim(firim_api_token: "e96a7e459b28d4744343ab057d1f358a")
+end  
+
+
+  # Release 版本
+  lane :release do
+    gym(clean: true,
+    scheme: "666",
+    workspace: "666.xcworkspace",
+    configuration: "Release",
+    codesigning_identity: "iPhone Distribution: Shenzhen Easyorder Wireless Connect Technology Co., Ltd.",
+    xcargs: "PROVISIONING_PROFILE_SPECIFIER='AppIdDescEasyOrderKuaiHuAppStore'",
+    #build_path:
+    #archive_path:
+    #derived_data_path:
+    #output_directory:
+    #export_options:
+    #silent:
+    #sdk:
+    export_method: "app-store"
+    #export_xcargs:
+    )
+    deliver(force: true,skip_screenshots: true)
+end  
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    # slack(
+    #   message: "Successfully deployed new App Update."
+    # )
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
+  end
+end
+
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
+# All available actions: https://docs.fastlane.tools/actions
+
+# fastlane reports which actions are used. No personal data is recorded. 
+# Learn more at https://github.com/fastlane/fastlane#metrics
